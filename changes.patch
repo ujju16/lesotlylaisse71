@@ -1,0 +1,334 @@
+*** Begin Patch
+*** Add File: .github/workflows/ci.yml
++name: CI
++
++on:
++  push:
++    branches: [ main, dev ]
++  pull_request:
++    branches: [ main ]
++
++jobs:
++  build:
++    runs-on: ubuntu-latest
++    steps:
++      - name: Checkout
++        uses: actions/checkout@v4
++
++      - name: Setup Node.js
++        uses: actions/setup-node@v4
++        with:
++          node-version: '18'
++          cache: 'npm'
++
++      - name: Install dependencies
++        run: npm ci
++
++      - name: Lint
++        run: npm run lint
++
++      - name: Run tests
++        run: npm test
++
++      - name: Build
++        run: npm run build
++
++      # Option: déployer via Vercel CLI (optionnel si intégration GitHub <-> Vercel)
++      - name: Deploy to Vercel (optional)
++        if: always()
++        env:
++          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
++          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
++          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
++        run: |
++          npm i -g vercel
++          vercel --prod --confirm
++
+*** End Patch
+*** Begin Patch
+*** Add File: package.json
++{
++  "name": "le-sot-ly-laisse-71",
++  "version": "0.1.0",
++  "private": true,
++  "scripts": {
++    "dev": "next dev",
++    "build": "next build",
++    "start": "next start",
++    "lint": "next lint",
++    "test": "jest"
++  },
++  "dependencies": {
++    "next": "13.4.7",
++    "react": "18.2.0",
++    "react-dom": "18.2.0",
++    "graphql": "^16.6.0",
++    "graphql-request": "^5.0.0",
++    "swr": "^2.1.0",
++    "qrcode.react": "^1.0.0"
++  },
++  "devDependencies": {
++    "eslint": "8.45.0",
++    "jest": "^29.7.0"
++  }
++}
++
+*** End Patch
+*** Begin Patch
+*** Add File: next.config.js
++/** Configuration Next.js: optimisation images et envs */
++module.exports = {
++  reactStrictMode: true,
++  images: {
++    domains: ['media.hygraph.com', 'localhost']
++  },
++  env: {
++    HYGRAPH_ENDPOINT: process.env.HYGRAPH_ENDPOINT,
++    HYGRAPH_TOKEN: process.env.HYGRAPH_TOKEN
++  }
++};
++
+*** End Patch
+*** Begin Patch
+*** Add File: lib/hygraphClient.js
++import { GraphQLClient } from 'graphql-request';
++
++export function getHygraphClient() {
++  const endpoint = process.env.HYGRAPH_ENDPOINT;
++  const token = process.env.HYGRAPH_TOKEN;
++  return new GraphQLClient(endpoint, {
++    headers: {
++      Authorization: token ? `Bearer ${token}` : undefined
++    }
++  });
++}
++
+*** End Patch
+*** Begin Patch
+*** Add File: lib/queries.js
++export const HOME_QUERY = `
++query Home {
++  restaurant(where: {slug: "le-sot-ly-laisse-71"}) {
++    nom
++    description
++    horaires
++  }
++  plats(where: {disponibleAujourdHui: true}) {
++    id
++    titre
++    description
++    prix
++    image { url }
++  }
++  musiques(orderBy: date_DESC, first: 1) {
++    titre
++    artiste
++    url
++    date
++  }
++}
++`;
++
++export const MENU_QUERY = `
++query Menu {
++  menu {
++    sections {
++      id
++      titre
++      description
++      qrCodeSlug
++      plats {
++        id
++        titre
++        description
++        prix
++        image { url }
++      }
++    }
++  }
++}
++`;
++
+*** End Patch
+*** Begin Patch
+*** Add File: app/page.js
++import React from 'react';
++import { getHygraphClient } from '../lib/hygraphClient';
++import { HOME_QUERY } from '../lib/queries';
++import Image from 'next/image';
++
++export const revalidate = 60; // ISR: régénérer chaque minute
++
++export default async function Home() {
++  const client = getHygraphClient();
++  const data = await client.request(HOME_QUERY);
++  const restaurant = data.restaurant;
++  const platDuJour = (data.plats && data.plats[0]) || null;
++  const musique = (data.musiques && data.musiques[0]) || null;
++
++  return (
++    <main>
++      <h1>{restaurant?.nom || 'Le Sot L\\'y Laisse 71'}</h1>
++
++      <section>
++        <h2>Présentation</h2>
++        <p>{restaurant?.description || 'Restaurant traditionnel...'}</p>
++      </section>
++
++      <section>
++        <h2>Plat du jour</h2>
++        {platDuJour ? (
++          <div>
++            <h3>{platDuJour.titre} — {platDuJour.prix}€</h3>
++            <p>{platDuJour.description}</p>
++            {platDuJour.image && <Image src={platDuJour.image.url} alt={platDuJour.titre} width={600} height={400} />}
++          </div>
++        ) : <p>Pas d'information pour aujourd'hui.</p>}
++      </section>
++
++      <section>
++        <h2>Musique du jour</h2>
++        {musique ? (
++          <div>
++            <p>{musique.titre} — {musique.artiste}</p>
++            <div dangerouslySetInnerHTML={{ __html: musique.url }} />
++          </div>
++        ) : <p>Aucune musique définie.</p>}
++      </section>
++    </main>
++  );
++}
++
+*** End Patch
+*** Begin Patch
+*** Add File: app/menu/page.js
++import React from 'react';
++import { getHygraphClient } from '../../lib/hygraphClient';
++import { MENU_QUERY } from '../../lib/queries';
++import QRCode from 'qrcode.react';
++
++export const revalidate = 60;
++
++export default async function MenuPage() {
++  const client = getHygraphClient();
++  const data = await client.request(MENU_QUERY);
++  const sections = data.menu?.sections || [];
++
++  return (
++    <main>
++      <h1>Menu</h1>
++      {sections.map(section => (
++        <section key={section.id}>
++          <h2>{section.titre}</h2>
++          <p>{section.description}</p>
++          <div>
++            {section.plats.map(plat => (
++              <article key={plat.id}>
++                <h3>{plat.titre} — {plat.prix}€</h3>
++                <p>{plat.description}</p>
++              </article>
++            ))}
++          </div>
++          <div>
++            <h4>QR code pour la section</h4>
++            <QRCode value={`https://lesotlylaisse71.example/menu/${section.qrCodeSlug}`} size={128} />
++          </div>
++        </section>
++      ))}
++    </main>
++  );
++}
++
+*** End Patch
+*** Begin Patch
+*** Add File: app/contact/page.js
++import React from 'react';
++
++export default function Contact() {
++  return (
++    <main>
++      <h1>Contact</h1>
++      <section>
++        <h2>Adresse</h2>
++        <p>Bar Tabac de Messey sur Grosne</p>
++        <p>Téléphone: 03 XX XX XX XX</p>
++      </section>
++
++      <section>
++        <h2>Carte (style BD)</h2>
++        <p>Pour obtenir l'effet "Asterix & Obelix", utilisez :</p>
++        <ul>
++          <li>Un SVG illustratif (léger & personnalisable)</li>
++          <li>Ou Mapbox avec un style « cartoon »</li>
++        </ul>
++        <div>
++          <img src="/assets/map-cartoon.svg" alt="Carte style BD" />
++        </div>
++      </section>
++
++      <section>
++        <h2>Formulaire</h2>
++        <form action="/api/contact" method="post">
++          <label>Nom <input name="name" /></label>
++          <label>Email <input name="email" /></label>
++          <label>Message <textarea name="message" /></label>
++          <button type="submit">Envoyer</button>
++        </form>
++      </section>
++    </main>
++  );
++}
++
+*** End Patch
+*** Begin Patch
+*** Add File: app/gdpr/page.js
++import React from 'react';
++
++export default function GDPR() {
++  const duration = "jusqu'à demande de suppression";
++  return (
++    <main>
++      <h1>RGPD — Données personnelles & Cookies</h1>
++      <section>
++        <h2>Quelles données nous collectons</h2>
++        <p>Formulaire de contact : nom, email, message.</p>
++        <p>Cookies analytiques : anonymisés, durée 13 mois.</p>
++      </section>
++
++      <section>
++        <h2>Droits</h2>
++        <p>Tu peux demander accès, rectification, suppression des données via contact@lesotlylaisse71.example</p>
++      </section>
++
++      <section>
++        <h2>Conservation</h2>
++        <p>Les données du formulaire sont conservées {duration}.</p>
++      </section>
++    </main>
++  );
++}
++
+*** End Patch
+*** Begin Patch
+*** Add File: .gitignore
++node_modules
++.next
++.env.local
++.env.development.local
++.env.production.local
++.DS_Store
++
+*** End Patch
+*** Begin Patch
+*** Add File: public/assets/map-cartoon.svg
++<!-- Placeholder SVG : remplace par un vrai dessin -->
++<svg xmlns="http://www.w3.org/2000/svg" width="800" height="400" viewBox="0 0 800 400">
++  <rect width="100%" height="100%" fill="#fef6e4"/>
++  <g fill="#b5651d" font-family="sans-serif">
++    <text x="40" y="60" font-size="32">Carte (style BD) — Le Sot L'y Laisse 71</text>
++  </g>
++  <circle cx="150" cy="220" r="40" fill="#ffcc66"/>
++  <text x="130" y="225" font-size="12" fill="#333">Le restaurant</text>
++</svg>
++
+*** End Patch

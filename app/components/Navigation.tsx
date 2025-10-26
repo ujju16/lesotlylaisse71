@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 import styles from './Navigation.module.css';
@@ -22,8 +23,18 @@ export default function Navigation() {
       <div className={styles.navContainer}>
         {/* Logo */}
         <Link href="/" className={styles.logo}>
-          <span className={styles.logoText}>LeSotLyLaisse71</span>
-          <span className={styles.logoSubtext}>Restaurant & Bar</span>
+          <Image 
+            src="/logo_soly.png" 
+            alt="LeSotLyLaisse71 Logo" 
+            width={48}
+            height={48}
+            className={styles.logoImage}
+            priority
+          />
+          <div className={styles.logoTextContainer}>
+            <span className={styles.logoText}>LeSotLyLaisse71</span>
+            <span className={styles.logoSubtext}>Restaurant & Bar</span>
+          </div>
         </Link>
 
         {/* Desktop Navigation */}

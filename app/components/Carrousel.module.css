@@ -1,37 +1,129 @@
+/* Carrousel plein écran pour Hero */
 .carrousel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 1rem;
-  margin: 2rem 0;
 }
+
 .imageWrapper {
-  width: 600px;
-  height: 400px;
+  width: 100%;
+  height: 100%;
   overflow: hidden;
-  border-radius: 12px;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
-  background: #f8f8f8;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  position: relative;
 }
+
 .image {
   object-fit: cover;
   width: 100%;
   height: 100%;
 }
+
 .prev, .next {
-  background: #fff;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
   border: none;
-  font-size: 2rem;
+  font-size: 1.5rem;
   cursor: pointer;
-  color: #7c4d03;
-  padding: 0.5rem 1rem;
+  color: var(--primary-700);
+  padding: 1rem;
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-  transition: background 0.2s;
+  box-shadow: var(--elevation-2);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+
+.prev {
+  left: 2rem;
+}
+
+.next {
+  right: 2rem;
+}
+
 .prev:hover, .next:hover {
-  background: #f0e6d2;
+  background: rgba(255, 255, 255, 1);
+  box-shadow: var(--elevation-3);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.prev:active, .next:active {
+  transform: translateY(-50%) scale(0.95);
+}
+
+/* Indicateurs de pagination */
+.indicators {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.5rem;
+  z-index: 2;
+}
+
+.indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.indicator.active {
+  background: white;
+  width: 32px;
+  border-radius: 6px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .prev, .next {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+    padding: 0.75rem;
+  }
+
+  .prev {
+    left: 1rem;
+  }
+
+  .next {
+    right: 1rem;
+  }
+
+  .indicators {
+    bottom: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .prev, .next {
+    width: 36px;
+    height: 36px;
+    font-size: 1rem;
+  }
+
+  .prev {
+    left: 0.5rem;
+  }
+
+  .next {
+    right: 0.5rem;
+  }
 }

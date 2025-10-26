@@ -1,6 +1,30 @@
 {
   "version": 4,
   "routes": {
+    "/exemple": {
+      "experimentalBypassFor": [
+        {
+          "type": "header",
+          "key": "Next-Action"
+        },
+        {
+          "type": "header",
+          "key": "content-type",
+          "value": "multipart/form-data;.*"
+        }
+      ],
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/exemple",
+      "dataRoute": "/exemple.rsc",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
     "/": {
       "experimentalBypassFor": [
         {
@@ -16,30 +40,6 @@
       "initialRevalidateSeconds": false,
       "srcRoute": "/",
       "dataRoute": "/index.rsc",
-      "allowHeader": [
-        "host",
-        "x-matched-path",
-        "x-prerender-revalidate",
-        "x-prerender-revalidate-if-generated",
-        "x-next-revalidated-tags",
-        "x-next-revalidate-tag-token"
-      ]
-    },
-    "/charte": {
-      "experimentalBypassFor": [
-        {
-          "type": "header",
-          "key": "Next-Action"
-        },
-        {
-          "type": "header",
-          "key": "content-type",
-          "value": "multipart/form-data;.*"
-        }
-      ],
-      "initialRevalidateSeconds": false,
-      "srcRoute": "/charte",
-      "dataRoute": "/charte.rsc",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -78,7 +78,7 @@
         "x-next-revalidate-tag-token"
       ]
     },
-    "/exemple": {
+    "/charte": {
       "experimentalBypassFor": [
         {
           "type": "header",
@@ -91,8 +91,8 @@
         }
       ],
       "initialRevalidateSeconds": false,
-      "srcRoute": "/exemple",
-      "dataRoute": "/exemple.rsc",
+      "srcRoute": "/charte",
+      "dataRoute": "/charte.rsc",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -106,8 +106,8 @@
   "dynamicRoutes": {},
   "notFoundRoutes": [],
   "preview": {
-    "previewModeId": "09a3d5aef5110f4081c2251b27983ff6",
-    "previewModeSigningKey": "21f04a5e05b148984017e66ce868a9df9a1adf66b860e02d7639eb7c0aa1cbc7",
-    "previewModeEncryptionKey": "5189586117f43a96d5bc12cabd12f8a2fadcac497ec56fd468d7fa9eafe089e3"
+    "previewModeId": "12571bf0109a05dd49ecdedb3d56f9dd",
+    "previewModeSigningKey": "abb08384fd5f904f7d268c9da565c1272ed65b3030baa61e988bc74d4d4913af",
+    "previewModeEncryptionKey": "1697eadba0d6c15be49d34b9e933dee7f767127c3ffb4b3e3bfbf98aaf154636"
   }
 }

@@ -15,7 +15,7 @@ export default function Home() {
         <section className={styles.presentation}>
           <h2>Présentation</h2>
           <p>
-            LeSotLyLaisse71 met en avant l'humain, le service de qualité et les produits des environs. Découvrez notre histoire, notre équipe et nos services dans une ambiance chaleureuse.
+            LeSotLyLaisse71 met en avant l&apos;humain, le service de qualité et les produits des environs. Découvrez notre histoire, notre équipe et nos services dans une ambiance chaleureuse.
           </p>
         </section>
       </main>

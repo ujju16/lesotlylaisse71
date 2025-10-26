@@ -18,7 +18,7 @@ export default function ExemplePage() {
       <section className={styles.section}>
         <h2>Section 2</h2>
         <p>
-          Le template s'occupe automatiquement de la navigation, 
+          Le template s&apos;occupe automatiquement de la navigation, 
           du titre et de la mise en page générale.
         </p>
       </section>

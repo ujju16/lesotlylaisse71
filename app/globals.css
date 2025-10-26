@@ -1,12 +1,70 @@
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Charte graphique Restaurant LeSotLyLaisse71 - Material Design */
+  
+  /* Palette principale - Tons sobres et élégants */
+  --primary-50: #EFEBE9;
+  --primary-100: #D7CCC8;
+  --primary-200: #BCAAA4;
+  --primary-300: #A1887F;
+  --primary-400: #8D6E63;
+  --primary-500: #795548;   /* Couleur principale - Brun café */
+  --primary-600: #6D4C41;
+  --primary-700: #5D4037;
+  --primary-800: #4E342E;
+  --primary-900: #3E2723;
+  
+  /* Palette secondaire - Vert olive naturel */
+  --secondary-50: #F1F8E9;
+  --secondary-100: #DCEDC8;
+  --secondary-200: #C5E1A5;
+  --secondary-300: #AED581;
+  --secondary-400: #9CCC65;
+  --secondary-500: #8BC34A;   /* Couleur secondaire - Vert lime */
+  --secondary-600: #7CB342;
+  --secondary-700: #689F38;
+  --secondary-800: #558B2F;
+  --secondary-900: #33691E;
+  
+  /* Palette accent - Ambre chaleureux */
+  --accent-50: #FFF8E1;
+  --accent-100: #FFECB3;
+  --accent-200: #FFE082;
+  --accent-300: #FFD54F;
+  --accent-400: #FFCA28;
+  --accent-500: #FFC107;     /* Couleur accent - Ambre */
+  --accent-600: #FFB300;
+  --accent-700: #FFA000;
+  --accent-800: #FF8F00;
+  --accent-900: #FF6F00;
+  
+  /* Variables de base */
+  --primary: var(--primary-500);
+  --secondary: var(--secondary-700);
+  --accent: var(--accent-600);
+  
+  --background: #FAFAFA;        /* Gris très clair */
+  --surface: #FFFFFF;
+  --foreground: #212121;        /* Gris très foncé */
+  --foreground-secondary: #757575;
+  
+  --card-bg: var(--surface);
+  --border-color: var(--primary-200);
+  
+  /* Ombres Material Design */
+  --elevation-1: 0 2px 4px rgba(0,0,0,0.1);
+  --elevation-2: 0 4px 8px rgba(0,0,0,0.12);
+  --elevation-3: 0 8px 16px rgba(0,0,0,0.14);
+  --elevation-4: 0 12px 24px rgba(0,0,0,0.16);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #121212;
+    --surface: #1E1E1E;
+    --foreground: #E0E0E0;
+    --foreground-secondary: #B0B0B0;
+    --card-bg: #2C2C2C;
+    --border-color: var(--primary-700);
   }
 }
 
@@ -19,7 +77,7 @@ body {
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Georgia', 'Times New Roman', serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

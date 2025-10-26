@@ -28,6 +28,12 @@
       "namedRegex": "^/_not\\-found(?:/)?$"
     },
     {
+      "page": "/charte",
+      "regex": "^/charte(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/charte(?:/)?$"
+    },
+    {
       "page": "/exemple",
       "regex": "^/exemple(?:/)?$",
       "routeKeys": {},

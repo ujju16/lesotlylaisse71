@@ -1,0 +1,317 @@
+/* Navigation Material Design */
+.navbar {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  background: var(--surface);
+  box-shadow: var(--elevation-2);
+  z-index: 1000;
+  transition: box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.navContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  height: 64px;
+}
+
+/* Logo */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+
+.logo:hover {
+  opacity: 0.8;
+}
+
+.logoImage {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+}
+
+.logoTextContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.logoText {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--primary-700);
+  letter-spacing: -0.5px;
+  line-height: 1.2;
+}
+
+.logoSubtext {
+  font-size: 0.75rem;
+  color: var(--foreground-secondary);
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+/* Desktop Navigation Links */
+.navLinks {
+  display: flex;
+  gap: 8px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navLink {
+  position: relative;
+  display: block;
+  padding: 8px 16px;
+  color: var(--foreground);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.875rem;
+  letter-spacing: 0.25px;
+  border-radius: 4px;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.navLink:hover {
+  background-color: var(--primary-50);
+  color: var(--primary-700);
+}
+
+.navLinkActive {
+  position: relative;
+  display: block;
+  padding: 8px 16px;
+  color: var(--primary-700);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.875rem;
+  letter-spacing: 0.25px;
+  background-color: var(--primary-100);
+  border-radius: 4px;
+}
+
+.navLinkActive::after {
+  content: '';
+  position: absolute;
+  bottom: 4px;
+  left: 16px;
+  right: 16px;
+  height: 2px;
+  background-color: var(--primary-700);
+  border-radius: 2px;
+}
+
+/* CTA Button */
+.ctaButton {
+  background-color: var(--accent-600);
+  color: var(--foreground);
+  padding: 8px 20px;
+  border-radius: 4px;
+  border: none;
+  font-weight: 500;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: var(--elevation-1);
+}
+
+.ctaButton:hover {
+  background-color: var(--accent-700);
+  box-shadow: var(--elevation-2);
+  transform: translateY(-1px);
+}
+
+.ctaButton:active {
+  transform: translateY(0);
+  box-shadow: var(--elevation-1);
+}
+
+/* Mobile Menu Button */
+.mobileMenuButton {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.mobileMenuButton:hover {
+  background-color: var(--primary-50);
+}
+
+.hamburger,
+.hamburgerOpen {
+  position: relative;
+  width: 24px;
+  height: 2px;
+  background-color: var(--foreground);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hamburger::before,
+.hamburger::after,
+.hamburgerOpen::before,
+.hamburgerOpen::after {
+  content: '';
+  position: absolute;
+  width: 24px;
+  height: 2px;
+  background-color: var(--foreground);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hamburger::before {
+  top: -8px;
+}
+
+.hamburger::after {
+  top: 8px;
+}
+
+.hamburgerOpen {
+  background-color: transparent;
+}
+
+.hamburgerOpen::before {
+  top: 0;
+  transform: rotate(45deg);
+}
+
+.hamburgerOpen::after {
+  top: 0;
+  transform: rotate(-45deg);
+}
+
+/* Mobile Menu */
+.mobileMenu {
+  display: none;
+  background: var(--surface);
+  border-top: 1px solid var(--border-color);
+  padding: 16px 24px;
+  animation: slideDown 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.mobileNavLinks {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.mobileNavLink {
+  display: block;
+  padding: 12px 16px;
+  color: var(--foreground);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1rem;
+  border-radius: 4px;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.mobileNavLink:hover {
+  background-color: var(--primary-50);
+  color: var(--primary-700);
+}
+
+.mobileNavLinkActive {
+  display: block;
+  padding: 12px 16px;
+  color: var(--primary-700);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  background-color: var(--primary-100);
+  border-radius: 4px;
+  border-left: 3px solid var(--primary-700);
+}
+
+.mobileCtaButton {
+  width: 100%;
+  background-color: var(--accent-600);
+  color: var(--foreground);
+  padding: 12px 20px;
+  margin-top: 16px;
+  border-radius: 4px;
+  border: none;
+  font-weight: 500;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: var(--elevation-1);
+}
+
+.mobileCtaButton:active {
+  transform: scale(0.98);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .navLinks {
+    display: none;
+  }
+
+  .ctaButton {
+    display: none;
+  }
+
+  .mobileMenuButton {
+    display: flex;
+  }
+
+  .mobileMenu {
+    display: block;
+  }
+
+  .navContainer {
+    padding: 0 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .logoImage {
+    width: 40px;
+    height: 40px;
+  }
+
+  .logoText {
+    font-size: 1.1rem;
+  }
+
+  .logoSubtext {
+    font-size: 0.65rem;
+  }
+}

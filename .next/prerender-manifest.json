@@ -1,6 +1,30 @@
 {
   "version": 4,
   "routes": {
+    "/charte": {
+      "experimentalBypassFor": [
+        {
+          "type": "header",
+          "key": "Next-Action"
+        },
+        {
+          "type": "header",
+          "key": "content-type",
+          "value": "multipart/form-data;.*"
+        }
+      ],
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/charte",
+      "dataRoute": "/charte.rsc",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
     "/exemple": {
       "experimentalBypassFor": [
         {
@@ -77,37 +101,13 @@
         "x-next-revalidated-tags",
         "x-next-revalidate-tag-token"
       ]
-    },
-    "/charte": {
-      "experimentalBypassFor": [
-        {
-          "type": "header",
-          "key": "Next-Action"
-        },
-        {
-          "type": "header",
-          "key": "content-type",
-          "value": "multipart/form-data;.*"
-        }
-      ],
-      "initialRevalidateSeconds": false,
-      "srcRoute": "/charte",
-      "dataRoute": "/charte.rsc",
-      "allowHeader": [
-        "host",
-        "x-matched-path",
-        "x-prerender-revalidate",
-        "x-prerender-revalidate-if-generated",
-        "x-next-revalidated-tags",
-        "x-next-revalidate-tag-token"
-      ]
     }
   },
   "dynamicRoutes": {},
   "notFoundRoutes": [],
   "preview": {
-    "previewModeId": "12571bf0109a05dd49ecdedb3d56f9dd",
-    "previewModeSigningKey": "abb08384fd5f904f7d268c9da565c1272ed65b3030baa61e988bc74d4d4913af",
-    "previewModeEncryptionKey": "1697eadba0d6c15be49d34b9e933dee7f767127c3ffb4b3e3bfbf98aaf154636"
+    "previewModeId": "7568d3d15003d665ea5a28927e664bd2",
+    "previewModeSigningKey": "7197cfaf6a31e67d8df6dc9f78582e069d4a6ac352d261c1a749cf43e5f06de5",
+    "previewModeEncryptionKey": "da7c3e7a65ffc3eb53a2b12fd6b3701f59996bcc9a3b11487918298241cd23e4"
   }
 }

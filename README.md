@@ -1,36 +1,202 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# LeSotLyLaisse71 🍽️
 
-## Getting Started
+Restaurant, bar et tabac au cœur de la Bourgogne - Site web moderne développé avec Next.js 15
 
-First, run the development server:
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/ujju16/lesotlylaisse71)
+
+## 🚀 Technologies
+
+- **Framework**: Next.js 15.3.3 (App Router)
+- **Language**: TypeScript
+- **Styling**: CSS Modules + Material Design
+- **Deployment**: Vercel
+- **CI/CD**: GitHub Actions
+
+## 📋 Fonctionnalités
+
+✅ Page d'accueil moderne avec hero plein écran  
+✅ Carrousel d'images responsive  
+✅ Sections structurées (Présentation, Services, CTA)  
+✅ Navigation Material Design avec menu mobile  
+✅ Footer complet avec informations de contact  
+✅ Charte graphique Material Design  
+✅ Responsive design (mobile, tablet, desktop)  
+✅ Optimisation des images avec Next.js Image  
+✅ Favicons générés automatiquement  
+✅ PWA ready avec manifest  
+
+## 🎨 Charte Graphique
+
+### Couleurs Material Design
+
+**Primaire - Brun Café**
+- 50-900 nuances
+- Base: `#795548`
+
+**Secondaire - Vert Lime**
+- 50-900 nuances
+- Base: `#689F38`
+
+**Accent - Ambre**
+- 50-900 nuances
+- Base: `#FFB300`
+
+## 🛠️ Installation
 
 ```bash
+# Cloner le repository
+git clone https://github.com/ujju16/lesotlylaisse71.git
+cd lesotlylaisse71
+
+# Installer les dépendances
+npm install
+
+# Lancer en développement
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+# Build pour production
+npm run build
+
+# Lancer en production
+npm start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 📁 Structure du projet
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+lesotlylaisse71/
+├── app/
+│   ├── components/        # Composants réutilisables
+│   │   ├── Navigation.tsx
+│   │   ├── Footer.tsx
+│   │   ├── Carrousel.tsx
+│   │   └── PageTemplate.tsx
+│   ├── charte/           # Page charte graphique
+│   ├── exemple/          # Page exemple
+│   ├── globals.css       # Styles globaux + variables CSS
+│   ├── charte-graphique.css  # Utilitaires Material Design
+│   ├── layout.tsx        # Layout principal
+│   └── page.tsx          # Page d'accueil
+├── public/               # Assets statiques
+│   ├── logo_soly.png     # Logo du restaurant
+│   ├── photo*.jpg        # Photos carrousel
+│   └── *.png            # Favicons
+├── .github/
+│   └── workflows/
+│       └── deploy.yml    # GitHub Actions workflow
+├── vercel.json          # Configuration Vercel
+└── DEPLOYMENT.md        # Guide de déploiement
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🚀 Déploiement
 
-## Learn More
+### Déploiement automatique (recommandé)
 
-To learn more about Next.js, take a look at the following resources:
+Le projet est configuré pour le déploiement automatique sur Vercel via GitHub Actions.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Configurez les secrets GitHub (voir [DEPLOYMENT.md](./DEPLOYMENT.md))
+2. Push sur `main` → Déploiement en production
+3. Push sur `development` → Déploiement en preview
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Déploiement manuel
 
-## Deploy on Vercel
+```bash
+# Installer Vercel CLI
+npm i -g vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+# Déployer
+vercel --prod
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Voir [DEPLOYMENT.md](./DEPLOYMENT.md) pour plus de détails.
+
+## 📜 Scripts disponibles
+
+```bash
+npm run dev          # Développement avec Turbopack
+npm run build        # Build de production
+npm run start        # Serveur production
+npm run lint         # Vérification ESLint
+```
+
+## 🌐 Pages
+
+- `/` - Page d'accueil
+- `/charte` - Charte graphique Material Design
+- `/exemple` - Template de page réutilisable
+- `/qui-sommes-nous` - Présentation (à venir)
+- `/menu` - Menu du restaurant (à venir)
+- `/contact` - Contact et réservation (à venir)
+- `/infos` - Informations pratiques (à venir)
+
+## 🎯 Optimisations
+
+- ✅ Images optimisées automatiquement (Next.js Image)
+- ✅ Bundle splitting automatique
+- ✅ CSS Modules pour éviter les conflits
+- ✅ Lazy loading des composants
+- ✅ Compression automatique
+- ✅ Cache optimisé
+- ✅ SEO friendly
+
+## 📱 Responsive Breakpoints
+
+- Mobile: < 480px
+- Tablet: 481px - 768px
+- Desktop: > 768px
+
+## 🧑‍💻 Développement
+
+### Ajouter une nouvelle page
+
+```typescript
+// app/nouvelle-page/page.tsx
+import PageTemplate from '../components/PageTemplate';
+
+export default function NouvellePage() {
+  return (
+    <PageTemplate title="Titre" subtitle="Sous-titre">
+      {/* Votre contenu */}
+    </PageTemplate>
+  );
+}
+```
+
+### Utiliser la charte graphique
+
+```jsx
+// Boutons Material Design
+<button className="btn-md-primary">Primary</button>
+<button className="btn-md-secondary">Secondary</button>
+<button className="btn-md-accent">Accent</button>
+<button className="btn-md-outlined">Outlined</button>
+
+// Cards
+<div className="card-md">Content</div>
+
+// Badges
+<span className="badge-md">Badge</span>
+<span className="badge-md-secondary">Badge</span>
+<span className="badge-md-accent">Badge</span>
+
+// Titres
+<h2 className="title-md title-md-h2">Titre</h2>
+```
+
+## 👨‍💻 Auteur
+
+**korndev**
+- GitHub: [@korndev](https://github.com/korndev)
+
+## 📄 Licence
+
+Ce projet est sous licence MIT.
+
+## 🤝 Contribution
+
+Les contributions sont les bienvenues ! N'hésitez pas à ouvrir une issue ou une pull request.
+
+---
+
+© 2025 LeSotLyLaisse71. Tous droits réservés.  
+Conçu et développé par korndev

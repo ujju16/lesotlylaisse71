@@ -91,7 +91,7 @@ export default function Footer() {
             © {currentYear} LeSotLyLaisse71. Tous droits réservés.
           </p>
           <p className={styles.credits}>
-            Conçu et développé par <a href="https://github.com/korndev" target="_blank" rel="noopener noreferrer" className={styles.creditLink}>korndev</a>
+            Conçu et développé par <a href="https://github.com/ujju16" target="_blank" rel="noopener noreferrer" className={styles.creditLink}>ujju16</a>
           </p>
           <div className={styles.legalLinks}>
             <Link href="/mentions-legales">Mentions légales</Link>

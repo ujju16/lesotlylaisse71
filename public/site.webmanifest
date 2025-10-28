@@ -1,0 +1,21 @@
+{
+  "name": "LeSotLyLaisse71",
+  "short_name": "LeSotLyLaisse71",
+  "description": "Restaurant Bar Tabac à Messey Sur Grosne - Cuisine locale et produits du terroir",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FAFAFA",
+  "theme_color": "#795548",
+  "icons": [
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

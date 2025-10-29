@@ -1,12 +1,9 @@
-import Navigation from "./components/Navigation";
-import Footer from "./components/Footer";
 import Carrousel from "./components/Carrousel";
 import styles from "./page.module.css";
 
 export default function Home() {
   return (
     <div className={styles.page}>
-      <Navigation />
       
       {/* Hero Section avec Carrousel plein écran */}
       <section className={styles.hero}>
@@ -115,9 +112,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      {/* Footer */}
-      <Footer />
     </div>
   );
 }

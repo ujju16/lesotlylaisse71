@@ -1,0 +1,325 @@
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.section {
+  margin-bottom: 3rem;
+  padding: 2rem;
+  background: #fdfcfb;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(121, 85, 72, 0.1);
+}
+
+.section h2 {
+  color: var(--primary-700);
+  font-size: 1.75rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 3px solid var(--secondary-500);
+}
+
+.section h3 {
+  color: var(--primary-600);
+  font-size: 1.3rem;
+  margin: 1.5rem 0 1rem;
+}
+
+.section p {
+  line-height: 1.8;
+  color: #1a1a1a;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+.section a {
+  color: var(--secondary-700);
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.section a:hover {
+  color: var(--accent-700);
+  border-bottom-color: var(--accent-700);
+}
+
+.cookieTypes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.cookieCard {
+  padding: 2rem;
+  background: #ffffff;
+  border-radius: 12px;
+  border: 2px solid var(--primary-200);
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.cookieCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(121, 85, 72, 0.15);
+  border-color: var(--secondary-500);
+}
+
+.cookieIcon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.cookieCard h3 {
+  color: var(--primary-700);
+  font-size: 1.3rem;
+  margin-bottom: 0.75rem;
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  background: var(--primary-700);
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border-radius: 20px;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.badgeOptional {
+  background: var(--secondary-600);
+}
+
+.cookieCard p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #1a1a1a;
+  text-align: left;
+}
+
+.duration {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--primary-200);
+  font-weight: 600;
+  color: var(--primary-700);
+  font-size: 0.9rem !important;
+  text-align: center !important;
+}
+
+.browserGuide {
+  margin: 2rem 0;
+  padding: 1.5rem;
+  background: #f8f6f4;
+  border-radius: 10px;
+  border-left: 4px solid var(--secondary-600);
+}
+
+.browserGuide h3 {
+  color: var(--primary-700);
+  margin-top: 0;
+}
+
+.browserGuide ul {
+  list-style: none;
+  padding: 0;
+}
+
+.browserGuide ul li {
+  padding: 0.75rem;
+  margin-bottom: 0.5rem;
+  background: #ffffff;
+  border-radius: 6px;
+  color: #1a1a1a;
+}
+
+.browserGuide ul li strong {
+  color: var(--primary-700);
+  font-weight: 600;
+}
+
+.warning {
+  margin: 2rem 0;
+  padding: 1.5rem;
+  background: var(--accent-100);
+  border-left: 4px solid var(--accent-700);
+  border-radius: 8px;
+  color: #1a1a1a;
+}
+
+.warning strong {
+  color: var(--accent-800);
+  font-weight: 700;
+}
+
+.cookieTable {
+  margin: 2rem 0;
+  background: #ffffff;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 2px solid var(--primary-200);
+}
+
+.tableHeader {
+  display: grid;
+  grid-template-columns: 2fr 1.5fr 1fr 3fr;
+  gap: 1rem;
+  padding: 1rem 1.5rem;
+  background: var(--primary-700);
+  color: white;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.tableRow {
+  display: grid;
+  grid-template-columns: 2fr 1.5fr 1fr 3fr;
+  gap: 1rem;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid var(--primary-100);
+  color: #1a1a1a;
+  font-size: 0.9rem;
+  align-items: center;
+}
+
+.tableRow:last-child {
+  border-bottom: none;
+}
+
+.tableRow:hover {
+  background: #f8f6f4;
+}
+
+.cookieName {
+  font-family: monospace;
+  font-weight: 600;
+  color: var(--primary-700);
+  background: #f8f6f4;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+}
+
+.typeEssential {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  background: var(--primary-700);
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border-radius: 20px;
+  text-align: center;
+}
+
+.typeAnalytics {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  background: var(--secondary-600);
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border-radius: 20px;
+  text-align: center;
+}
+
+.typePreference {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  background: var(--accent-600);
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border-radius: 20px;
+  text-align: center;
+}
+
+.ctaSection {
+  text-align: center;
+  padding: 3rem 2rem;
+  background: linear-gradient(135deg, var(--primary-50) 0%, var(--secondary-50) 100%);
+  border-radius: 12px;
+  margin-top: 2rem;
+}
+
+.ctaSection h2 {
+  color: var(--primary-700);
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  border: none;
+}
+
+.ctaSection p {
+  color: #1a1a1a;
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+}
+
+.ctaButton {
+  display: inline-block;
+  padding: 1rem 2.5rem;
+  background: var(--secondary-600);
+  color: white;
+  font-weight: 600;
+  font-size: 1.1rem;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(104, 159, 56, 0.3);
+}
+
+.ctaButton:hover {
+  background: var(--secondary-700);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(104, 159, 56, 0.4);
+}
+
+.lastUpdate {
+  margin-top: 2rem;
+  font-style: italic;
+  color: var(--primary-700);
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 1.5rem;
+  }
+
+  .section h2 {
+    font-size: 1.5rem;
+  }
+
+  .cookieTypes {
+    grid-template-columns: 1fr;
+  }
+
+  .tableHeader,
+  .tableRow {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+
+  .tableHeader {
+    display: none;
+  }
+
+  .tableRow {
+    padding: 1rem;
+  }
+
+  .tableRow span::before {
+    content: attr(data-label);
+    font-weight: 600;
+    display: block;
+    margin-bottom: 0.25rem;
+    color: var(--primary-700);
+  }
+
+  .ctaSection {
+    padding: 2rem 1rem;
+  }
+}

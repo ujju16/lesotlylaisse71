@@ -1,0 +1,191 @@
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.section {
+  margin-bottom: 3rem;
+  padding: 2rem;
+  background: #fdfcfb;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(121, 85, 72, 0.1);
+}
+
+.section h2 {
+  color: var(--primary-700);
+  font-size: 1.75rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 3px solid var(--secondary-500);
+}
+
+.section p {
+  line-height: 1.8;
+  color: #1a1a1a;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+.section ul {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
+}
+
+.section ul li {
+  padding: 0.75rem 1rem;
+  margin-bottom: 0.5rem;
+  background: #f8f6f4;
+  border-radius: 8px;
+  border-left: 3px solid var(--secondary-600);
+  color: #1a1a1a;
+  font-weight: 500;
+}
+
+.section ul li::before {
+  content: "→ ";
+  color: var(--secondary-700);
+  font-weight: bold;
+  margin-right: 0.5rem;
+}
+
+.section strong {
+  color: var(--primary-700);
+  font-weight: 600;
+}
+
+.section a {
+  color: var(--secondary-700);
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.section a:hover {
+  color: var(--accent-700);
+  border-bottom-color: var(--accent-700);
+}
+
+.rightsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.rightCard {
+  padding: 1.5rem;
+  background: #ffffff;
+  border-radius: 10px;
+  border: 2px solid var(--secondary-500);
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.rightCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(121, 85, 72, 0.15);
+  border-color: var(--accent-600);
+}
+
+.rightCard h3 {
+  color: var(--primary-700);
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.rightCard p {
+  color: #1a1a1a;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.contactInfo {
+  text-align: center;
+  padding: 1.5rem;
+  background: var(--primary-700);
+  color: white;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  margin-top: 2rem;
+}
+
+.contactInfo a {
+  color: var(--accent-400);
+  border-bottom-color: var(--accent-400);
+}
+
+.contactInfo a:hover {
+  color: var(--accent-200);
+  border-bottom-color: var(--accent-200);
+}
+
+.lastUpdate {
+  font-style: italic;
+  color: var(--primary-700);
+  font-weight: 500;
+  text-align: center;
+  padding: 1rem;
+  background: #f8f6f4;
+  border-radius: 8px;
+  margin-top: 1.5rem;
+}
+
+.ctaSection {
+  text-align: center;
+  padding: 3rem 2rem;
+  background: linear-gradient(135deg, var(--primary-50) 0%, var(--secondary-50) 100%);
+  border-radius: 12px;
+  margin-top: 2rem;
+}
+
+.ctaSection h2 {
+  color: var(--primary-700);
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  border: none;
+}
+
+.ctaSection p {
+  color: #1a1a1a;
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+}
+
+.ctaButton {
+  display: inline-block;
+  padding: 1rem 2.5rem;
+  background: var(--secondary-600);
+  color: white;
+  font-weight: 600;
+  font-size: 1.1rem;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(104, 159, 56, 0.3);
+}
+
+.ctaButton:hover {
+  background: var(--secondary-700);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(104, 159, 56, 0.4);
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 1.5rem;
+  }
+
+  .section h2 {
+    font-size: 1.5rem;
+  }
+
+  .rightsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .ctaSection {
+    padding: 2rem 1rem;
+  }
+}

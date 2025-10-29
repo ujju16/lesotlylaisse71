@@ -1,4 +1,3 @@
-import Navigation from './Navigation';
 import styles from './PageTemplate.module.css';
 
 interface PageTemplateProps {
@@ -15,15 +14,14 @@ export default function PageTemplate({
   className 
 }: PageTemplateProps) {
   return (
-    <div className={styles.page}>
-      <Navigation />
-      <main className={`${styles.main} ${className || ''}`}>
+    <main className={`${styles.main} ${className || ''}`}>
+      <div className={styles.header}>
         <h1 className={styles.title}>{title}</h1>
         {subtitle && <p className={styles.subtitle}>{subtitle}</p>}
-        <div className={styles.content}>
-          {children}
-        </div>
-      </main>
-    </div>
+      </div>
+      <div className={styles.content}>
+        {children}
+      </div>
+    </main>
   );
 }

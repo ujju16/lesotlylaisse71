@@ -185,8 +185,8 @@ export default function NouvellePage() {
 
 ## 👨‍💻 Auteur
 
-**korndev**
-- GitHub: [@korndev](https://github.com/korndev)
+**ujju16**
+- GitHub: [@ujju16](https://github.com/ujju16)
 
 ## 📄 Licence
 
@@ -199,4 +199,4 @@ Les contributions sont les bienvenues ! N'hésitez pas à ouvrir une issue ou un
 ---
 
 © 2025 LeSotLyLaisse71. Tous droits réservés.  
-Conçu et développé par korndev
+Conçu et développé par ujju16

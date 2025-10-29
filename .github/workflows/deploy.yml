@@ -4,11 +4,11 @@ on:
   push:
     branches:
       - main
-      - development
+      - dev
   pull_request:
     branches:
       - main
-      - development
+      - dev
 
 env:
   VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}

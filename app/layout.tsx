@@ -4,6 +4,7 @@ import "./globals.css";
 import "./charte-graphique.css";
 import Navigation from "./components/Navigation";
 import Footer from "./components/Footer";
+import AxeptioConsent from "./components/AxeptioConsent";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -37,20 +38,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr">
-      <head>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.axeptioSettings = {
-                clientId: "6902a0abfbcad22127eedbf8",
-                cookiesVersion: "lesotlylaisse71-fr"
-              };
-            `
-          }}
-        />
-        <script async src="https://static.axept.io/sdk.js"></script>
-      </head>
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
+        <AxeptioConsent />
         <Navigation />
         {children}
         <Footer />

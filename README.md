@@ -3,8 +3,8 @@
 Restaurant, bar et tabac au cœur de la Bourgogne - Site web moderne développé avec Next.js 15
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/ujju16/lesotlylaisse71)
-[![Code Quality](https://github.com/ujju16/lesotlylaisse71/actions/workflows/code-quality.yml/badge.svg)](https://github.com/ujju16/lesotlylaisse71/actions/workflows/code-quality.yml)
-[![Deploy to Vercel](https://github.com/ujju16/lesotlylaisse71/actions/workflows/deploy.yml/badge.svg)](https://github.com/ujju16/lesotlylaisse71/actions/workflows/deploy.yml)
+[![CI Pipeline](https://github.com/ujju16/lesotlylaisse71/actions/workflows/ci.yml/badge.svg)](https://github.com/ujju16/lesotlylaisse71/actions/workflows/ci.yml)
+[![CD Pipeline](https://github.com/ujju16/lesotlylaisse71/actions/workflows/cd.yml/badge.svg)](https://github.com/ujju16/lesotlylaisse71/actions/workflows/cd.yml)
 [![Next.js](https://img.shields.io/badge/Next.js-15.3.3-black?logo=next.js)](https://nextjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.9.3-blue?logo=typescript)](https://www.typescriptlang.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)

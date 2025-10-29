@@ -2,7 +2,7 @@
   "/_not-found/page": "/_not-found",
   "/favicon.ico/route": "/favicon.ico",
   "/exemple/page": "/exemple",
-  "/page": "/",
   "/charte/page": "/charte",
+  "/page": "/",
   "/mentions-legales/page": "/mentions-legales"
 }

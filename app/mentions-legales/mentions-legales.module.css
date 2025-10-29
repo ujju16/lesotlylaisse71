@@ -124,18 +124,19 @@
 }
 
 .highlight {
-  padding: 1.25rem;
-  background: linear-gradient(135deg, var(--accent-50) 0%, var(--accent-100) 100%);
+  padding: 1.5rem;
+  background: var(--primary-700);
   border-radius: 12px;
-  border: 2px solid var(--accent-300);
-  font-size: 1.05rem;
+  border: 3px solid var(--secondary-600);
+  font-size: 1.1rem;
   text-align: center;
-  color: var(--foreground);
+  color: white;
   font-weight: 600;
+  box-shadow: 0 4px 12px rgba(121, 85, 72, 0.2);
 }
 
 .highlight strong {
-  color: var(--primary-800);
+  color: var(--accent-400);
   font-weight: 700;
 }
 

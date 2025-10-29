@@ -77,12 +77,14 @@
   font-size: 1rem;
   color: var(--foreground);
   font-weight: 500;
+  line-height: 1.5;
 }
 
 .textCard .cardContent p {
   line-height: 1.8;
   margin-bottom: 1.25rem;
-  color: var(--foreground-secondary);
+  color: var(--foreground);
+  font-size: 1rem;
 }
 
 .textCard .cardContent p:last-child {
@@ -103,6 +105,8 @@
   border-left: 3px solid var(--secondary-600);
   color: var(--foreground);
   transition: all 0.2s ease;
+  font-weight: 600;
+  font-size: 1rem;
 }
 
 .list li:hover {
@@ -170,6 +174,7 @@
   font-size: 1.1rem;
   color: var(--foreground);
   margin-bottom: 1rem;
+  font-weight: 500;
 }
 
 .footerText strong {
@@ -189,8 +194,9 @@
 
 .lastUpdate {
   font-size: 0.9rem;
-  color: var(--foreground-secondary);
+  color: var(--primary-700);
   font-style: italic;
+  font-weight: 500;
 }
 
 @media (max-width: 768px) {

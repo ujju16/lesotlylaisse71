@@ -4,6 +4,7 @@ import "./globals.css";
 import "./charte-graphique.css";
 import Navigation from "./components/Navigation";
 import Footer from "./components/Footer";
+import AxeptioConsent from "./components/AxeptioConsent";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -38,6 +39,7 @@ export default function RootLayout({
   return (
     <html lang="fr">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
+        <AxeptioConsent />
         <Navigation />
         {children}
         <Footer />

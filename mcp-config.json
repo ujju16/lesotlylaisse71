@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "lesotlylaisse71": {
+      "command": "node",
+      "args": ["./mcp-server.js"],
+      "cwd": "./",
+      "env": {}
+    }
+  }
+}

@@ -85,6 +85,7 @@
   margin-bottom: 1.25rem;
   color: var(--foreground);
   font-size: 1rem;
+  font-weight: 500;
 }
 
 .textCard .cardContent p:last-child {
@@ -129,10 +130,13 @@
   border: 2px solid var(--accent-300);
   font-size: 1.05rem;
   text-align: center;
+  color: var(--foreground);
+  font-weight: 600;
 }
 
 .highlight strong {
-  color: var(--primary-700);
+  color: var(--primary-800);
+  font-weight: 700;
 }
 
 .cardContent a {

@@ -1,8 +1,8 @@
 {
   "/_not-found/page": "/_not-found",
   "/favicon.ico/route": "/favicon.ico",
-  "/charte/page": "/charte",
   "/exemple/page": "/exemple",
+  "/charte/page": "/charte",
   "/page": "/",
   "/mentions-legales/page": "/mentions-legales"
 }

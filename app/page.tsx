@@ -91,7 +91,7 @@ export default function Home() {
             </div>
 
             <div className={styles.serviceCard}>
-              <div className={styles.serviceIcon}>🚬</div>
+              <div className={`${styles.serviceIcon} ${styles.tabacIcon}`}></div>
               <h3>Tabac</h3>
               <p>Presse, jeux et services de proximité</p>
               <span className="badge-md">Tous les jours</span>

@@ -96,7 +96,7 @@
         "transform": "lodash/{{member}}"
       }
     },
-    "outputFileTracingRoot": "/home/korndev/devland/project/nextJS/lesotlylaisse71",
+    "outputFileTracingRoot": "/home/korndev/dev/project/lesotlylaisse71",
     "experimental": {
       "nodeMiddleware": false,
       "cacheLife": {
@@ -154,7 +154,7 @@
       "middlewarePrefetch": "flexible",
       "optimisticClientCache": true,
       "manualClientBasePath": false,
-      "cpus": 3,
+      "cpus": 7,
       "memoryBasedWorkersCount": false,
       "imgOptConcurrency": null,
       "imgOptTimeoutInSeconds": 7,
@@ -279,10 +279,10 @@
     "bundlePagesRouterDependencies": false,
     "configFileName": "next.config.ts",
     "turbopack": {
-      "root": "/home/korndev/devland/project/nextJS/lesotlylaisse71"
+      "root": "/home/korndev/dev/project/lesotlylaisse71"
     }
   },
-  "appDir": "/home/korndev/devland/project/nextJS/lesotlylaisse71",
+  "appDir": "/home/korndev/dev/project/lesotlylaisse71",
   "relativeAppDir": "",
   "files": [
     ".next/routes-manifest.json",

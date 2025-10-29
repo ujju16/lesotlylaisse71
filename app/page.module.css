@@ -158,6 +158,29 @@
   margin-bottom: 1.5rem;
 }
 
+.serviceIcon.tabacIcon {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 1.5rem;
+  transform: rotate(45deg);
+  background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3);
+}
+
+.serviceIcon.tabacIcon::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-45deg);
+  width: 30px;
+  height: 30px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+}
+
 .serviceCard h3 {
   font-size: 1.5rem;
   font-weight: 600;

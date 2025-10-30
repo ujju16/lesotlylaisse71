@@ -9,3 +9,9 @@ export const hygraphClient = new GraphQLClient(endpoint, {
 });
 
 export const publicHygraphClient = new GraphQLClient(endpoint);
+
+export const adminHygraphClient = new GraphQLClient(endpoint, {
+  headers: {
+    authorization: `Bearer ${process.env.HYGRAPH_TOKEN || ''}`,
+  },
+});

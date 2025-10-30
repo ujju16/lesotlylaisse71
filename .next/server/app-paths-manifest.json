@@ -1,7 +1,13 @@
 {
   "/_not-found/page": "app/_not-found/page.js",
-  "/admin/page": "app/admin/page.js",
   "/favicon.ico/route": "app/favicon.ico/route.js",
+  "/charte/page": "app/charte/page.js",
+  "/exemple/page": "app/exemple/page.js",
   "/menu/page": "app/menu/page.js",
-  "/page": "app/page.js"
+  "/page": "app/page.js",
+  "/reservations/page": "app/reservations/page.js",
+  "/confidentialite/page": "app/confidentialite/page.js",
+  "/cookies/page": "app/cookies/page.js",
+  "/mentions-legales/page": "app/mentions-legales/page.js",
+  "/opengraph-image/route": "app/opengraph-image/route.js"
 }

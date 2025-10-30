@@ -52,7 +52,17 @@ export default {
       },
     },
   },
-  plugins: [daisyui],
+  plugins: [
+    daisyui,
+    // Fix DaisyUI picker bug
+    function({ addBase }) {
+      addBase({
+        '[dir="rtl"] .select': {
+          translate: '0.5rem 0',
+        },
+      });
+    },
+  ],
   daisyui: {
     themes: [
       {
@@ -78,5 +88,6 @@ export default {
     base: true,
     styled: true,
     utils: true,
+    logs: false, // Disable DaisyUI logs
   },
 };

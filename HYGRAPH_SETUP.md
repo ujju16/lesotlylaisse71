@@ -133,7 +133,7 @@ Guide détaillé pour configurer Hygraph (anciennement GraphCMS) pour le projet 
 | **time** | Single line text | - | ✅ Oui |
 | **guests** | Int | Min: 1, Max: 20 | ✅ Oui |
 | **message** | Multi line text | - | ❌ Non |
-| **status** | Enumeration | Values: `pending`, `confirmed`, `cancelled`, Default: `pending` | ✅ Oui |
+| **reservationStatus** | Enumeration | Values: `pending`, `confirmed`, `cancelled`, Default: `pending` | ✅ Oui |
 
 **Détails de configuration :**
 
@@ -182,10 +182,10 @@ Guide détaillé pour configurer Hygraph (anciennement GraphCMS) pour le projet 
    - Display Name: Message
    - API ID: message
 
-8. Pour "status" :
+8. Pour "reservationStatus" :
    - Type: Enumeration
-   - Display Name: Status
-   - API ID: status
+   - Display Name: Reservation Status
+   - API ID: reservationStatus
    - ✅ Required field
    - Default value: pending
    - Values:
@@ -346,7 +346,7 @@ Date: 2025-11-15
 Time: 20:00
 Guests: 4
 Message: Table près de la fenêtre si possible
-Status: pending
+Reservation Status: pending
 ```
 
 ---

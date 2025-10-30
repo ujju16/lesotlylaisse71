@@ -23,7 +23,7 @@ export interface Reservation {
   time: string;
   guests: number;
   message?: string;
-  status: string;
+  reservationStatus: string;
 }
 
 // Récupérer tous les plats
@@ -83,7 +83,7 @@ export async function getDishBySlug(slug: string): Promise<Dish | null> {
 }
 
 // Créer une réservation
-export async function createReservation(reservation: Omit<Reservation, 'id' | 'status'>): Promise<boolean> {
+export async function createReservation(reservation: Omit<Reservation, 'id' | 'reservationStatus'>): Promise<boolean> {
   const mutation = gql`
     mutation CreateReservation(
       $name: String!
@@ -103,7 +103,7 @@ export async function createReservation(reservation: Omit<Reservation, 'id' | 's
           time: $time
           guests: $guests
           message: $message
-          status: pending
+          reservationStatus: pending
         }
       ) {
         id
@@ -133,7 +133,7 @@ export async function getReservations(): Promise<Reservation[]> {
         time
         guests
         message
-        status
+        reservationStatus
       }
     }
   `;

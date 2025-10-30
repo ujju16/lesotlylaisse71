@@ -1,0 +1,144 @@
+.dishPage {
+  min-height: 100vh;
+  padding: 2rem 1rem;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.backButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: white;
+  color: #667eea;
+  border: 2px solid #667eea;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  transition: all 0.3s ease;
+}
+
+.backButton:hover {
+  background: #667eea;
+  color: white;
+}
+
+.card {
+  background: white;
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.dishImage {
+  width: 100%;
+  height: 400px;
+  border-radius: 15px;
+  overflow: hidden;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.dishHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  margin-bottom: 1.5rem;
+}
+
+.dishTitle {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #2d3748;
+}
+
+.dishPrice {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #667eea;
+}
+
+.dishCategory {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background: #667eea;
+  color: white;
+  border-radius: 20px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.dishDescription {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #4a5568;
+  margin-bottom: 2rem;
+}
+
+.qrSection {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 2px solid #e2e8f0;
+  text-align: center;
+}
+
+.qrTitle {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #2d3748;
+  margin-bottom: 1rem;
+}
+
+.qrCode {
+  display: inline-block;
+  padding: 1rem;
+  background: white;
+  border: 2px solid #e2e8f0;
+  border-radius: 15px;
+  margin-bottom: 1rem;
+}
+
+.qrText {
+  color: #718096;
+  font-size: 0.9rem;
+}
+
+.downloadButton {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.75rem 1.5rem;
+  background: #667eea;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.downloadButton:hover {
+  background: #5568d3;
+}
+
+@media (max-width: 768px) {
+  .dishTitle {
+    font-size: 2rem;
+  }
+
+  .dishImage {
+    height: 250px;
+  }
+
+  .dishHeader {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}

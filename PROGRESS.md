@@ -1,223 +1,198 @@
-# 🚀 Progression Admin CRUD - Session 30-31 Oct 2025
+# 🚀 Progression Admin CRUD - Mise à jour 31 Oct 2025 01h
 
-## ✅ CE QUI EST TERMINÉ ! 🎉
+## ✅ TERMINÉ ! 🎉
 
-### 1. **Backend API Complet** ✅
-Toutes les routes API sont créées et fonctionnelles :
+### 1. **Backend API Complet** ✅ (100%)
+- ✅ Categories (GET, POST, PUT, DELETE)
+- ✅ Dishes (GET, POST, PUT, DELETE)
+- ✅ Menus (GET, POST, PUT, DELETE, ACTIVATE)
+- ✅ Upload (POST avec compression)
 
-#### Categories
-- ✅ `GET /api/categories` → Liste
-- ✅ `POST /api/categories` → Créer
-- ✅ `PUT /api/categories/[id]` → Modifier
-- ✅ `DELETE /api/categories/[id]` → Supprimer
-
-#### Dishes
-- ✅ `GET /api/dishes` → Liste
-- ✅ `POST /api/dishes` → Créer
-- ✅ `PUT /api/dishes/[id]` → Modifier
-- ✅ `DELETE /api/dishes/[id]` → Supprimer
-
-#### Menus
-- ✅ `GET /api/menus` → Liste
-- ✅ `POST /api/menus` → Créer
-- ✅ `PUT /api/menus/[id]` → Modifier
-- ✅ `DELETE /api/menus/[id]` → Supprimer
-- ✅ `POST /api/menus/[id]/activate` → Activer (désactive les autres)
-
-#### Upload
-- ✅ `POST /api/upload` → Upload image vers Hygraph avec compression
-
-### 2. **Composants UI Material Design** ✅
-- ✅ Modal (responsive avec tailles)
-- ✅ FormInput (avec validation)
-- ✅ FormTextarea
-- ✅ FormSelect
-- ✅ FormToggle
-- ✅ ImageUpload (drag & drop + compression auto)
+### 2. **Composants UI Material Design** ✅ (100%)
+- ✅ Modal responsive
+- ✅ FormInput, FormTextarea, FormSelect, FormToggle
+- ✅ ImageUpload (drag & drop + compression)
 - ✅ ConfirmDialog
-- ✅ ToastProvider (notifications)
+- ✅ ToastProvider avec notifications
 
-### 3. **Dependencies** ✅
-```json
-✅ react-hook-form
-✅ zod
-✅ @hookform/resolvers
-✅ browser-image-compression
-✅ tailwindcss + daisyui (configurés)
-```
+### 3. **Hooks Custom** ✅ (100%)
+- ✅ useCategories (CRUD complet)
+- ✅ useUpload (upload Hygraph)
+
+### 4. **Page Admin Categories** ✅ (100%)
+- ✅ Liste avec grid Material Design
+- ✅ Modal création/édition
+- ✅ Upload d'images avec preview
+- ✅ Suppression avec confirmation
+- ✅ Auto-génération slug
+- ✅ Toast notifications
+- ✅ Gestion erreurs
+
+### 5. **Admin Layout** ✅
+- ✅ Navigation entre sections
+- ✅ ToastProvider global
+- ✅ Design cohérent
 
 ---
 
-## 🔄 En Cours / Prochaines Étapes
+## 🔄 Prochaines Étapes (4-6h)
 
-### Phase 1 : Composants UI Restants (1-2h)
-Les composants de base sont créés, il reste à créer les variantes complètes dans les fichiers manquants.
-
-### Phase 2 : Pages Admin CRUD (4-5h)
-
-#### Page Categories (/admin/categories)
-```tsx
-- [ ] Liste avec tableau Material
-- [ ] Modal création (nom, slug, description, ordre, icône, image)
-- [ ] Modal édition
-- [ ] Suppression avec confirmation
-- [ ] Gestion des erreurs et succès
-```
+### Phase 1 : Pages Dishes & Menus (3-4h)
 
 #### Page Dishes (/admin/dishes)
-```tsx
-- [ ] Liste avec images et filtres
-- [ ] Modal création (nom, description, prix, catégorie, image)
-- [ ] Modal édition
-- [ ] Toggle disponibilité rapide
-- [ ] Suppression avec confirmation
-```
+- [ ] Hook useDishes
+- [ ] Liste avec filtres par catégorie
+- [ ] Modal création/édition
+- [ ] Sélection catégorie (dropdown)
+- [ ] Upload image
+- [ ] Toggle disponibilité
+- [ ] Prix avec validation
 
 #### Page Menus (/admin/menus)
-```tsx
-- [ ] Liste avec statut actif
-- [ ] Modal création (nom, description, dates)
-- [ ] Sélection multi-plats
-- [ ] Activer/Désactiver
-- [ ] Suppression avec confirmation
-```
+- [ ] Hook useMenus
+- [ ] Liste avec badge actif
+- [ ] Modal création/édition
+- [ ] Sélection multi-plats (checkboxes)
+- [ ] Dates start/end
+- [ ] Bouton activer (désactive autres)
 
-### Phase 3 : Polish UX (2h)
-```
+### Phase 2 : Intégration & Polish (2h)
+- [ ] Intégrer QR code sur page admin principale
+- [ ] Page réservations (lecture seule)
 - [ ] Loading states partout
-- [ ] Animations Material
-- [ ] Gestion d'erreurs globale
-- [ ] Toast notifications intégrées
+- [ ] Animations fluides
 - [ ] Tests manuels complets
-```
 
 ---
 
-## 🎯 Architecture Complète
+## 📊 État d'Avancement Global
 
-**Interface Admin Complète où le Client peut :**
+**Backend :** `████████████████████` 100% ✅  
+**Composants UI :** `████████████████████` 100% ✅  
+**Pages Admin :** `████████░░░░░░░░░░░░` 40% 🔥  
+**Polish UX :** `████░░░░░░░░░░░░░░░░` 20% 🔄  
 
-### Catégories 📂
-- [x] Voir toutes les catégories
-- [ ] Créer une catégorie (nom, description, ordre, icône, image)
-- [ ] Modifier une catégorie
-- [ ] Supprimer une catégorie
-- [ ] Réorganiser l'ordre (drag & drop - bonus)
-
-### Plats 🍴
-- [ ] Voir tous les plats
-- [ ] Filtrer par catégorie
-- [ ] Créer un plat (nom, description, prix, catégorie, image)
-- [ ] Modifier un plat
-- [ ] Activer/Désactiver un plat
-- [ ] Supprimer un plat
-- [ ] Dupliquer un plat (bonus)
-
-### Menus 📋
-- [ ] Voir tous les menus
-- [ ] Créer un menu (nom, description, dates)
-- [ ] Ajouter/retirer des plats au menu
-- [ ] Activer un menu (désactive automatiquement les autres)
-- [ ] Modifier un menu
-- [ ] Supprimer un menu
-- [ ] Preview du menu
-
-### QR Code 📱
-- [x] Générer QR code dynamique
-- [x] Télécharger QR code
-- [ ] Statistiques de scans (future)
-
-### Réservations 📅
-- [ ] Voir toutes les réservations
-- [ ] Filtrer par date/statut
-- [ ] Confirmer une réservation
-- [ ] Annuler une réservation
-- [ ] Supprimer une réservation
+**Total MVP :** `███████████████░░░░░` ~70% 🚀🚀🚀
 
 ---
 
-## 💡 Design Material  Design + DaisyUI
+## 🎯 Ce qui Fonctionne MAINTENANT
 
-### Palette Couleurs
-```css
-Primary:   #795548 (Brun café)
-Secondary: #689F38 (Vert lime)
-Accent:    #FFB300 (Ambre)
-```
-
-### Composants DaisyUI à Utiliser
-- `btn btn-primary` → Boutons
-- `card bg-base-200` → Cards
-- `modal` → Modals
-- `input input-bordered` → Inputs
-- `select select-bordered` → Selects
-- `toggle toggle-success` → Toggles
-- `badge badge-primary` → Badges
-- `alert alert-success` → Notifications
-- `loading loading-spinner` → Loading
-
-### Animations
-- Transitions fluides (200-300ms)
-- Hover effects subtils
-- Loading skeletons
-- Toast notifications (bottom-right)
-
----
-
-## 🔐 Sécurité (Future)
-
-### Phase 1 : Protection Basique
-```env
-ADMIN_PASSWORD=mot_de_passe_secret
-```
-- Page `/admin/login`
-- Cookie httpOnly
-- Middleware protection `/admin/*`
-
-### Phase 2 : Auth Complète (Future)
-- NextAuth.js
-- Multi-users
-- Rôles (admin, manager)
-- 2FA
-
----
-
-## 📊 Estimation Temps
-
-| Phase | Tâches | Temps |
-|-------|--------|-------|
-| Backend API | Routes restantes | 1-2h |
-| Composants UI | 6 composants | 3-4h |
-| Pages Admin | 4 pages CRUD | 4-5h |
-| Polish UX | Animations, erreurs | 2h |
-| **TOTAL** | **MVP Complet** | **10-13h** |
-
----
-
-## 🚀 Next Session
-
-**Priorités :**
-1. Terminer les routes API (dishes, menus, upload)
-2. Créer les composants UI de base (Modal, Form)
-3. Page Categories avec CRUD complet
-
-**Test Rapide :**
+### Routes API testables:
 ```bash
-# Tester création catégorie
+# Lister categories
+curl http://localhost:3000/api/categories
+
+# Créer catégorie
 curl -X POST http://localhost:3000/api/categories \
   -H "Content-Type: application/json" \
   -d '{"name":"Entrées","slug":"entrees","order":1,"icon":"🥗"}'
 
-# Tester liste
-curl http://localhost:3000/api/categories
+# Upload image
+curl -X POST http://localhost:3000/api/upload \
+  -F "file=@image.jpg"
+```
+
+### Pages Admin disponibles:
+- ✅ `/admin/categories` - CRUD complet avec upload
+- ⏳ `/admin/dishes` - À créer
+- ⏳ `/admin/menus` - À créer
+- ⏳ `/admin` - QR Code (à intégrer)
+
+---
+
+## 💪 Points Forts de l'Implementation
+
+1. **Type-Safe** : TypeScript partout
+2. **Hooks Réutilisables** : useCategories, useUpload
+3. **UI Moderne** : DaisyUI + Material Design
+4. **UX Fluide** : Toast, modals, confirmations
+5. **Upload Pro** : Compression auto + preview
+6. **Code Clean** : Composants séparés, logique claire
+
+---
+
+## 🚀 Next Session (estimation 4-6h)
+
+**Priorité 1 : Page Dishes (2-3h)**
+1. Créer useDishes hook
+2. Dupliquer structure page Categories
+3. Ajouter sélection catégorie
+4. Prix en euros
+5. Tests
+
+**Priorité 2 : Page Menus (2-3h)**
+1. Créer useMenus hook
+2. Sélection multi-plats
+3. Activation exclusive (un seul actif)
+4. Tests
+
+**Priorité 3 : Finitions (1h)**
+1. Page principale admin avec QR code
+2. Tests complets
+3. Documentation utilisation
+
+---
+
+## 🎨 Design System Utilisé
+
+### Couleurs
+- Primary: `#795548` (Brun café)
+- Secondary: `#689F38` (Vert lime)
+- Accent: `#FFB300` (Ambre)
+
+### Composants DaisyUI
+- `btn btn-primary` → Boutons actions
+- `card bg-base-100` → Cards catégories/plats
+- `modal` → Formulaires création/édition
+- `alert` → Messages info/erreur
+- `badge` → Labels statut
+- `loading loading-spinner` → Chargements
+
+---
+
+## 📈 Temps Passé
+
+| Phase | Temps | Statut |
+|-------|-------|--------|
+| Backend API | 2h | ✅ Terminé |
+| Composants UI | 1h | ✅ Terminé |
+| Page Categories | 1h | ✅ Terminé |
+| **Total Session** | **~4h** | **70% MVP** |
+| **Reste estimé** | **4-6h** | **→ 100%** |
+
+---
+
+## 🔥 Commit Actuel
+
+**Branche:** `feature/admin-crud`  
+**Dernier commit:** `2427047` - Page Categories CRUD complète  
+**Fichiers:** 20+ fichiers créés  
+**Lignes:** ~2000 lignes de code
+
+---
+
+## ✨ Prochaine Session - Quick Start
+
+```bash
+# 1. Pull les changes
+git checkout feature/admin-crud
+git pull origin feature/admin-crud
+
+# 2. Installer deps (si besoin)
+npm install
+
+# 3. Lancer dev
+npm run dev
+
+# 4. Tester page categories
+http://localhost:3000/admin/categories
+
+# 5. Créer page dishes (copier categories)
+# 6. Créer page menus
+# 7. Tests & polish
 ```
 
 ---
 
-**Commit actuel :** `f1325c6` sur branche `feature/admin-crud`
-
-**URL PR (à créer) :** https://github.com/ujju16/lesotlylaisse71/compare/feature/admin-crud
-
----
-
-💪 **On est sur la bonne voie ! Hygraph + Admin Custom = Le combo gagnant !**
+**🎯 On est à 70% du MVP ! Encore 4-6h et c'est bouclé ! 💪🚀**

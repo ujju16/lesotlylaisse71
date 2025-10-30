@@ -102,3 +102,11 @@ a {
     color-scheme: dark;
   }
 }
+
+/* Fix DaisyUI 5.3.10 picker pseudo-element bug */
+@layer utilities {
+  [dir="rtl"] .select,
+  [dir="rtl"] .select select {
+    translate: 0.5rem 0;
+  }
+}

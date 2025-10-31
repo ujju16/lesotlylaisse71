@@ -96,13 +96,7 @@ export async function createCategory(category: Omit<Category, 'id'>): Promise<bo
       $icon: String
     ) {
       createCategory(
-        data: {
-          name: $name
-          slug: $slug
-          description: $description
-          order: $order
-          icon: $icon
-        }
+        data: { name: $name, slug: $slug, description: $description, order: $order, icon: $icon }
       ) {
         id
       }
@@ -132,12 +126,7 @@ export async function updateCategory(id: string, category: Partial<Category>): P
     ) {
       updateCategory(
         where: { id: $id }
-        data: {
-          name: $name
-          description: $description
-          order: $order
-          icon: $icon
-        }
+        data: { name: $name, description: $description, order: $order, icon: $icon }
       ) {
         id
       }
@@ -314,20 +303,8 @@ export async function getActiveMenu(): Promise<Menu | null> {
 
 export async function createMenu(menu: Omit<Menu, 'id'>): Promise<boolean> {
   const mutation = gql`
-    mutation CreateMenu(
-      $name: String!
-      $slug: String!
-      $description: String
-      $active: Boolean!
-    ) {
-      createMenu(
-        data: {
-          name: $name
-          slug: $slug
-          description: $description
-          active: $active
-        }
-      ) {
+    mutation CreateMenu($name: String!, $slug: String!, $description: String, $active: Boolean!) {
+      createMenu(data: { name: $name, slug: $slug, description: $description, active: $active }) {
         id
       }
       publishMenu(where: { slug: $slug }, to: PUBLISHED) {
@@ -368,7 +345,9 @@ export async function updateMenuStatus(id: string, active: boolean): Promise<boo
 
 // ==================== RESERVATIONS ====================
 
-export async function createReservation(reservation: Omit<Reservation, 'id' | 'reservationStatus'>): Promise<boolean> {
+export async function createReservation(
+  reservation: Omit<Reservation, 'id' | 'reservationStatus'>
+): Promise<boolean> {
   const mutation = gql`
     mutation CreateReservation(
       $name: String!

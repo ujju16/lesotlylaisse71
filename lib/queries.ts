@@ -83,7 +83,9 @@ export async function getDishBySlug(slug: string): Promise<Dish | null> {
 }
 
 // Créer une réservation
-export async function createReservation(reservation: Omit<Reservation, 'id' | 'reservationStatus'>): Promise<boolean> {
+export async function createReservation(
+  reservation: Omit<Reservation, 'id' | 'reservationStatus'>
+): Promise<boolean> {
   const mutation = gql`
     mutation CreateReservation(
       $name: String!

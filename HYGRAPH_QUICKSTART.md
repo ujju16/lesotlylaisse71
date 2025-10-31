@@ -24,6 +24,7 @@ HYGRAPH_TOKEN=votre_token_permanent_ici
 ### 2. Structure des Modèles Hygraph
 
 #### Modèle `Category`
+
 - **Nom** : `Category`
 - **Nom pluriel** : `Categories`
 - **Champs** :
@@ -34,6 +35,7 @@ HYGRAPH_TOKEN=votre_token_permanent_ici
   - `displayOrder` (Int, pour l'ordre d'affichage)
 
 #### Modèle `MenuItem`
+
 - **Nom** : `MenuItem`
 - **Nom pluriel** : `MenuItems`
 - **Champs** :
@@ -48,6 +50,7 @@ HYGRAPH_TOKEN=votre_token_permanent_ici
 **⚠️ ATTENTION** : N'utilisez **PAS** le champ `status` - c'est un mot réservé par Hygraph. Utilisez `isAvailable` à la place.
 
 #### Modèle `MenuConfig`
+
 - **Nom** : `MenuConfig`
 - **Nom pluriel** : `MenuConfigs`
 - **Champs** :
@@ -75,6 +78,7 @@ HYGRAPH_TOKEN=votre_token_permanent_ici
 Les images uploadées dans Hygraph sont automatiquement optimisées et servies via CDN.
 
 ### Upload via l'admin
+
 1. Dans le formulaire de catégorie/produit
 2. Cliquez sur "Choisir une image"
 3. L'image est compressée avant envoi
@@ -90,6 +94,7 @@ Le système permet d'avoir **un seul QR code** pour plusieurs menus :
 4. Changez simplement `isActive` pour changer le menu affiché
 
 ### Générer le QR Code
+
 ```bash
 # L'admin génère automatiquement le QR code
 # Il sera accessible dans la section "QR Code" de l'admin
@@ -98,6 +103,7 @@ Le système permet d'avoir **un seul QR code** pour plusieurs menus :
 ## 📱 Utilisation dans l'application
 
 ### Récupérer les catégories
+
 ```typescript
 import { hygraphClient } from '@/lib/hygraph-client';
 
@@ -105,6 +111,7 @@ const categories = await hygraphClient.getCategories();
 ```
 
 ### Récupérer le menu actif
+
 ```typescript
 const activeMenu = await hygraphClient.getActiveMenu();
 ```
@@ -123,12 +130,15 @@ Après configuration :
 ## 🆘 Dépannage
 
 ### Erreur "status is a reserved word"
+
 → Utilisez `isAvailable` au lieu de `status`
 
 ### Images ne s'affichent pas
+
 → Vérifiez que l'API publique est activée dans Hygraph
 
 ### Mutations échouent
+
 → Vérifiez que le `HYGRAPH_TOKEN` est valide et a les bonnes permissions
 
 ## 📚 Documentation supplémentaire

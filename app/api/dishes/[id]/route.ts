@@ -15,20 +15,34 @@ export async function PUT(request: NextRequest, context: { params: Promise<{ id:
       }
     `;
 
-    const data: any = await adminHygraphClient.request(mutation, { id, name, description, price: price ? parseFloat(price) : undefined, categoryId, available, imageId });
+    const data: any = await adminHygraphClient.request(mutation, {
+      id,
+      name,
+      description,
+      price: price ? parseFloat(price) : undefined,
+      categoryId,
+      available,
+      imageId,
+    });
     return NextResponse.json({ success: true, data: data.updateDish, message: 'Plat modifié' });
   } catch (error) {
-    return NextResponse.json({ success: false, error: error.message }, { status: 500 });
+    return NextResponse.json({ success: false, error: (error as Error).message }, { status: 500 });
   }
 }
 
 export async function DELETE(request: NextRequest, context: { params: Promise<{ id: string }> }) {
   try {
     const { id } = await context.params;
-    const mutation = gql`mutation DeleteDish($id: ID!) { deleteDish(where: { id: $id }) { id } }`;
+    const mutation = gql`
+      mutation DeleteDish($id: ID!) {
+        deleteDish(where: { id: $id }) {
+          id
+        }
+      }
+    `;
     await adminHygraphClient.request(mutation, { id });
     return NextResponse.json({ success: true, message: 'Plat supprimé' });
   } catch (error) {
-    return NextResponse.json({ success: false, error: error.message }, { status: 500 });
+    return NextResponse.json({ success: false, error: (error as Error).message }, { status: 500 });
   }
 }

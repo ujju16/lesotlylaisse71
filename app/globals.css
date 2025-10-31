@@ -19,11 +19,7 @@
 
   body {
     color: rgb(var(--foreground-rgb));
-    background: linear-gradient(
-        to bottom,
-        transparent,
-        rgb(var(--background-end-rgb))
-      )
+    background: linear-gradient(to bottom, transparent, rgb(var(--background-end-rgb)))
       rgb(var(--background-start-rgb));
   }
 }
@@ -37,40 +33,40 @@
 @layer components {
   /* === VARIABLES CSS MATERIAL DESIGN === */
   :root {
-    --primary-50: #EFEBE9;
-    --primary-100: #D7CCC8;
-    --primary-200: #BCAAA4;
-    --primary-300: #A1887F;
-    --primary-400: #8D6E63;
+    --primary-50: #efebe9;
+    --primary-100: #d7ccc8;
+    --primary-200: #bcaaa4;
+    --primary-300: #a1887f;
+    --primary-400: #8d6e63;
     --primary-500: #795548;
-    --primary-600: #6D4C41;
-    --primary-700: #5D4037;
-    --primary-800: #4E342E;
-    --primary-900: #3E2723;
+    --primary-600: #6d4c41;
+    --primary-700: #5d4037;
+    --primary-800: #4e342e;
+    --primary-900: #3e2723;
 
-    --secondary-50: #F1F8E9;
-    --secondary-100: #DCEDC8;
-    --secondary-200: #C5E1A5;
-    --secondary-300: #AED581;
-    --secondary-400: #9CCC65;
-    --secondary-500: #8BC34A;
-    --secondary-600: #7CB342;
-    --secondary-700: #689F38;
-    --secondary-800: #558B2F;
-    --secondary-900: #33691E;
+    --secondary-50: #f1f8e9;
+    --secondary-100: #dcedc8;
+    --secondary-200: #c5e1a5;
+    --secondary-300: #aed581;
+    --secondary-400: #9ccc65;
+    --secondary-500: #8bc34a;
+    --secondary-600: #7cb342;
+    --secondary-700: #689f38;
+    --secondary-800: #558b2f;
+    --secondary-900: #33691e;
 
-    --accent-50: #FFF8E1;
-    --accent-100: #FFECB3;
-    --accent-200: #FFE082;
-    --accent-300: #FFD54F;
-    --accent-400: #FFCA28;
-    --accent-500: #FFC107;
-    --accent-600: #FFB300;
-    --accent-700: #FFA000;
-    --accent-800: #FF8F00;
-    --accent-900: #FF6F00;
+    --accent-50: #fff8e1;
+    --accent-100: #ffecb3;
+    --accent-200: #ffe082;
+    --accent-300: #ffd54f;
+    --accent-400: #ffca28;
+    --accent-500: #ffc107;
+    --accent-600: #ffb300;
+    --accent-700: #ffa000;
+    --accent-800: #ff8f00;
+    --accent-900: #ff6f00;
 
-    --surface: #FAFAFA;
+    --surface: #fafafa;
     --surface-variant: #f5f5f5;
     --on-surface: #212121;
     --on-surface-variant: #757575;
@@ -83,27 +79,51 @@
   }
 
   /* === MATERIAL DESIGN TEXT COLORS === */
-  .text-primary-light { color: var(--primary-300); }
-  .text-primary { color: var(--primary-500); }
-  .text-primary-dark { color: var(--primary-700); }
-  .text-secondary { color: var(--secondary-700); }
-  .text-accent { color: var(--accent-600); }
+  .text-primary-light {
+    color: var(--primary-300);
+  }
+  .text-primary {
+    color: var(--primary-500);
+  }
+  .text-primary-dark {
+    color: var(--primary-700);
+  }
+  .text-secondary {
+    color: var(--secondary-700);
+  }
+  .text-accent {
+    color: var(--accent-600);
+  }
 
   /* === MATERIAL DESIGN BACKGROUND COLORS === */
-  .bg-primary-light { background-color: var(--primary-50); }
-  .bg-primary { background-color: var(--primary-500); }
-  .bg-primary-dark { background-color: var(--primary-700); }
-  .bg-secondary-light { background-color: var(--secondary-100); }
-  .bg-secondary { background-color: var(--secondary-700); }
-  .bg-accent-light { background-color: var(--accent-100); }
-  .bg-accent { background-color: var(--accent-600); }
+  .bg-primary-light {
+    background-color: var(--primary-50);
+  }
+  .bg-primary {
+    background-color: var(--primary-500);
+  }
+  .bg-primary-dark {
+    background-color: var(--primary-700);
+  }
+  .bg-secondary-light {
+    background-color: var(--secondary-100);
+  }
+  .bg-secondary {
+    background-color: var(--secondary-700);
+  }
+  .bg-accent-light {
+    background-color: var(--accent-100);
+  }
+  .bg-accent {
+    background-color: var(--accent-600);
+  }
 
   /* === MATERIAL DESIGN BUTTONS === */
   .btn-md-primary,
   .btn-md-secondary,
   .btn-md-accent,
   .btn-md-outlined {
-    @apply px-6 py-3 rounded font-medium text-sm uppercase tracking-wide cursor-pointer border-0;
+    @apply cursor-pointer rounded border-0 px-6 py-3 text-sm font-medium uppercase tracking-wide;
     transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
     box-shadow: var(--shadow-2);
     display: inline-flex;
@@ -159,7 +179,7 @@
 
   /* === MATERIAL DESIGN CARDS === */
   .card-md {
-    @apply bg-white rounded-lg p-6;
+    @apply rounded-lg bg-white p-6;
     box-shadow: var(--shadow-2);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     border: 1px solid rgba(0, 0, 0, 0.05);
@@ -174,7 +194,7 @@
   .badge-md,
   .badge-md-secondary,
   .badge-md-accent {
-    @apply inline-block px-3 py-1 rounded-full text-sm font-medium;
+    @apply inline-block rounded-full px-3 py-1 text-sm font-medium;
   }
 
   .badge-md {

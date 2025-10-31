@@ -6,8 +6,8 @@ export default function AxeptioConsent() {
   useEffect(() => {
     // Configuration Axeptio
     window.axeptioSettings = {
-      clientId: "6902a0abfbcad22127eedbf8",
-      cookiesVersion: "lesotlylaisse71-fr",
+      clientId: '6902a0abfbcad22127eedbf8',
+      cookiesVersion: 'lesotlylaisse71-fr',
     };
 
     // Charger le SDK Axeptio

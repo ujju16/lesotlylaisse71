@@ -29,7 +29,7 @@ export async function GET() {
     const data: any = await adminHygraphClient.request(query);
     return NextResponse.json({ success: true, data: data.dishes });
   } catch (error) {
-    return NextResponse.json({ success: false, error: error.message }, { status: 500 });
+    return NextResponse.json({ success: false, error: (error as Error).message }, { status: 500 });
   }
 }
 
@@ -90,6 +90,6 @@ export async function POST(request: NextRequest) {
     const data: any = await adminHygraphClient.request(mutation, variables);
     return NextResponse.json({ success: true, data: data.createDish, message: 'Plat créé' });
   } catch (error) {
-    return NextResponse.json({ success: false, error: error.message }, { status: 500 });
+    return NextResponse.json({ success: false, error: (error as Error).message }, { status: 500 });
   }
 }

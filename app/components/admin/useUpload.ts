@@ -6,7 +6,9 @@ export function useUpload() {
   const [uploading, setUploading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  const uploadImage = async (file: File): Promise<{ success: boolean; data?: any; error?: string }> => {
+  const uploadImage = async (
+    file: File
+  ): Promise<{ success: boolean; data?: any; error?: string }> => {
     try {
       setUploading(true);
       setError(null);

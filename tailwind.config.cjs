@@ -3,9 +3,9 @@ const daisyui = require('daisyui');
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./app/**/*.{js,ts,jsx,tsx,mdx}",
+    './pages/**/*.{js,ts,jsx,tsx,mdx}',
+    './components/**/*.{js,ts,jsx,tsx,mdx}',
+    './app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
     extend: {
@@ -57,20 +57,20 @@ module.exports = {
     themes: [
       {
         lesotly: {
-          "primary": "#795548",
-          "primary-content": "#ffffff",
-          "secondary": "#689F38",
-          "secondary-content": "#ffffff",
-          "accent": "#FFB300",
-          "accent-content": "#000000",
-          "neutral": "#3d4451",
-          "base-100": "#FAFAFA",
-          "base-200": "#f5f5f5",
-          "base-300": "#e0e0e0",
-          "info": "#2094f3",
-          "success": "#689F38",
-          "warning": "#FFB300",
-          "error": "#f44336",
+          primary: '#795548',
+          'primary-content': '#ffffff',
+          secondary: '#689F38',
+          'secondary-content': '#ffffff',
+          accent: '#FFB300',
+          'accent-content': '#000000',
+          neutral: '#3d4451',
+          'base-100': '#FAFAFA',
+          'base-200': '#f5f5f5',
+          'base-300': '#e0e0e0',
+          info: '#2094f3',
+          success: '#689F38',
+          warning: '#FFB300',
+          error: '#f44336',
         },
       },
     ],

@@ -1,19 +1,22 @@
 # 🎉 RÉSUMÉ SESSION ADMIN CRUD - 30-31 Oct 2025
 
-## ✅ MISSION ACCOMPLIE ! 
+## ✅ MISSION ACCOMPLIE !
 
 ### 🏆 Ce qui a été fait cette session (5-6h)
 
 #### 1. **Backend API Complet** ✅ (100%)
+
 ```
 ✅ /api/categories (GET, POST, PUT, DELETE)
-✅ /api/dishes (GET, POST, PUT, DELETE)  
+✅ /api/dishes (GET, POST, PUT, DELETE)
 ✅ /api/menus (GET, POST, PUT, DELETE, ACTIVATE)
 ✅ /api/upload (POST avec compression + Hygraph)
 ```
+
 **8 routes API fonctionnelles avec mutations Hygraph**
 
 #### 2. **Composants UI Material Design** ✅ (100%)
+
 ```
 ✅ Modal (responsive, tailles multiples)
 ✅ FormInput, FormTextarea, FormSelect, FormToggle
@@ -23,12 +26,14 @@
 ```
 
 #### 3. **Hooks Custom** ✅ (100%)
+
 ```
 ✅ useCategories (CRUD complet)
 ✅ useUpload (upload vers Hygraph)
 ```
 
 #### 4. **Page Categories Admin** ✅ (100%)
+
 ```
 ✅ Liste en grid Material Design
 ✅ Modal création/édition
@@ -40,6 +45,7 @@
 ```
 
 #### 5. **Infrastructure** ✅ (100%)
+
 ```
 ✅ Admin Layout avec navigation
 ✅ ToastProvider global
@@ -57,7 +63,7 @@
 **Backend :** `████████████████████` 100% ✅  
 **Composants UI :** `████████████████████` 100% ✅  
 **Pages Admin :** `████████░░░░░░░░░░░░` 40% ✅  
-**Polish UX :** `████░░░░░░░░░░░░░░░░` 20% 🔄  
+**Polish UX :** `████░░░░░░░░░░░░░░░░` 20% 🔄
 
 **MVP TOTAL :** `███████████████░░░░░` **75%** 🔥🔥🔥
 
@@ -66,6 +72,7 @@
 ## 🚀 COMMENT TESTER
 
 ### Démarrage rapide :
+
 ```bash
 git checkout feature/admin-crud
 git pull origin feature/admin-crud
@@ -73,6 +80,7 @@ npm run dev
 ```
 
 ### URLs à tester :
+
 ```
 ✅ http://localhost:3001/admin/categories
 ⏳ http://localhost:3001/admin/dishes (à créer)
@@ -80,6 +88,7 @@ npm run dev
 ```
 
 ### Test API direct :
+
 ```bash
 # Lister catégories
 curl http://localhost:3001/api/categories
@@ -99,6 +108,7 @@ curl -X POST http://localhost:3001/api/upload \
 ## 🎯 Ce qu'il reste (2-4h)
 
 ### Page Dishes (1-2h)
+
 - [ ] Créer `useDishes` hook
 - [ ] Dupliquer page Categories
 - [ ] Ajouter sélection catégorie (dropdown)
@@ -107,6 +117,7 @@ curl -X POST http://localhost:3001/api/upload \
 - [ ] Upload image plat
 
 ### Page Menus (1-2h)
+
 - [ ] Créer `useMenus` hook
 - [ ] Liste avec badge "actif"
 - [ ] Modal avec sélection multi-plats (checkboxes)
@@ -115,6 +126,7 @@ curl -X POST http://localhost:3001/api/upload \
 - [ ] Preview du menu
 
 ### Intégration & Polish (30min-1h)
+
 - [ ] Intégrer QR code sur page `/admin`
 - [ ] Tests manuels complets
 - [ ] Corrections bugs éventuels
@@ -125,6 +137,7 @@ curl -X POST http://localhost:3001/api/upload \
 ## 💾 Fichiers Créés (cette session)
 
 ### Backend
+
 ```
 app/api/categories/route.ts
 app/api/categories/[id]/route.ts
@@ -137,6 +150,7 @@ app/api/upload/route.ts
 ```
 
 ### Frontend Components
+
 ```
 app/components/admin/Modal.tsx
 app/components/admin/FormInput.tsx
@@ -149,18 +163,21 @@ app/components/admin/ImageUpload.tsx (prévu)
 ```
 
 ### Hooks
+
 ```
 app/components/admin/useCategories.ts
 app/components/admin/useUpload.ts
 ```
 
 ### Pages
+
 ```
 app/admin/layout.tsx
 app/admin/categories/page.tsx
 ```
 
 ### Config
+
 ```
 tailwind.config.js (converti ESM)
 next.config.ts (images Hygraph)
@@ -173,6 +190,7 @@ next.config.ts (images Hygraph)
 ## 🎨 Design System Utilisé
 
 ### Palette de Couleurs
+
 ```css
 Primary (Brun café):   #795548
 Secondary (Vert lime): #689F38
@@ -180,6 +198,7 @@ Accent (Ambre):        #FFB300
 ```
 
 ### Composants DaisyUI
+
 ```
 ✅ btn btn-primary → Boutons actions
 ✅ card bg-base-100 → Cards contenu
@@ -195,12 +214,14 @@ Accent (Ambre):        #FFB300
 ## 🔧 Stack Technique
 
 ### Backend
+
 - Next.js 15 App Router
 - GraphQL (graphql-request)
 - Hygraph CMS
 - TypeScript strict
 
 ### Frontend
+
 - React 19
 - Tailwind CSS 3
 - DaisyUI 5 (Material Design)
@@ -208,6 +229,7 @@ Accent (Ambre):        #FFB300
 - Zod validation (prévu)
 
 ### Upload
+
 - browser-image-compression
 - Hygraph Assets API
 - Base64 encoding
@@ -228,17 +250,17 @@ Accent (Ambre):        #FFB300
 
 ## 📈 Statistiques
 
-| Métrique | Valeur |
-|----------|--------|
-| Commits | 12+ commits |
-| Fichiers créés | 20+ fichiers |
-| Lignes de code | ~2500 lignes |
-| Routes API | 8 routes |
-| Composants UI | 8 composants |
-| Hooks custom | 2 hooks |
-| Pages admin | 1 page (3 prévues) |
-| Temps passé | ~5-6h |
-| Progression MVP | **75%** |
+| Métrique        | Valeur             |
+| --------------- | ------------------ |
+| Commits         | 12+ commits        |
+| Fichiers créés  | 20+ fichiers       |
+| Lignes de code  | ~2500 lignes       |
+| Routes API      | 8 routes           |
+| Composants UI   | 8 composants       |
+| Hooks custom    | 2 hooks            |
+| Pages admin     | 1 page (3 prévues) |
+| Temps passé     | ~5-6h              |
+| Progression MVP | **75%**            |
 
 ---
 
@@ -302,6 +324,7 @@ npm run dev
 ## 📝 Notes Importantes
 
 ### Variables d'Environnement (.env.local)
+
 ```env
 NEXT_PUBLIC_HYGRAPH_URL=https://api-eu-west-2.hygraph.com/v2/.../master
 HYGRAPH_TOKEN=eyJ... (token avec permissions CRUD)
@@ -309,6 +332,7 @@ NEXT_PUBLIC_BASE_URL=http://localhost:3001
 ```
 
 ### Hygraph - Modèles Requis
+
 ```
 ✅ Category (name, slug, description, order, icon, image)
 ⏳ Dish (name, slug, description, price, category, available, image)
@@ -316,6 +340,7 @@ NEXT_PUBLIC_BASE_URL=http://localhost:3001
 ```
 
 ### Permissions Hygraph
+
 ```
 Public API: Read only
 Token API: Full CRUD + Publish
@@ -326,6 +351,7 @@ Token API: Full CRUD + Publish
 ## 🎯 Objectif Final
 
 **Interface admin complète où le restaurateur peut :**
+
 - ✅ Gérer catégories (nom, icône, image, ordre)
 - ⏳ Gérer plats (nom, description, prix, catégorie, image, dispo)
 - ⏳ Gérer menus (nom, sélection plats, activation)

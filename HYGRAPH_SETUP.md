@@ -36,6 +36,7 @@ Guide détaillé pour configurer Hygraph (anciennement GraphCMS) pour le projet 
 ### Modèle 1 : Dish (Plat) 🍽️
 
 **Création du modèle :**
+
 1. Dans Hygraph, allez dans `Schema`
 2. Cliquez sur `+ Add` → `Model`
 3. Display Name : `Dish`
@@ -44,15 +45,15 @@ Guide détaillé pour configurer Hygraph (anciennement GraphCMS) pour le projet 
 
 **Ajout des champs :**
 
-| Champ | Type | Configuration | Requis |
-|-------|------|---------------|--------|
-| **name** | Single line text | - | ✅ Oui |
-| **slug** | Slug | Base field: `name`, Make unique | ✅ Oui |
-| **description** | Multi line text | - | ✅ Oui |
-| **price** | Float | Min: 0 | ✅ Oui |
-| **category** | Enumeration | Values: `Entrées`, `Plats`, `Desserts`, `Boissons` | ✅ Oui |
-| **available** | Boolean | Default: `true` | ❌ Non |
-| **image** | Asset | Single asset, Allow only images | ❌ Non |
+| Champ           | Type             | Configuration                                      | Requis |
+| --------------- | ---------------- | -------------------------------------------------- | ------ |
+| **name**        | Single line text | -                                                  | ✅ Oui |
+| **slug**        | Slug             | Base field: `name`, Make unique                    | ✅ Oui |
+| **description** | Multi line text  | -                                                  | ✅ Oui |
+| **price**       | Float            | Min: 0                                             | ✅ Oui |
+| **category**    | Enumeration      | Values: `Entrées`, `Plats`, `Desserts`, `Boissons` | ✅ Oui |
+| **available**   | Boolean          | Default: `true`                                    | ❌ Non |
+| **image**       | Asset            | Single asset, Allow only images                    | ❌ Non |
 
 **Détails de configuration :**
 
@@ -117,6 +118,7 @@ Guide détaillé pour configurer Hygraph (anciennement GraphCMS) pour le projet 
 ### Modèle 2 : Reservation (Réservation) 📅
 
 **Création du modèle :**
+
 1. `Schema` → `+ Add` → `Model`
 2. Display Name : `Reservation`
 3. API ID : `Reservation`
@@ -124,16 +126,16 @@ Guide détaillé pour configurer Hygraph (anciennement GraphCMS) pour le projet 
 
 **Ajout des champs :**
 
-| Champ | Type | Configuration | Requis |
-|-------|------|---------------|--------|
-| **name** | Single line text | - | ✅ Oui |
-| **email** | Single line text | Validation: Email format | ✅ Oui |
-| **phone** | Single line text | - | ✅ Oui |
-| **date** | Date | - | ✅ Oui |
-| **time** | Single line text | - | ✅ Oui |
-| **guests** | Int | Min: 1, Max: 20 | ✅ Oui |
-| **message** | Multi line text | - | ❌ Non |
-| **reservationStatus** | Enumeration | Values: `pending`, `confirmed`, `cancelled`, Default: `pending` | ✅ Oui |
+| Champ                 | Type             | Configuration                                                   | Requis |
+| --------------------- | ---------------- | --------------------------------------------------------------- | ------ |
+| **name**              | Single line text | -                                                               | ✅ Oui |
+| **email**             | Single line text | Validation: Email format                                        | ✅ Oui |
+| **phone**             | Single line text | -                                                               | ✅ Oui |
+| **date**              | Date             | -                                                               | ✅ Oui |
+| **time**              | Single line text | -                                                               | ✅ Oui |
+| **guests**            | Int              | Min: 1, Max: 20                                                 | ✅ Oui |
+| **message**           | Multi line text  | -                                                               | ❌ Non |
+| **reservationStatus** | Enumeration      | Values: `pending`, `confirmed`, `cancelled`, Default: `pending` | ✅ Oui |
 
 **Détails de configuration :**
 
@@ -209,6 +211,7 @@ Guide détaillé pour configurer Hygraph (anciennement GraphCMS) pour le projet 
 ### 3.2 Configurer les Permissions
 
 **Pour le modèle Dish :**
+
 ```
 Public API Permissions (sans token) :
 ✅ Read (pour afficher le menu publiquement)
@@ -223,6 +226,7 @@ Permanent Auth Token Permissions :
 ```
 
 **Pour le modèle Reservation :**
+
 ```
 Public API Permissions (sans token) :
 ✅ Create (pour permettre les réservations depuis le site)
@@ -237,6 +241,7 @@ Permanent Auth Token Permissions :
 ```
 
 **Pour les Assets :**
+
 ```
 Public API Permissions :
 ✅ Read
@@ -273,6 +278,7 @@ NEXT_PUBLIC_BASE_URL=http://localhost:3000
 ```
 
 **Remplacez :**
+
 - `VOTRE_PROJECT_ID` par l'ID de votre projet (visible dans l'URL)
 - `votre_token_permanent_ici` par le token créé à l'étape 3
 
@@ -300,6 +306,7 @@ NEXT_PUBLIC_BASE_URL=http://localhost:3000
 4. Remplissez les champs :
 
 **Exemple 1 - Entrée :**
+
 ```
 Name: Œuf en meurette
 Slug: oeuf-en-meurette (auto-généré)
@@ -311,6 +318,7 @@ Image: [Uploadez une image]
 ```
 
 **Exemple 2 - Plat :**
+
 ```
 Name: Bœuf bourguignon
 Slug: boeuf-bourguignon
@@ -322,6 +330,7 @@ Image: [Uploadez une image]
 ```
 
 **Exemple 3 - Dessert :**
+
 ```
 Name: Tarte tatin
 Slug: tarte-tatin
@@ -402,20 +411,24 @@ Vous devriez voir vos plats s'afficher !
 ## 🔧 Dépannage
 
 ### Problème : "Invalid API token"
+
 - ✅ Vérifiez que le token dans `.env.local` est correct
 - ✅ Vérifiez que le token a les bonnes permissions
 - ✅ Redémarrez le serveur Next.js après avoir modifié `.env.local`
 
 ### Problème : "No content found"
+
 - ✅ Vérifiez que vous avez **publié** le contenu (bouton "Publish")
 - ✅ Vérifiez l'URL de l'API dans `.env.local`
 - ✅ Vérifiez les permissions publiques dans Hygraph
 
 ### Problème : "Can't create reservation"
+
 - ✅ Vérifiez que le modèle Reservation a la permission "Create" publique
 - ✅ Vérifiez que tous les champs requis sont remplis
 
 ### Problème : Images non affichées
+
 - ✅ Vérifiez que les Assets ont la permission "Read" publique
 - ✅ Vérifiez que l'image a été uploadée et publiée
 
@@ -449,7 +462,7 @@ Vous devriez voir vos plats s'afficher !
 ---
 
 **Besoin d'aide ?**
+
 - 📖 Documentation : https://hygraph.com/docs
 - 💬 Discord Hygraph : https://hygraph.com/discord
 - 🐛 Issues GitHub : https://github.com/ujju16/lesotlylaisse71/issues
-

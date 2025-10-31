@@ -13,11 +13,13 @@ npm run dev
 ## 📋 Checklist Tests Page Categories
 
 ### 1. Accéder à la page
+
 ```
 URL: http://localhost:3001/admin/categories
 ```
 
 **Attendu :**
+
 - ✅ Layout admin avec navigation
 - ✅ Header "Catégories"
 - ✅ Bouton "Nouvelle Catégorie"
@@ -30,6 +32,7 @@ URL: http://localhost:3001/admin/categories
 **Action :** Cliquer sur "Nouvelle Catégorie"
 
 **Attendu :**
+
 - ✅ Modal s'ouvre
 - ✅ Formulaire avec tous les champs :
   - Nom
@@ -39,6 +42,7 @@ URL: http://localhost:3001/admin/categories
   - Image (drag & drop zone)
 
 **Test 1 : Créer catégorie simple**
+
 ```
 Nom: Entrées
 Description: Nos délicieuses entrées
@@ -47,6 +51,7 @@ Icône: 🥗
 ```
 
 **Attendu :**
+
 - ✅ Toast de succès "Catégorie créée"
 - ✅ Modal se ferme
 - ✅ Nouvelle card apparaît dans la grille
@@ -59,6 +64,7 @@ Icône: 🥗
 **Action :** Créer catégorie avec image
 
 **Test :**
+
 1. Cliquer "Nouvelle Catégorie"
 2. Remplir le formulaire
 3. Drag & drop une image (ou cliquer pour parcourir)
@@ -66,6 +72,7 @@ Icône: 🥗
 5. Sauvegarder
 
 **Attendu :**
+
 - ✅ Image uploadée vers Hygraph
 - ✅ Preview affichée pendant upload
 - ✅ Loader pendant compression
@@ -79,16 +86,19 @@ Icône: 🥗
 **Action :** Cliquer sur une catégorie existante
 
 **Attendu :**
+
 - ✅ Modal s'ouvre avec données pré-remplies
 - ✅ Champs éditables
 - ✅ Image actuelle affichée (si existe)
 
 **Test :**
+
 1. Modifier le nom : "Entrées" → "Nos Entrées"
 2. Changer l'icône : 🥗 → 🍽️
 3. Sauvegarder
 
 **Attendu :**
+
 - ✅ Toast "Catégorie modifiée"
 - ✅ Card mise à jour immédiatement
 - ✅ Pas de rechargement de page
@@ -100,15 +110,18 @@ Icône: 🥗
 **Action :** Cliquer icône poubelle sur une card
 
 **Attendu :**
+
 - ✅ Dialog de confirmation s'affiche
 - ✅ Message : "Êtes-vous sûr de vouloir supprimer..."
 
 **Test Annulation :**
+
 - Cliquer "Annuler"
 - ✅ Dialog se ferme
 - ✅ Catégorie toujours présente
 
 **Test Confirmation :**
+
 - Cliquer "Supprimer"
 - ✅ Toast "Catégorie supprimée"
 - ✅ Card disparaît immédiatement
@@ -118,18 +131,21 @@ Icône: 🥗
 ### 6. Tests d'Erreur
 
 **Test 1 : Champ vide**
+
 ```
 Action: Créer catégorie sans nom
 Attendu: Validation HTML5 ou message d'erreur
 ```
 
 **Test 2 : Upload fichier trop gros**
+
 ```
 Action: Upload image > 5MB
 Attendu: Compression automatique
 ```
 
 **Test 3 : Hygraph indisponible**
+
 ```
 Action: Token invalide dans .env.local
 Attendu: Toast d'erreur avec message explicite
@@ -142,15 +158,18 @@ Attendu: Toast d'erreur avec message explicite
 ### Layout & Responsive
 
 **Desktop (>1024px) :**
+
 - ✅ Grid 3 colonnes
 - ✅ Cards espacées uniformément
 - ✅ Navigation latérale visible
 
 **Tablet (768-1023px) :**
+
 - ✅ Grid 2 colonnes
 - ✅ Navigation collapse
 
 **Mobile (<768px) :**
+
 - ✅ Grid 1 colonne
 - ✅ Modal plein écran
 - ✅ Boutons adaptés au touch
@@ -158,15 +177,18 @@ Attendu: Toast d'erreur avec message explicite
 ### Material Design
 
 **Colors :**
+
 - ✅ Primary: #795548 (brun)
 - ✅ Secondary: #689F38 (vert)
 - ✅ Accent: #FFB300 (ambre)
 
 **Shadows :**
+
 - ✅ Cards avec elevation
 - ✅ Modal avec backdrop
 
 **Animations :**
+
 - ✅ Modal fade in/out
 - ✅ Toast slide in/out
 - ✅ Hover effects sur cards
@@ -182,6 +204,7 @@ curl http://localhost:3001/api/categories
 ```
 
 **Attendu :**
+
 ```json
 {
   "success": true,
@@ -211,6 +234,7 @@ curl -X POST http://localhost:3001/api/categories \
 ```
 
 **Attendu :**
+
 ```json
 {
   "success": true,
@@ -241,19 +265,25 @@ curl -X DELETE http://localhost:3001/api/categories/[ID]
 ## 📊 Tests Performance
 
 ### Build Time
+
 ```bash
 npm run build
 ```
+
 **Objectif :** < 15 secondes
 
 ### Dev Server Startup
+
 ```bash
 npm run dev
 ```
+
 **Objectif :** < 2 secondes
 
 ### Page Load
+
 **Objectif :**
+
 - First Contentful Paint: < 1s
 - Time to Interactive: < 2s
 
@@ -262,11 +292,13 @@ npm run dev
 ## 🐛 Bugs Connus
 
 ### Résolu ✅
+
 - ~~CSS picker pseudo-element~~ → DaisyUI 5.3.9
 - ~~Top-level await~~ → Import standard
 - ~~Next.js 15 params~~ → Promise<>
 
 ### À surveiller ⚠️
+
 - Upload images > 10MB (compression)
 - Hygraph rate limiting (si beaucoup de requêtes)
 
@@ -275,6 +307,7 @@ npm run dev
 ## ✅ Critères de Succès
 
 **Must Have :**
+
 - ✅ CRUD complet fonctionne
 - ✅ Upload images vers Hygraph
 - ✅ Toast notifications
@@ -282,6 +315,7 @@ npm run dev
 - ✅ Responsive
 
 **Nice to Have :**
+
 - ✅ Auto-génération slug
 - ✅ Compression images
 - ✅ Material Design
@@ -311,6 +345,7 @@ Une fois Dishes & Menus créés :
 ---
 
 **🎯 Pour tester maintenant :**
+
 ```bash
 npm run dev
 # → http://localhost:3001/admin/categories

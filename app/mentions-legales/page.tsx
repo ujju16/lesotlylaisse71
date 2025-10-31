@@ -3,17 +3,14 @@ import styles from './mentions-legales.module.css';
 
 export const metadata = {
   title: 'Mentions légales | LeSotLyLaisse71',
-  description: 'Mentions légales du restaurant LeSotLyLaisse71 - Informations légales et réglementaires',
+  description:
+    'Mentions légales du restaurant LeSotLyLaisse71 - Informations légales et réglementaires',
 };
 
 export default function MentionsLegalesPage() {
   return (
-    <PageTemplate 
-      title="Mentions légales" 
-      subtitle="Informations légales et réglementaires"
-    >
+    <PageTemplate title="Mentions légales" subtitle="Informations légales et réglementaires">
       <div className={styles.legalContainer}>
-        
         <div className={styles.infoCard}>
           <div className={styles.cardHeader}>
             <h2 className={styles.cardTitle}>📋 Éditeur du site</h2>
@@ -34,7 +31,11 @@ export default function MentionsLegalesPage() {
               </div>
               <div className={styles.infoItem}>
                 <span className={styles.label}>Adresse</span>
-                <span className={styles.value}>Messey Sur Grosne<br/>71390 Saône-et-Loire, France</span>
+                <span className={styles.value}>
+                  Messey Sur Grosne
+                  <br />
+                  71390 Saône-et-Loire, France
+                </span>
               </div>
               <div className={styles.infoItem}>
                 <span className={styles.label}>Téléphone</span>
@@ -60,12 +61,18 @@ export default function MentionsLegalesPage() {
               </div>
               <div className={styles.infoItem}>
                 <span className={styles.label}>Adresse</span>
-                <span className={styles.value}>440 N Barranca Ave #4133<br/>Covina, CA 91723, USA</span>
+                <span className={styles.value}>
+                  440 N Barranca Ave #4133
+                  <br />
+                  Covina, CA 91723, USA
+                </span>
               </div>
               <div className={styles.infoItem}>
                 <span className={styles.label}>Site web</span>
                 <span className={styles.value}>
-                  <a href="https://vercel.com" target="_blank" rel="noopener noreferrer">vercel.com</a>
+                  <a href="https://vercel.com" target="_blank" rel="noopener noreferrer">
+                    vercel.com
+                  </a>
                 </span>
               </div>
             </div>
@@ -85,7 +92,9 @@ export default function MentionsLegalesPage() {
               <div className={styles.infoItem}>
                 <span className={styles.label}>GitHub</span>
                 <span className={styles.value}>
-                  <a href="https://github.com/ujju16" target="_blank" rel="noopener noreferrer">@ujju16</a>
+                  <a href="https://github.com/ujju16" target="_blank" rel="noopener noreferrer">
+                    @ujju16
+                  </a>
                 </span>
               </div>
               <div className={styles.infoItem}>
@@ -102,15 +111,20 @@ export default function MentionsLegalesPage() {
           </div>
           <div className={styles.cardContent}>
             <p>
-              L&apos;ensemble du contenu présent sur ce site web est la propriété exclusive de LeSotLyLaisse71. 
-              Toute reproduction, distribution, modification ou publication, même partielle, est strictement 
-              interdite sans accord préalable écrit.
+              L&apos;ensemble du contenu présent sur ce site web est la propriété exclusive de
+              LeSotLyLaisse71. Toute reproduction, distribution, modification ou publication, même
+              partielle, est strictement interdite sans accord préalable écrit.
             </p>
             <p>
               Le code source de ce site est disponible sous licence MIT sur{' '}
-              <a href="https://github.com/ujju16/lesotlylaisse71" target="_blank" rel="noopener noreferrer">
+              <a
+                href="https://github.com/ujju16/lesotlylaisse71"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 GitHub
-              </a>.
+              </a>
+              .
             </p>
           </div>
         </div>
@@ -121,8 +135,8 @@ export default function MentionsLegalesPage() {
           </div>
           <div className={styles.cardContent}>
             <p>
-              Conformément au Règlement Général sur la Protection des Données (RGPD) et à la 
-              loi Informatique et Libertés, vous disposez des droits suivants :
+              Conformément au Règlement Général sur la Protection des Données (RGPD) et à la loi
+              Informatique et Libertés, vous disposez des droits suivants :
             </p>
             <ul className={styles.list}>
               <li>Droit d&apos;accès à vos données personnelles</li>
@@ -131,7 +145,8 @@ export default function MentionsLegalesPage() {
               <li>Droit à la portabilité de vos données</li>
             </ul>
             <p className={styles.highlight}>
-              Pour exercer ces droits, contactez-nous à : <strong>contact@lesotlylaisse71.fr</strong>
+              Pour exercer ces droits, contactez-nous à :{' '}
+              <strong>contact@lesotlylaisse71.fr</strong>
             </p>
           </div>
         </div>
@@ -142,12 +157,12 @@ export default function MentionsLegalesPage() {
           </div>
           <div className={styles.cardContent}>
             <p>
-              LeSotLyLaisse71 décline toute responsabilité concernant les dommages directs ou indirects 
-              pouvant résulter de l&apos;accès au site ou de son utilisation.
+              LeSotLyLaisse71 décline toute responsabilité concernant les dommages directs ou
+              indirects pouvant résulter de l&apos;accès au site ou de son utilisation.
             </p>
             <p>
-              Les informations sont fournies à titre indicatif et peuvent contenir des inexactitudes. 
-              Le site est mis à jour régulièrement.
+              Les informations sont fournies à titre indicatif et peuvent contenir des
+              inexactitudes. Le site est mis à jour régulièrement.
             </p>
           </div>
         </div>
@@ -158,14 +173,14 @@ export default function MentionsLegalesPage() {
             <a href="mailto:contact@lesotlylaisse71.fr">contact@lesotlylaisse71.fr</a>
           </p>
           <p className={styles.lastUpdate}>
-            Dernière mise à jour : {new Date().toLocaleDateString('fr-FR', { 
-              year: 'numeric', 
-              month: 'long', 
-              day: 'numeric' 
+            Dernière mise à jour :{' '}
+            {new Date().toLocaleDateString('fr-FR', {
+              year: 'numeric',
+              month: 'long',
+              day: 'numeric',
             })}
           </p>
         </div>
-
       </div>
     </PageTemplate>
   );

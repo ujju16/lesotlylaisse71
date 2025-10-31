@@ -28,7 +28,10 @@ export function ToastProvider({ children }: { children: ReactNode }) {
       {children}
       <div className="toast toast-end toast-bottom z-50">
         {toasts.map((toast) => (
-          <div key={toast.id} className={`alert ${toast.type === 'success' ? 'alert-success' : toast.type === 'error' ? 'alert-error' : toast.type === 'warning' ? 'alert-warning' : 'alert-info'} shadow-lg`}>
+          <div
+            key={toast.id}
+            className={`alert ${toast.type === 'success' ? 'alert-success' : toast.type === 'error' ? 'alert-error' : toast.type === 'warning' ? 'alert-warning' : 'alert-info'} shadow-lg`}
+          >
             <span>{toast.message}</span>
           </div>
         ))}

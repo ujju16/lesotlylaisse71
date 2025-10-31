@@ -16,9 +16,11 @@ export default function Modal({ isOpen, onClose, title, children, size = 'md' }:
   return (
     <div className="modal modal-open">
       <div className={`modal-box ${sizeClasses[size]} max-h-[90vh] overflow-y-auto`}>
-        <div className="flex items-center justify-between mb-4">
-          <h3 className="font-bold text-2xl text-primary">{title}</h3>
-          <button onClick={onClose} className="btn btn-sm btn-circle btn-ghost">✕</button>
+        <div className="mb-4 flex items-center justify-between">
+          <h3 className="text-2xl font-bold text-primary">{title}</h3>
+          <button onClick={onClose} className="btn btn-circle btn-ghost btn-sm">
+            ✕
+          </button>
         </div>
         <div className="py-4">{children}</div>
       </div>

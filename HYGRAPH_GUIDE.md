@@ -3,6 +3,7 @@
 ## 📋 Configuration Complète
 
 ### 1. Credentials Hygraph
+
 ```bash
 # Déjà configuré dans .env.local
 NEXT_PUBLIC_HYGRAPH_URL=https://api-eu-west-2.hygraph.com/v2/cmgz5sumn041u07vzbfvygjzt/master
@@ -14,6 +15,7 @@ HYGRAPH_TOKEN=eyJhbGci... (voir .env.local)
 ## 🎨 Modèles de Données
 
 ### Category (Catégorie de Menu)
+
 ```graphql
 model Category {
   id: ID!
@@ -33,6 +35,7 @@ model Category {
 **⚠️ IMPORTANT** : Hygraph interdit le nom `status` - utiliser `isActive` à la place.
 
 ### MenuItem (Plat du Menu)
+
 ```graphql
 model MenuItem {
   id: ID!
@@ -52,6 +55,7 @@ model MenuItem {
 ```
 
 ### QRCode (QR Code pour Menu)
+
 ```graphql
 model QRCode {
   id: ID!
@@ -64,6 +68,7 @@ model QRCode {
 ```
 
 ### Menu (Configuration de Menu)
+
 ```graphql
 model Menu {
   id: ID!
@@ -84,6 +89,7 @@ model Menu {
 ## 🔧 Configuration dans Hygraph
 
 ### Étape 1: Créer les Modèles
+
 1. Aller sur [Hygraph Dashboard](https://app.hygraph.com)
 2. Sélectionner votre projet: **lesotlylaisse71**
 3. Schema → Create Model
@@ -94,6 +100,7 @@ model Menu {
    - Menu
 
 ### Étape 2: Configurer les Relations
+
 ```
 Category → MenuItem (One-to-Many)
 Menu → Category (Many-to-Many)
@@ -101,7 +108,9 @@ Menu → QRCode (One-to-Many)
 ```
 
 ### Étape 3: Créer les Webhooks (optionnel)
+
 Pour invalider le cache Next.js à chaque modification:
+
 ```
 Webhook URL: https://votre-site.vercel.app/api/revalidate
 Secret: [générer un secret]
@@ -115,6 +124,7 @@ Triggers: Publish, Unpublish, Update
 ### Queries GraphQL
 
 #### Récupérer toutes les catégories
+
 ```graphql
 query GetCategories {
   categories(orderBy: order_ASC) {
@@ -137,6 +147,7 @@ query GetCategories {
 ```
 
 #### Récupérer le menu actif
+
 ```graphql
 query GetActiveMenu {
   menus(where: { isActive: true }, first: 1) {
@@ -168,16 +179,11 @@ query GetActiveMenu {
 ```
 
 #### Créer une catégorie
+
 ```graphql
 mutation CreateCategory($name: String!, $description: String, $icon: String, $order: Int!) {
   createCategory(
-    data: {
-      name: $name
-      description: $description
-      icon: $icon
-      order: $order
-      isActive: true
-    }
+    data: { name: $name, description: $description, icon: $icon, order: $order, isActive: true }
   ) {
     id
     name
@@ -191,7 +197,9 @@ mutation CreateCategory($name: String!, $description: String, $icon: String, $or
 ## 🎯 Interface Admin
 
 ### Page: `/admin/categories`
+
 Fonctionnalités:
+
 - ✅ Lister toutes les catégories
 - ✅ Créer une nouvelle catégorie
 - ✅ Modifier une catégorie
@@ -200,14 +208,18 @@ Fonctionnalités:
 - ✅ Réorganiser l'ordre
 
 ### Page: `/admin/menu` (à venir)
+
 Fonctionnalités:
+
 - 📋 Gérer les plats par catégorie
 - 🖼️ Upload d'images de plats
 - 💰 Gestion des prix
 - 🌱 Marquer végétarien/allergènes
 
 ### Page: `/admin/qrcode` (à venir)
+
 Fonctionnalités:
+
 - 📱 Générer un QR code unique
 - 🔗 Lier un QR code à un menu
 - 🔄 Changer le menu actif d'un QR code
@@ -218,6 +230,7 @@ Fonctionnalités:
 ## 🔐 Sécurité
 
 ### Permissions Hygraph
+
 1. Public API:
    - Read: Categories (isActive: true)
    - Read: MenuItems (isAvailable: true)
@@ -228,6 +241,7 @@ Fonctionnalités:
    - Manage: Assets
 
 ### Protection des Routes Admin
+
 ```typescript
 // middleware.ts
 export function middleware(request: NextRequest) {
@@ -246,18 +260,21 @@ export function middleware(request: NextRequest) {
 ## 🎨 Material Design Integration
 
 ### Composants Admin
+
 Tous les composants admin utilisent Material Design 3:
+
 - **Cards** : Élévation + ombres
 - **Boutons** : Filled, Outlined, Text
 - **Inputs** : Floating labels
 - **Colors** : Palette Material (Primary, Secondary, Accent)
 
 ### Charte Graphique
+
 ```css
 :root {
-  --primary: #795548;      /* Marron (terre, bois, tabac) */
-  --secondary: #689F38;    /* Vert (nature, produits locaux) */
-  --accent: #FFB300;       /* Jaune doré (chaleur, convivialité) */
+  --primary: #795548; /* Marron (terre, bois, tabac) */
+  --secondary: #689f38; /* Vert (nature, produits locaux) */
+  --accent: #ffb300; /* Jaune doré (chaleur, convivialité) */
 }
 ```
 
@@ -266,6 +283,7 @@ Tous les composants admin utilisent Material Design 3:
 ## 🚀 Commandes Utiles
 
 ### Développement
+
 ```bash
 # Démarrer le serveur de dev
 npm run dev
@@ -281,6 +299,7 @@ npm run quality
 ```
 
 ### Git
+
 ```bash
 # Créer une branche feature
 git checkout -b feature/nom-de-la-feature
@@ -298,31 +317,36 @@ git push origin feature/nom-de-la-feature
 ## 📱 Système QR Code
 
 ### Concept
+
 1. **Un seul QR code physique** au centre du restaurant
 2. **Plusieurs menus différents** configurables
 3. **Changement dynamique** via l'admin
 
 ### Workflow
+
 ```
-Restaurant imprime QR → Client scanne → 
+Restaurant imprime QR → Client scanne →
   → Système détecte le QR code →
     → Affiche le menu actif lié →
       → Client consulte le menu
 ```
 
 ### Changement de Menu
+
 Admin peut:
+
 1. Créer un nouveau menu (ex: "Menu Printemps")
 2. Changer le menu actif du QR code
 3. Le changement est immédiat pour tous les clients
 
 ### Implémentation
+
 ```typescript
 // app/menu/[qrcode]/page.tsx
 export default async function MenuPage({ params }: { params: { qrcode: string } }) {
   const qrCode = await getQRCode(params.qrcode);
   const activeMenu = qrCode.activeMenu;
-  
+
   return <MenuDisplay menu={activeMenu} />;
 }
 ```
@@ -332,21 +356,25 @@ export default async function MenuPage({ params }: { params: { qrcode: string } 
 ## 📊 Prochaines Étapes
 
 ### Phase 1: Catégories ✅
+
 - [x] Modèle Category dans Hygraph
 - [x] CRUD Catégories dans admin
 - [x] Upload d'images
 
 ### Phase 2: Plats 🚧
+
 - [ ] Modèle MenuItem dans Hygraph
 - [ ] CRUD Plats dans admin
 - [ ] Liaison Catégorie ↔ Plat
 
 ### Phase 3: QR Code 📋
+
 - [ ] Modèle QRCode dans Hygraph
 - [ ] Génération QR code unique
 - [ ] Page d'affichage menu public
 
 ### Phase 4: Multi-Menus 📋
+
 - [ ] Modèle Menu dans Hygraph
 - [ ] Gestion des menus multiples
 - [ ] Association QR ↔ Menu
@@ -356,14 +384,17 @@ export default async function MenuPage({ params }: { params: { qrcode: string } 
 ## 🆘 Dépannage
 
 ### Erreur: "Field 'status' not found"
+
 **Cause**: Hygraph interdit le nom `status`  
 **Solution**: Utiliser `isActive` à la place
 
 ### Erreur: "Unable to upload asset"
+
 **Cause**: Token API invalide ou permissions insuffisantes  
 **Solution**: Vérifier HYGRAPH_TOKEN dans .env.local
 
 ### Erreur: "Rate limit exceeded"
+
 **Cause**: Trop de requêtes API  
 **Solution**: Implémenter un cache ou augmenter le plan Hygraph
 

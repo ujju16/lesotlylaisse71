@@ -1,16 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-
-interface Category {
-  id: string;
-  name: string;
-  slug: string;
-  description?: string;
-  order: number;
-  icon?: string;
-  image?: { id: string; url: string };
-}
+import type { Category } from '@/lib/types';
 
 export function useCategories() {
   const [categories, setCategories] = useState<Category[]>([]);
@@ -34,7 +25,7 @@ export function useCategories() {
     }
   };
 
-  const createCategory = async (category: Omit<Category, 'id'>) => {
+  const createCategory = async (category: Omit<Category, 'id' | 'createdAt' | 'updatedAt'>) => {
     const res = await fetch('/api/categories', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },

@@ -22,6 +22,7 @@ NEXT_PUBLIC_BASE_URL=http://localhost:3000
 ## 📊 Modèles de données
 
 ### Category (Catégorie)
+
 - **Champs:**
   - `id`: ID unique (généré automatiquement)
   - `name`: Nom de la catégorie (String, requis)
@@ -32,6 +33,7 @@ NEXT_PUBLIC_BASE_URL=http://localhost:3000
   - `isActive`: Statut actif/inactif (Boolean)
 
 ### MenuItem (Élément de menu)
+
 - **Champs:**
   - `id`: ID unique
   - `name`: Nom du plat (String, requis)
@@ -48,6 +50,7 @@ NEXT_PUBLIC_BASE_URL=http://localhost:3000
   - `order`: Ordre dans la catégorie (Int)
 
 ### Menu
+
 - **Champs:**
   - `id`: ID unique
   - `name`: Nom du menu (String, requis)
@@ -60,6 +63,7 @@ NEXT_PUBLIC_BASE_URL=http://localhost:3000
   - `validUntil`: Date de fin (Date)
 
 ### QRCode
+
 - **Champs:**
   - `id`: ID unique
   - `name`: Nom du QR Code (String, requis)
@@ -138,6 +142,7 @@ const data = await hygraphClient.request(query, { categorySlug: 'entrees' });
 ## 📱 Interface d'administration
 
 L'interface d'administration (`/admin`) permet de:
+
 - ✅ Gérer les catégories (CRUD complet)
 - ✅ Uploader des images
 - ✅ Générer des QR codes
@@ -147,6 +152,7 @@ L'interface d'administration (`/admin`) permet de:
 ## 🎨 Material Design
 
 L'interface admin utilise:
+
 - DaisyUI 4.12.14 (framework CSS)
 - Thème personnalisé avec couleurs Material Design
 - Composants réutilisables dans `/app/components`

@@ -26,15 +26,9 @@ export default async function Image() {
           fontFamily: 'system-ui',
         }}
       >
-        <div style={{ fontSize: 80, fontWeight: 'bold', marginBottom: 20 }}>
-          LeSotLyLaisse71
-        </div>
-        <div style={{ fontSize: 40 }}>
-          Restaurant · Bar · Tabac
-        </div>
-        <div style={{ fontSize: 30, marginTop: 20, opacity: 0.9 }}>
-          Messey Sur Grosne
-        </div>
+        <div style={{ fontSize: 80, fontWeight: 'bold', marginBottom: 20 }}>LeSotLyLaisse71</div>
+        <div style={{ fontSize: 40 }}>Restaurant · Bar · Tabac</div>
+        <div style={{ fontSize: 30, marginTop: 20, opacity: 0.9 }}>Messey Sur Grosne</div>
       </div>
     ),
     {

@@ -25,10 +25,7 @@ export async function GET() {
     return NextResponse.json({ success: true, data: data.categories });
   } catch (error) {
     console.error('Error fetching categories:', error);
-    return NextResponse.json(
-      { success: false, error: error.message },
-      { status: 500 }
-    );
+    return NextResponse.json({ success: false, error: (error as Error).message }, { status: 500 });
   }
 }
 
@@ -75,16 +72,13 @@ export async function POST(request: NextRequest) {
 
     const variables = { name, slug, description, order, icon, imageId };
     const data: any = await adminHygraphClient.request(mutation, variables);
-    
+
     return NextResponse.json({
       success: true,
       data: data.createCategory,
       message: 'Catégorie créée',
     });
   } catch (error) {
-    return NextResponse.json(
-      { success: false, error: error.message },
-      { status: 500 }
-    );
+    return NextResponse.json({ success: false, error: (error as Error).message }, { status: 500 });
   }
 }

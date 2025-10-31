@@ -23,9 +23,9 @@ export default function Navigation() {
       <div className={styles.navContainer}>
         {/* Logo */}
         <Link href="/" className={styles.logo}>
-          <Image 
-            src="/logo_soly.png" 
-            alt="LeSotLyLaisse71 Logo" 
+          <Image
+            src="/logo_soly.png"
+            alt="LeSotLyLaisse71 Logo"
             width={48}
             height={48}
             className={styles.logoImage}
@@ -41,7 +41,7 @@ export default function Navigation() {
         <ul className={styles.navLinks}>
           {navItems.map((item) => (
             <li key={item.href}>
-              <Link 
+              <Link
                 href={item.href}
                 className={pathname === item.href ? styles.navLinkActive : styles.navLink}
               >
@@ -52,12 +52,10 @@ export default function Navigation() {
         </ul>
 
         {/* CTA Button */}
-        <button className={styles.ctaButton}>
-          Réserver
-        </button>
+        <button className={styles.ctaButton}>Réserver</button>
 
         {/* Mobile Menu Button */}
-        <button 
+        <button
           className={styles.mobileMenuButton}
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           aria-label="Menu"
@@ -72,9 +70,11 @@ export default function Navigation() {
           <ul className={styles.mobileNavLinks}>
             {navItems.map((item) => (
               <li key={item.href}>
-                <Link 
+                <Link
                   href={item.href}
-                  className={pathname === item.href ? styles.mobileNavLinkActive : styles.mobileNavLink}
+                  className={
+                    pathname === item.href ? styles.mobileNavLinkActive : styles.mobileNavLink
+                  }
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   {item.label}
@@ -82,9 +82,7 @@ export default function Navigation() {
               </li>
             ))}
           </ul>
-          <button className={styles.mobileCtaButton}>
-            Réserver
-          </button>
+          <button className={styles.mobileCtaButton}>Réserver</button>
         </div>
       )}
     </nav>

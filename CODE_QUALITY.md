@@ -201,6 +201,30 @@ Build: ✅ ~7s
 
 ---
 
+## 🐛 Problèmes Résolus
+
+### DaisyUI v5.3.8+ Bug (Turbopack)
+**Erreur** : `'picker' is not recognized as a valid pseudo-element`  
+**Solution** : Downgrade à DaisyUI v5.3.4
+
+### Next.js 15 + Webpack + PostCSS
+**Erreur** : `Module parse failed: Unexpected character '@'`  
+**Cause** : package.json `"type": "module"` nécessite `.cjs` extension  
+**Solution** :
+```bash
+mv postcss.config.js postcss.config.cjs
+mv tailwind.config.js tailwind.config.cjs
+```
+
+### Dev Server
+**Recommandation** : Utiliser Turbopack (plus stable avec Next.js 15)
+```bash
+npm run dev:turbo  # ✅ Utiliser par défaut
+npm run dev        # ⚠️  Webpack mode (bugs PostCSS)
+```
+
+---
+
 ## 🔄 CI/CD (Future)
 
 GitHub Actions à créer :

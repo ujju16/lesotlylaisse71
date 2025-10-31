@@ -1,6 +1,6 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
 
 :root {
   /* Charte graphique Restaurant LeSotLyLaisse71 - Material Design */
@@ -17,7 +17,7 @@
   --primary-800: #4E342E;
   --primary-900: #3E2723;
   
-  /* Palette secondaire - Vert olive naturel */
+/* Palette secondaire - Vert olive naturel */
   --secondary-50: #F1F8E9;
   --secondary-100: #DCEDC8;
   --secondary-200: #C5E1A5;
@@ -95,12 +95,6 @@ body {
 a {
   color: inherit;
   text-decoration: none;
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
 }
 
 /* Fix DaisyUI 5.3.10 picker pseudo-element bug */

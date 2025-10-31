@@ -194,18 +194,22 @@ npm run quality && npm run build
 ### État Actuel
 ```
 TypeScript: ✅ 0 errors
-ESLint: ⚠️ ~50 warnings (any, img)
+ESLint: ✅ 0 warnings
 Format: ✅ OK
-Build: ✅ ~7s
+Build: ✅ ~7s (Turbopack)
 ```
 
 ---
 
 ## 🐛 Problèmes Résolus
 
-### DaisyUI v5.3.8+ Bug (Turbopack)
+### DaisyUI v5.3.x Bug (Turbopack)
 **Erreur** : `'picker' is not recognized as a valid pseudo-element`  
-**Solution** : Downgrade à DaisyUI v5.3.4
+**Cause** : DaisyUI 5.3.x génère du CSS invalide avec `::picker(select)`  
+**Solution** : Downgrade à DaisyUI v4.12.14 (version stable)
+```bash
+npm install daisyui@4.12.14 --save-exact
+```
 
 ### Next.js 15 + Webpack + PostCSS
 **Erreur** : `Module parse failed: Unexpected character '@'`  
@@ -217,10 +221,10 @@ mv tailwind.config.js tailwind.config.cjs
 ```
 
 ### Dev Server
-**Recommandation** : Utiliser Turbopack (plus stable avec Next.js 15)
+**Recommandation** : Turbopack est maintenant activé par défaut
 ```bash
-npm run dev:turbo  # ✅ Utiliser par défaut
-npm run dev        # ⚠️  Webpack mode (bugs PostCSS)
+npm run dev         # ✅ Utiliser par défaut (Turbopack)
+npm run dev:legacy  # ⚠️ Webpack mode (plus lent)
 ```
 
 ---

@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import "./charte-graphique.css";
 import Navigation from "./components/Navigation";
 import Footer from "./components/Footer";
 import AxeptioConsent from "./components/AxeptioConsent";

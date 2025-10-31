@@ -4,16 +4,16 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "next dev --turbopack",
+    "dev": "next dev",
+    "dev:turbo": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
     "lint:fix": "next lint --fix",
-    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,css,md}\"",
-    "format:check": "prettier --check \"**/*.{js,jsx,ts,tsx,json,css,md}\"",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
     "type-check": "tsc --noEmit",
-    "quality": "npm run format && npm run lint:fix && npm run type-check",
-    "mcp": "node mcp-server.js"
+    "quality": "npm run format && npm run lint && npm run type-check"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",
@@ -21,7 +21,7 @@
     "@types/qrcode": "^1.5.6",
     "autoprefixer": "^10.4.21",
     "browser-image-compression": "^2.0.2",
-    "daisyui": "^5.3.8",
+    "daisyui": "5.3.4",
     "graphql": "^16.11.0",
     "graphql-request": "^7.3.1",
     "next": "15.3.3",
@@ -43,6 +43,7 @@
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-prettier": "^5.5.4",
     "postcss": "^8.5.6",
+    "postcss-replace": "^2.0.1",
     "prettier": "^3.6.2",
     "prettier-plugin-tailwindcss": "^0.6.14",
     "tailwindcss": "^3.4.18",

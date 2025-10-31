@@ -27,13 +27,14 @@ export default function MenuPage() {
     }
   }, []);
 
-  const filteredItems = selectedCategory === 'all'
-    ? menuItems
-    : menuItems.filter(item => item.category === selectedCategory);
+  const filteredItems =
+    selectedCategory === 'all'
+      ? menuItems
+      : menuItems.filter((item) => item.category === selectedCategory);
 
-  const itemsByCategory = categories.map(category => ({
+  const itemsByCategory = categories.map((category) => ({
     ...category,
-    items: menuItems.filter(item => item.category === category.name && item.available)
+    items: menuItems.filter((item) => item.category === category.name && item.available),
   }));
 
   return (
@@ -51,7 +52,7 @@ export default function MenuPage() {
           >
             Tout
           </button>
-          {categories.map(category => (
+          {categories.map((category) => (
             <button
               key={category.id}
               className={`${styles.categoryBtn} ${selectedCategory === category.name ? styles.active : ''}`}
@@ -64,29 +65,38 @@ export default function MenuPage() {
 
         {selectedCategory === 'all' ? (
           // Afficher par catégories
-          itemsByCategory.map(category => (
-            category.items.length > 0 && (
-              <section key={category.id} className={styles.categorySection}>
-                <h2 className={styles.categoryTitle}>{category.name}</h2>
-                <div className={styles.menuGrid}>
-                  {category.items.map(item => (
-                    <div key={item.id} className={`${styles.menuItem} ${!item.available ? styles.unavailable : ''}`}>
-                      {!item.available && <span className={styles.unavailableBadge}>Indisponible</span>}
-                      <h3 className={styles.itemName}>{item.name}</h3>
-                      <p className={styles.itemDescription}>{item.description}</p>
-                      <p className={styles.itemPrice}>{item.price.toFixed(2)} €</p>
-                    </div>
-                  ))}
-                </div>
-              </section>
-            )
-          ))
+          itemsByCategory.map(
+            (category) =>
+              category.items.length > 0 && (
+                <section key={category.id} className={styles.categorySection}>
+                  <h2 className={styles.categoryTitle}>{category.name}</h2>
+                  <div className={styles.menuGrid}>
+                    {category.items.map((item) => (
+                      <div
+                        key={item.id}
+                        className={`${styles.menuItem} ${!item.available ? styles.unavailable : ''}`}
+                      >
+                        {!item.available && (
+                          <span className={styles.unavailableBadge}>Indisponible</span>
+                        )}
+                        <h3 className={styles.itemName}>{item.name}</h3>
+                        <p className={styles.itemDescription}>{item.description}</p>
+                        <p className={styles.itemPrice}>{item.price.toFixed(2)} €</p>
+                      </div>
+                    ))}
+                  </div>
+                </section>
+              )
+          )
         ) : (
           // Afficher la catégorie sélectionnée
           <div className={styles.menuGrid}>
             {filteredItems.length > 0 ? (
-              filteredItems.map(item => (
-                <div key={item.id} className={`${styles.menuItem} ${!item.available ? styles.unavailable : ''}`}>
+              filteredItems.map((item) => (
+                <div
+                  key={item.id}
+                  className={`${styles.menuItem} ${!item.available ? styles.unavailable : ''}`}
+                >
                   {!item.available && <span className={styles.unavailableBadge}>Indisponible</span>}
                   <h3 className={styles.itemName}>{item.name}</h3>
                   <p className={styles.itemDescription}>{item.description}</p>
@@ -94,9 +104,7 @@ export default function MenuPage() {
                 </div>
               ))
             ) : (
-              <div className={styles.emptyState}>
-                Aucun plat disponible dans cette catégorie
-              </div>
+              <div className={styles.emptyState}>Aucun plat disponible dans cette catégorie</div>
             )}
           </div>
         )}

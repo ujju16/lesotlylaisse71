@@ -122,7 +122,7 @@
 }
 
 .list li::before {
-  content: "✓ ";
+  content: '✓ ';
   color: var(--secondary-700);
   font-weight: bold;
   margin-right: 0.5rem;

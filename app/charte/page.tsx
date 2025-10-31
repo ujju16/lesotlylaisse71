@@ -3,7 +3,7 @@ import styles from './charte.module.css';
 
 export default function CharteGraphiquePage() {
   return (
-    <PageTemplate 
+    <PageTemplate
       title="Charte Graphique Material Design"
       subtitle="Découvrez la palette de couleurs et les composants Material Design"
     >
@@ -11,7 +11,7 @@ export default function CharteGraphiquePage() {
         {/* Palette Primaire */}
         <section className="card-md">
           <h2 className="title-md title-md-h2">Palette Primaire - Brun Café</h2>
-          
+
           <div className={styles.colorGrid}>
             {[
               { shade: '50', hex: '#EFEBE9', name: 'Très clair' },
@@ -24,7 +24,7 @@ export default function CharteGraphiquePage() {
               { shade: '700', hex: '#5D4037', name: 'Foncé' },
               { shade: '800', hex: '#4E342E', name: 'Très foncé' },
               { shade: '900', hex: '#3E2723', name: 'Ultra foncé' },
-            ].map(color => (
+            ].map((color) => (
               <div key={color.shade} className={styles.colorCard}>
                 <div className={styles.colorSwatch} style={{ background: color.hex }}></div>
                 <h3>{color.shade}</h3>
@@ -39,7 +39,7 @@ export default function CharteGraphiquePage() {
         {/* Palette Secondaire */}
         <section className="card-md">
           <h2 className="title-md title-md-h2">Palette Secondaire - Vert Lime</h2>
-          
+
           <div className={styles.colorGrid}>
             {[
               { shade: '100', hex: '#DCEDC8', name: 'Clair' },
@@ -47,7 +47,7 @@ export default function CharteGraphiquePage() {
               { shade: '500', hex: '#8BC34A', name: 'Base' },
               { shade: '700', hex: '#689F38', name: 'Foncé', primary: true },
               { shade: '900', hex: '#33691E', name: 'Très foncé' },
-            ].map(color => (
+            ].map((color) => (
               <div key={color.shade} className={styles.colorCard}>
                 <div className={styles.colorSwatch} style={{ background: color.hex }}></div>
                 <h3>{color.shade}</h3>
@@ -62,7 +62,7 @@ export default function CharteGraphiquePage() {
         {/* Palette Accent */}
         <section className="card-md">
           <h2 className="title-md title-md-h2">Palette Accent - Ambre</h2>
-          
+
           <div className={styles.colorGrid}>
             {[
               { shade: '100', hex: '#FFECB3', name: 'Clair' },
@@ -70,7 +70,7 @@ export default function CharteGraphiquePage() {
               { shade: '500', hex: '#FFC107', name: 'Base' },
               { shade: '600', hex: '#FFB300', name: 'Accent', primary: true },
               { shade: '800', hex: '#FF8F00', name: 'Foncé' },
-            ].map(color => (
+            ].map((color) => (
               <div key={color.shade} className={styles.colorCard}>
                 <div className={styles.colorSwatch} style={{ background: color.hex }}></div>
                 <h3>{color.shade}</h3>

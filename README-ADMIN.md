@@ -12,6 +12,7 @@
   - Accent: `#FFB300` (Ambre)
 
 **Configuration :**
+
 - `tailwind.config.js` : Configuration complète avec palette de couleurs
 - `postcss.config.js` : Configuration PostCSS
 - `app/globals.css` : Intégration Tailwind + Variables CSS
@@ -19,12 +20,14 @@
 ### 2. **Système de QR Code Dynamique** 📱
 
 **Fonctionnalités :**
+
 - ✅ Génération de QR code pour un menu spécifique
 - ✅ QR code dynamique pointant vers le menu actif
 - ✅ Un seul QR code à imprimer qui s'adapte automatiquement
 - ✅ Changez le menu actif dans Hygraph → Le QR code affiche le nouveau menu
 
 **Comment ça marche :**
+
 ```
 1. Vous créez plusieurs menus dans Hygraph
 2. Vous marquez UN menu comme "actif"
@@ -38,6 +41,7 @@
 ### 3. **Nouveaux Modèles Hygraph** 📊
 
 #### Modèle Category (Catégorie)
+
 ```
 - name: String (Nom de la catégorie)
 - slug: String (URL-friendly)
@@ -48,6 +52,7 @@
 ```
 
 #### Modèle Menu
+
 ```
 - name: String (Nom du menu)
 - slug: String (URL-friendly)
@@ -59,6 +64,7 @@
 ```
 
 #### Modification Modèle Dish
+
 ```
 + category: Reference (Lien vers Category)
   → Remplace l'ancien champ category (String)
@@ -67,6 +73,7 @@
 ### 4. **Nouvelles Queries GraphQL** 🔄
 
 Créé dans `lib/queries-admin.ts` :
+
 - `getCategories()` : Liste des catégories
 - `createCategory()` : Créer une catégorie
 - `updateCategory()` : Modifier une catégorie
@@ -97,6 +104,7 @@ npm install
 ```
 
 **Si Tailwind n'est pas installé après :**
+
 ```bash
 npm install -D tailwindcss@3.4.18 postcss autoprefixer
 ```
@@ -107,7 +115,6 @@ Suivez le guide : `HYGRAPH_NEW_MODELS.md`
 
 1. **Créer le modèle Category**
    - Champs : name, slug, description, order, icon, image
-   
 2. **Créer le modèle Menu**
    - Champs : name, slug, description, active, startDate, endDate, dishes
 
@@ -116,13 +123,14 @@ Suivez le guide : `HYGRAPH_NEW_MODELS.md`
    - Ajouter nouveau champ `category` (Reference → Category)
 
 4. **Créer des données de test**
+
    ```
    Catégories :
    - Entrées (ordre: 1, icon: 🥗)
    - Plats (ordre: 2, icon: 🍖)
    - Desserts (ordre: 3, icon: 🍰)
    - Boissons (ordre: 4, icon: 🍷)
-   
+
    Menu :
    - Menu de la Semaine (active: true)
    - Ajoutez vos plats au menu
@@ -133,6 +141,7 @@ Suivez le guide : `HYGRAPH_NEW_MODELS.md`
 Une fois Tailwind fonctionnel, créez `app/admin/page.tsx` avec le code dans `app/admin/page.old.tsx`
 
 **Fonctionnalités de la page Admin :**
+
 - 📂 Gestion des catégories (lecture depuis Hygraph)
 - 📋 Gestion des menus (lecture depuis Hygraph)
 - 🍴 Gestion des plats (lecture depuis Hygraph)
@@ -182,6 +191,7 @@ Accédez à : `http://localhost:3000/admin`
 ```
 
 **Changement de menu :**
+
 1. Allez dans Hygraph
 2. Menu Printemps → `active: false`
 3. Menu Été → `active: true`
@@ -261,6 +271,7 @@ bg-base-300 (Background tertiaire)
 ### Génération
 
 **Dans la page Admin :**
+
 1. Onglet "QR Code"
 2. Cliquez sur "Générer QR Code Dynamique"
 3. Téléchargez le PNG
@@ -276,6 +287,7 @@ bg-base-300 (Background tertiaire)
 ### Impression
 
 **Recommandations :**
+
 - Format : 10x10 cm minimum
 - Résolution : 300 DPI
 - Support : Plastique rigide ou acrylique
@@ -289,6 +301,7 @@ bg-base-300 (Background tertiaire)
 ### Permissions Hygraph
 
 **Public API (sans token) :**
+
 - ✅ Category : Read
 - ✅ Menu : Read
 - ✅ Dish : Read
@@ -296,11 +309,13 @@ bg-base-300 (Background tertiaire)
 - ✅ Asset : Read
 
 **Token API (avec HYGRAPH_TOKEN) :**
+
 - ✅ Toutes permissions : Create, Read, Update, Delete, Publish
 
 ### Variables d'Environnement
 
 **`.env.local` (ne JAMAIS commiter) :**
+
 ```env
 NEXT_PUBLIC_HYGRAPH_URL=https://api-eu-west-2.hygraph.com/v2/...
 HYGRAPH_TOKEN=eyJ...
@@ -331,6 +346,7 @@ npm install -D tailwindcss@3.4.18 postcss autoprefixer
 ### Hygraph : "Field 'category' not found"
 
 Vous devez migrer les données :
+
 1. Créer le nouveau modèle Category
 2. Créer les catégories
 3. Modifier chaque Dish pour lier à Category
@@ -339,6 +355,7 @@ Vous devez migrer les données :
 ### QR Code ne s'affiche pas
 
 Vérifiez que la bibliothèque qrcode est installée :
+
 ```bash
 npm install qrcode @types/qrcode
 ```

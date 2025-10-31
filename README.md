@@ -28,21 +28,24 @@ Restaurant, bar et tabac au cœur de la Bourgogne - Site web moderne développé
 ✅ Responsive design (mobile, tablet, desktop)  
 ✅ Optimisation des images avec Next.js Image  
 ✅ Favicons générés automatiquement  
-✅ PWA ready avec manifest  
+✅ PWA ready avec manifest
 
 ## 🎨 Charte Graphique
 
 ### Couleurs Material Design
 
 **Primaire - Brun Café**
+
 - 50-900 nuances
 - Base: `#795548`
 
 **Secondaire - Vert Lime**
+
 - 50-900 nuances
 - Base: `#689F38`
 
 **Accent - Ambre**
+
 - 50-900 nuances
 - Base: `#FFB300`
 
@@ -191,6 +194,7 @@ export default function NouvellePage() {
 ## 👨‍💻 Auteur
 
 **ujju16**
+
 - GitHub: [@ujju16](https://github.com/ujju16)
 
 ## 📄 Licence

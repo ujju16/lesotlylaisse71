@@ -7,21 +7,14 @@ interface PageTemplateProps {
   className?: string;
 }
 
-export default function PageTemplate({ 
-  title, 
-  subtitle, 
-  children, 
-  className 
-}: PageTemplateProps) {
+export default function PageTemplate({ title, subtitle, children, className }: PageTemplateProps) {
   return (
     <main className={`${styles.main} ${className || ''}`}>
       <div className={styles.header}>
         <h1 className={styles.title}>{title}</h1>
         {subtitle && <p className={styles.subtitle}>{subtitle}</p>}
       </div>
-      <div className={styles.content}>
-        {children}
-      </div>
+      <div className={styles.content}>{children}</div>
     </main>
   );
 }

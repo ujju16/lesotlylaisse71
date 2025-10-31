@@ -14,7 +14,9 @@ export default function Carrousel() {
 
   return (
     <div className={styles.carrousel}>
-      <button className={styles.prev} onClick={prev} aria-label="Précédent">&#8592;</button>
+      <button className={styles.prev} onClick={prev} aria-label="Précédent">
+        &#8592;
+      </button>
       <div className={styles.imageWrapper}>
         <Image
           src={images[current]}
@@ -25,7 +27,9 @@ export default function Carrousel() {
           priority
         />
       </div>
-      <button className={styles.next} onClick={next} aria-label="Suivant">&#8594;</button>
+      <button className={styles.next} onClick={next} aria-label="Suivant">
+        &#8594;
+      </button>
     </div>
   );
 }

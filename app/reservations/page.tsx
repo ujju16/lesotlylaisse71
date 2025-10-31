@@ -47,7 +47,7 @@ export default function ReservationPage() {
       } else {
         setError('Une erreur est survenue. Veuillez réessayer.');
       }
-    } catch (err) {
+    } catch {
       setError('Impossible de soumettre votre réservation. Veuillez réessayer.');
     } finally {
       setLoading(false);
@@ -69,11 +69,7 @@ export default function ReservationPage() {
             </div>
           )}
 
-          {error && (
-            <div className={styles.errorMessage}>
-              ❌ {error}
-            </div>
-          )}
+          {error && <div className={styles.errorMessage}>❌ {error}</div>}
 
           <form className={styles.form} onSubmit={handleSubmit}>
             <div className={styles.formGroup}>
@@ -154,8 +150,10 @@ export default function ReservationPage() {
                 onChange={(e) => setFormData({ ...formData, guests: parseInt(e.target.value) })}
                 required
               >
-                {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(num => (
-                  <option key={num} value={num}>{num} {num === 1 ? 'personne' : 'personnes'}</option>
+                {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((num) => (
+                  <option key={num} value={num}>
+                    {num} {num === 1 ? 'personne' : 'personnes'}
+                  </option>
                 ))}
               </select>
             </div>
@@ -170,11 +168,7 @@ export default function ReservationPage() {
               />
             </div>
 
-            <button
-              type="submit"
-              className={styles.submitButton}
-              disabled={loading}
-            >
+            <button type="submit" className={styles.submitButton} disabled={loading}>
               {loading ? 'Envoi en cours...' : 'Réserver'}
             </button>
           </form>

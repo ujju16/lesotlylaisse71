@@ -9,10 +9,12 @@ Ce document détaille les modifications apportées pour professionnaliser l'arch
 ## ✅ 1. Architecture Globale
 
 ### Footer et Navigation dans layout.tsx
+
 **Avant :** Footer et Navigation dupliqués dans chaque page  
 **Après :** Footer et Navigation centralisés dans `layout.tsx`
 
 **Avantages :**
+
 - ✅ Une seule source de vérité
 - ✅ Footer présent sur **toutes les pages** automatiquement
 - ✅ Maintenance simplifiée (une modification = toutes les pages)
@@ -39,10 +41,12 @@ export default function RootLayout({ children }) {
 ## ✅ 2. PageTemplate Refactorisé
 
 ### Structure simplifiée
+
 **Avant :** PageTemplate incluait Navigation (redondant avec layout)  
 **Après :** PageTemplate = contenu uniquement
 
 **Avantages :**
+
 - ✅ Séparation des responsabilités claire
 - ✅ Pas de duplication de Navigation
 - ✅ Plus léger et plus rapide
@@ -57,9 +61,7 @@ export default function PageTemplate({ title, subtitle, children }) {
         <h1>{title}</h1>
         {subtitle && <p>{subtitle}</p>}
       </div>
-      <div className={styles.content}>
-        {children}
-      </div>
+      <div className={styles.content}>{children}</div>
     </main>
   );
 }
@@ -72,6 +74,7 @@ export default function PageTemplate({ title, subtitle, children }) {
 ### Pages légales complètes et professionnelles
 
 #### `/confidentialite` - Politique de confidentialité
+
 - ✅ Conformité RGPD complète
 - ✅ Droits des utilisateurs détaillés
 - ✅ Sections claires et structurées
@@ -79,6 +82,7 @@ export default function PageTemplate({ title, subtitle, children }) {
 - ✅ Cards interactives pour les droits RGPD
 
 #### `/cookies` - Politique de cookies
+
 - ✅ Explication claire des cookies
 - ✅ Types de cookies détaillés (essentiels, analytiques, préférences, marketing)
 - ✅ Tableau récapitulatif des cookies utilisés
@@ -86,6 +90,7 @@ export default function PageTemplate({ title, subtitle, children }) {
 - ✅ Design moderne avec icônes
 
 **Contenu inclus :**
+
 - 🔒 Sécurité et protection des données
 - 📊 Types de cookies et leur utilisation
 - ⚙️ Gestion des préférences utilisateur
@@ -97,6 +102,7 @@ export default function PageTemplate({ title, subtitle, children }) {
 ## ✅ 4. Corrections de Style
 
 ### Lisibilité améliorée sur mentions-legales
+
 - ✅ Fond blanc cassé (`#fdfcfb`) au lieu de blanc pur
 - ✅ Texte noir foncé (`#1a1a1a`) pour contraste optimal
 - ✅ Tons crème/beige chaleureux (`#f8f6f4`)
@@ -108,11 +114,13 @@ export default function PageTemplate({ title, subtitle, children }) {
 ## ✅ 5. Standards Professionnels Appliqués
 
 ### Langue HTML
+
 ```tsx
 <html lang="fr">  // Avant: lang="en"
 ```
 
 ### Structure de fichiers
+
 ```
 app/
 ├── layout.tsx              # Layout global avec Nav + Footer
@@ -128,6 +136,7 @@ app/
 ```
 
 ### Séparation des responsabilités
+
 - **layout.tsx** : Structure globale (Nav + Footer)
 - **PageTemplate** : Template pour contenu
 - **page.tsx** : Contenu spécifique de chaque page
@@ -137,6 +146,7 @@ app/
 ## 📊 Résultats
 
 ### Build
+
 ```bash
 npm run build
 ✓ Build réussi
@@ -145,12 +155,14 @@ npm run build
 ```
 
 ### Linter
+
 ```bash
 npm run lint
 ✔ No ESLint warnings or errors
 ```
 
 ### Performance
+
 - ✅ Footer/Nav non dupliqués → moins de code
 - ✅ Structure optimale pour Next.js App Router
 - ✅ Pages statiques générées correctement
@@ -161,25 +173,30 @@ npm run lint
 ## 🎯 Bonnes Pratiques Appliquées
 
 ### 1. DRY (Don't Repeat Yourself)
+
 - Footer et Navigation définis une seule fois
 - Réutilisation du PageTemplate
 
 ### 2. Séparation des préoccupations
+
 - Layout global séparé du contenu
 - Composants réutilisables
 - Styles modulaires
 
 ### 3. Accessibilité (A11y)
+
 - Langue HTML correcte (`lang="fr"`)
 - Contraste de couleurs conforme WCAG
 - Structure sémantique HTML5
 
 ### 4. SEO
+
 - Metadata appropriés par page
 - Structure HTML sémantique
 - Liens internes cohérents
 
 ### 5. Maintenabilité
+
 - Code organisé et cohérent
 - Documentation claire
 - Standards Next.js respectés
@@ -188,20 +205,21 @@ npm run lint
 
 ## 🚀 Pages Complètes
 
-| Page | Status | Contenu | Footer | Navigation |
-|------|--------|---------|--------|------------|
-| `/` | ✅ | Complet | ✅ | ✅ |
-| `/charte` | ✅ | Complet | ✅ | ✅ |
-| `/exemple` | ✅ | Complet | ✅ | ✅ |
-| `/mentions-legales` | ✅ | Complet | ✅ | ✅ |
-| `/confidentialite` | ✅ | **Nouveau** | ✅ | ✅ |
-| `/cookies` | ✅ | **Nouveau** | ✅ | ✅ |
+| Page                | Status | Contenu     | Footer | Navigation |
+| ------------------- | ------ | ----------- | ------ | ---------- |
+| `/`                 | ✅     | Complet     | ✅     | ✅         |
+| `/charte`           | ✅     | Complet     | ✅     | ✅         |
+| `/exemple`          | ✅     | Complet     | ✅     | ✅         |
+| `/mentions-legales` | ✅     | Complet     | ✅     | ✅         |
+| `/confidentialite`  | ✅     | **Nouveau** | ✅     | ✅         |
+| `/cookies`          | ✅     | **Nouveau** | ✅     | ✅         |
 
 ---
 
 ## 📝 TODO Future (Roadmap)
 
 Pages à créer suivant le même standard :
+
 - [ ] `/qui-sommes-nous` - Présentation du restaurant
 - [ ] `/menu` - Menu du restaurant
 - [ ] `/contact` - Formulaire de contact/réservation

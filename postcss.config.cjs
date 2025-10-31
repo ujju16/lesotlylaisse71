@@ -1,14 +1,15 @@
-module.exports = (ctx) => {
-  const isGlobals = ctx?.file?.basename === 'globals.css' || /\bapp\/globals\.css$/.test(ctx?.file?.dirname || '');
+module.exports = (ctx = {}) => {
+  const file = ctx.file || {};
+  const name = file.basename || '';
+  const dir = file.dirname || '';
+  const isGlobals = name === 'globals.css' || /\bapp\/globals\.css$/.test(`${dir}/${name}`);
   return {
     plugins: [
-      isGlobals && require('tailwindcss'),
+      isGlobals ? require('tailwindcss') : null,
       require('autoprefixer'),
-      // Strip invalid ::picker(select) only on global CSS where DaisyUI injects styles
-      isGlobals && require('postcss-replace')({
-        pattern: /::picker\(select\)/g,
-        replacement: ''
-      })
+      isGlobals
+        ? require('postcss-replace')({ pattern: /::picker\(select\)/g, replacement: '' })
+        : null,
     ].filter(Boolean),
   };
 };

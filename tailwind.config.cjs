@@ -52,17 +52,7 @@ module.exports = {
       },
     },
   },
-  plugins: [
-    daisyui,
-    // Fix DaisyUI picker bug
-    function({ addBase }) {
-      addBase({
-        '[dir="rtl"] .select': {
-          translate: '0.5rem 0',
-        },
-      });
-    },
-  ],
+  plugins: [daisyui],
   daisyui: {
     themes: [
       {

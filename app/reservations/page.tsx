@@ -47,7 +47,7 @@ export default function ReservationPage() {
       } else {
         setError('Une erreur est survenue. Veuillez réessayer.');
       }
-    } catch (err) {
+    } catch {
       setError('Impossible de soumettre votre réservation. Veuillez réessayer.');
     } finally {
       setLoading(false);

@@ -13,7 +13,7 @@ export default function CategoriesPage() {
   const { showToast } = useToast();
 
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [editingCategory, setEditingCategory] = useState<any>(null);
+  const [editingCategory, setEditingCategory] = useState<Category | null>(null);
   const [deleteConfirm, setDeleteConfirm] = useState<string | null>(null);
 
   const [formData, setFormData] = useState({
@@ -27,7 +27,7 @@ export default function CategoriesPage() {
 
   const [imagePreview, setImagePreview] = useState<string>('');
 
-  const handleOpenModal = (category?: any) => {
+  const handleOpenModal = (category?: Category) => {
     if (category) {
       setEditingCategory(category);
       setFormData({

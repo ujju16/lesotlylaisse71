@@ -52,7 +52,7 @@ export async function POST(request: NextRequest) {
       data: data.createAsset,
       message: 'Image uploadée',
     });
-  } catch (error: any) {
+  } catch (error) {
     return NextResponse.json({ success: false, error: error.message }, { status: 500 });
   }
 }

@@ -12,7 +12,7 @@ export async function POST(request: NextRequest, context: { params: Promise<{ id
     const publishAll = gql`mutation { publishManyMenus(to: PUBLISHED) { count } }`;
     await adminHygraphClient.request(publishAll);
     return NextResponse.json({ success: true, data: data.updateMenu, message: 'Menu activé' });
-  } catch (error: any) {
+  } catch (error) {
     return NextResponse.json({ success: false, error: error.message }, { status: 500 });
   }
 }

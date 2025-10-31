@@ -23,7 +23,7 @@ export async function GET() {
 
     const data: any = await adminHygraphClient.request(query);
     return NextResponse.json({ success: true, data: data.categories });
-  } catch (error: any) {
+  } catch (error) {
     console.error('Error fetching categories:', error);
     return NextResponse.json(
       { success: false, error: error.message },
@@ -81,7 +81,7 @@ export async function POST(request: NextRequest) {
       data: data.createCategory,
       message: 'Catégorie créée',
     });
-  } catch (error: any) {
+  } catch (error) {
     return NextResponse.json(
       { success: false, error: error.message },
       { status: 500 }

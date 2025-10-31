@@ -22,7 +22,7 @@ export async function PUT(
 
     const data: any = await adminHygraphClient.request(mutation, { id, name, description, order, icon, imageId });
     return NextResponse.json({ success: true, data: data.updateCategory, message: 'Catégorie modifiée' });
-  } catch (error: any) {
+  } catch (error) {
     return NextResponse.json({ success: false, error: error.message }, { status: 500 });
   }
 }
@@ -36,7 +36,7 @@ export async function DELETE(
     const mutation = gql`mutation DeleteCategory($id: ID!) { deleteCategory(where: { id: $id }) { id } }`;
     await adminHygraphClient.request(mutation, { id });
     return NextResponse.json({ success: true, message: 'Catégorie supprimée' });
-  } catch (error: any) {
+  } catch (error) {
     return NextResponse.json({ success: false, error: error.message }, { status: 500 });
   }
 }

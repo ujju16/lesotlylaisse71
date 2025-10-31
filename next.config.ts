@@ -8,7 +8,6 @@ const nextConfig: NextConfig = {
     ignoreDuringBuilds: true,
   },
   images: {
-    domains: ['media.graphassets.com', 'eu-west-2.graphassets.com'],
     remotePatterns: [
       {
         protocol: 'https',

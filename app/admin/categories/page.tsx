@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
 import { useCategories } from '@/app/components/admin/useCategories';
 import { useUpload } from '@/app/components/admin/useUpload';
 import { useToast } from '@/app/components/admin/ToastProvider';
@@ -111,8 +112,8 @@ export default function CategoriesPage() {
             <div key={cat.id} className="card bg-base-100 shadow-md hover:shadow-xl transition-shadow">
               <div className="card-body">
                 {cat.image?.url && (
-                  <figure className="mb-4">
-                    <img src={cat.image.url} alt={cat.name} className="w-full h-32 object-cover rounded-lg" />
+                  <figure className="mb-4 relative w-full h-32">
+                    <Image src={cat.image.url} alt={cat.name} fill className="object-cover rounded-lg" />
                   </figure>
                 )}
                 <div className="flex items-start gap-3">
@@ -166,7 +167,7 @@ export default function CategoriesPage() {
               <label className="label"><span className="label-text font-semibold">Image</span></label>
               <div className="border-2 border-dashed border-base-300 rounded-lg p-6 text-center cursor-pointer hover:border-primary" onClick={() => document.getElementById('imageInput')?.click()}>
                 {uploading ? <span className="loading loading-spinner"></span> : imagePreview ? (
-                  <div className="relative"><img src={imagePreview} alt="Preview" className="max-h-48 mx-auto rounded-lg" /><button type="button" onClick={(e) => { e.stopPropagation(); setImagePreview(''); setFormData({ ...formData, imageId: '' }); }} className="absolute top-2 right-2 btn btn-circle btn-sm btn-error">✕</button></div>
+                  <div className="relative w-full h-48 mx-auto"><Image src={imagePreview} alt="Preview" fill className="object-contain rounded-lg" /><button type="button" onClick={(e) => { e.stopPropagation(); setImagePreview(''); setFormData({ ...formData, imageId: '' }); }} className="absolute top-2 right-2 btn btn-circle btn-sm btn-error">✕</button></div>
                 ) : <p className="text-base-content/70">Cliquez pour uploader</p>}
                 <input id="imageInput" type="file" accept="image/*" onChange={(e) => { const file = e.target.files?.[0]; if (file) handleImageUpload(file); }} className="hidden" />
               </div>

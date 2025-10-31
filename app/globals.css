@@ -35,14 +35,61 @@
 }
 
 @layer components {
-  /* Material Design Text Colors */
+  /* === VARIABLES CSS MATERIAL DESIGN === */
+  :root {
+    --primary-50: #EFEBE9;
+    --primary-100: #D7CCC8;
+    --primary-200: #BCAAA4;
+    --primary-300: #A1887F;
+    --primary-400: #8D6E63;
+    --primary-500: #795548;
+    --primary-600: #6D4C41;
+    --primary-700: #5D4037;
+    --primary-800: #4E342E;
+    --primary-900: #3E2723;
+
+    --secondary-50: #F1F8E9;
+    --secondary-100: #DCEDC8;
+    --secondary-200: #C5E1A5;
+    --secondary-300: #AED581;
+    --secondary-400: #9CCC65;
+    --secondary-500: #8BC34A;
+    --secondary-600: #7CB342;
+    --secondary-700: #689F38;
+    --secondary-800: #558B2F;
+    --secondary-900: #33691E;
+
+    --accent-50: #FFF8E1;
+    --accent-100: #FFECB3;
+    --accent-200: #FFE082;
+    --accent-300: #FFD54F;
+    --accent-400: #FFCA28;
+    --accent-500: #FFC107;
+    --accent-600: #FFB300;
+    --accent-700: #FFA000;
+    --accent-800: #FF8F00;
+    --accent-900: #FF6F00;
+
+    --surface: #FAFAFA;
+    --surface-variant: #f5f5f5;
+    --on-surface: #212121;
+    --on-surface-variant: #757575;
+
+    --shadow-1: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-2: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+    --shadow-3: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+    --shadow-4: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+    --shadow-5: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  }
+
+  /* === MATERIAL DESIGN TEXT COLORS === */
   .text-primary-light { color: var(--primary-300); }
   .text-primary { color: var(--primary-500); }
   .text-primary-dark { color: var(--primary-700); }
   .text-secondary { color: var(--secondary-700); }
   .text-accent { color: var(--accent-600); }
 
-  /* Material Design Background Colors */
+  /* === MATERIAL DESIGN BACKGROUND COLORS === */
   .bg-primary-light { background-color: var(--primary-50); }
   .bg-primary { background-color: var(--primary-500); }
   .bg-primary-dark { background-color: var(--primary-700); }
@@ -51,34 +98,86 @@
   .bg-accent-light { background-color: var(--accent-100); }
   .bg-accent { background-color: var(--accent-600); }
 
-  /* Material Design Buttons */
-  .btn-md-primary {
-    @apply bg-primary-500 text-white px-6 py-3 rounded border-0 font-medium text-sm uppercase tracking-wide cursor-pointer;
+  /* === MATERIAL DESIGN BUTTONS === */
+  .btn-md-primary,
+  .btn-md-secondary,
+  .btn-md-accent,
+  .btn-md-outlined {
+    @apply px-6 py-3 rounded font-medium text-sm uppercase tracking-wide cursor-pointer border-0;
     transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    box-shadow: var(--shadow-2);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
+  .btn-md-primary {
+    @apply text-white;
+    background-color: var(--primary-500);
   }
 
   .btn-md-primary:hover {
-    @apply bg-primary-600;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    background-color: var(--primary-600);
+    box-shadow: var(--shadow-4);
     transform: translateY(-1px);
   }
 
-  /* Material Design Cards */
+  .btn-md-secondary {
+    @apply text-white;
+    background-color: var(--secondary-700);
+  }
+
+  .btn-md-secondary:hover {
+    background-color: var(--secondary-800);
+    box-shadow: var(--shadow-4);
+    transform: translateY(-1px);
+  }
+
+  .btn-md-accent {
+    @apply text-black;
+    background-color: var(--accent-600);
+  }
+
+  .btn-md-accent:hover {
+    background-color: var(--accent-700);
+    box-shadow: var(--shadow-4);
+    transform: translateY(-1px);
+  }
+
+  .btn-md-outlined {
+    @apply bg-transparent;
+    color: var(--primary-500);
+    border: 2px solid var(--primary-500);
+    box-shadow: none;
+  }
+
+  .btn-md-outlined:hover {
+    background-color: var(--primary-50);
+    box-shadow: var(--shadow-2);
+  }
+
+  /* === MATERIAL DESIGN CARDS === */
   .card-md {
-    @apply rounded-lg p-6;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+    @apply bg-white rounded-lg p-6;
+    box-shadow: var(--shadow-2);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba(0, 0, 0, 0.05);
   }
 
   .card-md:hover {
-    box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+    box-shadow: var(--shadow-4);
     transform: translateY(-2px);
   }
 
-  /* Material Design Badges */
-  .badge-md {
+  /* === MATERIAL DESIGN BADGES === */
+  .badge-md,
+  .badge-md-secondary,
+  .badge-md-accent {
     @apply inline-block px-3 py-1 rounded-full text-sm font-medium;
+  }
+
+  .badge-md {
     background-color: var(--primary-100);
     color: var(--primary-900);
   }
@@ -91,5 +190,42 @@
   .badge-md-accent {
     background-color: var(--accent-100);
     color: var(--accent-900);
+  }
+
+  /* === MATERIAL DESIGN TITLES === */
+  .title-md {
+    @apply font-bold;
+    letter-spacing: 0.0125em;
+    line-height: 1.2;
+  }
+
+  .title-md-h1 {
+    @apply text-5xl;
+    font-weight: 300;
+  }
+
+  .title-md-h2 {
+    @apply text-4xl;
+    font-weight: 400;
+  }
+
+  .title-md-h3 {
+    @apply text-3xl;
+    font-weight: 500;
+  }
+
+  .title-md-h4 {
+    @apply text-2xl;
+    font-weight: 500;
+  }
+
+  .title-md-h5 {
+    @apply text-xl;
+    font-weight: 600;
+  }
+
+  .title-md-h6 {
+    @apply text-lg;
+    font-weight: 600;
   }
 }

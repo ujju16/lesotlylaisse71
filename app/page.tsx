@@ -82,7 +82,9 @@ export default function Home() {
                 Cuisine traditionnelle bourguignonne préparée avec passion. Produits frais du
                 terroir et recettes généreuses qui réchauffent le cœur.
               </p>
-              <span className="badge-md">Ouvert midi & soir</span>
+              <div className={styles.badgeContainer}>
+                <span className="badge-md">Ouvert le midi seulement</span>
+              </div>
             </div>
 
             <div className={styles.serviceCard}>
@@ -92,17 +94,21 @@ export default function Home() {
                 Un comptoir chaleureux pour vos pauses café, apéros entre amis ou moments de
                 détente. Ambiance conviviale garantie.
               </p>
-              <span className="badge-md-secondary">Ambiance conviviale</span>
+              <div className={styles.badgeContainer}>
+                <span className="badge-md-secondary">Ambiance conviviale</span>
+              </div>
             </div>
 
             <div className={styles.serviceCard}>
               <div className={`${styles.serviceIcon} ${styles.tabacIcon}`}></div>
-              <h3>Tabac Presse</h3>
+              <h3>Presse</h3>
               <p>
                 Tous vos services de proximité : presse, jeux, cigarettes et bien plus. Un lieu
                 essentiel au quotidien des habitants.
               </p>
-              <span className="badge-md">Tous les jours</span>
+              <div className={styles.badgeContainer}>
+                <span className="badge-md">Tous les jours</span>
+              </div>
             </div>
           </div>
         </div>
@@ -116,9 +122,9 @@ export default function Home() {
               <span className={styles.sectionLabel}>Notre Engagement</span>
               <h2 className={styles.sectionTitle}>Ancré dans la vie locale</h2>
               <p>
-                Depuis des générations, LeSotLyLaisse71 est un pilier de la communauté de Messey
-                Sur Grosne. Nous participons activement à la vie locale, soutenons les producteurs
-                de la région et créons un espace où chacun se sent chez soi.
+                Depuis des générations, LeSotLyLaisse71 est un pilier de la communauté de Messey Sur
+                Grosne. Nous participons activement à la vie locale, soutenons les producteurs de la
+                région et créons un espace où chacun se sent chez soi.
               </p>
               <ul className={styles.engagementList}>
                 <li>✓ Partenariat avec les producteurs locaux</li>

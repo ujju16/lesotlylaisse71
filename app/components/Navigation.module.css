@@ -53,7 +53,7 @@
 .logoText {
   font-size: 1.25rem;
   font-weight: 600;
-  color: #FFECB3;
+  color: #ffecb3;
   letter-spacing: -0.5px;
   line-height: 1.2;
 }
@@ -90,7 +90,7 @@
 
 .navLink:hover {
   background-color: rgba(255, 255, 255, 0.08);
-  color: #FFECB3;
+  color: #ffecb3;
 }
 
 .navLinkActive {
@@ -113,7 +113,7 @@
   left: 16px;
   right: 16px;
   height: 2px;
-  background: linear-gradient(90deg, #FFD54F 0%, #FFC107 100%);
+  background: linear-gradient(90deg, #ffd54f 0%, #ffc107 100%);
   border-radius: 2px;
   box-shadow: 0 0 8px rgba(255, 193, 7, 0.5);
 }
@@ -251,7 +251,7 @@
 
 .mobileNavLink:hover {
   background-color: rgba(255, 255, 255, 0.08);
-  color: #FFECB3;
+  color: #ffecb3;
 }
 
 .mobileNavLinkActive {
@@ -263,7 +263,7 @@
   font-size: 1rem;
   background: linear-gradient(135deg, rgba(255, 236, 179, 0.15) 0%, rgba(255, 193, 7, 0.1) 100%);
   border-radius: 6px;
-  border-left: 3px solid #FFD54F;
+  border-left: 3px solid #ffd54f;
 }
 
 .mobileCtaButton {

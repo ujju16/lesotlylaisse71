@@ -4,7 +4,7 @@ module.exports = {
     autoprefixer: {},
     'postcss-replace': {
       pattern: /::picker\(select\)/g,
-      replacement: ''
+      replacement: '',
     },
   },
 };

@@ -1,0 +1,45 @@
+.toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  background: transparent;
+  color: var(--nav-text);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+.toggle:hover {
+  background: var(--nav-hover-bg);
+  transform: scale(1.1);
+}
+
+.toggle:active {
+  transform: scale(0.95);
+}
+
+.toggle svg {
+  width: 20px;
+  height: 20px;
+  transition: all 0.3s ease;
+}
+
+.toggle:hover svg {
+  transform: rotate(15deg);
+}
+
+@media (max-width: 768px) {
+  .toggle {
+    width: 36px;
+    height: 36px;
+  }
+
+  .toggle svg {
+    width: 18px;
+    height: 18px;
+  }
+}

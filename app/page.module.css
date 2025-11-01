@@ -142,6 +142,35 @@
   text-align: center;
 }
 
+/* Values Grid Cards - Keep original gradient style */
+.valuesGrid .card-md {
+  background: linear-gradient(135deg, #efebe9 0%, #d7ccc8 100%);
+  color: #3e2723;
+  border: 1px solid rgba(121, 85, 72, 0.2);
+}
+
+[data-theme='dark'] .valuesGrid .card-md {
+  background: linear-gradient(135deg, #3e2723 0%, #4e342e 100%);
+  color: #efebe9;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.valuesGrid .card-md h3 {
+  color: #795548;
+}
+
+[data-theme='dark'] .valuesGrid .card-md h3 {
+  color: #ffecb3;
+}
+
+.valuesGrid .card-md p {
+  color: #5d4037;
+}
+
+[data-theme='dark'] .valuesGrid .card-md p {
+  color: rgba(239, 235, 233, 0.8);
+}
+
 /* Services Grid */
 .servicesGrid {
   display: grid;

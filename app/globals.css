@@ -31,7 +31,7 @@
     --nav-text: #212121;
     --nav-hover-bg: rgba(0, 0, 0, 0.05);
     --nav-logo-text: #795548;
-    --nav-logo-subtext: #757575;
+    --nav-logo-subtext: rgba(121, 85, 72, 0.7);
   }
 
   [data-theme='dark'] {
@@ -79,14 +79,14 @@
   html[data-theme='dark'] {
     --page-bg: linear-gradient(180deg, #0a0a0a 0%, #141414 100%);
     --section-alt-bg: linear-gradient(180deg, #141414 0%, #1a1a1a 100%);
-    --card-bg: var(--dark-surface-elevated);
-    --card-border: var(--dark-border);
+    --card-bg: #1e1e1e;
+    --card-border: rgba(255, 255, 255, 0.08);
     --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
     --card-hover-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
-    --text-primary: var(--dark-text-primary);
-    --text-secondary: var(--dark-text-secondary);
-    --card-text-primary: var(--dark-text-primary);
-    --card-text-secondary: var(--dark-text-secondary);
+    --text-primary: #ffffff;
+    --text-secondary: rgba(255, 255, 255, 0.7);
+    --card-text-primary: #ffffff;
+    --card-text-secondary: rgba(255, 255, 255, 0.7);
     --hero-overlay: linear-gradient(
       180deg,
       rgba(10, 10, 10, 0.3) 0%,

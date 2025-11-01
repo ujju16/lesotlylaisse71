@@ -1,7 +1,7 @@
 /* Modern Homepage Layout - Material Design */
 .page {
   min-height: 100vh;
-  background: var(--background);
+  background: linear-gradient(180deg, #0a0a0a 0%, #141414 100%);
 }
 
 /* Hero Section avec Carrousel plein écran */
@@ -19,7 +19,12 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.6) 100%);
+  background: linear-gradient(
+    180deg,
+    rgba(10, 10, 10, 0.3) 0%,
+    rgba(10, 10, 10, 0.6) 50%,
+    rgba(10, 10, 10, 0.8) 100%
+  );
   display: flex;
   align-items: center;
   justify-content: center;
@@ -59,7 +64,10 @@
   margin-bottom: 1rem;
   letter-spacing: 0.5px;
   opacity: 0.95;
-  color: var(--accent-300);
+  background: linear-gradient(135deg, #FFECB3 0%, #FFD54F 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .heroDescription {
@@ -82,7 +90,9 @@
 }
 
 .sectionAlt {
-  background: var(--primary-50);
+  background: linear-gradient(180deg, #141414 0%, #1a1a1a 100%);
+  border-top: 1px solid var(--dark-border);
+  border-bottom: 1px solid var(--dark-border);
 }
 
 .container {
@@ -101,21 +111,24 @@
   font-weight: 600;
   letter-spacing: 1.5px;
   text-transform: uppercase;
-  color: var(--accent-600);
+  background: linear-gradient(135deg, #FFD54F 0%, #FFC107 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   margin-bottom: 1rem;
 }
 
 .sectionTitle {
   font-size: clamp(2rem, 4vw, 2.75rem);
   font-weight: 700;
-  color: var(--primary-700);
+  color: #ffffff;
   margin-bottom: 1.5rem;
   letter-spacing: -0.5px;
 }
 
 .sectionSubtitle {
   font-size: clamp(1.1rem, 2vw, 1.35rem);
-  color: var(--foreground-secondary);
+  color: rgba(255, 255, 255, 0.7);
   max-width: 800px;
   margin: 0 auto;
   line-height: 1.7;
@@ -142,20 +155,39 @@
 }
 
 .serviceCard {
-  background: #000;
-  color: #fff;
+  background: var(--dark-surface-elevated);
+  color: var(--dark-text-primary);
   padding: 3rem 2rem;
-  border-radius: 12px;
+  border-radius: 16px;
   text-align: center;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: var(--elevation-2);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--dark-border);
+  position: relative;
+  overflow: hidden;
+}
+
+.serviceCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #FFD54F 0%, #FFC107 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
 .serviceCard:hover {
   transform: translateY(-8px);
-  box-shadow: var(--elevation-4);
-  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.5);
+  border-color: rgba(255, 213, 79, 0.3);
+  background: #232323;
+}
+
+.serviceCard:hover::before {
+  opacity: 1;
 }
 
 .serviceIcon {
@@ -189,12 +221,15 @@
 .serviceCard h3 {
   font-size: 1.75rem;
   font-weight: 600;
-  color: var(--accent-400);
+  background: linear-gradient(135deg, #FFECB3 0%, #FFD54F 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   margin-bottom: 1rem;
 }
 
 .serviceCard p {
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--dark-text-secondary);
   margin-bottom: 1.5rem;
   line-height: 1.7;
   font-size: 1.05rem;
@@ -206,12 +241,25 @@
   grid-template-columns: 1.2fr 1fr;
   gap: 4rem;
   align-items: center;
-  background: #000;
-  color: #fff;
+  background: var(--dark-surface-elevated);
+  color: var(--dark-text-primary);
   padding: 4rem;
   border-radius: 16px;
-  box-shadow: var(--elevation-2);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--dark-border);
+  position: relative;
+  overflow: hidden;
+}
+
+.engagementBanner::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(255, 213, 79, 0.05) 0%, transparent 70%);
+  pointer-events: none;
 }
 
 .engagementContent {
@@ -236,7 +284,7 @@
 .engagementContent p {
   font-size: 1.1rem;
   line-height: 1.7;
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--dark-text-secondary);
   margin-bottom: 2rem;
 }
 
@@ -251,7 +299,7 @@
 
 .engagementList li {
   font-size: 1.05rem;
-  color: rgba(255, 255, 255, 0.9);
+  color: var(--dark-text-secondary);
   display: flex;
   align-items: center;
   gap: 0.75rem;
@@ -266,20 +314,35 @@
 .imagePlaceholder {
   width: 300px;
   height: 300px;
-  background: linear-gradient(135deg, var(--primary-100) 0%, var(--secondary-100) 100%);
+  background: linear-gradient(135deg, #1e1e1e 0%, #2a2a2a 100%);
   border-radius: 16px;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 8rem;
-  box-shadow: var(--elevation-3);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 213, 79, 0.2);
 }
 
 /* CTA Section */
 .ctaSection {
   padding: 6rem 2rem;
-  background: linear-gradient(135deg, var(--primary-700) 0%, var(--primary-900) 100%);
+  background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
   color: white;
+  border-top: 1px solid var(--dark-border);
+  position: relative;
+  overflow: hidden;
+}
+
+.ctaSection::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 50% 0%, rgba(255, 193, 7, 0.1) 0%, transparent 50%);
+  pointer-events: none;
 }
 
 .ctaContent {

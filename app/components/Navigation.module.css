@@ -3,7 +3,7 @@
   position: sticky;
   top: 0;
   width: 100%;
-  background: var(--background);
+  background: var(--surface);
   border-bottom: 1px solid var(--border-color);
   box-shadow: var(--elevation-2);
   z-index: 1000;

@@ -30,12 +30,16 @@
     --nav-bg: rgba(255, 255, 255, 0.95);
     --nav-text: #212121;
     --nav-hover-bg: rgba(0, 0, 0, 0.05);
+    --nav-logo-text: #795548;
+    --nav-logo-subtext: #757575;
   }
 
   [data-theme='dark'] {
     --nav-bg: rgba(10, 10, 10, 0.95);
     --nav-text: #ffffff;
     --nav-hover-bg: rgba(255, 255, 255, 0.08);
+    --nav-logo-text: #ffecb3;
+    --nav-logo-subtext: rgba(255, 236, 179, 0.6);
   }
 
   @media (prefers-color-scheme: dark) {

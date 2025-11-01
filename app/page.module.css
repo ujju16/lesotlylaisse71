@@ -151,7 +151,7 @@
 
 .serviceCard {
   background: var(--card-bg);
-  color: var(--text-primary);
+  color: var(--card-text-primary);
   padding: 3rem 2rem;
   border-radius: 16px;
   text-align: center;
@@ -233,7 +233,7 @@
 }
 
 .serviceCard p {
-  color: var(--text-secondary);
+  color: var(--card-text-secondary);
   margin-bottom: 2rem;
   line-height: 1.7;
   font-size: 1.05rem;
@@ -254,7 +254,7 @@
   gap: 4rem;
   align-items: center;
   background: var(--card-bg);
-  color: var(--text-primary);
+  color: var(--card-text-primary);
   padding: 4rem;
   border-radius: 16px;
   box-shadow: var(--card-shadow);
@@ -296,7 +296,7 @@
 .engagementContent p {
   font-size: 1.1rem;
   line-height: 1.7;
-  color: var(--text-secondary);
+  color: var(--card-text-secondary);
   margin-bottom: 2rem;
 }
 
@@ -311,7 +311,7 @@
 
 .engagementList li {
   font-size: 1.05rem;
-  color: var(--text-secondary);
+  color: var(--card-text-secondary);
   display: flex;
   align-items: center;
   gap: 0.75rem;

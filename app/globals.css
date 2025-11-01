@@ -59,8 +59,10 @@
     --card-border: rgba(255, 255, 255, 0.08);
     --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
     --card-hover-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
-    --text-primary: #ffffff;
-    --text-secondary: rgba(255, 255, 255, 0.7);
+    --text-primary: #212121;
+    --text-secondary: #757575;
+    --card-text-primary: #ffffff;
+    --card-text-secondary: rgba(255, 255, 255, 0.7);
     --hero-overlay: linear-gradient(
       180deg,
       rgba(10, 10, 10, 0.2) 0%,
@@ -79,6 +81,8 @@
     --card-hover-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
     --text-primary: var(--dark-text-primary);
     --text-secondary: var(--dark-text-secondary);
+    --card-text-primary: var(--dark-text-primary);
+    --card-text-secondary: var(--dark-text-secondary);
     --hero-overlay: linear-gradient(
       180deg,
       rgba(10, 10, 10, 0.3) 0%,
@@ -257,7 +261,7 @@
   .card-md {
     @apply rounded-lg p-6;
     background: var(--card-bg);
-    color: var(--text-primary);
+    color: var(--card-text-primary);
     box-shadow: var(--card-shadow);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     border: 1px solid var(--card-border);
@@ -267,6 +271,17 @@
     box-shadow: var(--card-hover-shadow);
     transform: translateY(-2px);
     border-color: rgba(255, 213, 79, 0.3);
+  }
+
+  .card-md h3,
+  .card-md h4,
+  .card-md h5,
+  .card-md h6 {
+    color: var(--card-text-primary);
+  }
+
+  .card-md p {
+    color: var(--card-text-secondary);
   }
 
   /* === MATERIAL DESIGN BADGES === */

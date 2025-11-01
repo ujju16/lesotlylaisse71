@@ -97,7 +97,7 @@
   position: relative;
   display: block;
   padding: 8px 16px;
-  color: #fff;
+  color: #ffecb3;
   text-decoration: none;
   font-weight: 600;
   font-size: 0.875rem;
@@ -257,7 +257,7 @@
 .mobileNavLinkActive {
   display: block;
   padding: 12px 16px;
-  color: #fff;
+  color: #ffecb3;
   text-decoration: none;
   font-weight: 600;
   font-size: 1rem;

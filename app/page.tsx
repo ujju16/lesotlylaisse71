@@ -83,7 +83,7 @@ export default function Home() {
                 terroir et recettes généreuses qui réchauffent le cœur.
               </p>
               <div className={styles.badgeContainer}>
-                <span className="badge-md">Ouvert le midi seulement</span>
+                <span className="badge-md-accent">Ouvert le midi seulement</span>
               </div>
             </div>
 

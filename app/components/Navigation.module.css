@@ -3,8 +3,8 @@
   position: sticky;
   top: 0;
   width: 100%;
-  background: var(--surface);
-  border-bottom: 1px solid var(--border-color);
+  background: #000;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: var(--elevation-2);
   z-index: 1000;
   transition: box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -47,14 +47,14 @@
 .logoText {
   font-size: 1.25rem;
   font-weight: 600;
-  color: var(--primary-700);
+  color: var(--accent-400);
   letter-spacing: -0.5px;
   line-height: 1.2;
 }
 
 .logoSubtext {
   font-size: 0.75rem;
-  color: var(--foreground-secondary);
+  color: rgba(255, 255, 255, 0.7);
   font-weight: 400;
   letter-spacing: 0.5px;
   text-transform: uppercase;
@@ -73,7 +73,7 @@
   position: relative;
   display: block;
   padding: 8px 16px;
-  color: var(--foreground);
+  color: rgba(255, 255, 255, 0.9);
   text-decoration: none;
   font-weight: 500;
   font-size: 0.875rem;
@@ -83,20 +83,20 @@
 }
 
 .navLink:hover {
-  background-color: var(--primary-50);
-  color: var(--primary-700);
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--accent-400);
 }
 
 .navLinkActive {
   position: relative;
   display: block;
   padding: 8px 16px;
-  color: var(--primary-700);
+  color: #fff;
   text-decoration: none;
   font-weight: 600;
   font-size: 0.875rem;
   letter-spacing: 0.25px;
-  background-color: var(--primary-50);
+  background-color: rgba(255, 255, 255, 0.15);
   border-radius: 4px;
 }
 
@@ -107,7 +107,7 @@
   left: 16px;
   right: 16px;
   height: 2px;
-  background-color: var(--primary-700);
+  background-color: var(--accent-400);
   border-radius: 2px;
 }
 
@@ -155,7 +155,7 @@
 }
 
 .mobileMenuButton:hover {
-  background-color: var(--primary-50);
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 .hamburger,
@@ -163,7 +163,7 @@
   position: relative;
   width: 24px;
   height: 2px;
-  background-color: var(--foreground);
+  background-color: #fff;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -175,7 +175,7 @@
   position: absolute;
   width: 24px;
   height: 2px;
-  background-color: var(--foreground);
+  background-color: #fff;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -204,8 +204,8 @@
 /* Mobile Menu */
 .mobileMenu {
   display: none;
-  background: var(--surface);
-  border-top: 1px solid var(--border-color);
+  background: #000;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
   padding: 16px 24px;
   animation: slideDown 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -233,7 +233,7 @@
 .mobileNavLink {
   display: block;
   padding: 12px 16px;
-  color: var(--foreground);
+  color: rgba(255, 255, 255, 0.9);
   text-decoration: none;
   font-weight: 500;
   font-size: 1rem;
@@ -242,20 +242,20 @@
 }
 
 .mobileNavLink:hover {
-  background-color: var(--primary-50);
-  color: var(--primary-700);
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--accent-400);
 }
 
 .mobileNavLinkActive {
   display: block;
   padding: 12px 16px;
-  color: var(--primary-700);
+  color: #fff;
   text-decoration: none;
   font-weight: 600;
   font-size: 1rem;
-  background-color: var(--primary-50);
+  background-color: rgba(255, 255, 255, 0.15);
   border-radius: 4px;
-  border-left: 3px solid var(--primary-700);
+  border-left: 3px solid var(--accent-400);
 }
 
 .mobileCtaButton {

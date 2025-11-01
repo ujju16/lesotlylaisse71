@@ -14,8 +14,8 @@
   "/menu/page": "app/menu/page.js",
   "/page": "app/page.js",
   "/reservations/page": "app/reservations/page.js",
-  "/confidentialite/page": "app/confidentialite/page.js",
   "/cookies/page": "app/cookies/page.js",
+  "/confidentialite/page": "app/confidentialite/page.js",
   "/mentions-legales/page": "app/mentions-legales/page.js",
   "/admin/categories/page": "app/admin/categories/page.js",
   "/opengraph-image/route": "app/opengraph-image/route.js"

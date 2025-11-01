@@ -142,18 +142,20 @@
 }
 
 .serviceCard {
-  background: var(--surface);
+  background: #000;
+  color: #fff;
   padding: 3rem 2rem;
   border-radius: 12px;
   text-align: center;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow: var(--elevation-2);
-  border: 1px solid rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .serviceCard:hover {
   transform: translateY(-8px);
   box-shadow: var(--elevation-4);
+  border-color: rgba(255, 255, 255, 0.2);
 }
 
 .serviceIcon {
@@ -187,12 +189,12 @@
 .serviceCard h3 {
   font-size: 1.75rem;
   font-weight: 600;
-  color: var(--primary-700);
+  color: var(--accent-400);
   margin-bottom: 1rem;
 }
 
 .serviceCard p {
-  color: var(--foreground-secondary);
+  color: rgba(255, 255, 255, 0.8);
   margin-bottom: 1.5rem;
   line-height: 1.7;
   font-size: 1.05rem;
@@ -204,10 +206,12 @@
   grid-template-columns: 1.2fr 1fr;
   gap: 4rem;
   align-items: center;
-  background: var(--surface);
+  background: #000;
+  color: #fff;
   padding: 4rem;
   border-radius: 16px;
   box-shadow: var(--elevation-2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .engagementContent {
@@ -232,7 +236,7 @@
 .engagementContent p {
   font-size: 1.1rem;
   line-height: 1.7;
-  color: var(--foreground-secondary);
+  color: rgba(255, 255, 255, 0.8);
   margin-bottom: 2rem;
 }
 
@@ -247,7 +251,7 @@
 
 .engagementList li {
   font-size: 1.05rem;
-  color: var(--foreground);
+  color: rgba(255, 255, 255, 0.9);
   display: flex;
   align-items: center;
   gap: 0.75rem;

@@ -166,15 +166,18 @@
 
   /* === MATERIAL DESIGN CARDS === */
   .card-md {
-    @apply bg-white rounded-lg p-6;
+    @apply rounded-lg p-6;
+    background: #000;
+    color: #fff;
     box-shadow: var(--shadow-2);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    border: 1px solid rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
   }
 
   .card-md:hover {
     box-shadow: var(--shadow-4);
     transform: translateY(-2px);
+    border-color: rgba(255, 255, 255, 0.2);
   }
 
   /* === MATERIAL DESIGN BADGES === */

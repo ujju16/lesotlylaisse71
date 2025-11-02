@@ -47,3 +47,12 @@ next-env.d.ts
 Thumbs.db
 
 .cursor/
+
+# Build outputs
+/.next/
+.next
+out/
+
+# postcss
+postcss.config.cjs
+

@@ -147,22 +147,24 @@
   background: linear-gradient(135deg, #efebe9 0%, #d7ccc8 100%);
   color: #3e2723;
   border: 1px solid rgba(121, 85, 72, 0.2);
-  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s ease;
 }
 
 .valuesGrid .card-md:hover {
-  transform: scale(1.05);
+  transform: scale(1.08);
+  box-shadow: 0 12px 28px rgba(121, 85, 72, 0.25);
 }
 
 [data-theme='dark'] .valuesGrid .card-md {
   background: linear-gradient(135deg, #3e2723 0%, #4e342e 100%);
   color: #efebe9;
   border: 1px solid rgba(255, 255, 255, 0.1);
-  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s ease;
 }
 
 [data-theme='dark'] .valuesGrid .card-md:hover {
-  transform: scale(1.05);
+  transform: scale(1.08);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.4);
 }
 
 .valuesGrid .card-md h3 {
@@ -209,7 +211,7 @@
   padding: 3rem 2rem;
   border-radius: 16px;
   text-align: center;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s ease, border-color 0.3s ease;
   box-shadow: var(--card-shadow);
   border: 1px solid var(--card-border);
   position: relative;
@@ -253,9 +255,9 @@
 }
 
 .serviceCard:hover {
-  transform: translateY(-8px) scale(1.03);
-  box-shadow: var(--card-hover-shadow);
-  border-color: rgba(255, 213, 79, 0.3);
+  transform: translateY(-8px) scale(1.08);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.5);
+  border-color: rgba(255, 213, 79, 0.4);
 }
 
 .serviceCard:hover::before {

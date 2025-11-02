@@ -13,7 +13,7 @@ const titleVariants = {
     y: 0,
     transition: {
       duration: 0.8,
-      ease: 'easeInOut',
+      ease: 'easeInOut' as const,
     },
   },
 };
@@ -26,7 +26,7 @@ const valueCardVariants = {
       x: 0,
       transition: {
         duration: 0.7,
-        ease: 'easeInOut',
+        ease: 'easeInOut' as const,
       },
     },
   },
@@ -37,7 +37,7 @@ const valueCardVariants = {
       y: 0,
       transition: {
         duration: 0.7,
-        ease: 'easeInOut',
+        ease: 'easeInOut' as const,
         delay: 0.15,
       },
     },
@@ -49,7 +49,7 @@ const valueCardVariants = {
       x: 0,
       transition: {
         duration: 0.7,
-        ease: 'easeInOut',
+        ease: 'easeInOut' as const,
         delay: 0.3,
       },
     },
@@ -64,7 +64,7 @@ const serviceCardVariants = {
       x: 0,
       transition: {
         duration: 0.7,
-        ease: 'easeInOut',
+        ease: 'easeInOut' as const,
       },
     },
   },
@@ -75,7 +75,7 @@ const serviceCardVariants = {
       y: 0,
       transition: {
         duration: 0.7,
-        ease: 'easeInOut',
+        ease: 'easeInOut' as const,
         delay: 0.15,
       },
     },
@@ -87,7 +87,7 @@ const serviceCardVariants = {
       x: 0,
       transition: {
         duration: 0.7,
-        ease: 'easeInOut',
+        ease: 'easeInOut' as const,
         delay: 0.3,
       },
     },
@@ -101,7 +101,7 @@ const jumbotronVariants = {
     scale: 1,
     transition: {
       duration: 1.0,
-      ease: 'easeInOut',
+      ease: 'easeInOut' as const,
     },
   },
 };

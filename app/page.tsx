@@ -1,6 +1,50 @@
+'use client';
+
 import Image from 'next/image';
 import Carrousel from './components/Carrousel';
 import styles from './page.module.css';
+import { motion } from 'framer-motion';
+
+// Animation variants
+const titleVariants = {
+  hidden: { opacity: 0, y: 50 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.8,
+      ease: 'easeOut',
+    },
+  },
+};
+
+const cardVariants = {
+  hidden: { opacity: 0, x: -100, rotate: -5 },
+  visible: (index: number) => ({
+    opacity: 1,
+    x: 0,
+    rotate: 0,
+    transition: {
+      duration: 0.6,
+      delay: index * 0.15,
+      ease: [0.43, 0.13, 0.23, 0.96],
+    },
+  }),
+};
+
+const serviceCardVariants = {
+  hidden: { opacity: 0, y: 50, scale: 0.9 },
+  visible: (index: number) => ({
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: {
+      duration: 0.5,
+      delay: index * 0.1,
+      ease: 'easeOut',
+    },
+  }),
+};
 
 export default function Home() {
   return (
@@ -10,15 +54,39 @@ export default function Home() {
         <Carrousel />
         <div className={styles.heroOverlay}>
           <div className={styles.heroContent}>
-            <h1 className={styles.heroTitle}>LeSotLyLaisse71</h1>
-            <p className={styles.heroSubtitle}>L&apos;humain au cœur de nos services</p>
-            <p className={styles.heroDescription}>
+            <motion.h1
+              className={styles.heroTitle}
+              initial="hidden"
+              animate="visible"
+              variants={titleVariants}
+            >
+              LeSotLyLaisse71
+            </motion.h1>
+            <motion.p
+              className={styles.heroSubtitle}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.5, duration: 0.8 }}
+            >
+              L&apos;humain au cœur de nos services
+            </motion.p>
+            <motion.p
+              className={styles.heroDescription}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.7, duration: 0.8 }}
+            >
               Restaurant • Bar • Tabac - Un lieu de convivialité à Messey Sur Grosne
-            </p>
-            <div className={styles.heroCta}>
+            </motion.p>
+            <motion.div
+              className={styles.heroCta}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1, duration: 0.6 }}
+            >
               <button className="btn-md-accent">Réserver une table</button>
               <button className="btn-md-outlined">Découvrir nos services</button>
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>

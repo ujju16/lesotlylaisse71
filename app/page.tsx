@@ -10,86 +10,133 @@ export default function Home() {
         <div className={styles.heroOverlay}>
           <div className={styles.heroContent}>
             <h1 className={styles.heroTitle}>LeSotLyLaisse71</h1>
-            <p className={styles.heroSubtitle}>Restaurant • Bar • Tabac</p>
+            <p className={styles.heroSubtitle}>L&apos;humain au cœur de nos services</p>
             <p className={styles.heroDescription}>
-              Un lieu de convivialité et de partage à Messey Sur Grosne
+              Restaurant • Bar • Tabac - Un lieu de convivialité à Messey Sur Grosne
             </p>
             <div className={styles.heroCta}>
               <button className="btn-md-accent">Réserver une table</button>
-              <button className="btn-md-outlined">Voir le menu</button>
+              <button className="btn-md-outlined">Découvrir nos services</button>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Section Présentation */}
+      {/* Section Notre Philosophie - L'Humain d'Abord */}
       <section className={styles.section}>
         <div className={styles.container}>
           <div className={styles.sectionHeader}>
-            <span className={styles.sectionLabel}>Qui sommes-nous</span>
-            <h2 className={styles.sectionTitle}>Bienvenue au cœur de la Bourgogne</h2>
+            <span className={styles.sectionLabel}>Notre Philosophie</span>
+            <h2 className={styles.sectionTitle}>L&apos;humain et le service de qualité</h2>
             <p className={styles.sectionSubtitle}>
-              LeSotLyLaisse71 met en avant l&apos;humain, le service de qualité et les produits des
-              environs
+              Chez LeSotLyLaisse71, nous mettons l&apos;accent sur l&apos;humain, un service
+              attentionné et les produits locaux de nos environs. Chaque visite est une expérience
+              chaleureuse et authentique.
             </p>
           </div>
 
-          <div className={styles.contentGrid}>
+          <div className={styles.valuesGrid}>
             <div className="card-md">
-              <h3 className="title-md title-md-h3">Notre Histoire</h3>
+              <div className={styles.valueIcon}>🤝</div>
+              <h3 className="title-md title-md-h3">Accueil Chaleureux</h3>
               <p>
-                Découvrez l&apos;histoire de notre établissement, un lieu ancré dans la tradition
-                bourguignonne qui allie convivialité et authenticité depuis des générations.
+                Notre équipe vous accueille avec le sourire et prend le temps de vous connaître.
+                Ici, vous n&apos;êtes pas un numéro, vous êtes un invité.
               </p>
             </div>
 
             <div className="card-md">
-              <h3 className="title-md title-md-h3">Notre Cuisine</h3>
+              <div className={styles.valueIcon}>⭐</div>
+              <h3 className="title-md title-md-h3">Service de Qualité</h3>
               <p>
-                Une cuisine généreuse préparée avec des produits frais et locaux. Nos plats mettent
-                à l&apos;honneur les saveurs de notre terroir.
+                Un service attentif et professionnel pour que chaque moment passé chez nous soit
+                agréable, que ce soit pour un café rapide ou un repas en famille.
               </p>
             </div>
 
             <div className="card-md">
-              <h3 className="title-md title-md-h3">Notre Ambiance</h3>
+              <div className={styles.valueIcon}>🌾</div>
+              <h3 className="title-md title-md-h3">Produits Locaux</h3>
               <p>
-                Un cadre chaleureux et accueillant où il fait bon se retrouver entre amis, en
-                famille ou pour un moment de détente au bar.
+                Nous travaillons avec des producteurs de la région pour vous offrir des produits
+                frais, de saison et pleins de saveurs bourguignonnes.
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Section Services */}
+      {/* Section Nos Services */}
       <section className={`${styles.section} ${styles.sectionAlt}`}>
         <div className={styles.container}>
           <div className={styles.sectionHeader}>
             <span className={styles.sectionLabel}>Nos Services</span>
-            <h2 className={styles.sectionTitle}>Ce que nous proposons</h2>
+            <h2 className={styles.sectionTitle}>Trois espaces, une même convivialité</h2>
           </div>
 
           <div className={styles.servicesGrid}>
             <div className={styles.serviceCard}>
               <div className={styles.serviceIcon}>🍽️</div>
               <h3>Restaurant</h3>
-              <p>Cuisine traditionnelle et produits du terroir</p>
-              <span className="badge-md">Ouvert midi & soir</span>
+              <p>
+                Cuisine traditionnelle bourguignonne préparée avec passion. Produits frais du
+                terroir et recettes généreuses qui réchauffent le cœur.
+              </p>
+              <div className={styles.badgeContainer}>
+                <span className="badge-md-accent">Ouvert le midi seulement</span>
+              </div>
             </div>
 
             <div className={styles.serviceCard}>
               <div className={styles.serviceIcon}>🍺</div>
               <h3>Bar</h3>
-              <p>Large sélection de boissons et cocktails</p>
-              <span className="badge-md-secondary">Ambiance conviviale</span>
+              <p>
+                Un comptoir chaleureux pour vos pauses café, apéros entre amis ou moments de
+                détente. Ambiance conviviale garantie.
+              </p>
+              <div className={styles.badgeContainer}>
+                <span className="badge-md-secondary">Ambiance conviviale</span>
+              </div>
             </div>
 
             <div className={styles.serviceCard}>
               <div className={`${styles.serviceIcon} ${styles.tabacIcon}`}></div>
-              <h3>Tabac</h3>
-              <p>Presse, jeux et services de proximité</p>
-              <span className="badge-md">Tous les jours</span>
+              <h3>Presse</h3>
+              <p>
+                Tous vos services de proximité : presse, jeux, cigarettes et bien plus. Un lieu
+                essentiel au quotidien des habitants.
+              </p>
+              <div className={styles.badgeContainer}>
+                <span className="badge-md-secondary">Du mardi au dimanche</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Section Engagement Local */}
+      <section className={styles.section}>
+        <div className={styles.container}>
+          <div className={styles.engagementBanner}>
+            <div className={styles.engagementContent}>
+              <span className={styles.sectionLabel}>Notre Engagement</span>
+              <h2 className={styles.sectionTitle}>Ancré dans la vie locale</h2>
+              <p>
+                Depuis des générations, LeSotLyLaisse71 est un pilier de la communauté de Messey Sur
+                Grosne. Nous participons activement à la vie locale, soutenons les producteurs de la
+                région et créons un espace où chacun se sent chez soi.
+              </p>
+              <ul className={styles.engagementList}>
+                <li>✓ Partenariat avec les producteurs locaux</li>
+                <li>✓ Participation aux événements du village</li>
+                <li>✓ Lieu de rencontre intergénérationnel</li>
+                <li>✓ Emploi local et formation continue</li>
+              </ul>
+            </div>
+            <div className={styles.engagementImage}>
+              <div className={styles.imagePlaceholder}>
+                <span>🏡</span>
+              </div>
             </div>
           </div>
         </div>
@@ -99,12 +146,13 @@ export default function Home() {
       <section className={styles.ctaSection}>
         <div className={styles.container}>
           <div className={styles.ctaContent}>
-            <h2 className={styles.ctaTitle}>Prêt à nous rendre visite ?</h2>
+            <h2 className={styles.ctaTitle}>Prêt à vivre l&apos;expérience ?</h2>
             <p className={styles.ctaText}>
-              Réservez votre table dès maintenant ou venez découvrir notre carte
+              Venez découvrir notre accueil chaleureux et nos services de qualité. Nous avons hâte
+              de vous rencontrer !
             </p>
             <div className={styles.ctaButtons}>
-              <button className="btn-md-primary">Réserver maintenant</button>
+              <button className="btn-md-primary">Réserver une table</button>
               <button className="btn-md-outlined">Nous contacter</button>
             </div>
           </div>

@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 import styles from './Navigation.module.css';
+import ThemeToggle from './ThemeToggle';
 
 export default function Navigation() {
   const pathname = usePathname();
@@ -54,6 +55,9 @@ export default function Navigation() {
         {/* CTA Button */}
         <button className={styles.ctaButton}>Réserver</button>
 
+        {/* Theme Toggle */}
+        <ThemeToggle />
+
         {/* Mobile Menu Button */}
         <button
           className={styles.mobileMenuButton}
@@ -82,6 +86,7 @@ export default function Navigation() {
               </li>
             ))}
           </ul>
+          <ThemeToggle />
           <button className={styles.mobileCtaButton}>Réserver</button>
         </div>
       )}

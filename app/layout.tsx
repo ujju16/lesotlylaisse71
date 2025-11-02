@@ -4,6 +4,7 @@ import './globals.css';
 import Navigation from './components/Navigation';
 import Footer from './components/Footer';
 import AxeptioConsent from './components/AxeptioConsent';
+import ThemeInitializer from './components/ThemeInitializer';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -74,6 +75,7 @@ export default function RootLayout({
   return (
     <html lang="fr">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
+        <ThemeInitializer />
         <AxeptioConsent />
         <Navigation />
         {children}

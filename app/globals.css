@@ -347,3 +347,59 @@
     font-weight: 600;
   }
 }
+
+/* Global dark mode overrides for legal pages */
+html[data-theme='dark'] .legalContainer,
+html[data-theme='dark'] .container {
+  background: var(--dark-bg) !important;
+  color: var(--dark-text-primary) !important;
+}
+
+html[data-theme='dark'] .infoCard,
+html[data-theme='dark'] .textCard,
+html[data-theme='dark'] .section {
+  background: var(--dark-surface-elevated) !important;
+  border-color: var(--dark-border) !important;
+}
+
+html[data-theme='dark'] .cardContent,
+html[data-theme='dark'] .section p,
+html[data-theme='dark'] .section ul li,
+html[data-theme='dark'] .infoItem,
+html[data-theme='dark'] .value,
+html[data-theme='dark'] .cookieCard,
+html[data-theme='dark'] .rightCard {
+  background: var(--dark-surface) !important;
+  color: var(--dark-text-secondary) !important;
+}
+
+html[data-theme='dark'] .cardTitle,
+html[data-theme='dark'] .section h2,
+html[data-theme='dark'] .section h3,
+html[data-theme='dark'] .sectionTitle,
+html[data-theme='dark'] .colorName,
+html[data-theme='dark'] .componentTitle {
+  color: var(--dark-text-primary) !important;
+}
+
+html[data-theme='dark'] .colorCard,
+html[data-theme='dark'] .typeCard,
+html[data-theme='dark'] .componentCard {
+  background: var(--dark-surface-elevated) !important;
+  border-color: var(--dark-border) !important;
+}
+
+html[data-theme='light'] body,
+html[data-theme='dark'] body {
+  min-height: 100vh;
+}
+
+html[data-theme='light'] body {
+  background: linear-gradient(180deg, #fafafa 0%, #ffffff 100%);
+  color: #212121;
+}
+
+html[data-theme='dark'] body {
+  background: linear-gradient(180deg, #0a0a0a 0%, #141414 100%);
+  color: #ffffff;
+}

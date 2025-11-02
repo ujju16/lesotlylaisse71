@@ -156,17 +156,26 @@
 }
 
 .valuesGrid .card-md h3 {
-  background: linear-gradient(135deg, #6d4c41 0%, #795548 100%);
+  background: linear-gradient(135deg, #6d4c41 0%, #8d6e63 50%, #795548 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  background-size: 200% 200%;
+  animation: gradientShift 4s ease infinite;
+  transition: all 0.3s ease;
+}
+
+.valuesGrid .card-md:hover h3 {
+  transform: scale(1.08);
+  filter: brightness(1.2);
 }
 
 [data-theme='dark'] .valuesGrid .card-md h3 {
-  background: linear-gradient(135deg, #ffecb3 0%, #ffd54f 100%);
+  background: linear-gradient(135deg, #ffecb3 0%, #ffd54f 50%, #ffd54f 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  background-size: 200% 200%;
 }
 
 .valuesGrid .card-md p {
@@ -197,6 +206,28 @@
   overflow: hidden;
   display: flex;
   flex-direction: column;
+}
+
+.serviceCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(255, 213, 79, 0.05) 0%, rgba(255, 193, 7, 0.1) 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 0;
+}
+
+.serviceCard:hover::before {
+  opacity: 1;
+}
+
+.serviceCard > * {
+  position: relative;
+  z-index: 1;
 }
 
 .serviceCard::before {
@@ -288,7 +319,7 @@
   grid-template-columns: 1.2fr 1fr;
   gap: 4rem;
   align-items: center;
-  background: var(--card-bg);
+  background: linear-gradient(135deg, #1e1e1e 0%, #2a2a2a 100%);
   color: var(--card-text-primary);
   padding: 4rem;
   border-radius: 16px;
@@ -296,6 +327,29 @@
   border: 1px solid var(--card-border);
   position: relative;
   overflow: hidden;
+}
+
+.engagementBanner::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(255, 213, 79, 0.15) 0%, transparent 70%);
+  animation: pulse 4s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.8;
+  }
 }
 
 .engagementBanner::before {

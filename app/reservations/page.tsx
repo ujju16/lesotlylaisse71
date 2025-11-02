@@ -69,11 +69,21 @@ export default function ReservationPage() {
             </div>
           )}
 
-          {error && <div className={styles.errorMessage} role="alert" aria-live="assertive">❌ {error}</div>}
+          {error && (
+            <div className={styles.errorMessage} role="alert" aria-live="assertive">
+              ❌ {error}
+            </div>
+          )}
 
-          <form className={styles.form} onSubmit={handleSubmit} aria-label="Formulaire de réservation">
+          <form
+            className={styles.form}
+            onSubmit={handleSubmit}
+            aria-label="Formulaire de réservation"
+          >
             <div className={styles.formGroup}>
-              <label htmlFor="name" className={styles.label}>Nom complet *</label>
+              <label htmlFor="name" className={styles.label}>
+                Nom complet *
+              </label>
               <input
                 id="name"
                 type="text"
@@ -87,7 +97,9 @@ export default function ReservationPage() {
 
             <div className={styles.row}>
               <div className={styles.formGroup}>
-                <label htmlFor="email" className={styles.label}>Email *</label>
+                <label htmlFor="email" className={styles.label}>
+                  Email *
+                </label>
                 <input
                   id="email"
                   type="email"
@@ -100,7 +112,9 @@ export default function ReservationPage() {
               </div>
 
               <div className={styles.formGroup}>
-                <label htmlFor="phone" className={styles.label}>Téléphone *</label>
+                <label htmlFor="phone" className={styles.label}>
+                  Téléphone *
+                </label>
                 <input
                   id="phone"
                   type="tel"
@@ -115,7 +129,9 @@ export default function ReservationPage() {
 
             <div className={styles.row}>
               <div className={styles.formGroup}>
-                <label htmlFor="date" className={styles.label}>Date *</label>
+                <label htmlFor="date" className={styles.label}>
+                  Date *
+                </label>
                 <input
                   id="date"
                   type="date"
@@ -129,7 +145,9 @@ export default function ReservationPage() {
               </div>
 
               <div className={styles.formGroup}>
-                <label htmlFor="time" className={styles.label}>Heure *</label>
+                <label htmlFor="time" className={styles.label}>
+                  Heure *
+                </label>
                 <select
                   id="time"
                   className={styles.select}
@@ -153,7 +171,9 @@ export default function ReservationPage() {
             </div>
 
             <div className={styles.formGroup}>
-              <label htmlFor="guests" className={styles.label}>Nombre de personnes *</label>
+              <label htmlFor="guests" className={styles.label}>
+                Nombre de personnes *
+              </label>
               <select
                 id="guests"
                 className={styles.select}
@@ -171,7 +191,9 @@ export default function ReservationPage() {
             </div>
 
             <div className={styles.formGroup}>
-              <label htmlFor="message" className={styles.label}>Message (optionnel)</label>
+              <label htmlFor="message" className={styles.label}>
+                Message (optionnel)
+              </label>
               <textarea
                 id="message"
                 className={styles.textarea}
@@ -180,10 +202,17 @@ export default function ReservationPage() {
                 placeholder="Demandes spéciales, allergies, etc."
                 aria-describedby="message-help"
               />
-              <span id="message-help" className="sr-only">Ajoutez ici toute information supplémentaire concernant votre réservation</span>
+              <span id="message-help" className="sr-only">
+                Ajoutez ici toute information supplémentaire concernant votre réservation
+              </span>
             </div>
 
-            <button type="submit" className={styles.submitButton} disabled={loading} aria-busy={loading}>
+            <button
+              type="submit"
+              className={styles.submitButton}
+              disabled={loading}
+              aria-busy={loading}
+            >
               {loading ? 'Envoi en cours...' : 'Réserver'}
             </button>
           </form>

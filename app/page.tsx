@@ -152,8 +152,12 @@ export default function Home() {
               role="group"
               aria-label="Actions principales"
             >
-              <button className="btn-md-accent" aria-label="Réserver une table">Réserver une table</button>
-              <button className="btn-md-outlined" aria-label="Découvrir nos services">Découvrir nos services</button>
+              <button className="btn-md-accent" aria-label="Réserver une table">
+                Réserver une table
+              </button>
+              <button className="btn-md-outlined" aria-label="Découvrir nos services">
+                Découvrir nos services
+              </button>
             </motion.div>
           </div>
         </div>
@@ -163,8 +167,12 @@ export default function Home() {
       <section className={styles.section} aria-labelledby="philosophy-heading">
         <div className={styles.container}>
           <div className={styles.sectionHeader}>
-            <span className={styles.sectionLabel} aria-hidden="true">Notre Philosophie</span>
-            <h2 className={styles.sectionTitle} id="philosophy-heading">L&apos;humain et le service de qualité</h2>
+            <span className={styles.sectionLabel} aria-hidden="true">
+              Notre Philosophie
+            </span>
+            <h2 className={styles.sectionTitle} id="philosophy-heading">
+              L&apos;humain et le service de qualité
+            </h2>
             <p className={styles.sectionSubtitle}>
               Chez LeSotLyLaisse71, nous mettons l&apos;accent sur l&apos;humain, un service
               attentionné et les produits locaux de nos environs. Chaque visite est une expérience
@@ -181,7 +189,9 @@ export default function Home() {
               variants={valueCardVariants.fromLeft}
               role="listitem"
             >
-              <div className={styles.valueIcon} aria-hidden="true">🤝</div>
+              <div className={styles.valueIcon} aria-hidden="true">
+                🤝
+              </div>
               <h3 className="title-md title-md-h3">Accueil Chaleureux</h3>
               <p>
                 Notre équipe vous accueille avec le sourire et prend le temps de vous connaître.
@@ -197,7 +207,9 @@ export default function Home() {
               variants={valueCardVariants.fromBottom}
               role="listitem"
             >
-              <div className={styles.valueIcon} aria-hidden="true">⭐</div>
+              <div className={styles.valueIcon} aria-hidden="true">
+                ⭐
+              </div>
               <h3 className="title-md title-md-h3">Service de Qualité</h3>
               <p>
                 Un service attentif et professionnel pour que chaque moment passé chez nous soit
@@ -213,7 +225,9 @@ export default function Home() {
               variants={valueCardVariants.fromRight}
               role="listitem"
             >
-              <div className={styles.valueIcon} aria-hidden="true">🌾</div>
+              <div className={styles.valueIcon} aria-hidden="true">
+                🌾
+              </div>
               <h3 className="title-md title-md-h3">Produits Locaux</h3>
               <p>
                 Nous travaillons avec des producteurs de la région pour vous offrir des produits
@@ -225,11 +239,18 @@ export default function Home() {
       </section>
 
       {/* Section Nos Services */}
-      <section className={`${styles.section} ${styles.sectionAlt}`} aria-labelledby="services-heading">
+      <section
+        className={`${styles.section} ${styles.sectionAlt}`}
+        aria-labelledby="services-heading"
+      >
         <div className={styles.container}>
           <div className={styles.sectionHeader}>
-            <span className={styles.sectionLabel} aria-hidden="true">Nos Services</span>
-            <h2 className={styles.sectionTitle} id="services-heading">Trois espaces, une même convivialité</h2>
+            <span className={styles.sectionLabel} aria-hidden="true">
+              Nos Services
+            </span>
+            <h2 className={styles.sectionTitle} id="services-heading">
+              Trois espaces, une même convivialité
+            </h2>
           </div>
 
           <div className={styles.servicesGrid} role="list" aria-label="Liste de nos services">
@@ -242,14 +263,18 @@ export default function Home() {
               role="listitem"
               aria-labelledby="service-restaurant"
             >
-              <div className={styles.serviceIcon} aria-hidden="true">🍽️</div>
+              <div className={styles.serviceIcon} aria-hidden="true">
+                🍽️
+              </div>
               <h3 id="service-restaurant">Restaurant</h3>
               <p>
                 Cuisine traditionnelle bourguignonne préparée avec passion. Produits frais du
                 terroir et recettes généreuses qui réchauffent le cœur.
               </p>
               <div className={styles.badgeContainer}>
-                <span className="badge-md-accent" role="status">Ouvert le midi seulement</span>
+                <span className="badge-md-accent" role="status">
+                  Ouvert le midi seulement
+                </span>
               </div>
             </motion.div>
 
@@ -262,14 +287,18 @@ export default function Home() {
               role="listitem"
               aria-labelledby="service-bar"
             >
-              <div className={styles.serviceIcon} aria-hidden="true">🍺</div>
+              <div className={styles.serviceIcon} aria-hidden="true">
+                🍺
+              </div>
               <h3 id="service-bar">Bar</h3>
               <p>
                 Un comptoir chaleureux pour vos pauses café, apéros entre amis ou moments de
                 détente. Ambiance conviviale garantie.
               </p>
               <div className={styles.badgeContainer}>
-                <span className="badge-md-secondary" role="status">Ambiance conviviale</span>
+                <span className="badge-md-secondary" role="status">
+                  Ambiance conviviale
+                </span>
               </div>
             </motion.div>
 
@@ -289,7 +318,9 @@ export default function Home() {
                 essentiel au quotidien des habitants.
               </p>
               <div className={styles.badgeContainer}>
-                <span className="badge-md-secondary" role="status">Du mardi au dimanche</span>
+                <span className="badge-md-secondary" role="status">
+                  Du mardi au dimanche
+                </span>
               </div>
             </motion.div>
           </div>
@@ -301,8 +332,12 @@ export default function Home() {
         <div className={styles.container}>
           <div className={styles.engagementBanner}>
             <div className={styles.engagementContent}>
-              <span className={styles.sectionLabel} aria-hidden="true">Notre Engagement</span>
-              <h2 className={styles.sectionTitle} id="engagement-heading">Ancré dans la vie locale</h2>
+              <span className={styles.sectionLabel} aria-hidden="true">
+                Notre Engagement
+              </span>
+              <h2 className={styles.sectionTitle} id="engagement-heading">
+                Ancré dans la vie locale
+              </h2>
               <p>
                 Au cœur de Messey-sur-Grosne, notre établissement perpétue la tradition du commerce
                 de proximité. Chaque jour, nous mettons un point d&apos;honneur à servir nos clients
@@ -311,15 +346,21 @@ export default function Home() {
               </p>
               <div className={styles.engagementHighlights} role="list" aria-label="Nos engagements">
                 <div className={styles.highlight} role="listitem">
-                  <span className={styles.highlightIcon} aria-hidden="true">🏡</span>
+                  <span className={styles.highlightIcon} aria-hidden="true">
+                    🏡
+                  </span>
                   <span>Commerce familial</span>
                 </div>
                 <div className={styles.highlight} role="listitem">
-                  <span className={styles.highlightIcon} aria-hidden="true">🌾</span>
+                  <span className={styles.highlightIcon} aria-hidden="true">
+                    🌾
+                  </span>
                   <span>Produits locaux</span>
                 </div>
                 <div className={styles.highlight} role="listitem">
-                  <span className={styles.highlightIcon} aria-hidden="true">🤝</span>
+                  <span className={styles.highlightIcon} aria-hidden="true">
+                    🤝
+                  </span>
                   <span>Service personnalisé</span>
                 </div>
               </div>
@@ -344,14 +385,20 @@ export default function Home() {
       <section className={styles.ctaSection} aria-labelledby="cta-heading">
         <div className={styles.container}>
           <div className={styles.ctaContent}>
-            <h2 className={styles.ctaTitle} id="cta-heading">Prêt à vivre l&apos;expérience ?</h2>
+            <h2 className={styles.ctaTitle} id="cta-heading">
+              Prêt à vivre l&apos;expérience ?
+            </h2>
             <p className={styles.ctaText}>
               Venez découvrir notre accueil chaleureux et nos services de qualité. Nous avons hâte
               de vous rencontrer !
             </p>
             <div className={styles.ctaButtons} role="group" aria-label="Actions de contact">
-              <button className="btn-md-primary" aria-label="Réserver une table">Réserver une table</button>
-              <button className="btn-md-outlined" aria-label="Nous contacter">Nous contacter</button>
+              <button className="btn-md-primary" aria-label="Réserver une table">
+                Réserver une table
+              </button>
+              <button className="btn-md-outlined" aria-label="Nous contacter">
+                Nous contacter
+              </button>
             </div>
           </div>
         </div>

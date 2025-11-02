@@ -5,21 +5,25 @@ Restaurant, bar et tabac au cœur de la Bourgogne - Site web moderne développé
 ## 📊 Status & Badges
 
 ### Déploiement
+
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/ujju16/lesotlylaisse71)
 [![Vercel Status](https://img.shields.io/badge/Vercel-Production-black?logo=vercel)](https://lesotlylaisse71.vercel.app)
 
 ### CI/CD
+
 [![CI Pipeline](https://github.com/ujju16/lesotlylaisse71/actions/workflows/ci.yml/badge.svg)](https://github.com/ujju16/lesotlylaisse71/actions/workflows/ci.yml)
 [![CD Pipeline](https://github.com/ujju16/lesotlylaisse71/actions/workflows/cd.yml/badge.svg)](https://github.com/ujju16/lesotlylaisse71/actions/workflows/cd.yml)
 [![Lighthouse CI](https://github.com/ujju16/lesotlylaisse71/actions/workflows/lighthouse-ci.yml/badge.svg)](https://github.com/ujju16/lesotlylaisse71/actions/workflows/lighthouse-ci.yml)
 
 ### Code Quality
+
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.9.3-blue?logo=typescript)](https://www.typescriptlang.org/)
 [![ESLint](https://img.shields.io/badge/ESLint-9.x-4B32C3?logo=eslint)](https://eslint.org/)
 [![Prettier](https://img.shields.io/badge/Prettier-3.6.2-F7B93E?logo=prettier)](https://prettier.io/)
 [![Code Coverage](https://img.shields.io/badge/Coverage-Pass-brightgreen?logo=codecov)]()
 
 ### Technologies
+
 [![Next.js](https://img.shields.io/badge/Next.js-16.0.1-black?logo=next.js)](https://nextjs.org/)
 [![React](https://img.shields.io/badge/React-19.0.0-blue?logo=react)](https://reactjs.org/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-3.4.17-38B2AC?logo=tailwind-css)](https://tailwindcss.com/)
@@ -27,6 +31,7 @@ Restaurant, bar et tabac au cœur de la Bourgogne - Site web moderne développé
 [![Framer Motion](https://img.shields.io/badge/Framer%20Motion-12.23.24-FF0080?logo=framer)](https://www.framer.com/motion/)
 
 ### Accessibilité & Performance
+
 [![Accessibility](https://img.shields.io/badge/Accessibility-97%2F100-brightgreen?logo=lighthouse)](./LIGHTHOUSE_REPORT_SUMMARY.md)
 [![Best Practices](https://img.shields.io/badge/Best%20Practices-96%2F100-brightgreen?logo=lighthouse)](./LIGHTHOUSE_REPORT_SUMMARY.md)
 [![SEO](https://img.shields.io/badge/SEO-83%2F100-yellow?logo=lighthouse)](./LIGHTHOUSE_REPORT_SUMMARY.md)
@@ -34,6 +39,7 @@ Restaurant, bar et tabac au cœur de la Bourgogne - Site web moderne développé
 [![ARIA](https://img.shields.io/badge/ARIA-1.2%20Compliant-success)](./ARIA_IMPLEMENTATION.md)
 
 ### Maintenance
+
 [![Dependencies](https://img.shields.io/badge/Dependabot-Active-brightgreen?logo=dependabot)](https://github.com/ujju16/lesotlylaisse71/security/dependabot)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
 [![Last Commit](https://img.shields.io/github/last-commit/ujju16/lesotlylaisse71?logo=github)](https://github.com/ujju16/lesotlylaisse71/commits)
@@ -56,6 +62,7 @@ Restaurant, bar et tabac au cœur de la Bourgogne - Site web moderne développé
 ## 📋 Fonctionnalités
 
 ### ✨ Interface Utilisateur
+
 ✅ Page d'accueil moderne avec hero plein écran  
 ✅ Carrousel d'images animé avec Framer Motion  
 ✅ Mode sombre/clair avec détection système  
@@ -63,9 +70,10 @@ Restaurant, bar et tabac au cœur de la Bourgogne - Site web moderne développé
 ✅ Navigation Material Design avec menu mobile  
 ✅ Footer complet avec informations de contact  
 ✅ Charte graphique Material Design  
-✅ Responsive design (mobile, tablet, desktop)  
+✅ Responsive design (mobile, tablet, desktop)
 
 ### ♿ Accessibilité (97/100)
+
 ✅ **ARIA 1.2** - Tous les attributs validés à 100%  
 ✅ **WCAG 2.1 Level AA** - Conforme  
 ✅ **RGAA 4.1** - Référentiel français respecté  
@@ -73,25 +81,28 @@ Restaurant, bar et tabac au cœur de la Bourgogne - Site web moderne développé
 ✅ Support des lecteurs d'écran (NVDA, JAWS, VoiceOver)  
 ✅ Skip to content et landmarks ARIA  
 ✅ Contrastes de couleurs optimisés  
-✅ Focus visible sur tous les éléments interactifs  
+✅ Focus visible sur tous les éléments interactifs
 
 ### 🚀 Performance & SEO
+
 ✅ Optimisation des images avec Next.js Image  
 ✅ SEO optimisé avec metadata complète  
 ✅ OpenGraph et Twitter Cards  
 ✅ Sitemap.xml et robots.txt  
 ✅ PWA ready avec manifest  
-✅ Score Lighthouse: 97/100 (Accessibilité)  
+✅ Score Lighthouse: 97/100 (Accessibilité)
 
 ### 🔧 Développement
+
 ✅ Tests unitaires avec Jest  
 ✅ CI/CD automatisé (GitHub Actions)  
 ✅ Lighthouse CI pour audits automatiques  
 ✅ Dependabot pour mises à jour automatiques  
 ✅ TypeScript strict mode  
-✅ ESLint et Prettier configurés  
+✅ ESLint et Prettier configurés
 
 ### 📚 Documentation
+
 ✅ Guide complet d'implémentation ARIA  
 ✅ Rapport Lighthouse détaillé  
 ✅ Audit architectural complet  
@@ -313,14 +324,14 @@ lesotlylaisse71/
 
 ### Scores Lighthouse
 
-| Catégorie | Score | Commentaire |
-|-----------|-------|-------------|
-| **Accessibilité** | 97/100 | ⭐⭐⭐⭐⭐ Excellent |
-| **Best Practices** | 96/100 | ⭐⭐⭐⭐⭐ Excellent |
-| **SEO** | 83/100 | ⭐⭐⭐⭐ Très bon |
-| **Performance** | 48/100* | ⭐⭐ En dev (90+ en prod) |
+| Catégorie          | Score    | Commentaire               |
+| ------------------ | -------- | ------------------------- |
+| **Accessibilité**  | 97/100   | ⭐⭐⭐⭐⭐ Excellent      |
+| **Best Practices** | 96/100   | ⭐⭐⭐⭐⭐ Excellent      |
+| **SEO**            | 83/100   | ⭐⭐⭐⭐ Très bon         |
+| **Performance**    | 48/100\* | ⭐⭐ En dev (90+ en prod) |
 
-*Note : Le score de performance est mesuré en mode développement. En production, avec les optimisations automatiques de Next.js (minification, compression, code splitting), le score atteint 90+.
+\*Note : Le score de performance est mesuré en mode développement. En production, avec les optimisations automatiques de Next.js (minification, compression, code splitting), le score atteint 90+.
 
 ### Audits ARIA (100%)
 
@@ -346,6 +357,7 @@ Tous les audits d'accessibilité critiques obtiennent un score parfait :
 - ✅ **Section 508** - Standards fédéraux américains
 
 Pour plus de détails, consultez :
+
 - [📄 ARIA Implementation Guide](./ARIA_IMPLEMENTATION.md)
 - [📊 Lighthouse Report](./LIGHTHOUSE_REPORT_SUMMARY.md)
 - [🔍 Project Audit](./PROJECT_AUDIT.md)
@@ -386,4 +398,3 @@ Mises à jour automatiques des dépendances :
 - 🔄 Auto-merge pour patch et minor updates
 - ⚠️ Review manuelle pour major updates
 - 🔒 Sécurité renforcée
-

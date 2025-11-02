@@ -128,11 +128,11 @@ export default function ConfidentialitePage() {
           <p className={styles.lastUpdate}>
             Dernière mise à jour :{' '}
             <time dateTime={new Date().toISOString()}>
-            {new Date().toLocaleDateString('fr-FR', {
-              year: 'numeric',
-              month: 'long',
-              day: 'numeric',
-            })}
+              {new Date().toLocaleDateString('fr-FR', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+              })}
             </time>
           </p>
         </section>
@@ -143,7 +143,11 @@ export default function ConfidentialitePage() {
             Si vous avez des questions concernant cette politique de confidentialité ou vos données
             personnelles, n&apos;hésitez pas à nous contacter.
           </p>
-          <a href="mailto:contact@lesotlylaisse71.fr" className={styles.ctaButton} aria-label="Nous contacter par email">
+          <a
+            href="mailto:contact@lesotlylaisse71.fr"
+            className={styles.ctaButton}
+            aria-label="Nous contacter par email"
+          >
             Nous contacter
           </a>
         </section>

@@ -9,6 +9,7 @@ Ce document récapitule l'implémentation complète des attributs ARIA (Accessib
 ### 1. Layout principal (`app/layout.tsx`)
 
 ✅ **Déjà implémenté** :
+
 - `lang="fr"` sur l'élément HTML
 - Lien "skip to main content" avec classe `.skip-to-main`
 - Attribut `role="main"` sur la balise `<main>`
@@ -17,6 +18,7 @@ Ce document récapitule l'implémentation complète des attributs ARIA (Accessib
 ### 2. Navigation (`app/components/Navigation.tsx`)
 
 ✅ **Déjà implémenté** :
+
 - `role="navigation"` et `aria-label="Navigation principale"`
 - `aria-label` descriptif sur le logo
 - `aria-current="page"` pour la page active
@@ -27,6 +29,7 @@ Ce document récapitule l'implémentation complète des attributs ARIA (Accessib
 ### 3. Footer (`app/components/Footer.tsx`)
 
 ✅ **Déjà implémenté** :
+
 - `role="contentinfo"` et `aria-label="Pied de page"`
 - Navigation avec `aria-label` appropriés
 - Attributs `rel="noopener noreferrer"` sur les liens externes
@@ -36,6 +39,7 @@ Ce document récapitule l'implémentation complète des attributs ARIA (Accessib
 ### 4. Carrousel (`app/components/Carrousel.tsx`)
 
 ✅ **Déjà implémenté** :
+
 - `role="region"` et `aria-label="Carrousel d'images du restaurant"`
 - `aria-live="polite"` pour les mises à jour automatiques
 - Navigation avec `aria-controls` et `aria-label`
@@ -45,12 +49,14 @@ Ce document récapitule l'implémentation complète des attributs ARIA (Accessib
 ### 5. ThemeToggle (`app/components/ThemeToggle.tsx`)
 
 ✅ **Déjà implémenté** :
+
 - `aria-label` dynamique basé sur l'état actuel du thème
 - Attribut `title` pour info-bulle
 
 ### 6. Page d'accueil (`app/page.tsx`)
 
 ✅ **Nouvellement ajouté** :
+
 - `aria-label` sur les sections principales
 - `aria-labelledby` pour associer les sections à leurs titres
 - `role="list"` et `role="listitem"` sur les grilles de valeurs et services
@@ -62,6 +68,7 @@ Ce document récapitule l'implémentation complète des attributs ARIA (Accessib
 ### 7. Page Menu (`app/menu/page.tsx`)
 
 ✅ **Nouvellement ajouté** :
+
 - Navigation par onglets avec `role="tablist"`, `role="tab"`, et `aria-selected`
 - `aria-controls` pour lier les onglets au contenu
 - `role="tabpanel"` avec `aria-live="polite"` pour le contenu dynamique
@@ -73,6 +80,7 @@ Ce document récapitule l'implémentation complète des attributs ARIA (Accessib
 ### 8. Page Réservations (`app/reservations/page.tsx`)
 
 ✅ **Nouvellement ajouté** :
+
 - `aria-label="Formulaire de réservation"` sur le formulaire
 - Tous les champs avec labels associés via `htmlFor` et `id`
 - `aria-required="true"` sur les champs obligatoires
@@ -85,12 +93,14 @@ Ce document récapitule l'implémentation complète des attributs ARIA (Accessib
 ✅ **Nouvellement ajouté** :
 
 #### Modal.tsx :
+
 - `role="dialog"` et `aria-modal="true"`
 - `aria-labelledby` liant au titre de la modale
 - `aria-label` sur le bouton de fermeture
 - `aria-hidden="true"` sur le backdrop
 
 #### ConfirmDialog.tsx :
+
 - `role="dialog"` et `aria-modal="true"`
 - `aria-labelledby` et `aria-describedby` pour le contenu
 - `role="group"` sur les boutons d'action
@@ -99,6 +109,7 @@ Ce document récapitule l'implémentation complète des attributs ARIA (Accessib
 ### 10. Page Charte Graphique (`app/charte/page.tsx`)
 
 ✅ **Nouvellement ajouté** :
+
 - `aria-labelledby` sur toutes les sections
 - `role="list"` et `role="listitem"` sur les grilles de couleurs et composants
 - `aria-hidden="true"` sur les swatches de couleur décoratifs
@@ -109,14 +120,18 @@ Ce document récapitule l'implémentation complète des attributs ARIA (Accessib
 ### 11. Pages Légales
 
 #### Confidentialité (`app/confidentialite/page.tsx`) :
+
 ✅ **Nouvellement ajouté** :
+
 - `aria-labelledby` sur toutes les sections
 - `role="list"` sur toutes les listes
 - Balise `<time>` avec `dateTime` pour la date de mise à jour
 - `aria-label` sur le lien de contact
 
 #### Cookies (`app/cookies/page.tsx`) :
+
 ✅ **Nouvellement ajouté** :
+
 - `aria-labelledby` sur toutes les sections
 - `role="list"` sur les types de cookies
 - `role="table"`, `role="row"`, `role="cell"` sur le tableau des cookies
@@ -125,7 +140,9 @@ Ce document récapitule l'implémentation complète des attributs ARIA (Accessib
 - Balise `<time>` avec `dateTime`
 
 #### Mentions Légales (`app/mentions-legales/page.tsx`) :
+
 ✅ **Nouvellement ajouté** :
+
 - IDs sur tous les titres de sections
 - `role="list"` et `role="listitem"` sur les grilles d'informations
 - `aria-labelledby` pour associer les listes à leurs titres
@@ -134,18 +151,21 @@ Ce document récapitule l'implémentation complète des attributs ARIA (Accessib
 ### 12. Page Exemple (`app/exemple/page.tsx`)
 
 ✅ **Nouvellement ajouté** :
+
 - `aria-labelledby` sur toutes les sections
 - `role="list"` sur les listes
 
 ### 13. Composant PageTemplate (`app/components/PageTemplate.tsx`)
 
 ✅ **Modifié** :
+
 - Changement de `<main>` en `<div>` (car `<main>` est déjà dans le layout)
 - Ajout d'une balise `<header>` pour la section d'en-tête
 
 ### 14. Styles globaux (`app/globals.css`)
 
 ✅ **Nouvellement ajouté** :
+
 - Classe `.sr-only` (screen reader only) pour le contenu visible uniquement aux lecteurs d'écran
 - Classe `.skip-to-main` stylisée pour le lien de navigation rapide
 - Styles `:focus-visible` pour une meilleure navigation au clavier
@@ -155,6 +175,7 @@ Ce document récapitule l'implémentation complète des attributs ARIA (Accessib
 ## Attributs ARIA utilisés
 
 ### Rôles (role)
+
 - `role="navigation"` - Navigation principale
 - `role="main"` - Contenu principal
 - `role="contentinfo"` - Footer
@@ -170,11 +191,13 @@ Ce document récapitule l'implémentation complète des attributs ARIA (Accessib
 - `role="note"` - Notes et remarques
 
 ### Labels et descriptions
+
 - `aria-label` - Label textuel pour les éléments
 - `aria-labelledby` - Référence à un élément de label
 - `aria-describedby` - Description détaillée
 
 ### États et propriétés
+
 - `aria-current="page"` - Page active
 - `aria-expanded` - État d'expansion (menus)
 - `aria-controls` - Élément contrôlé
@@ -188,6 +211,7 @@ Ce document récapitule l'implémentation complète des attributs ARIA (Accessib
 ## Tests d'accessibilité recommandés
 
 ### Outils à utiliser :
+
 1. **WAVE** (Web Accessibility Evaluation Tool)
 2. **axe DevTools** (extension Chrome/Firefox)
 3. **Lighthouse** (dans Chrome DevTools)
@@ -195,6 +219,7 @@ Ce document récapitule l'implémentation complète des attributs ARIA (Accessib
 5. **Test de navigation au clavier** (Tab, Shift+Tab, Enter, Espace)
 
 ### Tests manuels :
+
 - ✅ Navigation complète au clavier
 - ✅ Tous les liens et boutons sont focusables
 - ✅ L'ordre de tabulation est logique

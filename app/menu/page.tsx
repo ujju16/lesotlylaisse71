@@ -70,55 +70,87 @@ export default function MenuPage() {
         </nav>
 
         <div id="menu-content" role="tabpanel" aria-live="polite">
-        {selectedCategory === 'all' ? (
-          // Afficher par catégories
-          itemsByCategory.map(
-            (category) =>
-              category.items.length > 0 && (
-                <section key={category.id} className={styles.categorySection} aria-labelledby={`category-${category.id}`}>
-                  <h2 className={styles.categoryTitle} id={`category-${category.id}`}>{category.name}</h2>
-                  <div className={styles.menuGrid} role="list">
-                    {category.items.map((item) => (
-                      <div
-                        key={item.id}
-                        className={`${styles.menuItem} ${!item.available ? styles.unavailable : ''}`}
-                        role="listitem"
-                        aria-label={`${item.name}, ${item.price.toFixed(2)} euros${!item.available ? ', indisponible' : ''}`}
+          {selectedCategory === 'all' ? (
+            // Afficher par catégories
+            itemsByCategory.map(
+              (category) =>
+                category.items.length > 0 && (
+                  <section
+                    key={category.id}
+                    className={styles.categorySection}
+                    aria-labelledby={`category-${category.id}`}
+                  >
+                    <h2 className={styles.categoryTitle} id={`category-${category.id}`}>
+                      {category.name}
+                    </h2>
+                    <div className={styles.menuGrid} role="list">
+                      {category.items.map((item) => (
+                        <div
+                          key={item.id}
+                          className={`${styles.menuItem} ${!item.available ? styles.unavailable : ''}`}
+                          role="listitem"
+                          aria-label={`${item.name}, ${item.price.toFixed(2)} euros${!item.available ? ', indisponible' : ''}`}
+                        >
+                          {!item.available && (
+                            <span
+                              className={styles.unavailableBadge}
+                              role="status"
+                              aria-label="Indisponible"
+                            >
+                              Indisponible
+                            </span>
+                          )}
+                          <h3 className={styles.itemName}>{item.name}</h3>
+                          <p className={styles.itemDescription}>{item.description}</p>
+                          <p
+                            className={styles.itemPrice}
+                            aria-label={`Prix: ${item.price.toFixed(2)} euros`}
+                          >
+                            {item.price.toFixed(2)} €
+                          </p>
+                        </div>
+                      ))}
+                    </div>
+                  </section>
+                )
+            )
+          ) : (
+            // Afficher la catégorie sélectionnée
+            <div className={styles.menuGrid} role="list">
+              {filteredItems.length > 0 ? (
+                filteredItems.map((item) => (
+                  <div
+                    key={item.id}
+                    className={`${styles.menuItem} ${!item.available ? styles.unavailable : ''}`}
+                    role="listitem"
+                    aria-label={`${item.name}, ${item.price.toFixed(2)} euros${!item.available ? ', indisponible' : ''}`}
+                  >
+                    {!item.available && (
+                      <span
+                        className={styles.unavailableBadge}
+                        role="status"
+                        aria-label="Indisponible"
                       >
-                        {!item.available && (
-                          <span className={styles.unavailableBadge} role="status" aria-label="Indisponible">Indisponible</span>
-                        )}
-                        <h3 className={styles.itemName}>{item.name}</h3>
-                        <p className={styles.itemDescription}>{item.description}</p>
-                        <p className={styles.itemPrice} aria-label={`Prix: ${item.price.toFixed(2)} euros`}>{item.price.toFixed(2)} €</p>
-                      </div>
-                    ))}
+                        Indisponible
+                      </span>
+                    )}
+                    <h3 className={styles.itemName}>{item.name}</h3>
+                    <p className={styles.itemDescription}>{item.description}</p>
+                    <p
+                      className={styles.itemPrice}
+                      aria-label={`Prix: ${item.price.toFixed(2)} euros`}
+                    >
+                      {item.price.toFixed(2)} €
+                    </p>
                   </div>
-                </section>
-              )
-          )
-        ) : (
-          // Afficher la catégorie sélectionnée
-          <div className={styles.menuGrid} role="list">
-            {filteredItems.length > 0 ? (
-              filteredItems.map((item) => (
-                <div
-                  key={item.id}
-                  className={`${styles.menuItem} ${!item.available ? styles.unavailable : ''}`}
-                  role="listitem"
-                  aria-label={`${item.name}, ${item.price.toFixed(2)} euros${!item.available ? ', indisponible' : ''}`}
-                >
-                  {!item.available && <span className={styles.unavailableBadge} role="status" aria-label="Indisponible">Indisponible</span>}
-                  <h3 className={styles.itemName}>{item.name}</h3>
-                  <p className={styles.itemDescription}>{item.description}</p>
-                  <p className={styles.itemPrice} aria-label={`Prix: ${item.price.toFixed(2)} euros`}>{item.price.toFixed(2)} €</p>
+                ))
+              ) : (
+                <div className={styles.emptyState} role="status">
+                  Aucun plat disponible dans cette catégorie
                 </div>
-              ))
-            ) : (
-              <div className={styles.emptyState} role="status">Aucun plat disponible dans cette catégorie</div>
-            )}
-          </div>
-        )}
+              )}
+            </div>
+          )}
         </div>
       </div>
     </div>

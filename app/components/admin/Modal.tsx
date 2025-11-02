@@ -17,8 +17,14 @@ export default function Modal({ isOpen, onClose, title, children, size = 'md' }:
     <div className="modal modal-open" role="dialog" aria-modal="true" aria-labelledby="modal-title">
       <div className={`modal-box ${sizeClasses[size]} max-h-[90vh] overflow-y-auto`}>
         <div className="mb-4 flex items-center justify-between">
-          <h3 id="modal-title" className="text-2xl font-bold text-primary">{title}</h3>
-          <button onClick={onClose} className="btn btn-circle btn-ghost btn-sm" aria-label="Fermer la fenêtre modale">
+          <h3 id="modal-title" className="text-2xl font-bold text-primary">
+            {title}
+          </h3>
+          <button
+            onClick={onClose}
+            className="btn btn-circle btn-ghost btn-sm"
+            aria-label="Fermer la fenêtre modale"
+          >
             ✕
           </button>
         </div>

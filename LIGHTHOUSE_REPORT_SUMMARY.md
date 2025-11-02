@@ -6,14 +6,14 @@ URL testée : http://localhost:3000 (développement)
 
 ## 📊 Scores Globaux
 
-| Catégorie | Score | Statut |
-|-----------|-------|--------|
-| **♿ Accessibilité** | **97/100** | 🟢 EXCELLENT |
-| **✅ Best Practices** | **96/100** | 🟢 EXCELLENT |
-| **🔍 SEO** | **83/100** | 🟡 TRÈS BON |
-| **⚡ Performance** | **48/100** | 🟠 À AMÉLIORER* |
+| Catégorie             | Score      | Statut           |
+| --------------------- | ---------- | ---------------- |
+| **♿ Accessibilité**  | **97/100** | 🟢 EXCELLENT     |
+| **✅ Best Practices** | **96/100** | 🟢 EXCELLENT     |
+| **🔍 SEO**            | **83/100** | 🟡 TRÈS BON      |
+| **⚡ Performance**    | **48/100** | 🟠 À AMÉLIORER\* |
 
-*Note : Le score de performance est impacté par le mode développement. En production, avec optimisation automatique de Next.js, ce score sera significativement amélioré.
+\*Note : Le score de performance est impacté par le mode développement. En production, avec optimisation automatique de Next.js, ce score sera significativement amélioré.
 
 ## ♿ Détails Accessibilité (97/100)
 
@@ -67,13 +67,13 @@ Tous les audits ARIA critiques ont obtenu un **score parfait de 100%** :
 
 ## ⚡ Métriques de Performance
 
-| Métrique | Valeur | Statut |
-|----------|--------|--------|
-| First Contentful Paint (FCP) | 1.3s | 🟢 BON |
-| Speed Index (SI) | 4.8s | 🟠 MOYEN |
-| Largest Contentful Paint (LCP) | 7.6s | 🔴 À AMÉLIORER |
-| Total Blocking Time (TBT) | 1,260ms | 🔴 À AMÉLIORER |
-| Cumulative Layout Shift (CLS) | 0 | 🟢 PARFAIT |
+| Métrique                       | Valeur  | Statut         |
+| ------------------------------ | ------- | -------------- |
+| First Contentful Paint (FCP)   | 1.3s    | 🟢 BON         |
+| Speed Index (SI)               | 4.8s    | 🟠 MOYEN       |
+| Largest Contentful Paint (LCP) | 7.6s    | 🔴 À AMÉLIORER |
+| Total Blocking Time (TBT)      | 1,260ms | 🔴 À AMÉLIORER |
+| Cumulative Layout Shift (CLS)  | 0       | 🟢 PARFAIT     |
 
 ### Recommandations Performance
 
@@ -133,6 +133,7 @@ En production, les optimisations suivantes amélioreront considérablement les p
 **L'implémentation ARIA est EXCELLENTE !**
 
 Le site LeSotLyLaisse71 respecte maintenant :
+
 - ✅ **WCAG 2.1 Level AA** - Complet
 - ✅ **ARIA 1.2** - Toutes les spécifications
 - ✅ **Section 508** - Standards fédéraux
@@ -141,6 +142,7 @@ Le site LeSotLyLaisse71 respecte maintenant :
 ### Compatibilité
 
 Le site est maintenant parfaitement compatible avec :
+
 - 🎯 **Lecteurs d'écran** : NVDA, JAWS, VoiceOver, TalkBack
 - ⌨️ **Navigation au clavier** : 100% fonctionnelle
 - 🔍 **Outils d'accessibilité** : Tous les assistants techniques
@@ -148,6 +150,7 @@ Le site est maintenant parfaitement compatible avec :
 ### Recommandations Finales
 
 Pour atteindre 100/100 en accessibilité :
+
 1. Vérifier les ratios de contraste des couleurs avec un outil dédié
 2. Faire des tests utilisateurs avec des personnes utilisant des technologies d'assistance
 3. Valider avec plusieurs lecteurs d'écran (NVDA, JAWS, VoiceOver)

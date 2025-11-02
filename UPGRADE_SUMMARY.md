@@ -3,16 +3,19 @@
 ## ✅ Changements effectués
 
 ### 1. Mise à jour Next.js
+
 - **Version précédente:** 15.3.3
 - **Nouvelle version:** 16.0.1
 - Migration réussie avec toutes les fonctionnalités préservées
 
 ### 2. Configuration Next.js 16
+
 - Suppression de l'option `eslint` obsolète dans `next.config.ts`
 - Mise à jour de la configuration TypeScript pour Next.js 16
 - Tous les builds passent avec succès
 
 ### 3. Tests avec Jest
+
 - Installation et configuration de Jest 30.2.0
 - Configuration pour Next.js 16 et React 19
 - Création de 3 suites de tests:
@@ -22,6 +25,7 @@
 - **Résultat:** 3/3 tests passent ✅
 
 ### 4. Scripts npm ajoutés/modifiés
+
 ```json
 {
   "test": "jest --passWithNoTests",
@@ -31,6 +35,7 @@
 ```
 
 ### 5. Documentation
+
 - Mise à jour du badge Next.js dans README.md
 - Tous les badges de statut présents et à jour
 

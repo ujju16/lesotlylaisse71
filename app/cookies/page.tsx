@@ -28,9 +28,13 @@ export default function CookiesPage() {
 
           <div className={styles.cookieTypes} role="list" aria-label="Types de cookies">
             <div className={styles.cookieCard} role="listitem">
-              <div className={styles.cookieIcon} aria-hidden="true">🔒</div>
+              <div className={styles.cookieIcon} aria-hidden="true">
+                🔒
+              </div>
               <h3>Cookies essentiels</h3>
-              <span className={styles.badge} role="status">Obligatoires</span>
+              <span className={styles.badge} role="status">
+                Obligatoires
+              </span>
               <p>
                 Ces cookies sont indispensables au fonctionnement du site. Ils permettent la
                 navigation et l&apos;utilisation des fonctionnalités de base (gestion de session,
@@ -40,9 +44,13 @@ export default function CookiesPage() {
             </div>
 
             <div className={styles.cookieCard} role="listitem">
-              <div className={styles.cookieIcon} aria-hidden="true">📈</div>
+              <div className={styles.cookieIcon} aria-hidden="true">
+                📈
+              </div>
               <h3>Cookies analytiques</h3>
-              <span className={`${styles.badge} ${styles.badgeOptional}`} role="status">Optionnels</span>
+              <span className={`${styles.badge} ${styles.badgeOptional}`} role="status">
+                Optionnels
+              </span>
               <p>
                 Ils nous aident à comprendre comment les visiteurs interagissent avec notre site
                 (pages visitées, temps passé, etc.) pour améliorer nos services.
@@ -51,9 +59,13 @@ export default function CookiesPage() {
             </div>
 
             <div className={styles.cookieCard} role="listitem">
-              <div className={styles.cookieIcon} aria-hidden="true">🎯</div>
+              <div className={styles.cookieIcon} aria-hidden="true">
+                🎯
+              </div>
               <h3>Cookies de préférence</h3>
-              <span className={`${styles.badge} ${styles.badgeOptional}`} role="status">Optionnels</span>
+              <span className={`${styles.badge} ${styles.badgeOptional}`} role="status">
+                Optionnels
+              </span>
               <p>
                 Ces cookies permettent au site de mémoriser vos choix (langue, région) pour vous
                 offrir une expérience personnalisée.
@@ -62,9 +74,13 @@ export default function CookiesPage() {
             </div>
 
             <div className={styles.cookieCard} role="listitem">
-              <div className={styles.cookieIcon} aria-hidden="true">🎪</div>
+              <div className={styles.cookieIcon} aria-hidden="true">
+                🎪
+              </div>
               <h3>Cookies marketing</h3>
-              <span className={`${styles.badge} ${styles.badgeOptional}`} role="status">Optionnels</span>
+              <span className={`${styles.badge} ${styles.badgeOptional}`} role="status">
+                Optionnels
+              </span>
               <p>
                 Utilisés pour afficher des publicités pertinentes et mesurer l&apos;efficacité de
                 nos campagnes publicitaires.
@@ -117,36 +133,56 @@ export default function CookiesPage() {
             </div>
 
             <div className={styles.tableRow} role="row">
-              <span className={styles.cookieName} role="cell">session_id</span>
-              <span className={styles.typeEssential} role="cell">Essentiel</span>
+              <span className={styles.cookieName} role="cell">
+                session_id
+              </span>
+              <span className={styles.typeEssential} role="cell">
+                Essentiel
+              </span>
               <span role="cell">Session</span>
               <span role="cell">Gestion de la session utilisateur</span>
             </div>
 
             <div className={styles.tableRow} role="row">
-              <span className={styles.cookieName} role="cell">csrf_token</span>
-              <span className={styles.typeEssential} role="cell">Essentiel</span>
+              <span className={styles.cookieName} role="cell">
+                csrf_token
+              </span>
+              <span className={styles.typeEssential} role="cell">
+                Essentiel
+              </span>
               <span role="cell">Session</span>
               <span role="cell">Protection contre les attaques CSRF</span>
             </div>
 
             <div className={styles.tableRow} role="row">
-              <span className={styles.cookieName} role="cell">cookie_consent</span>
-              <span className={styles.typeEssential} role="cell">Essentiel</span>
+              <span className={styles.cookieName} role="cell">
+                cookie_consent
+              </span>
+              <span className={styles.typeEssential} role="cell">
+                Essentiel
+              </span>
               <span role="cell">12 mois</span>
               <span role="cell">Mémorisation de vos préférences cookies</span>
             </div>
 
             <div className={styles.tableRow} role="row">
-              <span className={styles.cookieName} role="cell">_ga</span>
-              <span className={styles.typeAnalytics} role="cell">Analytique</span>
+              <span className={styles.cookieName} role="cell">
+                _ga
+              </span>
+              <span className={styles.typeAnalytics} role="cell">
+                Analytique
+              </span>
               <span role="cell">13 mois</span>
               <span role="cell">Google Analytics - Analyse du trafic</span>
             </div>
 
             <div className={styles.tableRow} role="row">
-              <span className={styles.cookieName} role="cell">user_prefs</span>
-              <span className={styles.typePreference} role="cell">Préférence</span>
+              <span className={styles.cookieName} role="cell">
+                user_prefs
+              </span>
+              <span className={styles.typePreference} role="cell">
+                Préférence
+              </span>
               <span role="cell">6 mois</span>
               <span role="cell">Préférences utilisateur (langue, région)</span>
             </div>
@@ -165,17 +201,21 @@ export default function CookiesPage() {
         <section className={styles.ctaSection} aria-labelledby="questions-cookies-heading">
           <h2 id="questions-cookies-heading">Questions sur les cookies ?</h2>
           <p>Pour toute question concernant notre utilisation des cookies, contactez-nous.</p>
-          <a href="mailto:contact@lesotlylaisse71.fr" className={styles.ctaButton} aria-label="Nous contacter par email">
+          <a
+            href="mailto:contact@lesotlylaisse71.fr"
+            className={styles.ctaButton}
+            aria-label="Nous contacter par email"
+          >
             Nous contacter
           </a>
           <p className={styles.lastUpdate}>
             Dernière mise à jour :{' '}
             <time dateTime={new Date().toISOString()}>
-            {new Date().toLocaleDateString('fr-FR', {
-              year: 'numeric',
-              month: 'long',
-              day: 'numeric',
-            })}
+              {new Date().toLocaleDateString('fr-FR', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+              })}
             </time>
           </p>
         </section>

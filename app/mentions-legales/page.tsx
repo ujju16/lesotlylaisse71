@@ -13,7 +13,9 @@ export default function MentionsLegalesPage() {
       <div className={styles.legalContainer}>
         <div className={styles.infoCard}>
           <div className={styles.cardHeader}>
-            <h2 className={styles.cardTitle} id="editeur-heading">📋 Éditeur du site</h2>
+            <h2 className={styles.cardTitle} id="editeur-heading">
+              📋 Éditeur du site
+            </h2>
           </div>
           <div className={styles.cardContent}>
             <div className={styles.infoGrid} role="list" aria-labelledby="editeur-heading">
@@ -53,7 +55,9 @@ export default function MentionsLegalesPage() {
 
         <div className={styles.infoCard}>
           <div className={styles.cardHeader}>
-            <h2 className={styles.cardTitle} id="hebergement-heading">🌐 Hébergement du site</h2>
+            <h2 className={styles.cardTitle} id="hebergement-heading">
+              🌐 Hébergement du site
+            </h2>
           </div>
           <div className={styles.cardContent}>
             <div className={styles.infoGrid} role="list" aria-labelledby="hebergement-heading">
@@ -83,7 +87,9 @@ export default function MentionsLegalesPage() {
 
         <div className={styles.infoCard}>
           <div className={styles.cardHeader}>
-            <h2 className={styles.cardTitle} id="developpement-heading">💻 Développement</h2>
+            <h2 className={styles.cardTitle} id="developpement-heading">
+              💻 Développement
+            </h2>
           </div>
           <div className={styles.cardContent}>
             <div className={styles.infoGrid} role="list" aria-labelledby="developpement-heading">
@@ -109,7 +115,9 @@ export default function MentionsLegalesPage() {
 
         <div className={styles.textCard}>
           <div className={styles.cardHeader}>
-            <h2 className={styles.cardTitle} id="propriete-heading">©️ Propriété intellectuelle</h2>
+            <h2 className={styles.cardTitle} id="propriete-heading">
+              ©️ Propriété intellectuelle
+            </h2>
           </div>
           <div className={styles.cardContent}>
             <p>
@@ -133,7 +141,9 @@ export default function MentionsLegalesPage() {
 
         <div className={styles.textCard}>
           <div className={styles.cardHeader}>
-            <h2 className={styles.cardTitle} id="rgpd-heading">🔒 Données personnelles (RGPD)</h2>
+            <h2 className={styles.cardTitle} id="rgpd-heading">
+              🔒 Données personnelles (RGPD)
+            </h2>
           </div>
           <div className={styles.cardContent}>
             <p>
@@ -155,7 +165,9 @@ export default function MentionsLegalesPage() {
 
         <div className={styles.textCard}>
           <div className={styles.cardHeader}>
-            <h2 className={styles.cardTitle} id="responsabilite-heading">⚖️ Responsabilité</h2>
+            <h2 className={styles.cardTitle} id="responsabilite-heading">
+              ⚖️ Responsabilité
+            </h2>
           </div>
           <div className={styles.cardContent}>
             <p>
@@ -177,11 +189,11 @@ export default function MentionsLegalesPage() {
           <p className={styles.lastUpdate}>
             Dernière mise à jour :{' '}
             <time dateTime={new Date().toISOString()}>
-            {new Date().toLocaleDateString('fr-FR', {
-              year: 'numeric',
-              month: 'long',
-              day: 'numeric',
-            })}
+              {new Date().toLocaleDateString('fr-FR', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+              })}
             </time>
           </p>
         </div>

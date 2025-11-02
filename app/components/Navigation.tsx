@@ -54,7 +54,9 @@ export default function Navigation() {
         </ul>
 
         {/* CTA Button */}
-        <button className={styles.ctaButton} aria-label="Réserver une table">Réserver</button>
+        <button className={styles.ctaButton} aria-label="Réserver une table">
+          Réserver
+        </button>
 
         {/* Theme Toggle */}
         <ThemeToggle />
@@ -73,12 +75,7 @@ export default function Navigation() {
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div 
-          className={styles.mobileMenu} 
-          id="mobile-menu"
-          role="menu"
-          aria-label="Menu mobile"
-        >
+        <div className={styles.mobileMenu} id="mobile-menu" role="menu" aria-label="Menu mobile">
           <ul className={styles.mobileNavLinks} role="list">
             {navItems.map((item) => (
               <li key={item.href} role="none">
@@ -97,7 +94,9 @@ export default function Navigation() {
             ))}
           </ul>
           <ThemeToggle />
-          <button className={styles.mobileCtaButton} aria-label="Réserver une table">Réserver</button>
+          <button className={styles.mobileCtaButton} aria-label="Réserver une table">
+            Réserver
+          </button>
         </div>
       )}
     </nav>

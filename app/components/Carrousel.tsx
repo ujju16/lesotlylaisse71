@@ -5,7 +5,7 @@ import styles from './Carrousel.module.css';
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-const images = Array.from({ length: 13 }, (_, i) => `/photo${i + 1}.jpg`);
+const images = Array.from({ length: 13 }, (_, i) => `/images/carousel/photo${i + 1}.webp`);
 
 export default function Carrousel() {
   const [current, setCurrent] = useState(0);
@@ -49,15 +49,15 @@ export default function Carrousel() {
   };
 
   return (
-    <div 
-      className={styles.carrousel} 
-      role="region" 
+    <div
+      className={styles.carrousel}
+      role="region"
       aria-label="Carrousel d'images du restaurant"
       aria-live="polite"
     >
-      <button 
-        className={styles.prev} 
-        onClick={prev} 
+      <button
+        className={styles.prev}
+        onClick={prev}
         aria-label="Image précédente"
         aria-controls="carousel-image"
       >
@@ -105,9 +105,9 @@ export default function Carrousel() {
           ))}
         </div>
       </div>
-      <button 
-        className={styles.next} 
-        onClick={next} 
+      <button
+        className={styles.next}
+        onClick={next}
         aria-label="Image suivante"
         aria-controls="carousel-image"
       >

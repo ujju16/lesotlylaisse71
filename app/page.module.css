@@ -389,6 +389,41 @@
   margin-bottom: 2rem;
 }
 
+.engagementHighlights {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+.highlight {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 1.5rem;
+  background: rgba(255, 213, 79, 0.1);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 213, 79, 0.2);
+  transition: all 0.3s ease;
+}
+
+.highlight:hover {
+  background: rgba(255, 213, 79, 0.15);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 213, 79, 0.2);
+}
+
+.highlightIcon {
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.highlight span:last-child {
+  font-weight: 600;
+  color: var(--card-text-primary);
+  font-size: 1rem;
+}
+
 .engagementList {
   list-style: none;
   padding: 0;

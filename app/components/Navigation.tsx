@@ -20,13 +20,13 @@ export default function Navigation() {
   ];
 
   return (
-    <nav className={styles.navbar}>
+    <nav className={styles.navbar} role="navigation" aria-label="Navigation principale">
       <div className={styles.navContainer}>
         {/* Logo */}
-        <Link href="/" className={styles.logo}>
+        <Link href="/" className={styles.logo} aria-label="Retour à l'accueil - LeSotLyLaisse71">
           <Image
             src="/logo_soly.png"
-            alt="LeSotLyLaisse71 Logo"
+            alt="Logo LeSotLyLaisse71"
             width={48}
             height={48}
             className={styles.logoImage}
@@ -39,12 +39,13 @@ export default function Navigation() {
         </Link>
 
         {/* Desktop Navigation */}
-        <ul className={styles.navLinks}>
+        <ul className={styles.navLinks} role="list">
           {navItems.map((item) => (
             <li key={item.href}>
               <Link
                 href={item.href}
                 className={pathname === item.href ? styles.navLinkActive : styles.navLink}
+                aria-current={pathname === item.href ? 'page' : undefined}
               >
                 {item.label}
               </Link>
@@ -53,7 +54,7 @@ export default function Navigation() {
         </ul>
 
         {/* CTA Button */}
-        <button className={styles.ctaButton}>Réserver</button>
+        <button className={styles.ctaButton} aria-label="Réserver une table">Réserver</button>
 
         {/* Theme Toggle */}
         <ThemeToggle />
@@ -62,7 +63,9 @@ export default function Navigation() {
         <button
           className={styles.mobileMenuButton}
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          aria-label="Menu"
+          aria-label={mobileMenuOpen ? 'Fermer le menu' : 'Ouvrir le menu'}
+          aria-expanded={mobileMenuOpen}
+          aria-controls="mobile-menu"
         >
           <span className={mobileMenuOpen ? styles.hamburgerOpen : styles.hamburger}></span>
         </button>
@@ -70,16 +73,23 @@ export default function Navigation() {
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className={styles.mobileMenu}>
-          <ul className={styles.mobileNavLinks}>
+        <div 
+          className={styles.mobileMenu} 
+          id="mobile-menu"
+          role="menu"
+          aria-label="Menu mobile"
+        >
+          <ul className={styles.mobileNavLinks} role="list">
             {navItems.map((item) => (
-              <li key={item.href}>
+              <li key={item.href} role="none">
                 <Link
                   href={item.href}
                   className={
                     pathname === item.href ? styles.mobileNavLinkActive : styles.mobileNavLink
                   }
                   onClick={() => setMobileMenuOpen(false)}
+                  role="menuitem"
+                  aria-current={pathname === item.href ? 'page' : undefined}
                 >
                   {item.label}
                 </Link>
@@ -87,7 +97,7 @@ export default function Navigation() {
             ))}
           </ul>
           <ThemeToggle />
-          <button className={styles.mobileCtaButton}>Réserver</button>
+          <button className={styles.mobileCtaButton} aria-label="Réserver une table">Réserver</button>
         </div>
       )}
     </nav>

@@ -9,12 +9,12 @@ interface PageTemplateProps {
 
 export default function PageTemplate({ title, subtitle, children, className }: PageTemplateProps) {
   return (
-    <main className={`${styles.main} ${className || ''}`}>
-      <div className={styles.header}>
+    <div className={`${styles.main} ${className || ''}`}>
+      <header className={styles.header}>
         <h1 className={styles.title}>{title}</h1>
         {subtitle && <p className={styles.subtitle}>{subtitle}</p>}
-      </div>
+      </header>
       <div className={styles.content}>{children}</div>
-    </main>
+    </div>
   );
 }

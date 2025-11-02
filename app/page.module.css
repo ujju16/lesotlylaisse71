@@ -156,11 +156,17 @@
 }
 
 .valuesGrid .card-md h3 {
-  color: #795548;
+  background: linear-gradient(135deg, #6d4c41 0%, #795548 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 [data-theme='dark'] .valuesGrid .card-md h3 {
-  color: #ffecb3;
+  background: linear-gradient(135deg, #ffecb3 0%, #ffd54f 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .valuesGrid .card-md p {

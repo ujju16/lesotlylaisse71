@@ -5,57 +5,51 @@ import Carrousel from './components/Carrousel';
 import styles from './page.module.css';
 import { motion } from 'framer-motion';
 
-// Animation variants
+// Animation variants - Smooth in/out
 const titleVariants = {
-  hidden: { opacity: 0, y: 50 },
+  hidden: { opacity: 0, y: 30 },
   visible: {
     opacity: 1,
     y: 0,
     transition: {
       duration: 0.8,
-      ease: [0.6, -0.05, 0.01, 0.99] as const,
+      ease: 'easeInOut',
     },
   },
 };
 
-// Animation "coup de frein" - comme une voiture qui s'arrête
-const brakeEffect = [0.25, 0.46, 0.45, 0.94] as const;
-
 const valueCardVariants = {
-  // Card de gauche arrive de gauche
   fromLeft: {
-    hidden: { opacity: 0, x: -150 },
+    hidden: { opacity: 0, x: -100 },
     visible: {
       opacity: 1,
       x: 0,
       transition: {
-        duration: 0.8,
-        ease: brakeEffect,
+        duration: 0.7,
+        ease: 'easeInOut',
       },
     },
   },
-  // Card du centre arrive du bas
   fromBottom: {
-    hidden: { opacity: 0, y: 100 },
+    hidden: { opacity: 0, y: 80 },
     visible: {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.8,
-        ease: brakeEffect,
+        duration: 0.7,
+        ease: 'easeInOut',
         delay: 0.15,
       },
     },
   },
-  // Card de droite arrive de droite
   fromRight: {
-    hidden: { opacity: 0, x: 150 },
+    hidden: { opacity: 0, x: 100 },
     visible: {
       opacity: 1,
       x: 0,
       transition: {
-        duration: 0.8,
-        ease: brakeEffect,
+        duration: 0.7,
+        ease: 'easeInOut',
         delay: 0.3,
       },
     },
@@ -63,55 +57,51 @@ const valueCardVariants = {
 };
 
 const serviceCardVariants = {
-  // Restaurant (gauche) arrive de gauche
   fromLeft: {
-    hidden: { opacity: 0, x: -180 },
+    hidden: { opacity: 0, x: -100 },
     visible: {
       opacity: 1,
       x: 0,
       transition: {
-        duration: 0.9,
-        ease: brakeEffect,
+        duration: 0.7,
+        ease: 'easeInOut',
       },
     },
   },
-  // Bar (centre) arrive du haut
   fromTop: {
-    hidden: { opacity: 0, y: -100 },
+    hidden: { opacity: 0, y: -80 },
     visible: {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.9,
-        ease: brakeEffect,
-        delay: 0.2,
+        duration: 0.7,
+        ease: 'easeInOut',
+        delay: 0.15,
       },
     },
   },
-  // Presse (droite) arrive de droite
   fromRight: {
-    hidden: { opacity: 0, x: 180 },
+    hidden: { opacity: 0, x: 100 },
     visible: {
       opacity: 1,
       x: 0,
       transition: {
-        duration: 0.9,
-        ease: brakeEffect,
-        delay: 0.4,
+        duration: 0.7,
+        ease: 'easeInOut',
+        delay: 0.3,
       },
     },
   },
 };
 
-// Animation pour le jumbotron/hero
 const jumbotronVariants = {
-  hidden: { opacity: 0, scale: 1.1 },
+  hidden: { opacity: 0, scale: 1.05 },
   visible: {
     opacity: 1,
     scale: 1,
     transition: {
-      duration: 1.2,
-      ease: [0.6, -0.05, 0.01, 0.99] as const,
+      duration: 1.0,
+      ease: 'easeInOut',
     },
   },
 };

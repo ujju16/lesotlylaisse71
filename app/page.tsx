@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Carrousel from './components/Carrousel';
 import styles from './page.module.css';
 
@@ -143,25 +144,15 @@ export default function Home() {
               </div>
             </div>
             <div className={styles.engagementImage}>
-              <div className={styles.imagePlaceholder}>
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                  style={{ width: '100%', height: '100%', color: '#FFD54F' }}
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5z"
-                  />
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M9 12l2 2 4-4"
-                  />
-                </svg>
+              <div className={styles.landscapeImage}>
+                <Image
+                  src="/images/countryside.jpg"
+                  alt="Paysage de Messey-sur-Grosne - Campagne bourguignonne"
+                  fill
+                  style={{ objectFit: 'cover' }}
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  priority={false}
+                />
               </div>
             </div>
           </div>

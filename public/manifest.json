@@ -1,0 +1,16 @@
+{
+  "name": "Le Sot l'y Laisse",
+  "short_name": "LeSotLyLaisse",
+  "description": "Restaurant, Bar, Tabac Presse à Messey-sur-Grosne",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#FFD54F",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "any",
+      "type": "image/x-icon"
+    }
+  ]
+}

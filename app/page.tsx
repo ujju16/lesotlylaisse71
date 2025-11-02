@@ -144,7 +144,14 @@ export default function Home() {
           </div>
 
           <div className={styles.servicesGrid}>
-            <div className={styles.serviceCard}>
+            <motion.div
+              className={styles.serviceCard}
+              custom={0}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.3 }}
+              variants={serviceCardVariants}
+            >
               <div className={styles.serviceIcon}>🍽️</div>
               <h3>Restaurant</h3>
               <p>
@@ -154,9 +161,16 @@ export default function Home() {
               <div className={styles.badgeContainer}>
                 <span className="badge-md-accent">Ouvert le midi seulement</span>
               </div>
-            </div>
+            </motion.div>
 
-            <div className={styles.serviceCard}>
+            <motion.div
+              className={styles.serviceCard}
+              custom={1}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.3 }}
+              variants={serviceCardVariants}
+            >
               <div className={styles.serviceIcon}>🍺</div>
               <h3>Bar</h3>
               <p>
@@ -166,9 +180,16 @@ export default function Home() {
               <div className={styles.badgeContainer}>
                 <span className="badge-md-secondary">Ambiance conviviale</span>
               </div>
-            </div>
+            </motion.div>
 
-            <div className={styles.serviceCard}>
+            <motion.div
+              className={styles.serviceCard}
+              custom={2}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.3 }}
+              variants={serviceCardVariants}
+            >
               <div className={`${styles.serviceIcon} ${styles.tabacIcon}`}></div>
               <h3>Presse</h3>
               <p>
@@ -178,7 +199,7 @@ export default function Home() {
               <div className={styles.badgeContainer}>
                 <span className="badge-md-secondary">Du mardi au dimanche</span>
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>

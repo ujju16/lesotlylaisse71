@@ -64,69 +64,79 @@ export default function ReservationPage() {
 
         <div className={styles.card}>
           {success && (
-            <div className={styles.successMessage}>
+            <div className={styles.successMessage} role="alert" aria-live="polite">
               ✅ Votre réservation a été envoyée avec succès ! Nous vous contacterons bientôt.
             </div>
           )}
 
-          {error && <div className={styles.errorMessage}>❌ {error}</div>}
+          {error && <div className={styles.errorMessage} role="alert" aria-live="assertive">❌ {error}</div>}
 
-          <form className={styles.form} onSubmit={handleSubmit}>
+          <form className={styles.form} onSubmit={handleSubmit} aria-label="Formulaire de réservation">
             <div className={styles.formGroup}>
-              <label className={styles.label}>Nom complet *</label>
+              <label htmlFor="name" className={styles.label}>Nom complet *</label>
               <input
+                id="name"
                 type="text"
                 className={styles.input}
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                 required
+                aria-required="true"
               />
             </div>
 
             <div className={styles.row}>
               <div className={styles.formGroup}>
-                <label className={styles.label}>Email *</label>
+                <label htmlFor="email" className={styles.label}>Email *</label>
                 <input
+                  id="email"
                   type="email"
                   className={styles.input}
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                   required
+                  aria-required="true"
                 />
               </div>
 
               <div className={styles.formGroup}>
-                <label className={styles.label}>Téléphone *</label>
+                <label htmlFor="phone" className={styles.label}>Téléphone *</label>
                 <input
+                  id="phone"
                   type="tel"
                   className={styles.input}
                   value={formData.phone}
                   onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                   required
+                  aria-required="true"
                 />
               </div>
             </div>
 
             <div className={styles.row}>
               <div className={styles.formGroup}>
-                <label className={styles.label}>Date *</label>
+                <label htmlFor="date" className={styles.label}>Date *</label>
                 <input
+                  id="date"
                   type="date"
                   className={styles.input}
                   value={formData.date}
                   onChange={(e) => setFormData({ ...formData, date: e.target.value })}
                   min={new Date().toISOString().split('T')[0]}
                   required
+                  aria-required="true"
                 />
               </div>
 
               <div className={styles.formGroup}>
-                <label className={styles.label}>Heure *</label>
+                <label htmlFor="time" className={styles.label}>Heure *</label>
                 <select
+                  id="time"
                   className={styles.select}
                   value={formData.time}
                   onChange={(e) => setFormData({ ...formData, time: e.target.value })}
                   required
+                  aria-required="true"
                 >
                   <option value="">Choisir une heure</option>
                   <option value="12:00">12:00</option>
@@ -143,12 +153,14 @@ export default function ReservationPage() {
             </div>
 
             <div className={styles.formGroup}>
-              <label className={styles.label}>Nombre de personnes *</label>
+              <label htmlFor="guests" className={styles.label}>Nombre de personnes *</label>
               <select
+                id="guests"
                 className={styles.select}
                 value={formData.guests}
                 onChange={(e) => setFormData({ ...formData, guests: parseInt(e.target.value) })}
                 required
+                aria-required="true"
               >
                 {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((num) => (
                   <option key={num} value={num}>
@@ -159,16 +171,19 @@ export default function ReservationPage() {
             </div>
 
             <div className={styles.formGroup}>
-              <label className={styles.label}>Message (optionnel)</label>
+              <label htmlFor="message" className={styles.label}>Message (optionnel)</label>
               <textarea
+                id="message"
                 className={styles.textarea}
                 value={formData.message}
                 onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                 placeholder="Demandes spéciales, allergies, etc."
+                aria-describedby="message-help"
               />
+              <span id="message-help" className="sr-only">Ajoutez ici toute information supplémentaire concernant votre réservation</span>
             </div>
 
-            <button type="submit" className={styles.submitButton} disabled={loading}>
+            <button type="submit" className={styles.submitButton} disabled={loading} aria-busy={loading}>
               {loading ? 'Envoi en cours...' : 'Réserver'}
             </button>
           </form>

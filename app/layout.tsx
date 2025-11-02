@@ -95,8 +95,13 @@ export default function RootLayout({
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         <ThemeInitializer />
         <AxeptioConsent />
+        <a href="#main-content" className="skip-to-main">
+          Aller au contenu principal
+        </a>
         <Navigation />
-        {children}
+        <main id="main-content" role="main">
+          {children}
+        </main>
         <Footer />
       </body>
     </html>

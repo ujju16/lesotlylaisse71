@@ -49,11 +49,21 @@ export default function Carrousel() {
   };
 
   return (
-    <div className={styles.carrousel}>
-      <button className={styles.prev} onClick={prev} aria-label="Précédent">
+    <div 
+      className={styles.carrousel} 
+      role="region" 
+      aria-label="Carrousel d'images du restaurant"
+      aria-live="polite"
+    >
+      <button 
+        className={styles.prev} 
+        onClick={prev} 
+        aria-label="Image précédente"
+        aria-controls="carousel-image"
+      >
         &#8592;
       </button>
-      <div className={styles.imageWrapper}>
+      <div className={styles.imageWrapper} id="carousel-image">
         <AnimatePresence initial={false} custom={direction} mode="wait">
           <motion.div
             key={current}
@@ -71,7 +81,7 @@ export default function Carrousel() {
           >
             <Image
               src={images[current]}
-              alt={`Photo ${current + 1}`}
+              alt={`Photo ${current + 1} sur ${images.length} - LeSotLyLaisse71 Restaurant`}
               width={600}
               height={400}
               className={styles.image}
@@ -79,8 +89,28 @@ export default function Carrousel() {
             />
           </motion.div>
         </AnimatePresence>
+        <div className={styles.indicators} role="tablist" aria-label="Navigation du carrousel">
+          {images.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => {
+                setDirection(index > current ? 1 : -1);
+                setCurrent(index);
+              }}
+              className={index === current ? styles.indicatorActive : styles.indicator}
+              role="tab"
+              aria-selected={index === current}
+              aria-label={`Aller à l'image ${index + 1}`}
+            />
+          ))}
+        </div>
       </div>
-      <button className={styles.next} onClick={next} aria-label="Suivant">
+      <button 
+        className={styles.next} 
+        onClick={next} 
+        aria-label="Image suivante"
+        aria-controls="carousel-image"
+      >
         &#8594;
       </button>
     </div>

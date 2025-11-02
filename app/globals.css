@@ -31,7 +31,7 @@
     --nav-text: #212121;
     --nav-hover-bg: rgba(0, 0, 0, 0.05);
     --nav-logo-text: #795548;
-    --nav-logo-subtext: rgba(121, 85, 72, 0.7);
+    --nav-logo-subtext: #5d4037;
   }
 
   [data-theme='dark'] {

@@ -1,27 +1,160 @@
+'use client';
+
 import Image from 'next/image';
 import Carrousel from './components/Carrousel';
 import styles from './page.module.css';
+import { motion } from 'framer-motion';
+
+// Animation variants - Smooth in/out
+const titleVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.8,
+      ease: 'easeInOut' as const,
+    },
+  },
+};
+
+const valueCardVariants = {
+  fromLeft: {
+    hidden: { opacity: 0, x: -100 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        duration: 0.7,
+        ease: 'easeInOut' as const,
+      },
+    },
+  },
+  fromBottom: {
+    hidden: { opacity: 0, y: 80 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.7,
+        ease: 'easeInOut' as const,
+        delay: 0.15,
+      },
+    },
+  },
+  fromRight: {
+    hidden: { opacity: 0, x: 100 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        duration: 0.7,
+        ease: 'easeInOut' as const,
+        delay: 0.3,
+      },
+    },
+  },
+};
+
+const serviceCardVariants = {
+  fromLeft: {
+    hidden: { opacity: 0, x: -100 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        duration: 0.7,
+        ease: 'easeInOut' as const,
+      },
+    },
+  },
+  fromTop: {
+    hidden: { opacity: 0, y: -80 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.7,
+        ease: 'easeInOut' as const,
+        delay: 0.15,
+      },
+    },
+  },
+  fromRight: {
+    hidden: { opacity: 0, x: 100 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        duration: 0.7,
+        ease: 'easeInOut' as const,
+        delay: 0.3,
+      },
+    },
+  },
+};
+
+const jumbotronVariants = {
+  hidden: { opacity: 0, scale: 1.05 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: {
+      duration: 1.0,
+      ease: 'easeInOut' as const,
+    },
+  },
+};
 
 export default function Home() {
   return (
     <div className={styles.page}>
       {/* Hero Section avec Carrousel plein écran */}
-      <section className={styles.hero}>
+      <motion.section
+        className={styles.hero}
+        initial="hidden"
+        animate="visible"
+        variants={jumbotronVariants}
+      >
         <Carrousel />
         <div className={styles.heroOverlay}>
           <div className={styles.heroContent}>
-            <h1 className={styles.heroTitle}>LeSotLyLaisse71</h1>
-            <p className={styles.heroSubtitle}>L&apos;humain au cœur de nos services</p>
-            <p className={styles.heroDescription}>
+            <motion.h1
+              className={styles.heroTitle}
+              initial="hidden"
+              animate="visible"
+              variants={titleVariants}
+            >
+              LeSotLyLaisse71
+            </motion.h1>
+            <motion.p
+              className={styles.heroSubtitle}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.5, duration: 0.8 }}
+            >
+              L&apos;humain au cœur de nos services
+            </motion.p>
+            <motion.p
+              className={styles.heroDescription}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.7, duration: 0.8 }}
+            >
               Restaurant • Bar • Tabac - Un lieu de convivialité à Messey Sur Grosne
-            </p>
-            <div className={styles.heroCta}>
+            </motion.p>
+            <motion.div
+              className={styles.heroCta}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1, duration: 0.6 }}
+            >
               <button className="btn-md-accent">Réserver une table</button>
               <button className="btn-md-outlined">Découvrir nos services</button>
-            </div>
+            </motion.div>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Section Notre Philosophie - L'Humain d'Abord */}
       <section className={styles.section}>
@@ -37,32 +170,50 @@ export default function Home() {
           </div>
 
           <div className={styles.valuesGrid}>
-            <div className="card-md">
+            <motion.div
+              className="card-md"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.3 }}
+              variants={valueCardVariants.fromLeft}
+            >
               <div className={styles.valueIcon}>🤝</div>
               <h3 className="title-md title-md-h3">Accueil Chaleureux</h3>
               <p>
                 Notre équipe vous accueille avec le sourire et prend le temps de vous connaître.
                 Ici, vous n&apos;êtes pas un numéro, vous êtes un invité.
               </p>
-            </div>
+            </motion.div>
 
-            <div className="card-md">
+            <motion.div
+              className="card-md"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.3 }}
+              variants={valueCardVariants.fromBottom}
+            >
               <div className={styles.valueIcon}>⭐</div>
               <h3 className="title-md title-md-h3">Service de Qualité</h3>
               <p>
                 Un service attentif et professionnel pour que chaque moment passé chez nous soit
                 agréable, que ce soit pour un café rapide ou un repas en famille.
               </p>
-            </div>
+            </motion.div>
 
-            <div className="card-md">
+            <motion.div
+              className="card-md"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.3 }}
+              variants={valueCardVariants.fromRight}
+            >
               <div className={styles.valueIcon}>🌾</div>
               <h3 className="title-md title-md-h3">Produits Locaux</h3>
               <p>
                 Nous travaillons avec des producteurs de la région pour vous offrir des produits
                 frais, de saison et pleins de saveurs bourguignonnes.
               </p>
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -76,7 +227,13 @@ export default function Home() {
           </div>
 
           <div className={styles.servicesGrid}>
-            <div className={styles.serviceCard}>
+            <motion.div
+              className={styles.serviceCard}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.3 }}
+              variants={serviceCardVariants.fromLeft}
+            >
               <div className={styles.serviceIcon}>🍽️</div>
               <h3>Restaurant</h3>
               <p>
@@ -86,9 +243,15 @@ export default function Home() {
               <div className={styles.badgeContainer}>
                 <span className="badge-md-accent">Ouvert le midi seulement</span>
               </div>
-            </div>
+            </motion.div>
 
-            <div className={styles.serviceCard}>
+            <motion.div
+              className={styles.serviceCard}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.3 }}
+              variants={serviceCardVariants.fromTop}
+            >
               <div className={styles.serviceIcon}>🍺</div>
               <h3>Bar</h3>
               <p>
@@ -98,9 +261,15 @@ export default function Home() {
               <div className={styles.badgeContainer}>
                 <span className="badge-md-secondary">Ambiance conviviale</span>
               </div>
-            </div>
+            </motion.div>
 
-            <div className={styles.serviceCard}>
+            <motion.div
+              className={styles.serviceCard}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.3 }}
+              variants={serviceCardVariants.fromRight}
+            >
               <div className={`${styles.serviceIcon} ${styles.tabacIcon}`}></div>
               <h3>Presse</h3>
               <p>
@@ -110,7 +279,7 @@ export default function Home() {
               <div className={styles.badgeContainer}>
                 <span className="badge-md-secondary">Du mardi au dimanche</span>
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>

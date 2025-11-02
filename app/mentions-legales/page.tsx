@@ -32,14 +32,16 @@ export default function MentionsLegalesPage() {
               <div className={styles.infoItem}>
                 <span className={styles.label}>Adresse</span>
                 <span className={styles.value}>
-                  Messey Sur Grosne
+                  Le Sot l&apos;y Laisse
                   <br />
-                  71390 Saône-et-Loire, France
+                  2 place St George
+                  <br />
+                  71390 Messey-sur-Grosne
                 </span>
               </div>
               <div className={styles.infoItem}>
                 <span className={styles.label}>Téléphone</span>
-                <span className={styles.value}>03 XX XX XX XX</span>
+                <span className={styles.value}>03 85 44 08 62</span>
               </div>
               <div className={styles.infoItem}>
                 <span className={styles.label}>Email</span>

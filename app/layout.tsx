@@ -44,24 +44,36 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'fr_FR',
-    url: 'https://lesotlylaisse71.vercel.app',
-    title: 'LeSotLyLaisse71 - Restaurant Bar Tabac',
-    description: 'Restaurant bar tabac à Messey Sur Grosne - Cuisine locale et produits du terroir',
-    siteName: 'LeSotLyLaisse71',
+    url: 'https://lesotlylaisse71.fr',
+    siteName: 'Le Sot l\'y Laisse',
+    title: 'Le Sot l\'y Laisse - Restaurant, Bar, Tabac Presse',
+    description:
+      'Restaurant traditionnel, bar convivial et tabac presse à Messey-sur-Grosne. Cuisine locale et ambiance familiale.',
     images: [
       {
-        url: '/logo_soly.png',
+        url: '/photo1.jpg',
         width: 1200,
         height: 630,
-        alt: 'LeSotLyLaisse71 - Restaurant Bar Tabac',
+        alt: 'Le Sot l\'y Laisse - Restaurant à Messey-sur-Grosne',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'LeSotLyLaisse71 - Restaurant Bar Tabac',
-    description: 'Restaurant bar tabac à Messey Sur Grosne - Cuisine locale et produits du terroir',
-    images: ['/logo_soly.png'],
+    title: 'Le Sot l\'y Laisse - Restaurant, Bar, Tabac Presse',
+    description: 'Restaurant traditionnel et bar à Messey-sur-Grosne (71)',
+    images: ['/photo1.jpg'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
   },
   icons: {
     icon: [

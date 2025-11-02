@@ -17,21 +17,27 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'LeSotLyLaisse71 - Restaurant Bar Tabac',
-  description: 'Restaurant bar tabac à Messey Sur Grosne - Cuisine locale et produits du terroir',
+  metadataBase: new URL('https://lesotlylaisse71.fr'),
+  title: {
+    default: 'Le Sot l\'y Laisse - Restaurant, Bar, Tabac Presse à Messey-sur-Grosne',
+    template: '%s | Le Sot l\'y Laisse',
+  },
+  description:
+    'Restaurant traditionnel, bar convivial et tabac presse à Messey-sur-Grosne (71). Cuisine locale, produits du terroir, ambiance familiale. Ouvert le midi tous les jours.',
   keywords: [
-    'restaurant',
-    'bar',
-    'tabac',
-    'Messey Sur Grosne',
-    'cuisine locale',
-    'terroir',
-    'Bourgogne',
+    'restaurant Messey-sur-Grosne',
+    'bar Saône-et-Loire',
+    'tabac presse 71',
+    'cuisine locale Bourgogne',
+    'restaurant traditionnel',
+    'commerce de proximité',
+    'Messey-sur-Grosne',
+    'terroir bourguignon',
+    'restaurant 71390',
   ],
-  authors: [{ name: 'LeSotLyLaisse71' }],
-  creator: 'LeSotLyLaisse71',
-  publisher: 'LeSotLyLaisse71',
-  metadataBase: new URL('https://lesotlylaisse71.vercel.app'),
+  authors: [{ name: 'Le Sot l\'y Laisse' }],
+  creator: 'Le Sot l\'y Laisse',
+  publisher: 'Le Sot l\'y Laisse',
   alternates: {
     canonical: '/',
   },

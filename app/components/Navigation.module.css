@@ -53,14 +53,14 @@
 .logoText {
   font-size: 1.25rem;
   font-weight: 600;
-  color: #ffecb3;
+  color: var(--nav-logo-text);
   letter-spacing: -0.5px;
   line-height: 1.2;
 }
 
 .logoSubtext {
   font-size: 0.75rem;
-  color: rgba(255, 236, 179, 0.6);
+  color: var(--nav-logo-subtext);
   font-weight: 400;
   letter-spacing: 0.5px;
   text-transform: uppercase;

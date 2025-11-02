@@ -180,32 +180,50 @@ export default function Home() {
           </div>
 
           <div className={styles.valuesGrid}>
-            <div className="card-md">
+            <motion.div
+              className="card-md"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.3 }}
+              variants={valueCardVariants.fromLeft}
+            >
               <div className={styles.valueIcon}>🤝</div>
               <h3 className="title-md title-md-h3">Accueil Chaleureux</h3>
               <p>
                 Notre équipe vous accueille avec le sourire et prend le temps de vous connaître.
                 Ici, vous n&apos;êtes pas un numéro, vous êtes un invité.
               </p>
-            </div>
+            </motion.div>
 
-            <div className="card-md">
+            <motion.div
+              className="card-md"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.3 }}
+              variants={valueCardVariants.fromBottom}
+            >
               <div className={styles.valueIcon}>⭐</div>
               <h3 className="title-md title-md-h3">Service de Qualité</h3>
               <p>
                 Un service attentif et professionnel pour que chaque moment passé chez nous soit
                 agréable, que ce soit pour un café rapide ou un repas en famille.
               </p>
-            </div>
+            </motion.div>
 
-            <div className="card-md">
+            <motion.div
+              className="card-md"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.3 }}
+              variants={valueCardVariants.fromRight}
+            >
               <div className={styles.valueIcon}>🌾</div>
               <h3 className="title-md title-md-h3">Produits Locaux</h3>
               <p>
                 Nous travaillons avec des producteurs de la région pour vous offrir des produits
                 frais, de saison et pleins de saveurs bourguignonnes.
               </p>
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>

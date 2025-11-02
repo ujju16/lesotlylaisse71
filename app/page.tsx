@@ -13,7 +13,7 @@ const titleVariants = {
     y: 0,
     transition: {
       duration: 0.8,
-      ease: 'easeOut',
+      ease: [0.6, -0.05, 0.01, 0.99] as const,
     },
   },
 };
@@ -27,7 +27,7 @@ const cardVariants = {
     transition: {
       duration: 0.6,
       delay: index * 0.15,
-      ease: [0.43, 0.13, 0.23, 0.96],
+      ease: [0.43, 0.13, 0.23, 0.96] as const,
     },
   }),
 };
@@ -41,7 +41,7 @@ const serviceCardVariants = {
     transition: {
       duration: 0.5,
       delay: index * 0.1,
-      ease: 'easeOut',
+      ease: [0.6, -0.05, 0.01, 0.99] as const,
     },
   }),
 };

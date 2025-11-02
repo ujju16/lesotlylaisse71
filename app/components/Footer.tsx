@@ -57,16 +57,13 @@ export default function Footer() {
             <h4 className={styles.footerColumnTitle}>Horaires</h4>
             <ul className={styles.footerInfo}>
               <li>
-                <strong>Lundi - Vendredi</strong>
-                <span>7h00 - 21h00</span>
+                <strong>Restaurant</strong>
+                <span>Du mardi au dimanche</span>
+                <span>Midi uniquement</span>
               </li>
               <li>
-                <strong>Samedi</strong>
-                <span>8h00 - 22h00</span>
-              </li>
-              <li>
-                <strong>Dimanche</strong>
-                <span>8h00 - 20h00</span>
+                <strong>Bar & Presse</strong>
+                <span>Du mardi au dimanche</span>
               </li>
             </ul>
           </div>
@@ -77,12 +74,13 @@ export default function Footer() {
             <ul className={styles.footerInfo}>
               <li>
                 <strong>Adresse</strong>
-                <span>Messey Sur Grosne</span>
-                <span>71390 Saône-et-Loire</span>
+                <span>Le Sot l&apos;y Laisse</span>
+                <span>2 place St George</span>
+                <span>71390 Messey-sur-Grosne</span>
               </li>
               <li>
                 <strong>Téléphone</strong>
-                <span>03 XX XX XX XX</span>
+                <span>03 85 44 08 62</span>
               </li>
               <li>
                 <strong>Email</strong>

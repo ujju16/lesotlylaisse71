@@ -107,7 +107,7 @@ export default function Home() {
                 essentiel au quotidien des habitants.
               </p>
               <div className={styles.badgeContainer}>
-                <span className="badge-md-secondary">Tous les jours</span>
+                <span className="badge-md-secondary">Du mardi au dimanche</span>
               </div>
             </div>
           </div>

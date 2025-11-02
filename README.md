@@ -5,7 +5,7 @@ Restaurant, bar et tabac au cœur de la Bourgogne - Site web moderne développé
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/ujju16/lesotlylaisse71)
 [![CI Pipeline](https://github.com/ujju16/lesotlylaisse71/actions/workflows/ci.yml/badge.svg)](https://github.com/ujju16/lesotlylaisse71/actions/workflows/ci.yml)
 [![CD Pipeline](https://github.com/ujju16/lesotlylaisse71/actions/workflows/cd.yml/badge.svg)](https://github.com/ujju16/lesotlylaisse71/actions/workflows/cd.yml)
-[![Next.js](https://img.shields.io/badge/Next.js-15.3.3-black?logo=next.js)](https://nextjs.org/)
+[![Next.js](https://img.shields.io/badge/Next.js-16.0.1-black?logo=next.js)](https://nextjs.org/)
 [![React](https://img.shields.io/badge/React-19.0.0-blue?logo=react)](https://reactjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.9.3-blue?logo=typescript)](https://www.typescriptlang.org/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-3.4.17-38B2AC?logo=tailwind-css)](https://tailwindcss.com/)

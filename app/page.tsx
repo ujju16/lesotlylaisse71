@@ -294,8 +294,8 @@ export default function Home() {
               <p>
                 Au cœur de Messey-sur-Grosne, notre établissement perpétue la tradition du commerce
                 de proximité. Chaque jour, nous mettons un point d&apos;honneur à servir nos clients
-                avec passion et authenticité, en valorisant les produits locaux et le savoir-faire de
-                notre région.
+                avec passion et authenticité, en valorisant les produits locaux et le savoir-faire
+                de notre région.
               </p>
               <div className={styles.engagementHighlights}>
                 <div className={styles.highlight}>

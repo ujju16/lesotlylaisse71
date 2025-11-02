@@ -24,7 +24,7 @@ export default function Carrousel() {
     setDirection(1);
     setCurrent((current + 1) % images.length);
   };
-  
+
   const prev = () => {
     setDirection(-1);
     setCurrent((current - 1 + images.length) % images.length);

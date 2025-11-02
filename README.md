@@ -6,28 +6,42 @@ Restaurant, bar et tabac au cœur de la Bourgogne - Site web moderne développé
 [![CI Pipeline](https://github.com/ujju16/lesotlylaisse71/actions/workflows/ci.yml/badge.svg)](https://github.com/ujju16/lesotlylaisse71/actions/workflows/ci.yml)
 [![CD Pipeline](https://github.com/ujju16/lesotlylaisse71/actions/workflows/cd.yml/badge.svg)](https://github.com/ujju16/lesotlylaisse71/actions/workflows/cd.yml)
 [![Next.js](https://img.shields.io/badge/Next.js-15.3.3-black?logo=next.js)](https://nextjs.org/)
+[![React](https://img.shields.io/badge/React-19.0.0-blue?logo=react)](https://reactjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.9.3-blue?logo=typescript)](https://www.typescriptlang.org/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-3.4.17-38B2AC?logo=tailwind-css)](https://tailwindcss.com/)
+[![DaisyUI](https://img.shields.io/badge/DaisyUI-4.12.10-5A0EF8?logo=daisyui)](https://daisyui.com/)
+[![Framer Motion](https://img.shields.io/badge/Framer%20Motion-12.23.24-FF0080?logo=framer)](https://www.framer.com/motion/)
+[![Jest](https://img.shields.io/badge/Jest-30.2.0-C21325?logo=jest)](https://jestjs.io/)
+[![ESLint](https://img.shields.io/badge/ESLint-9.x-4B32C3?logo=eslint)](https://eslint.org/)
+[![Prettier](https://img.shields.io/badge/Prettier-3.6.2-F7B93E?logo=prettier)](https://prettier.io/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
 
 ## 🚀 Technologies
 
 - **Framework**: Next.js 15.3.3 (App Router)
-- **Language**: TypeScript
-- **Styling**: CSS Modules + Material Design
+- **Language**: TypeScript 5.9.3
+- **UI Library**: React 19.0.0
+- **Styling**: Tailwind CSS 3.4.17 + DaisyUI 4.12.10
+- **Animations**: Framer Motion 12.23.24
+- **Testing**: Jest 30.2.0 + React Testing Library
+- **Code Quality**: ESLint 9.x + Prettier 3.6.2
 - **Deployment**: Vercel
 - **CI/CD**: GitHub Actions
 
 ## 📋 Fonctionnalités
 
 ✅ Page d'accueil moderne avec hero plein écran  
-✅ Carrousel d'images responsive  
-✅ Sections structurées (Présentation, Services, CTA)  
+✅ Carrousel d'images animé avec Framer Motion  
+✅ Mode sombre/clair avec détection système  
+✅ Animations fluides sur les cards et éléments  
 ✅ Navigation Material Design avec menu mobile  
 ✅ Footer complet avec informations de contact  
 ✅ Charte graphique Material Design  
 ✅ Responsive design (mobile, tablet, desktop)  
 ✅ Optimisation des images avec Next.js Image  
-✅ Favicons générés automatiquement  
+✅ Tests unitaires avec Jest  
+✅ SEO optimisé avec metadata  
+✅ Accessibilité (ARIA, semantic HTML)  
 ✅ PWA ready avec manifest
 
 ## 🎨 Charte Graphique
@@ -125,6 +139,13 @@ npm run dev          # Développement avec Turbopack
 npm run build        # Build de production
 npm run start        # Serveur production
 npm run lint         # Vérification ESLint
+npm run lint:fix     # Correction automatique ESLint
+npm run format       # Formatter le code avec Prettier
+npm run type-check   # Vérification TypeScript
+npm run test         # Lancer les tests
+npm run test:watch   # Tests en mode watch
+npm run test:coverage # Coverage des tests
+npm run quality      # Tous les checks (format + lint + type-check + test)
 ```
 
 ## 🌐 Pages

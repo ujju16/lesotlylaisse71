@@ -147,12 +147,22 @@
   background: linear-gradient(135deg, #efebe9 0%, #d7ccc8 100%);
   color: #3e2723;
   border: 1px solid rgba(121, 85, 72, 0.2);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.valuesGrid .card-md:hover {
+  transform: scale(1.05);
 }
 
 [data-theme='dark'] .valuesGrid .card-md {
   background: linear-gradient(135deg, #3e2723 0%, #4e342e 100%);
   color: #efebe9;
   border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+[data-theme='dark'] .valuesGrid .card-md:hover {
+  transform: scale(1.05);
 }
 
 .valuesGrid .card-md h3 {
@@ -243,7 +253,7 @@
 }
 
 .serviceCard:hover {
-  transform: translateY(-8px);
+  transform: translateY(-8px) scale(1.03);
   box-shadow: var(--card-hover-shadow);
   border-color: rgba(255, 213, 79, 0.3);
 }
@@ -408,6 +418,10 @@
 }
 
 .highlight:hover {
+  background: rgba(255, 213, 79, 0.15);
+  border-color: rgba(255, 213, 79, 0.4);
+  transform: scale(1.05);
+}
   background: rgba(255, 213, 79, 0.15);
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(255, 213, 79, 0.2);

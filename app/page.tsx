@@ -122,20 +122,46 @@ export default function Home() {
               <span className={styles.sectionLabel}>Notre Engagement</span>
               <h2 className={styles.sectionTitle}>Ancré dans la vie locale</h2>
               <p>
-                Depuis des générations, LeSotLyLaisse71 est un pilier de la communauté de Messey Sur
-                Grosne. Nous participons activement à la vie locale, soutenons les producteurs de la
-                région et créons un espace où chacun se sent chez soi.
+                Au cœur de Messey-sur-Grosne, notre établissement perpétue la tradition du commerce
+                de proximité. Chaque jour, nous mettons un point d&apos;honneur à servir nos clients
+                avec passion et authenticité, en valorisant les produits locaux et le savoir-faire de
+                notre région.
               </p>
-              <ul className={styles.engagementList}>
-                <li>✓ Partenariat avec les producteurs locaux</li>
-                <li>✓ Participation aux événements du village</li>
-                <li>✓ Lieu de rencontre intergénérationnel</li>
-                <li>✓ Emploi local et formation continue</li>
-              </ul>
+              <div className={styles.engagementHighlights}>
+                <div className={styles.highlight}>
+                  <span className={styles.highlightIcon}>🏡</span>
+                  <span>Commerce familial</span>
+                </div>
+                <div className={styles.highlight}>
+                  <span className={styles.highlightIcon}>🌾</span>
+                  <span>Produits locaux</span>
+                </div>
+                <div className={styles.highlight}>
+                  <span className={styles.highlightIcon}>🤝</span>
+                  <span>Service personnalisé</span>
+                </div>
+              </div>
             </div>
             <div className={styles.engagementImage}>
               <div className={styles.imagePlaceholder}>
-                <span>🏡</span>
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  style={{ width: '100%', height: '100%', color: '#FFD54F' }}
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5z"
+                  />
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M9 12l2 2 4-4"
+                  />
+                </svg>
               </div>
             </div>
           </div>

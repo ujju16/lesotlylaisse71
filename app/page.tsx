@@ -18,39 +18,114 @@ const titleVariants = {
   },
 };
 
-const cardVariants = {
-  hidden: { opacity: 0, x: -100, rotate: -5 },
-  visible: (index: number) => ({
-    opacity: 1,
-    x: 0,
-    rotate: 0,
-    transition: {
-      duration: 0.6,
-      delay: index * 0.15,
-      ease: [0.43, 0.13, 0.23, 0.96] as const,
+// Animation "coup de frein" - comme une voiture qui s'arrête
+const brakeEffect = [0.25, 0.46, 0.45, 0.94] as const;
+
+const valueCardVariants = {
+  // Card de gauche arrive de gauche
+  fromLeft: {
+    hidden: { opacity: 0, x: -150 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        duration: 0.8,
+        ease: brakeEffect,
+      },
     },
-  }),
+  },
+  // Card du centre arrive du bas
+  fromBottom: {
+    hidden: { opacity: 0, y: 100 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.8,
+        ease: brakeEffect,
+        delay: 0.15,
+      },
+    },
+  },
+  // Card de droite arrive de droite
+  fromRight: {
+    hidden: { opacity: 0, x: 150 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        duration: 0.8,
+        ease: brakeEffect,
+        delay: 0.3,
+      },
+    },
+  },
 };
 
 const serviceCardVariants = {
-  hidden: { opacity: 0, y: 50, scale: 0.9 },
-  visible: (index: number) => ({
+  // Restaurant (gauche) arrive de gauche
+  fromLeft: {
+    hidden: { opacity: 0, x: -180 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        duration: 0.9,
+        ease: brakeEffect,
+      },
+    },
+  },
+  // Bar (centre) arrive du haut
+  fromTop: {
+    hidden: { opacity: 0, y: -100 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.9,
+        ease: brakeEffect,
+        delay: 0.2,
+      },
+    },
+  },
+  // Presse (droite) arrive de droite
+  fromRight: {
+    hidden: { opacity: 0, x: 180 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        duration: 0.9,
+        ease: brakeEffect,
+        delay: 0.4,
+      },
+    },
+  },
+};
+
+// Animation pour le jumbotron/hero
+const jumbotronVariants = {
+  hidden: { opacity: 0, scale: 1.1 },
+  visible: {
     opacity: 1,
-    y: 0,
     scale: 1,
     transition: {
-      duration: 0.5,
-      delay: index * 0.1,
+      duration: 1.2,
       ease: [0.6, -0.05, 0.01, 0.99] as const,
     },
-  }),
+  },
 };
 
 export default function Home() {
   return (
     <div className={styles.page}>
       {/* Hero Section avec Carrousel plein écran */}
-      <section className={styles.hero}>
+      <motion.section
+        className={styles.hero}
+        initial="hidden"
+        animate="visible"
+        variants={jumbotronVariants}
+      >
         <Carrousel />
         <div className={styles.heroOverlay}>
           <div className={styles.heroContent}>
@@ -89,7 +164,7 @@ export default function Home() {
             </motion.div>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Section Notre Philosophie - L'Humain d'Abord */}
       <section className={styles.section}>
@@ -146,11 +221,10 @@ export default function Home() {
           <div className={styles.servicesGrid}>
             <motion.div
               className={styles.serviceCard}
-              custom={0}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.3 }}
-              variants={serviceCardVariants}
+              variants={serviceCardVariants.fromLeft}
             >
               <div className={styles.serviceIcon}>🍽️</div>
               <h3>Restaurant</h3>
@@ -165,11 +239,10 @@ export default function Home() {
 
             <motion.div
               className={styles.serviceCard}
-              custom={1}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.3 }}
-              variants={serviceCardVariants}
+              variants={serviceCardVariants.fromTop}
             >
               <div className={styles.serviceIcon}>🍺</div>
               <h3>Bar</h3>
@@ -184,11 +257,10 @@ export default function Home() {
 
             <motion.div
               className={styles.serviceCard}
-              custom={2}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.3 }}
-              variants={serviceCardVariants}
+              variants={serviceCardVariants.fromRight}
             >
               <div className={`${styles.serviceIcon} ${styles.tabacIcon}`}></div>
               <h3>Presse</h3>

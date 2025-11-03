@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import { useEffect, useState } from 'react';
-import styles from './ThemeToggle.module.css';
+import { useEffect, useState } from "react";
+import styles from "./ThemeToggle.module.css";
 
 export default function ThemeToggle() {
   const [isDark, setIsDark] = useState(false);
@@ -9,19 +9,24 @@ export default function ThemeToggle() {
 
   useEffect(() => {
     setMounted(true);
-    const savedTheme = localStorage.getItem('theme');
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    const shouldBeDark = savedTheme === 'dark' || (!savedTheme && prefersDark);
+    const savedTheme = localStorage.getItem("theme");
+    const prefersDark = window.matchMedia(
+      "(prefers-color-scheme: dark)"
+    ).matches;
+    const shouldBeDark = savedTheme === "dark" || (!savedTheme && prefersDark);
 
     setIsDark(shouldBeDark);
-    document.documentElement.setAttribute('data-theme', shouldBeDark ? 'dark' : 'light');
+    document.documentElement.setAttribute(
+      "data-theme",
+      shouldBeDark ? "dark" : "light"
+    );
   }, []);
 
   const toggleTheme = () => {
-    const newTheme = isDark ? 'light' : 'dark';
+    const newTheme = isDark ? "light" : "dark";
     setIsDark(!isDark);
-    document.documentElement.setAttribute('data-theme', newTheme);
-    localStorage.setItem('theme', newTheme);
+    document.documentElement.setAttribute("data-theme", newTheme);
+    localStorage.setItem("theme", newTheme);
   };
 
   if (!mounted) {
@@ -32,8 +37,8 @@ export default function ThemeToggle() {
     <button
       onClick={toggleTheme}
       className={styles.toggle}
-      aria-label={isDark ? 'Activer le mode clair' : 'Activer le mode sombre'}
-      title={isDark ? 'Mode clair' : 'Mode sombre'}
+      aria-label={isDark ? "Activer le mode clair" : "Activer le mode sombre"}
+      title={isDark ? "Mode clair" : "Mode sombre"}
     >
       {isDark ? (
         <svg

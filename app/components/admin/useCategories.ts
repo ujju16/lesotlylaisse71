@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import { useState, useEffect } from 'react';
-import type { Category } from '@/lib/types';
+import { useState, useEffect } from "react";
+import type { Category } from "@/lib/types";
 
 export function useCategories() {
   const [categories, setCategories] = useState<Category[]>([]);
@@ -11,7 +11,7 @@ export function useCategories() {
   const fetchCategories = async () => {
     try {
       setLoading(true);
-      const res = await fetch('/api/categories');
+      const res = await fetch("/api/categories");
       const data = await res.json();
       if (data.success) {
         setCategories(data.data);
@@ -25,10 +25,12 @@ export function useCategories() {
     }
   };
 
-  const createCategory = async (category: Omit<Category, 'id' | 'createdAt' | 'updatedAt'>) => {
-    const res = await fetch('/api/categories', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+  const createCategory = async (
+    category: Omit<Category, "id" | "createdAt" | "updatedAt">
+  ) => {
+    const res = await fetch("/api/categories", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify(category),
     });
     const data = await res.json();
@@ -41,8 +43,8 @@ export function useCategories() {
 
   const updateCategory = async (id: string, category: Partial<Category>) => {
     const res = await fetch(`/api/categories/${id}`, {
-      method: 'PUT',
-      headers: { 'Content-Type': 'application/json' },
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify(category),
     });
     const data = await res.json();
@@ -54,7 +56,7 @@ export function useCategories() {
   };
 
   const deleteCategory = async (id: string) => {
-    const res = await fetch(`/api/categories/${id}`, { method: 'DELETE' });
+    const res = await fetch(`/api/categories/${id}`, { method: "DELETE" });
     const data = await res.json();
     if (data.success) {
       await fetchCategories();

@@ -1,5 +1,5 @@
-import PageTemplate from '../components/PageTemplate';
-import styles from './charte.module.css';
+import PageTemplate from "../components/PageTemplate";
+import styles from "./charte.module.css";
 
 export default function CharteGraphiquePage() {
   return (
@@ -14,20 +14,28 @@ export default function CharteGraphiquePage() {
             Palette Primaire - Brun Café
           </h2>
 
-          <div className={styles.colorGrid} role="list" aria-label="Nuances de la palette primaire">
+          <div
+            className={styles.colorGrid}
+            role="list"
+            aria-label="Nuances de la palette primaire"
+          >
             {[
-              { shade: '50', hex: '#EFEBE9', name: 'Très clair' },
-              { shade: '100', hex: '#D7CCC8', name: 'Clair' },
-              { shade: '200', hex: '#BCAAA4', name: 'Léger' },
-              { shade: '300', hex: '#A1887F', name: 'Moyen clair' },
-              { shade: '400', hex: '#8D6E63', name: 'Moyen' },
-              { shade: '500', hex: '#795548', name: 'Base', primary: true },
-              { shade: '600', hex: '#6D4C41', name: 'Moyen foncé' },
-              { shade: '700', hex: '#5D4037', name: 'Foncé' },
-              { shade: '800', hex: '#4E342E', name: 'Très foncé' },
-              { shade: '900', hex: '#3E2723', name: 'Ultra foncé' },
+              { shade: "50", hex: "#EFEBE9", name: "Très clair" },
+              { shade: "100", hex: "#D7CCC8", name: "Clair" },
+              { shade: "200", hex: "#BCAAA4", name: "Léger" },
+              { shade: "300", hex: "#A1887F", name: "Moyen clair" },
+              { shade: "400", hex: "#8D6E63", name: "Moyen" },
+              { shade: "500", hex: "#795548", name: "Base", primary: true },
+              { shade: "600", hex: "#6D4C41", name: "Moyen foncé" },
+              { shade: "700", hex: "#5D4037", name: "Foncé" },
+              { shade: "800", hex: "#4E342E", name: "Très foncé" },
+              { shade: "900", hex: "#3E2723", name: "Ultra foncé" },
             ].map((color) => (
-              <div key={color.shade} className={styles.colorCard} role="listitem">
+              <div
+                key={color.shade}
+                className={styles.colorCard}
+                role="listitem"
+              >
                 <div
                   className={styles.colorSwatch}
                   style={{ background: color.hex }}
@@ -58,13 +66,17 @@ export default function CharteGraphiquePage() {
             aria-label="Nuances de la palette secondaire"
           >
             {[
-              { shade: '100', hex: '#DCEDC8', name: 'Clair' },
-              { shade: '300', hex: '#AED581', name: 'Moyen clair' },
-              { shade: '500', hex: '#8BC34A', name: 'Base' },
-              { shade: '700', hex: '#689F38', name: 'Foncé', primary: true },
-              { shade: '900', hex: '#33691E', name: 'Très foncé' },
+              { shade: "100", hex: "#DCEDC8", name: "Clair" },
+              { shade: "300", hex: "#AED581", name: "Moyen clair" },
+              { shade: "500", hex: "#8BC34A", name: "Base" },
+              { shade: "700", hex: "#689F38", name: "Foncé", primary: true },
+              { shade: "900", hex: "#33691E", name: "Très foncé" },
             ].map((color) => (
-              <div key={color.shade} className={styles.colorCard} role="listitem">
+              <div
+                key={color.shade}
+                className={styles.colorCard}
+                role="listitem"
+              >
                 <div
                   className={styles.colorSwatch}
                   style={{ background: color.hex }}
@@ -89,15 +101,23 @@ export default function CharteGraphiquePage() {
             Palette Accent - Ambre
           </h2>
 
-          <div className={styles.colorGrid} role="list" aria-label="Nuances de la palette accent">
+          <div
+            className={styles.colorGrid}
+            role="list"
+            aria-label="Nuances de la palette accent"
+          >
             {[
-              { shade: '100', hex: '#FFECB3', name: 'Clair' },
-              { shade: '300', hex: '#FFD54F', name: 'Moyen clair' },
-              { shade: '500', hex: '#FFC107', name: 'Base' },
-              { shade: '600', hex: '#FFB300', name: 'Accent', primary: true },
-              { shade: '800', hex: '#FF8F00', name: 'Foncé' },
+              { shade: "100", hex: "#FFECB3", name: "Clair" },
+              { shade: "300", hex: "#FFD54F", name: "Moyen clair" },
+              { shade: "500", hex: "#FFC107", name: "Base" },
+              { shade: "600", hex: "#FFB300", name: "Accent", primary: true },
+              { shade: "800", hex: "#FF8F00", name: "Foncé" },
             ].map((color) => (
-              <div key={color.shade} className={styles.colorCard} role="listitem">
+              <div
+                key={color.shade}
+                className={styles.colorCard}
+                role="listitem"
+              >
                 <div
                   className={styles.colorSwatch}
                   style={{ background: color.hex }}
@@ -121,7 +141,11 @@ export default function CharteGraphiquePage() {
           <h2 className="title-md title-md-h2" id="boutons-section">
             Boutons Material Design
           </h2>
-          <div className={styles.buttonGrid} role="group" aria-label="Exemples de boutons">
+          <div
+            className={styles.buttonGrid}
+            role="group"
+            aria-label="Exemples de boutons"
+          >
             <button className="btn-md-primary" aria-label="Bouton primaire">
               Primary Button
             </button>
@@ -142,7 +166,11 @@ export default function CharteGraphiquePage() {
           <h2 className="title-md title-md-h2" id="badges-section">
             Badges Material
           </h2>
-          <div className={styles.badgeGrid} role="list" aria-label="Exemples de badges">
+          <div
+            className={styles.badgeGrid}
+            role="list"
+            aria-label="Exemples de badges"
+          >
             <span className="badge-md" role="listitem">
               Produit Local
             </span>
@@ -163,7 +191,11 @@ export default function CharteGraphiquePage() {
           <h2 className="title-md title-md-h2" id="elevations-section">
             Élévations (Ombres)
           </h2>
-          <div className={styles.elevationGrid} role="list" aria-label="Niveaux d'élévation">
+          <div
+            className={styles.elevationGrid}
+            role="list"
+            aria-label="Niveaux d'élévation"
+          >
             <div
               className={`${styles.elevationCard} surface-md-1`}
               role="listitem"

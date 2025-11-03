@@ -1,18 +1,23 @@
-'use client';
+"use client";
 
-import { useState, useEffect } from 'react';
-import styles from './Menu.module.css';
-import { MenuItem, MenuCategory, defaultMenuItems, defaultCategories } from '../types/menu';
+import { useState, useEffect } from "react";
+import styles from "./Menu.module.css";
+import {
+  MenuItem,
+  MenuCategory,
+  defaultMenuItems,
+  defaultCategories,
+} from "../types/menu";
 
 export default function MenuPage() {
   const [menuItems, setMenuItems] = useState<MenuItem[]>([]);
   const [categories, setCategories] = useState<MenuCategory[]>([]);
-  const [selectedCategory, setSelectedCategory] = useState<string>('all');
+  const [selectedCategory, setSelectedCategory] = useState<string>("all");
 
   useEffect(() => {
     // Charger depuis localStorage ou utiliser les données par défaut
-    const storedItems = localStorage.getItem('menuItems');
-    const storedCategories = localStorage.getItem('menuCategories');
+    const storedItems = localStorage.getItem("menuItems");
+    const storedCategories = localStorage.getItem("menuCategories");
 
     if (storedItems) {
       setMenuItems(JSON.parse(storedItems));
@@ -28,13 +33,15 @@ export default function MenuPage() {
   }, []);
 
   const filteredItems =
-    selectedCategory === 'all'
+    selectedCategory === "all"
       ? menuItems
       : menuItems.filter((item) => item.category === selectedCategory);
 
   const itemsByCategory = categories.map((category) => ({
     ...category,
-    items: menuItems.filter((item) => item.category === category.name && item.available),
+    items: menuItems.filter(
+      (item) => item.category === category.name && item.available
+    ),
   }));
 
   return (
@@ -42,15 +49,21 @@ export default function MenuPage() {
       <div className={styles.container}>
         <header className={styles.header}>
           <h1 className={styles.title}>Notre Menu</h1>
-          <p className={styles.subtitle}>Découvrez notre sélection de plats du terroir</p>
+          <p className={styles.subtitle}>
+            Découvrez notre sélection de plats du terroir
+          </p>
         </header>
 
-        <nav className={styles.categoriesNav} aria-label="Filtrer par catégorie" role="tablist">
+        <nav
+          className={styles.categoriesNav}
+          aria-label="Filtrer par catégorie"
+          role="tablist"
+        >
           <button
-            className={`${styles.categoryBtn} ${selectedCategory === 'all' ? styles.active : ''}`}
-            onClick={() => setSelectedCategory('all')}
+            className={`${styles.categoryBtn} ${selectedCategory === "all" ? styles.active : ""}`}
+            onClick={() => setSelectedCategory("all")}
             role="tab"
-            aria-selected={selectedCategory === 'all'}
+            aria-selected={selectedCategory === "all"}
             aria-controls="menu-content"
           >
             Tout
@@ -58,7 +71,7 @@ export default function MenuPage() {
           {categories.map((category) => (
             <button
               key={category.id}
-              className={`${styles.categoryBtn} ${selectedCategory === category.name ? styles.active : ''}`}
+              className={`${styles.categoryBtn} ${selectedCategory === category.name ? styles.active : ""}`}
               onClick={() => setSelectedCategory(category.name)}
               role="tab"
               aria-selected={selectedCategory === category.name}
@@ -70,7 +83,7 @@ export default function MenuPage() {
         </nav>
 
         <div id="menu-content" role="tabpanel" aria-live="polite">
-          {selectedCategory === 'all' ? (
+          {selectedCategory === "all" ? (
             // Afficher par catégories
             itemsByCategory.map(
               (category) =>
@@ -80,16 +93,19 @@ export default function MenuPage() {
                     className={styles.categorySection}
                     aria-labelledby={`category-${category.id}`}
                   >
-                    <h2 className={styles.categoryTitle} id={`category-${category.id}`}>
+                    <h2
+                      className={styles.categoryTitle}
+                      id={`category-${category.id}`}
+                    >
                       {category.name}
                     </h2>
                     <div className={styles.menuGrid} role="list">
                       {category.items.map((item) => (
                         <div
                           key={item.id}
-                          className={`${styles.menuItem} ${!item.available ? styles.unavailable : ''}`}
+                          className={`${styles.menuItem} ${!item.available ? styles.unavailable : ""}`}
                           role="listitem"
-                          aria-label={`${item.name}, ${item.price.toFixed(2)} euros${!item.available ? ', indisponible' : ''}`}
+                          aria-label={`${item.name}, ${item.price.toFixed(2)} euros${!item.available ? ", indisponible" : ""}`}
                         >
                           {!item.available && (
                             <span
@@ -101,7 +117,9 @@ export default function MenuPage() {
                             </span>
                           )}
                           <h3 className={styles.itemName}>{item.name}</h3>
-                          <p className={styles.itemDescription}>{item.description}</p>
+                          <p className={styles.itemDescription}>
+                            {item.description}
+                          </p>
                           <p
                             className={styles.itemPrice}
                             aria-label={`Prix: ${item.price.toFixed(2)} euros`}
@@ -121,9 +139,9 @@ export default function MenuPage() {
                 filteredItems.map((item) => (
                   <div
                     key={item.id}
-                    className={`${styles.menuItem} ${!item.available ? styles.unavailable : ''}`}
+                    className={`${styles.menuItem} ${!item.available ? styles.unavailable : ""}`}
                     role="listitem"
-                    aria-label={`${item.name}, ${item.price.toFixed(2)} euros${!item.available ? ', indisponible' : ''}`}
+                    aria-label={`${item.name}, ${item.price.toFixed(2)} euros${!item.available ? ", indisponible" : ""}`}
                   >
                     {!item.available && (
                       <span

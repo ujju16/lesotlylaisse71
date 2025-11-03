@@ -82,8 +82,8 @@ NEXT_PUBLIC_BASE_URL=http://localhost:3000
 ### Récupérer les catégories
 
 ```typescript
-import { hygraphClient } from '@/lib/hygraph';
-import { gql } from 'graphql-request';
+import { hygraphClient } from "@/lib/hygraph";
+import { gql } from "graphql-request";
 
 const query = gql`
   query GetCategories {
@@ -130,7 +130,7 @@ const query = gql`
   }
 `;
 
-const data = await hygraphClient.request(query, { categorySlug: 'entrees' });
+const data = await hygraphClient.request(query, { categorySlug: "entrees" });
 ```
 
 ## 🔐 Sécurité

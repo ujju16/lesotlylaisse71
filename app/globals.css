@@ -34,7 +34,7 @@
     --nav-logo-subtext: #5d4037;
   }
 
-  [data-theme='dark'] {
+  [data-theme="dark"] {
     --nav-bg: rgba(10, 10, 10, 0.95);
     --nav-text: #ffffff;
     --nav-hover-bg: rgba(255, 255, 255, 0.08);
@@ -57,15 +57,15 @@
       system-ui,
       -apple-system,
       BlinkMacSystemFont,
-      'Segoe UI',
+      "Segoe UI",
       Roboto,
-      'Helvetica Neue',
+      "Helvetica Neue",
       Arial,
       sans-serif;
   }
 
   /* Light mode default */
-  html[data-theme='light'] {
+  html[data-theme="light"] {
     --page-bg: linear-gradient(180deg, #fafafa 0%, #ffffff 100%);
     --section-alt-bg: linear-gradient(180deg, #f5f5f5 0%, #fafafa 100%);
     --card-bg: #1e1e1e;
@@ -85,7 +85,7 @@
   }
 
   /* Dark mode */
-  html[data-theme='dark'] {
+  html[data-theme="dark"] {
     --page-bg: linear-gradient(180deg, #0a0a0a 0%, #141414 100%);
     --section-alt-bg: linear-gradient(180deg, #141414 0%, #1a1a1a 100%);
     --card-bg: #1e1e1e;
@@ -160,10 +160,14 @@
 
     /* Map elevation aliases to existing shadows */
     --shadow-1: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-    --shadow-2: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
-    --shadow-3: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
-    --shadow-4: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
-    --shadow-5: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+    --shadow-2:
+      0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+    --shadow-3:
+      0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+    --shadow-4:
+      0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+    --shadow-5:
+      0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
     --elevation-1: var(--shadow-1);
     --elevation-2: var(--shadow-2);
     --elevation-3: var(--shadow-3);
@@ -358,57 +362,57 @@
 }
 
 /* Global dark mode overrides for legal pages */
-html[data-theme='dark'] .legalContainer,
-html[data-theme='dark'] .container {
+html[data-theme="dark"] .legalContainer,
+html[data-theme="dark"] .container {
   background: var(--dark-bg) !important;
   color: var(--dark-text-primary) !important;
 }
 
-html[data-theme='dark'] .infoCard,
-html[data-theme='dark'] .textCard,
-html[data-theme='dark'] .section {
+html[data-theme="dark"] .infoCard,
+html[data-theme="dark"] .textCard,
+html[data-theme="dark"] .section {
   background: var(--dark-surface-elevated) !important;
   border-color: var(--dark-border) !important;
 }
 
-html[data-theme='dark'] .cardContent,
-html[data-theme='dark'] .section p,
-html[data-theme='dark'] .section ul li,
-html[data-theme='dark'] .infoItem,
-html[data-theme='dark'] .value,
-html[data-theme='dark'] .cookieCard,
-html[data-theme='dark'] .rightCard {
+html[data-theme="dark"] .cardContent,
+html[data-theme="dark"] .section p,
+html[data-theme="dark"] .section ul li,
+html[data-theme="dark"] .infoItem,
+html[data-theme="dark"] .value,
+html[data-theme="dark"] .cookieCard,
+html[data-theme="dark"] .rightCard {
   background: var(--dark-surface) !important;
   color: var(--dark-text-secondary) !important;
 }
 
-html[data-theme='dark'] .cardTitle,
-html[data-theme='dark'] .section h2,
-html[data-theme='dark'] .section h3,
-html[data-theme='dark'] .sectionTitle,
-html[data-theme='dark'] .colorName,
-html[data-theme='dark'] .componentTitle {
+html[data-theme="dark"] .cardTitle,
+html[data-theme="dark"] .section h2,
+html[data-theme="dark"] .section h3,
+html[data-theme="dark"] .sectionTitle,
+html[data-theme="dark"] .colorName,
+html[data-theme="dark"] .componentTitle {
   color: var(--dark-text-primary) !important;
 }
 
-html[data-theme='dark'] .colorCard,
-html[data-theme='dark'] .typeCard,
-html[data-theme='dark'] .componentCard {
+html[data-theme="dark"] .colorCard,
+html[data-theme="dark"] .typeCard,
+html[data-theme="dark"] .componentCard {
   background: var(--dark-surface-elevated) !important;
   border-color: var(--dark-border) !important;
 }
 
-html[data-theme='light'] body,
-html[data-theme='dark'] body {
+html[data-theme="light"] body,
+html[data-theme="dark"] body {
   min-height: 100vh;
 }
 
-html[data-theme='light'] body {
+html[data-theme="light"] body {
   background: linear-gradient(180deg, #fafafa 0%, #ffffff 100%);
   color: #212121;
 }
 
-html[data-theme='dark'] body {
+html[data-theme="dark"] body {
   background: linear-gradient(180deg, #0a0a0a 0%, #141414 100%);
   color: #ffffff;
 }

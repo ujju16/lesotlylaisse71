@@ -181,9 +181,20 @@ query GetActiveMenu {
 #### Créer une catégorie
 
 ```graphql
-mutation CreateCategory($name: String!, $description: String, $icon: String, $order: Int!) {
+mutation CreateCategory(
+  $name: String!
+  $description: String
+  $icon: String
+  $order: Int!
+) {
   createCategory(
-    data: { name: $name, description: $description, icon: $icon, order: $order, isActive: true }
+    data: {
+      name: $name
+      description: $description
+      icon: $icon
+      order: $order
+      isActive: true
+    }
   ) {
     id
     name
@@ -245,11 +256,11 @@ Fonctionnalités:
 ```typescript
 // middleware.ts
 export function middleware(request: NextRequest) {
-  if (request.nextUrl.pathname.startsWith('/admin')) {
+  if (request.nextUrl.pathname.startsWith("/admin")) {
     // Vérifier l'authentification
-    const auth = request.cookies.get('admin-auth');
+    const auth = request.cookies.get("admin-auth");
     if (!auth) {
-      return NextResponse.redirect(new URL('/login', request.url));
+      return NextResponse.redirect(new URL("/login", request.url));
     }
   }
 }

@@ -102,12 +102,16 @@
   font-weight: 600;
   font-size: 0.875rem;
   letter-spacing: 0.25px;
-  background: linear-gradient(135deg, rgba(255, 236, 179, 0.15) 0%, rgba(255, 193, 7, 0.1) 100%);
+  background: linear-gradient(
+    135deg,
+    rgba(255, 236, 179, 0.15) 0%,
+    rgba(255, 193, 7, 0.1) 100%
+  );
   border-radius: 6px;
 }
 
 .navLinkActive::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: 4px;
   left: 16px;
@@ -178,7 +182,7 @@
 .hamburger::after,
 .hamburgerOpen::before,
 .hamburgerOpen::after {
-  content: '';
+  content: "";
   position: absolute;
   width: 24px;
   height: 2px;
@@ -261,7 +265,11 @@
   text-decoration: none;
   font-weight: 600;
   font-size: 1rem;
-  background: linear-gradient(135deg, rgba(255, 236, 179, 0.15) 0%, rgba(255, 193, 7, 0.1) 100%);
+  background: linear-gradient(
+    135deg,
+    rgba(255, 236, 179, 0.15) 0%,
+    rgba(255, 193, 7, 0.1) 100%
+  );
   border-radius: 6px;
   border-left: 3px solid var(--nav-logo-text);
 }

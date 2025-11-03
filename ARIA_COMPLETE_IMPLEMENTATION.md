@@ -150,12 +150,12 @@ This document provides a comprehensive overview of the ARIA (Accessible Rich Int
 
   <ul role="list">
     <li>
-      <Link aria-current={isActive ? 'page' : undefined}>Menu</Link>
+      <Link aria-current={isActive ? "page" : undefined}>Menu</Link>
     </li>
   </ul>
 
   <button
-    aria-label={open ? 'Fermer le menu' : 'Ouvrir le menu'}
+    aria-label={open ? "Fermer le menu" : "Ouvrir le menu"}
     aria-expanded={open}
     aria-controls="mobile-menu"
   >
@@ -328,7 +328,7 @@ All legal pages (Privacy, Cookies, Terms, Charter) include:
     <div
       key={item.id}
       role="listitem"
-      aria-label={`${item.name}, ${item.price}€${!item.available ? ', indisponible' : ''}`}
+      aria-label={`${item.name}, ${item.price}€${!item.available ? ", indisponible" : ""}`}
     >
       {item.name}
       {!item.available && (

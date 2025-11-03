@@ -349,12 +349,12 @@ const nextConfig: NextConfig = {
 
 ```typescript
 export const metadata: Metadata = {
-  title: 'LeSotLyLaisse71',
-  description: 'Restaurant, Bar & Tabac',
+  title: "LeSotLyLaisse71",
+  description: "Restaurant, Bar & Tabac",
   openGraph: {
-    title: 'LeSotLyLaisse71',
-    description: '...',
-    images: ['/opengraph-image'],
+    title: "LeSotLyLaisse71",
+    description: "...",
+    images: ["/opengraph-image"],
   },
 };
 ```

@@ -1,5 +1,5 @@
-import { gql } from 'graphql-request';
-import { publicHygraphClient, adminHygraphClient } from './hygraph';
+import { gql } from "graphql-request";
+import { publicHygraphClient, adminHygraphClient } from "./hygraph";
 
 // ==================== TYPES ====================
 
@@ -78,15 +78,18 @@ export async function getCategories(): Promise<Category[]> {
   `;
 
   try {
-    const data: { categories: Category[] } = await publicHygraphClient.request(query);
+    const data: { categories: Category[] } =
+      await publicHygraphClient.request(query);
     return data.categories;
   } catch (error) {
-    console.error('Error fetching categories:', error);
+    console.error("Error fetching categories:", error);
     return [];
   }
 }
 
-export async function createCategory(category: Omit<Category, 'id'>): Promise<boolean> {
+export async function createCategory(
+  category: Omit<Category, "id">
+): Promise<boolean> {
   const mutation = gql`
     mutation CreateCategory(
       $name: String!
@@ -96,7 +99,13 @@ export async function createCategory(category: Omit<Category, 'id'>): Promise<bo
       $icon: String
     ) {
       createCategory(
-        data: { name: $name, slug: $slug, description: $description, order: $order, icon: $icon }
+        data: {
+          name: $name
+          slug: $slug
+          description: $description
+          order: $order
+          icon: $icon
+        }
       ) {
         id
       }
@@ -110,12 +119,15 @@ export async function createCategory(category: Omit<Category, 'id'>): Promise<bo
     await adminHygraphClient.request(mutation, category);
     return true;
   } catch (error) {
-    console.error('Error creating category:', error);
+    console.error("Error creating category:", error);
     return false;
   }
 }
 
-export async function updateCategory(id: string, category: Partial<Category>): Promise<boolean> {
+export async function updateCategory(
+  id: string,
+  category: Partial<Category>
+): Promise<boolean> {
   const mutation = gql`
     mutation UpdateCategory(
       $id: ID!
@@ -126,7 +138,12 @@ export async function updateCategory(id: string, category: Partial<Category>): P
     ) {
       updateCategory(
         where: { id: $id }
-        data: { name: $name, description: $description, order: $order, icon: $icon }
+        data: {
+          name: $name
+          description: $description
+          order: $order
+          icon: $icon
+        }
       ) {
         id
       }
@@ -140,7 +157,7 @@ export async function updateCategory(id: string, category: Partial<Category>): P
     await adminHygraphClient.request(mutation, { id, ...category });
     return true;
   } catch (error) {
-    console.error('Error updating category:', error);
+    console.error("Error updating category:", error);
     return false;
   }
 }
@@ -158,7 +175,7 @@ export async function deleteCategory(id: string): Promise<boolean> {
     await adminHygraphClient.request(mutation, { id });
     return true;
   } catch (error) {
-    console.error('Error deleting category:', error);
+    console.error("Error deleting category:", error);
     return false;
   }
 }
@@ -191,7 +208,7 @@ export async function getDishes(): Promise<Dish[]> {
     const data: { dishes: Dish[] } = await publicHygraphClient.request(query);
     return data.dishes;
   } catch (error) {
-    console.error('Error fetching dishes:', error);
+    console.error("Error fetching dishes:", error);
     return [];
   }
 }
@@ -219,10 +236,12 @@ export async function getDishBySlug(slug: string): Promise<Dish | null> {
   `;
 
   try {
-    const data: { dish: Dish } = await publicHygraphClient.request(query, { slug });
+    const data: { dish: Dish } = await publicHygraphClient.request(query, {
+      slug,
+    });
     return data.dish;
   } catch (error) {
-    console.error('Error fetching dish:', error);
+    console.error("Error fetching dish:", error);
     return null;
   }
 }
@@ -257,7 +276,7 @@ export async function getMenus(): Promise<Menu[]> {
     const data: { menus: Menu[] } = await publicHygraphClient.request(query);
     return data.menus;
   } catch (error) {
-    console.error('Error fetching menus:', error);
+    console.error("Error fetching menus:", error);
     return [];
   }
 }
@@ -296,15 +315,27 @@ export async function getActiveMenu(): Promise<Menu | null> {
     const data: { menus: Menu[] } = await publicHygraphClient.request(query);
     return data.menus[0] || null;
   } catch (error) {
-    console.error('Error fetching active menu:', error);
+    console.error("Error fetching active menu:", error);
     return null;
   }
 }
 
-export async function createMenu(menu: Omit<Menu, 'id'>): Promise<boolean> {
+export async function createMenu(menu: Omit<Menu, "id">): Promise<boolean> {
   const mutation = gql`
-    mutation CreateMenu($name: String!, $slug: String!, $description: String, $active: Boolean!) {
-      createMenu(data: { name: $name, slug: $slug, description: $description, active: $active }) {
+    mutation CreateMenu(
+      $name: String!
+      $slug: String!
+      $description: String
+      $active: Boolean!
+    ) {
+      createMenu(
+        data: {
+          name: $name
+          slug: $slug
+          description: $description
+          active: $active
+        }
+      ) {
         id
       }
       publishMenu(where: { slug: $slug }, to: PUBLISHED) {
@@ -317,12 +348,15 @@ export async function createMenu(menu: Omit<Menu, 'id'>): Promise<boolean> {
     await adminHygraphClient.request(mutation, menu);
     return true;
   } catch (error) {
-    console.error('Error creating menu:', error);
+    console.error("Error creating menu:", error);
     return false;
   }
 }
 
-export async function updateMenuStatus(id: string, active: boolean): Promise<boolean> {
+export async function updateMenuStatus(
+  id: string,
+  active: boolean
+): Promise<boolean> {
   const mutation = gql`
     mutation UpdateMenuStatus($id: ID!, $active: Boolean!) {
       updateMenu(where: { id: $id }, data: { active: $active }) {
@@ -338,7 +372,7 @@ export async function updateMenuStatus(id: string, active: boolean): Promise<boo
     await adminHygraphClient.request(mutation, { id, active });
     return true;
   } catch (error) {
-    console.error('Error updating menu status:', error);
+    console.error("Error updating menu status:", error);
     return false;
   }
 }
@@ -346,7 +380,7 @@ export async function updateMenuStatus(id: string, active: boolean): Promise<boo
 // ==================== RESERVATIONS ====================
 
 export async function createReservation(
-  reservation: Omit<Reservation, 'id' | 'reservationStatus'>
+  reservation: Omit<Reservation, "id" | "reservationStatus">
 ): Promise<boolean> {
   const mutation = gql`
     mutation CreateReservation(
@@ -379,7 +413,7 @@ export async function createReservation(
     await publicHygraphClient.request(mutation, reservation);
     return true;
   } catch (error) {
-    console.error('Error creating reservation:', error);
+    console.error("Error creating reservation:", error);
     return false;
   }
 }
@@ -402,10 +436,11 @@ export async function getReservations(): Promise<Reservation[]> {
   `;
 
   try {
-    const data: { reservations: Reservation[] } = await adminHygraphClient.request(query);
+    const data: { reservations: Reservation[] } =
+      await adminHygraphClient.request(query);
     return data.reservations;
   } catch (error) {
-    console.error('Error fetching reservations:', error);
+    console.error("Error fetching reservations:", error);
     return [];
   }
 }

@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 interface ConfirmDialogProps {
   isOpen: boolean;
@@ -8,25 +8,25 @@ interface ConfirmDialogProps {
   cancelText?: string;
   onConfirm: () => void;
   onCancel: () => void;
-  type?: 'danger' | 'warning' | 'info';
+  type?: "danger" | "warning" | "info";
 }
 
 export default function ConfirmDialog({
   isOpen,
   title,
   message,
-  confirmText = 'Confirmer',
-  cancelText = 'Annuler',
+  confirmText = "Confirmer",
+  cancelText = "Annuler",
   onConfirm,
   onCancel,
-  type = 'danger',
+  type = "danger",
 }: ConfirmDialogProps) {
   if (!isOpen) return null;
 
   const typeClasses = {
-    danger: 'btn-error',
-    warning: 'btn-warning',
-    info: 'btn-info',
+    danger: "btn-error",
+    warning: "btn-warning",
+    info: "btn-info",
   };
 
   return (
@@ -44,8 +44,16 @@ export default function ConfirmDialog({
         <p id="confirm-dialog-description" className="py-4">
           {message}
         </p>
-        <div className="modal-action" role="group" aria-label="Actions de confirmation">
-          <button onClick={onCancel} className="btn btn-ghost" aria-label={cancelText}>
+        <div
+          className="modal-action"
+          role="group"
+          aria-label="Actions de confirmation"
+        >
+          <button
+            onClick={onCancel}
+            className="btn btn-ghost"
+            aria-label={cancelText}
+          >
             {cancelText}
           </button>
           <button
@@ -57,7 +65,11 @@ export default function ConfirmDialog({
           </button>
         </div>
       </div>
-      <div className="modal-backdrop bg-black/50" onClick={onCancel} aria-hidden="true"></div>
+      <div
+        className="modal-backdrop bg-black/50"
+        onClick={onCancel}
+        aria-hidden="true"
+      ></div>
     </div>
   );
 }

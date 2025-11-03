@@ -1,12 +1,15 @@
 #!/usr/bin/env node
-import { Server } from '@modelcontextprotocol/sdk/server/index.js';
-import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js';
-import { CallToolRequestSchema, ListToolsRequestSchema } from '@modelcontextprotocol/sdk/types.js';
+import { Server } from "@modelcontextprotocol/sdk/server/index.js";
+import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
+import {
+  CallToolRequestSchema,
+  ListToolsRequestSchema,
+} from "@modelcontextprotocol/sdk/types.js";
 
 const server = new Server(
   {
-    name: 'lesotlylaisse71-server',
-    version: '1.0.0',
+    name: "lesotlylaisse71-server",
+    version: "1.0.0",
   },
   {
     capabilities: {
@@ -20,24 +23,24 @@ server.setRequestHandler(ListToolsRequestSchema, async () => {
   return {
     tools: [
       {
-        name: 'echo',
-        description: 'Renvoie le texte fourni',
+        name: "echo",
+        description: "Renvoie le texte fourni",
         inputSchema: {
-          type: 'object',
+          type: "object",
           properties: {
             message: {
-              type: 'string',
-              description: 'Le message à renvoyer',
+              type: "string",
+              description: "Le message à renvoyer",
             },
           },
-          required: ['message'],
+          required: ["message"],
         },
       },
       {
-        name: 'get_time',
+        name: "get_time",
         description: "Renvoie l'heure actuelle",
         inputSchema: {
-          type: 'object',
+          type: "object",
           properties: {},
         },
       },
@@ -48,21 +51,21 @@ server.setRequestHandler(ListToolsRequestSchema, async () => {
 // Gestionnaire pour exécuter les outils
 server.setRequestHandler(CallToolRequestSchema, async (request) => {
   switch (request.params.name) {
-    case 'echo':
+    case "echo":
       return {
         content: [
           {
-            type: 'text',
+            type: "text",
             text: request.params.arguments?.message as string,
           },
         ],
       };
 
-    case 'get_time':
+    case "get_time":
       return {
         content: [
           {
-            type: 'text',
+            type: "text",
             text: new Date().toISOString(),
           },
         ],
@@ -77,10 +80,10 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
 async function main() {
   const transport = new StdioServerTransport();
   await server.connect(transport);
-  console.error('Serveur MCP démarré');
+  console.error("Serveur MCP démarré");
 }
 
 main().catch((error) => {
-  console.error('Erreur lors du démarrage du serveur:', error);
+  console.error("Erreur lors du démarrage du serveur:", error);
   process.exit(1);
 });

@@ -82,7 +82,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr">
-      <body style={{ fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif' }}>
+      <body>
         <MonitoringProvider>
           <ThemeInitializer />
           <AxeptioConsent />

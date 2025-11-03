@@ -74,6 +74,17 @@ jobs:
         run: bun test --passWithNoTests
         continue-on-error: true
 
+      - name: Upload coverage to Codecov
+        if: always()
+        uses: codecov/codecov-action@v5
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          files: ./coverage/coverage-final.json
+          flags: unittests
+          name: codecov-umbrella
+          fail_ci_if_error: false
+        continue-on-error: true
+
   build:
     name: Build
     runs-on: ubuntu-latest

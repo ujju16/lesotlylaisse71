@@ -5,6 +5,7 @@ import Navigation from './components/Navigation';
 import Footer from './components/Footer';
 import AxeptioConsent from './components/AxeptioConsent';
 import ThemeInitializer from './components/ThemeInitializer';
+import MonitoringProvider from './components/MonitoringProvider';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -93,16 +94,18 @@ export default function RootLayout({
   return (
     <html lang="fr">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        <ThemeInitializer />
-        <AxeptioConsent />
-        <a href="#main-content" className="skip-to-main">
-          Aller au contenu principal
-        </a>
-        <Navigation />
-        <main id="main-content" role="main">
-          {children}
-        </main>
-        <Footer />
+        <MonitoringProvider>
+          <ThemeInitializer />
+          <AxeptioConsent />
+          <a href="#main-content" className="skip-to-main">
+            Aller au contenu principal
+          </a>
+          <Navigation />
+          <main id="main-content" role="main">
+            {children}
+          </main>
+          <Footer />
+        </MonitoringProvider>
       </body>
     </html>
   );

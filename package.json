@@ -5,8 +5,9 @@
   "scripts": {
     "dev": "bun --bun next dev --turbopack",
     "dev:legacy": "bun --bun next dev",
-    "build": "bun --bun next build",
-    "start": "bun --bun next start",
+    "build": "next build",
+    "build:bun": "bun --bun next build",
+    "start": "next start",
     "lint": "eslint . --ext .ts,.tsx,.js,.jsx --max-warnings=0",
     "lint:fix": "eslint . --ext .ts,.tsx,.js,.jsx --fix",
     "format": "prettier --write .",

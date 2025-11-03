@@ -77,9 +77,9 @@ jobs:
 
       - name: Upload Lighthouse reports
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
-          name: lighthouse-reports
+          name: lighthouse-reports-${{ github.run_id }}
           path: .lighthouseci
           retention-days: 30
           if-no-files-found: ignore

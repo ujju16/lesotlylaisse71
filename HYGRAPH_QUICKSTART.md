@@ -105,7 +105,7 @@ Le système permet d'avoir **un seul QR code** pour plusieurs menus :
 ### Récupérer les catégories
 
 ```typescript
-import { hygraphClient } from '@/lib/hygraph-client';
+import { hygraphClient } from "@/lib/hygraph-client";
 
 const categories = await hygraphClient.getCategories();
 ```

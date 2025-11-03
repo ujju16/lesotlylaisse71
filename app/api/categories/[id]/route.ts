@@ -1,8 +1,11 @@
-import { NextRequest, NextResponse } from 'next/server';
-import { adminHygraphClient } from '@/lib/hygraph';
-import { gql } from 'graphql-request';
+import { NextRequest, NextResponse } from "next/server";
+import { adminHygraphClient } from "@/lib/hygraph";
+import { gql } from "graphql-request";
 
-export async function PUT(request: NextRequest, context: { params: Promise<{ id: string }> }) {
+export async function PUT(
+  request: NextRequest,
+  context: { params: Promise<{ id: string }> }
+) {
   try {
     const { id } = await context.params;
     const body = await request.json();
@@ -48,14 +51,20 @@ export async function PUT(request: NextRequest, context: { params: Promise<{ id:
     return NextResponse.json({
       success: true,
       data: data.updateCategory,
-      message: 'Catégorie modifiée',
+      message: "Catégorie modifiée",
     });
   } catch (error) {
-    return NextResponse.json({ success: false, error: (error as Error).message }, { status: 500 });
+    return NextResponse.json(
+      { success: false, error: (error as Error).message },
+      { status: 500 }
+    );
   }
 }
 
-export async function DELETE(request: NextRequest, context: { params: Promise<{ id: string }> }) {
+export async function DELETE(
+  request: NextRequest,
+  context: { params: Promise<{ id: string }> }
+) {
   try {
     const { id } = await context.params;
     const mutation = gql`
@@ -66,8 +75,11 @@ export async function DELETE(request: NextRequest, context: { params: Promise<{ 
       }
     `;
     await adminHygraphClient.request(mutation, { id });
-    return NextResponse.json({ success: true, message: 'Catégorie supprimée' });
+    return NextResponse.json({ success: true, message: "Catégorie supprimée" });
   } catch (error) {
-    return NextResponse.json({ success: false, error: (error as Error).message }, { status: 500 });
+    return NextResponse.json(
+      { success: false, error: (error as Error).message },
+      { status: 500 }
+    );
   }
 }

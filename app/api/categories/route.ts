@@ -1,6 +1,6 @@
-import { NextRequest, NextResponse } from 'next/server';
-import { adminHygraphClient } from '@/lib/hygraph';
-import { gql } from 'graphql-request';
+import { NextRequest, NextResponse } from "next/server";
+import { adminHygraphClient } from "@/lib/hygraph";
+import { gql } from "graphql-request";
 
 export async function GET() {
   try {
@@ -24,8 +24,11 @@ export async function GET() {
     const data: any = await adminHygraphClient.request(query);
     return NextResponse.json({ success: true, data: data.categories });
   } catch (error) {
-    console.error('Error fetching categories:', error);
-    return NextResponse.json({ success: false, error: (error as Error).message }, { status: 500 });
+    console.error("Error fetching categories:", error);
+    return NextResponse.json(
+      { success: false, error: (error as Error).message },
+      { status: 500 }
+    );
   }
 }
 
@@ -36,7 +39,7 @@ export async function POST(request: NextRequest) {
 
     if (!name || !slug || order === undefined) {
       return NextResponse.json(
-        { success: false, error: 'Champs requis: name, slug, order' },
+        { success: false, error: "Champs requis: name, slug, order" },
         { status: 400 }
       );
     }
@@ -57,7 +60,7 @@ export async function POST(request: NextRequest) {
             description: $description
             order: $order
             icon: $icon
-            ${imageId ? 'image: { connect: { id: $imageId } }' : ''}
+            ${imageId ? "image: { connect: { id: $imageId } }" : ""}
           }
         ) {
           id
@@ -76,9 +79,12 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({
       success: true,
       data: data.createCategory,
-      message: 'Catégorie créée',
+      message: "Catégorie créée",
     });
   } catch (error) {
-    return NextResponse.json({ success: false, error: (error as Error).message }, { status: 500 });
+    return NextResponse.json(
+      { success: false, error: (error as Error).message },
+      { status: 500 }
+    );
   }
 }

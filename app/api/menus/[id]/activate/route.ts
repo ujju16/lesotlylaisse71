@@ -1,8 +1,11 @@
-import { NextRequest, NextResponse } from 'next/server';
-import { adminHygraphClient } from '@/lib/hygraph';
-import { gql } from 'graphql-request';
+import { NextRequest, NextResponse } from "next/server";
+import { adminHygraphClient } from "@/lib/hygraph";
+import { gql } from "graphql-request";
 
-export async function POST(request: NextRequest, context: { params: Promise<{ id: string }> }) {
+export async function POST(
+  request: NextRequest,
+  context: { params: Promise<{ id: string }> }
+) {
   try {
     const { id } = await context.params;
     const deactivate = gql`
@@ -34,8 +37,15 @@ export async function POST(request: NextRequest, context: { params: Promise<{ id
       }
     `;
     await adminHygraphClient.request(publishAll);
-    return NextResponse.json({ success: true, data: data.updateMenu, message: 'Menu activé' });
+    return NextResponse.json({
+      success: true,
+      data: data.updateMenu,
+      message: "Menu activé",
+    });
   } catch (error) {
-    return NextResponse.json({ success: false, error: (error as Error).message }, { status: 500 });
+    return NextResponse.json(
+      { success: false, error: (error as Error).message },
+      { status: 500 }
+    );
   }
 }

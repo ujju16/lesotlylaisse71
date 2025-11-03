@@ -156,7 +156,10 @@ Next.js Image Component gère automatiquement le fallback JPEG pour les navigate
 const images = Array.from({ length: 13 }, (_, i) => `/photo${i + 1}.jpg`);
 
 // Après
-const images = Array.from({ length: 13 }, (_, i) => `/images/carousel/photo${i + 1}.webp`);
+const images = Array.from(
+  { length: 13 },
+  (_, i) => `/images/carousel/photo${i + 1}.webp`
+);
 ```
 
 Le composant Next.js Image optimise automatiquement :

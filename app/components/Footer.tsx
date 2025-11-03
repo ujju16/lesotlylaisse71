@@ -1,11 +1,15 @@
-import Link from 'next/link';
-import styles from './Footer.module.css';
+import Link from "next/link";
+import styles from "./Footer.module.css";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className={styles.footer} role="contentinfo" aria-label="Pied de page">
+    <footer
+      className={styles.footer}
+      role="contentinfo"
+      aria-label="Pied de page"
+    >
       <div className={styles.container}>
         {/* Section principale du footer */}
         <div className={styles.footerGrid}>
@@ -13,10 +17,14 @@ export default function Footer() {
           <div className={styles.footerColumn}>
             <h3 className={styles.footerTitle}>LeSotLyLaisse71</h3>
             <p className={styles.footerDescription}>
-              Restaurant, bar et tabac au cœur de la Bourgogne. Un lieu de convivialité et de
-              partage depuis des générations.
+              Restaurant, bar et tabac au cœur de la Bourgogne. Un lieu de
+              convivialité et de partage depuis des générations.
             </p>
-            <div className={styles.socialLinks} role="navigation" aria-label="Réseaux sociaux">
+            <div
+              className={styles.socialLinks}
+              role="navigation"
+              aria-label="Réseaux sociaux"
+            >
               <a
                 href="#"
                 className={styles.socialLink}
@@ -127,7 +135,7 @@ export default function Footer() {
             © {currentYear} LeSotLyLaisse71. Tous droits réservés.
           </p>
           <p className={styles.credits}>
-            Conçu et développé par{' '}
+            Conçu et développé par{" "}
             <a
               href="https://github.com/ujju16"
               target="_blank"

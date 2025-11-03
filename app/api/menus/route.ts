@@ -1,6 +1,6 @@
-import { NextRequest, NextResponse } from 'next/server';
-import { adminHygraphClient } from '@/lib/hygraph';
-import { gql } from 'graphql-request';
+import { NextRequest, NextResponse } from "next/server";
+import { adminHygraphClient } from "@/lib/hygraph";
+import { gql } from "graphql-request";
 
 export async function GET() {
   try {
@@ -29,18 +29,22 @@ export async function GET() {
     const data: any = await adminHygraphClient.request(query);
     return NextResponse.json({ success: true, data: data.menus });
   } catch (error) {
-    return NextResponse.json({ success: false, error: (error as Error).message }, { status: 500 });
+    return NextResponse.json(
+      { success: false, error: (error as Error).message },
+      { status: 500 }
+    );
   }
 }
 
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const { name, slug, description, active, startDate, endDate, dishIds } = body;
+    const { name, slug, description, active, startDate, endDate, dishIds } =
+      body;
 
     if (!name || !slug) {
       return NextResponse.json(
-        { success: false, error: 'Champs requis: name, slug' },
+        { success: false, error: "Champs requis: name, slug" },
         { status: 400 }
       );
     }
@@ -100,8 +104,15 @@ export async function POST(request: NextRequest) {
     };
 
     const data: any = await adminHygraphClient.request(mutation, variables);
-    return NextResponse.json({ success: true, data: data.createMenu, message: 'Menu créé' });
+    return NextResponse.json({
+      success: true,
+      data: data.createMenu,
+      message: "Menu créé",
+    });
   } catch (error) {
-    return NextResponse.json({ success: false, error: (error as Error).message }, { status: 500 });
+    return NextResponse.json(
+      { success: false, error: (error as Error).message },
+      { status: 500 }
+    );
   }
 }

@@ -178,11 +178,11 @@ const nextConfig: NextConfig = {
     ignoreBuildErrors: false, // ✅ Bon
   },
   images: {
-    formats: ['image/avif', 'image/webp'], // ➕ Ajouter
+    formats: ["image/avif", "image/webp"], // ➕ Ajouter
     remotePatterns: [
       {
-        protocol: 'https',
-        hostname: '**.graphassets.com',
+        protocol: "https",
+        hostname: "**.graphassets.com",
       },
     ],
   },
@@ -190,7 +190,7 @@ const nextConfig: NextConfig = {
   async headers() {
     return [
       {
-        source: '/:path*',
+        source: "/:path*",
         headers: securityHeaders,
       },
     ];

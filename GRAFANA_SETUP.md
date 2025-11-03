@@ -181,14 +181,14 @@ export default function MonitoringProvider({ children }) {
 ### Logger une Erreur
 
 ```typescript
-import { logError } from '@/lib/monitoring/faro';
+import { logError } from "@/lib/monitoring/faro";
 
 try {
   // Code
 } catch (error) {
   logError(error as Error, {
-    context: 'reservation_form',
-    userId: '123',
+    context: "reservation_form",
+    userId: "123",
   });
 }
 ```
@@ -196,23 +196,23 @@ try {
 ### Logger un Événement
 
 ```typescript
-import { logEvent } from '@/lib/monitoring/faro';
+import { logEvent } from "@/lib/monitoring/faro";
 
-logEvent('reservation_submitted', {
-  date: '2025-11-03',
+logEvent("reservation_submitted", {
+  date: "2025-11-03",
   guests: 4,
-  time: '19:00',
+  time: "19:00",
 });
 ```
 
 ### Définir un Utilisateur
 
 ```typescript
-import { setUser } from '@/lib/monitoring/faro';
+import { setUser } from "@/lib/monitoring/faro";
 
-setUser('user-123', {
-  email: 'user@example.com',
-  name: 'John Doe',
+setUser("user-123", {
+  email: "user@example.com",
+  name: "John Doe",
 });
 ```
 

@@ -21,6 +21,7 @@ Restaurant, bar et tabac au cœur de la Bourgogne - Site web moderne développé
 [![ESLint](https://img.shields.io/badge/ESLint-9.x-4B32C3?logo=eslint)](https://eslint.org/)
 [![Prettier](https://img.shields.io/badge/Prettier-3.6.2-F7B93E?logo=prettier)](https://prettier.io/)
 [![Bun](https://img.shields.io/badge/Bun-1.2.23-fbf0df?logo=bun)](https://bun.sh/)
+[![codecov](https://codecov.io/gh/ujju16/lesotlylaisse71/graphs/sunburst.svg?token=2XDGRWZ0UJ)](https://codecov.io/gh/ujju16/lesotlylaisse71)
 
 ### Technologies
 

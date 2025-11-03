@@ -1,5 +1,5 @@
-import { gql } from 'graphql-request';
-import { publicHygraphClient } from './hygraph';
+import { gql } from "graphql-request";
+import { publicHygraphClient } from "./hygraph";
 
 export interface Dish {
   id: string;
@@ -49,7 +49,7 @@ export async function getDishes(): Promise<Dish[]> {
     const data: { dishes: Dish[] } = await publicHygraphClient.request(query);
     return data.dishes;
   } catch (error) {
-    console.error('Error fetching dishes:', error);
+    console.error("Error fetching dishes:", error);
     return [];
   }
 }
@@ -74,17 +74,19 @@ export async function getDishBySlug(slug: string): Promise<Dish | null> {
   `;
 
   try {
-    const data: { dish: Dish } = await publicHygraphClient.request(query, { slug });
+    const data: { dish: Dish } = await publicHygraphClient.request(query, {
+      slug,
+    });
     return data.dish;
   } catch (error) {
-    console.error('Error fetching dish:', error);
+    console.error("Error fetching dish:", error);
     return null;
   }
 }
 
 // Créer une réservation
 export async function createReservation(
-  reservation: Omit<Reservation, 'id' | 'reservationStatus'>
+  reservation: Omit<Reservation, "id" | "reservationStatus">
 ): Promise<boolean> {
   const mutation = gql`
     mutation CreateReservation(
@@ -117,7 +119,7 @@ export async function createReservation(
     await publicHygraphClient.request(mutation, reservation);
     return true;
   } catch (error) {
-    console.error('Error creating reservation:', error);
+    console.error("Error creating reservation:", error);
     return false;
   }
 }
@@ -141,10 +143,11 @@ export async function getReservations(): Promise<Reservation[]> {
   `;
 
   try {
-    const data: { reservations: Reservation[] } = await publicHygraphClient.request(query);
+    const data: { reservations: Reservation[] } =
+      await publicHygraphClient.request(query);
     return data.reservations;
   } catch (error) {
-    console.error('Error fetching reservations:', error);
+    console.error("Error fetching reservations:", error);
     return [];
   }
 }

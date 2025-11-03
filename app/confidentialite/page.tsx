@@ -1,10 +1,10 @@
-import PageTemplate from '../components/PageTemplate';
-import styles from './confidentialite.module.css';
+import PageTemplate from "../components/PageTemplate";
+import styles from "./confidentialite.module.css";
 
 export const metadata = {
-  title: 'Politique de confidentialité | LeSotLyLaisse71',
+  title: "Politique de confidentialité | LeSotLyLaisse71",
   description:
-    'Politique de confidentialité et protection des données personnelles - LeSotLyLaisse71',
+    "Politique de confidentialité et protection des données personnelles - LeSotLyLaisse71",
 };
 
 export default function ConfidentialitePage() {
@@ -17,29 +17,42 @@ export default function ConfidentialitePage() {
         <section className={styles.section} aria-labelledby="collecte-heading">
           <h2 id="collecte-heading">1. Collecte des données</h2>
           <p>
-            LeSotLyLaisse71 s&apos;engage à protéger votre vie privée. Cette politique explique
-            comment nous collectons, utilisons et protégeons vos données personnelles conformément
-            au Règlement Général sur la Protection des Données (RGPD).
+            LeSotLyLaisse71 s&apos;engage à protéger votre vie privée. Cette
+            politique explique comment nous collectons, utilisons et protégeons
+            vos données personnelles conformément au Règlement Général sur la
+            Protection des Données (RGPD).
           </p>
           <p>
-            Nous collectons uniquement les données nécessaires au bon fonctionnement de nos services
-            :
+            Nous collectons uniquement les données nécessaires au bon
+            fonctionnement de nos services :
           </p>
           <ul role="list">
-            <li>Informations de contact (nom, email, téléphone) pour les réservations</li>
-            <li>Données de navigation (cookies, adresse IP) pour améliorer votre expérience</li>
+            <li>
+              Informations de contact (nom, email, téléphone) pour les
+              réservations
+            </li>
+            <li>
+              Données de navigation (cookies, adresse IP) pour améliorer votre
+              expérience
+            </li>
             <li>Préférences et historique pour personnaliser nos services</li>
           </ul>
         </section>
 
-        <section className={styles.section} aria-labelledby="utilisation-heading">
+        <section
+          className={styles.section}
+          aria-labelledby="utilisation-heading"
+        >
           <h2 id="utilisation-heading">2. Utilisation des données</h2>
           <p>Vos données personnelles sont utilisées pour :</p>
           <ul role="list">
             <li>Gérer vos réservations et commandes</li>
             <li>Vous contacter concernant nos services</li>
             <li>Améliorer notre site web et nos services</li>
-            <li>Vous envoyer des informations sur nos actualités (avec votre consentement)</li>
+            <li>
+              Vous envoyer des informations sur nos actualités (avec votre
+              consentement)
+            </li>
             <li>Respecter nos obligations légales</li>
           </ul>
           <p>
@@ -47,15 +60,20 @@ export default function ConfidentialitePage() {
           </p>
         </section>
 
-        <section className={styles.section} aria-labelledby="conservation-heading">
+        <section
+          className={styles.section}
+          aria-labelledby="conservation-heading"
+        >
           <h2 id="conservation-heading">3. Conservation des données</h2>
           <p>
-            Vos données personnelles sont conservées pendant la durée nécessaire aux finalités pour
-            lesquelles elles ont été collectées :
+            Vos données personnelles sont conservées pendant la durée nécessaire
+            aux finalités pour lesquelles elles ont été collectées :
           </p>
           <ul role="list">
             <li>Données de réservation : 3 ans après votre dernière visite</li>
-            <li>Données de contact newsletter : jusqu&apos;à votre désinscription</li>
+            <li>
+              Données de contact newsletter : jusqu&apos;à votre désinscription
+            </li>
             <li>Données de navigation : 13 mois maximum</li>
           </ul>
         </section>
@@ -63,7 +81,11 @@ export default function ConfidentialitePage() {
         <section className={styles.section} aria-labelledby="droits-heading">
           <h2 id="droits-heading">4. Vos droits (RGPD)</h2>
           <p>Conformément au RGPD, vous disposez des droits suivants :</p>
-          <div className={styles.rightsGrid} role="list" aria-label="Vos droits RGPD">
+          <div
+            className={styles.rightsGrid}
+            role="list"
+            aria-label="Vos droits RGPD"
+          >
             <div className={styles.rightCard} role="listitem">
               <h3>✓ Droit d&apos;accès</h3>
               <p>Accéder à vos données personnelles</p>
@@ -90,17 +112,19 @@ export default function ConfidentialitePage() {
             </div>
           </div>
           <p className={styles.contactInfo}>
-            Pour exercer ces droits, contactez-nous à :{' '}
-            <a href="mailto:contact@lesotlylaisse71.fr">contact@lesotlylaisse71.fr</a>
+            Pour exercer ces droits, contactez-nous à :{" "}
+            <a href="mailto:contact@lesotlylaisse71.fr">
+              contact@lesotlylaisse71.fr
+            </a>
           </p>
         </section>
 
         <section className={styles.section} aria-labelledby="securite-heading">
           <h2 id="securite-heading">5. Sécurité des données</h2>
           <p>
-            Nous mettons en œuvre des mesures techniques et organisationnelles appropriées pour
-            protéger vos données contre tout accès, modification, divulgation ou destruction non
-            autorisés :
+            Nous mettons en œuvre des mesures techniques et organisationnelles
+            appropriées pour protéger vos données contre tout accès,
+            modification, divulgation ou destruction non autorisés :
           </p>
           <ul role="list">
             <li>Chiffrement SSL/TLS pour les transmissions de données</li>
@@ -113,35 +137,43 @@ export default function ConfidentialitePage() {
         <section className={styles.section} aria-labelledby="cookies-heading">
           <h2 id="cookies-heading">6. Cookies</h2>
           <p>
-            Notre site utilise des cookies pour améliorer votre expérience. Pour plus
-            d&apos;informations, consultez notre <a href="/cookies">politique de cookies</a>.
+            Notre site utilise des cookies pour améliorer votre expérience. Pour
+            plus d&apos;informations, consultez notre{" "}
+            <a href="/cookies">politique de cookies</a>.
           </p>
         </section>
 
-        <section className={styles.section} aria-labelledby="modifications-heading">
+        <section
+          className={styles.section}
+          aria-labelledby="modifications-heading"
+        >
           <h2 id="modifications-heading">7. Modifications</h2>
           <p>
-            Cette politique peut être mise à jour occasionnellement. La date de dernière
-            modification est indiquée ci-dessous. Nous vous encourageons à consulter régulièrement
-            cette page.
+            Cette politique peut être mise à jour occasionnellement. La date de
+            dernière modification est indiquée ci-dessous. Nous vous
+            encourageons à consulter régulièrement cette page.
           </p>
           <p className={styles.lastUpdate}>
-            Dernière mise à jour :{' '}
+            Dernière mise à jour :{" "}
             <time dateTime={new Date().toISOString()}>
-              {new Date().toLocaleDateString('fr-FR', {
-                year: 'numeric',
-                month: 'long',
-                day: 'numeric',
+              {new Date().toLocaleDateString("fr-FR", {
+                year: "numeric",
+                month: "long",
+                day: "numeric",
               })}
             </time>
           </p>
         </section>
 
-        <section className={styles.ctaSection} aria-labelledby="questions-heading">
+        <section
+          className={styles.ctaSection}
+          aria-labelledby="questions-heading"
+        >
           <h2 id="questions-heading">Des questions ?</h2>
           <p>
-            Si vous avez des questions concernant cette politique de confidentialité ou vos données
-            personnelles, n&apos;hésitez pas à nous contacter.
+            Si vous avez des questions concernant cette politique de
+            confidentialité ou vos données personnelles, n&apos;hésitez pas à
+            nous contacter.
           </p>
           <a
             href="mailto:contact@lesotlylaisse71.fr"

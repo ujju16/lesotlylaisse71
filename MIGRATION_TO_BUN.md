@@ -159,8 +159,8 @@ bun run script-name
 ```yaml
 - uses: actions/setup-node@v4
   with:
-    node-version: '20'
-    cache: 'npm'
+    node-version: "20"
+    cache: "npm"
 - run: npm ci
 - run: npm run build
 ```

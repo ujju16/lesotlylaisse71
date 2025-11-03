@@ -1,6 +1,6 @@
-import { NextRequest, NextResponse } from 'next/server';
-import { adminHygraphClient } from '@/lib/hygraph';
-import { gql } from 'graphql-request';
+import { NextRequest, NextResponse } from "next/server";
+import { adminHygraphClient } from "@/lib/hygraph";
+import { gql } from "graphql-request";
 
 export async function GET() {
   try {
@@ -29,18 +29,25 @@ export async function GET() {
     const data: any = await adminHygraphClient.request(query);
     return NextResponse.json({ success: true, data: data.dishes });
   } catch (error) {
-    return NextResponse.json({ success: false, error: (error as Error).message }, { status: 500 });
+    return NextResponse.json(
+      { success: false, error: (error as Error).message },
+      { status: 500 }
+    );
   }
 }
 
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const { name, slug, description, price, categoryId, available, imageId } = body;
+    const { name, slug, description, price, categoryId, available, imageId } =
+      body;
 
     if (!name || !slug || !price || !categoryId) {
       return NextResponse.json(
-        { success: false, error: 'Champs requis: name, slug, price, categoryId' },
+        {
+          success: false,
+          error: "Champs requis: name, slug, price, categoryId",
+        },
         { status: 400 }
       );
     }
@@ -63,7 +70,7 @@ export async function POST(request: NextRequest) {
             price: $price
             category: { connect: { id: $categoryId } }
             available: $available
-            ${imageId ? 'image: { connect: { id: $imageId } }' : ''}
+            ${imageId ? "image: { connect: { id: $imageId } }" : ""}
           }
         ) {
           id
@@ -80,7 +87,7 @@ export async function POST(request: NextRequest) {
     const variables = {
       name,
       slug,
-      description: description || '',
+      description: description || "",
       price: parseFloat(price),
       categoryId,
       available: available !== undefined ? available : true,
@@ -88,8 +95,15 @@ export async function POST(request: NextRequest) {
     };
 
     const data: any = await adminHygraphClient.request(mutation, variables);
-    return NextResponse.json({ success: true, data: data.createDish, message: 'Plat créé' });
+    return NextResponse.json({
+      success: true,
+      data: data.createDish,
+      message: "Plat créé",
+    });
   } catch (error) {
-    return NextResponse.json({ success: false, error: (error as Error).message }, { status: 500 });
+    return NextResponse.json(
+      { success: false, error: (error as Error).message },
+      { status: 500 }
+    );
   }
 }

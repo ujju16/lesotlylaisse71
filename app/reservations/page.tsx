@@ -1,34 +1,34 @@
-'use client';
+"use client";
 
-import { useState, FormEvent } from 'react';
-import styles from './Reservation.module.css';
+import { useState, FormEvent } from "react";
+import styles from "./Reservation.module.css";
 
 export default function ReservationPage() {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    date: '',
-    time: '',
+    name: "",
+    email: "",
+    phone: "",
+    date: "",
+    time: "",
     guests: 2,
-    message: '',
+    message: "",
   });
 
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
-  const [error, setError] = useState('');
+  const [error, setError] = useState("");
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    setError('');
+    setError("");
     setSuccess(false);
 
     try {
-      const response = await fetch('/api/reservations', {
-        method: 'POST',
+      const response = await fetch("/api/reservations", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(formData),
       });
@@ -36,19 +36,21 @@ export default function ReservationPage() {
       if (response.ok) {
         setSuccess(true);
         setFormData({
-          name: '',
-          email: '',
-          phone: '',
-          date: '',
-          time: '',
+          name: "",
+          email: "",
+          phone: "",
+          date: "",
+          time: "",
           guests: 2,
-          message: '',
+          message: "",
         });
       } else {
-        setError('Une erreur est survenue. Veuillez réessayer.');
+        setError("Une erreur est survenue. Veuillez réessayer.");
       }
     } catch {
-      setError('Impossible de soumettre votre réservation. Veuillez réessayer.');
+      setError(
+        "Impossible de soumettre votre réservation. Veuillez réessayer."
+      );
     } finally {
       setLoading(false);
     }
@@ -59,18 +61,29 @@ export default function ReservationPage() {
       <div className={styles.container}>
         <header className={styles.header}>
           <h1 className={styles.title}>Réserver une table</h1>
-          <p className={styles.subtitle}>Nous serons ravis de vous accueillir</p>
+          <p className={styles.subtitle}>
+            Nous serons ravis de vous accueillir
+          </p>
         </header>
 
         <div className={styles.card}>
           {success && (
-            <div className={styles.successMessage} role="alert" aria-live="polite">
-              ✅ Votre réservation a été envoyée avec succès ! Nous vous contacterons bientôt.
+            <div
+              className={styles.successMessage}
+              role="alert"
+              aria-live="polite"
+            >
+              ✅ Votre réservation a été envoyée avec succès ! Nous vous
+              contacterons bientôt.
             </div>
           )}
 
           {error && (
-            <div className={styles.errorMessage} role="alert" aria-live="assertive">
+            <div
+              className={styles.errorMessage}
+              role="alert"
+              aria-live="assertive"
+            >
               ❌ {error}
             </div>
           )}
@@ -89,7 +102,9 @@ export default function ReservationPage() {
                 type="text"
                 className={styles.input}
                 value={formData.name}
-                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                onChange={(e) =>
+                  setFormData({ ...formData, name: e.target.value })
+                }
                 required
                 aria-required="true"
               />
@@ -105,7 +120,9 @@ export default function ReservationPage() {
                   type="email"
                   className={styles.input}
                   value={formData.email}
-                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, email: e.target.value })
+                  }
                   required
                   aria-required="true"
                 />
@@ -120,7 +137,9 @@ export default function ReservationPage() {
                   type="tel"
                   className={styles.input}
                   value={formData.phone}
-                  onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, phone: e.target.value })
+                  }
                   required
                   aria-required="true"
                 />
@@ -137,8 +156,10 @@ export default function ReservationPage() {
                   type="date"
                   className={styles.input}
                   value={formData.date}
-                  onChange={(e) => setFormData({ ...formData, date: e.target.value })}
-                  min={new Date().toISOString().split('T')[0]}
+                  onChange={(e) =>
+                    setFormData({ ...formData, date: e.target.value })
+                  }
+                  min={new Date().toISOString().split("T")[0]}
                   required
                   aria-required="true"
                 />
@@ -152,7 +173,9 @@ export default function ReservationPage() {
                   id="time"
                   className={styles.select}
                   value={formData.time}
-                  onChange={(e) => setFormData({ ...formData, time: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, time: e.target.value })
+                  }
                   required
                   aria-required="true"
                 >
@@ -178,13 +201,15 @@ export default function ReservationPage() {
                 id="guests"
                 className={styles.select}
                 value={formData.guests}
-                onChange={(e) => setFormData({ ...formData, guests: parseInt(e.target.value) })}
+                onChange={(e) =>
+                  setFormData({ ...formData, guests: parseInt(e.target.value) })
+                }
                 required
                 aria-required="true"
               >
                 {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((num) => (
                   <option key={num} value={num}>
-                    {num} {num === 1 ? 'personne' : 'personnes'}
+                    {num} {num === 1 ? "personne" : "personnes"}
                   </option>
                 ))}
               </select>
@@ -198,12 +223,15 @@ export default function ReservationPage() {
                 id="message"
                 className={styles.textarea}
                 value={formData.message}
-                onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                onChange={(e) =>
+                  setFormData({ ...formData, message: e.target.value })
+                }
                 placeholder="Demandes spéciales, allergies, etc."
                 aria-describedby="message-help"
               />
               <span id="message-help" className="sr-only">
-                Ajoutez ici toute information supplémentaire concernant votre réservation
+                Ajoutez ici toute information supplémentaire concernant votre
+                réservation
               </span>
             </div>
 
@@ -213,7 +241,7 @@ export default function ReservationPage() {
               disabled={loading}
               aria-busy={loading}
             >
-              {loading ? 'Envoi en cours...' : 'Réserver'}
+              {loading ? "Envoi en cours..." : "Réserver"}
             </button>
           </form>
         </div>

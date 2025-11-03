@@ -366,7 +366,7 @@ Routes API optimisées :
 
 ```typescript
 // app/api/route.ts
-export const runtime = 'edge'; // Deploy to edge
+export const runtime = "edge"; // Deploy to edge
 
 export async function GET(request: Request) {
   // Ultra-fast response
@@ -378,7 +378,7 @@ export async function GET(request: Request) {
 Images auto-optimisées par Vercel :
 
 ```tsx
-import Image from 'next/image';
+import Image from "next/image";
 
 <Image src="/image.jpg" width={800} height={600} alt="Optimized" />;
 ```

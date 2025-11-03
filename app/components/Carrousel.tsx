@@ -1,11 +1,14 @@
-'use client';
+"use client";
 
-import Image from 'next/image';
-import styles from './Carrousel.module.css';
-import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import Image from "next/image";
+import styles from "./Carrousel.module.css";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
-const images = Array.from({ length: 13 }, (_, i) => `/images/carousel/photo${i + 1}.webp`);
+const images = Array.from(
+  { length: 13 },
+  (_, i) => `/images/carousel/photo${i + 1}.webp`
+);
 
 export default function Carrousel() {
   const [current, setCurrent] = useState(0);
@@ -73,7 +76,7 @@ export default function Carrousel() {
             animate="center"
             exit="exit"
             transition={{
-              x: { type: 'spring', stiffness: 300, damping: 30 },
+              x: { type: "spring", stiffness: 300, damping: 30 },
               opacity: { duration: 0.5 },
               scale: { duration: 0.5 },
             }}
@@ -89,7 +92,11 @@ export default function Carrousel() {
             />
           </motion.div>
         </AnimatePresence>
-        <div className={styles.indicators} role="tablist" aria-label="Navigation du carrousel">
+        <div
+          className={styles.indicators}
+          role="tablist"
+          aria-label="Navigation du carrousel"
+        >
           {images.map((_, index) => (
             <button
               key={index}
@@ -97,7 +104,9 @@ export default function Carrousel() {
                 setDirection(index > current ? 1 : -1);
                 setCurrent(index);
               }}
-              className={index === current ? styles.indicatorActive : styles.indicator}
+              className={
+                index === current ? styles.indicatorActive : styles.indicator
+              }
               role="tab"
               aria-selected={index === current}
               aria-label={`Aller à l'image ${index + 1}`}

@@ -39,7 +39,7 @@
 }
 
 .colorHex {
-  font-family: 'Courier New', monospace;
+  font-family: "Courier New", monospace;
   color: var(--foreground-secondary);
   font-size: 0.75rem;
   margin-bottom: 0.5rem;

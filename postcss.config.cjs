@@ -2,9 +2,9 @@ module.exports = {
   plugins: {
     tailwindcss: {},
     autoprefixer: {},
-    'postcss-replace': {
+    "postcss-replace": {
       pattern: /::picker\(select\)/g,
-      replacement: '',
+      replacement: "",
     },
   },
 };

@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import Image from 'next/image';
-import Carrousel from './components/Carrousel';
-import styles from './page.module.css';
-import { motion } from 'framer-motion';
+import Image from "next/image";
+import Carrousel from "./components/Carrousel";
+import styles from "./page.module.css";
+import { motion } from "framer-motion";
 
 // Animation variants - Smooth in/out
 const titleVariants = {
@@ -13,7 +13,7 @@ const titleVariants = {
     y: 0,
     transition: {
       duration: 0.8,
-      ease: 'easeInOut' as const,
+      ease: "easeInOut" as const,
     },
   },
 };
@@ -26,7 +26,7 @@ const valueCardVariants = {
       x: 0,
       transition: {
         duration: 0.7,
-        ease: 'easeInOut' as const,
+        ease: "easeInOut" as const,
       },
     },
   },
@@ -37,7 +37,7 @@ const valueCardVariants = {
       y: 0,
       transition: {
         duration: 0.7,
-        ease: 'easeInOut' as const,
+        ease: "easeInOut" as const,
         delay: 0.15,
       },
     },
@@ -49,7 +49,7 @@ const valueCardVariants = {
       x: 0,
       transition: {
         duration: 0.7,
-        ease: 'easeInOut' as const,
+        ease: "easeInOut" as const,
         delay: 0.3,
       },
     },
@@ -64,7 +64,7 @@ const serviceCardVariants = {
       x: 0,
       transition: {
         duration: 0.7,
-        ease: 'easeInOut' as const,
+        ease: "easeInOut" as const,
       },
     },
   },
@@ -75,7 +75,7 @@ const serviceCardVariants = {
       y: 0,
       transition: {
         duration: 0.7,
-        ease: 'easeInOut' as const,
+        ease: "easeInOut" as const,
         delay: 0.15,
       },
     },
@@ -87,7 +87,7 @@ const serviceCardVariants = {
       x: 0,
       transition: {
         duration: 0.7,
-        ease: 'easeInOut' as const,
+        ease: "easeInOut" as const,
         delay: 0.3,
       },
     },
@@ -101,7 +101,7 @@ const jumbotronVariants = {
     scale: 1,
     transition: {
       duration: 1.0,
-      ease: 'easeInOut' as const,
+      ease: "easeInOut" as const,
     },
   },
 };
@@ -142,7 +142,8 @@ export default function Home() {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.7, duration: 0.8 }}
             >
-              Restaurant • Bar • Tabac - Un lieu de convivialité à Messey Sur Grosne
+              Restaurant • Bar • Tabac - Un lieu de convivialité à Messey Sur
+              Grosne
             </motion.p>
             <motion.div
               className={styles.heroCta}
@@ -155,7 +156,10 @@ export default function Home() {
               <button className="btn-md-accent" aria-label="Réserver une table">
                 Réserver une table
               </button>
-              <button className="btn-md-outlined" aria-label="Découvrir nos services">
+              <button
+                className="btn-md-outlined"
+                aria-label="Découvrir nos services"
+              >
                 Découvrir nos services
               </button>
             </motion.div>
@@ -174,13 +178,18 @@ export default function Home() {
               L&apos;humain et le service de qualité
             </h2>
             <p className={styles.sectionSubtitle}>
-              Chez LeSotLyLaisse71, nous mettons l&apos;accent sur l&apos;humain, un service
-              attentionné et les produits locaux de nos environs. Chaque visite est une expérience
-              chaleureuse et authentique.
+              Chez LeSotLyLaisse71, nous mettons l&apos;accent sur
+              l&apos;humain, un service attentionné et les produits locaux de
+              nos environs. Chaque visite est une expérience chaleureuse et
+              authentique.
             </p>
           </div>
 
-          <div className={styles.valuesGrid} role="list" aria-label="Nos valeurs">
+          <div
+            className={styles.valuesGrid}
+            role="list"
+            aria-label="Nos valeurs"
+          >
             <motion.div
               className="card-md"
               initial="hidden"
@@ -194,8 +203,9 @@ export default function Home() {
               </div>
               <h3 className="title-md title-md-h3">Accueil Chaleureux</h3>
               <p>
-                Notre équipe vous accueille avec le sourire et prend le temps de vous connaître.
-                Ici, vous n&apos;êtes pas un numéro, vous êtes un invité.
+                Notre équipe vous accueille avec le sourire et prend le temps de
+                vous connaître. Ici, vous n&apos;êtes pas un numéro, vous êtes
+                un invité.
               </p>
             </motion.div>
 
@@ -212,8 +222,9 @@ export default function Home() {
               </div>
               <h3 className="title-md title-md-h3">Service de Qualité</h3>
               <p>
-                Un service attentif et professionnel pour que chaque moment passé chez nous soit
-                agréable, que ce soit pour un café rapide ou un repas en famille.
+                Un service attentif et professionnel pour que chaque moment
+                passé chez nous soit agréable, que ce soit pour un café rapide
+                ou un repas en famille.
               </p>
             </motion.div>
 
@@ -230,8 +241,9 @@ export default function Home() {
               </div>
               <h3 className="title-md title-md-h3">Produits Locaux</h3>
               <p>
-                Nous travaillons avec des producteurs de la région pour vous offrir des produits
-                frais, de saison et pleins de saveurs bourguignonnes.
+                Nous travaillons avec des producteurs de la région pour vous
+                offrir des produits frais, de saison et pleins de saveurs
+                bourguignonnes.
               </p>
             </motion.div>
           </div>
@@ -253,7 +265,11 @@ export default function Home() {
             </h2>
           </div>
 
-          <div className={styles.servicesGrid} role="list" aria-label="Liste de nos services">
+          <div
+            className={styles.servicesGrid}
+            role="list"
+            aria-label="Liste de nos services"
+          >
             <motion.div
               className={styles.serviceCard}
               initial="hidden"
@@ -268,8 +284,9 @@ export default function Home() {
               </div>
               <h3 id="service-restaurant">Restaurant</h3>
               <p>
-                Cuisine traditionnelle bourguignonne préparée avec passion. Produits frais du
-                terroir et recettes généreuses qui réchauffent le cœur.
+                Cuisine traditionnelle bourguignonne préparée avec passion.
+                Produits frais du terroir et recettes généreuses qui réchauffent
+                le cœur.
               </p>
               <div className={styles.badgeContainer}>
                 <span className="badge-md-accent" role="status">
@@ -292,8 +309,8 @@ export default function Home() {
               </div>
               <h3 id="service-bar">Bar</h3>
               <p>
-                Un comptoir chaleureux pour vos pauses café, apéros entre amis ou moments de
-                détente. Ambiance conviviale garantie.
+                Un comptoir chaleureux pour vos pauses café, apéros entre amis
+                ou moments de détente. Ambiance conviviale garantie.
               </p>
               <div className={styles.badgeContainer}>
                 <span className="badge-md-secondary" role="status">
@@ -311,11 +328,14 @@ export default function Home() {
               role="listitem"
               aria-labelledby="service-presse"
             >
-              <div className={`${styles.serviceIcon} ${styles.tabacIcon}`} aria-hidden="true"></div>
+              <div
+                className={`${styles.serviceIcon} ${styles.tabacIcon}`}
+                aria-hidden="true"
+              ></div>
               <h3 id="service-presse">Presse</h3>
               <p>
-                Tous vos services de proximité : presse, jeux, cigarettes et bien plus. Un lieu
-                essentiel au quotidien des habitants.
+                Tous vos services de proximité : presse, jeux, cigarettes et
+                bien plus. Un lieu essentiel au quotidien des habitants.
               </p>
               <div className={styles.badgeContainer}>
                 <span className="badge-md-secondary" role="status">
@@ -339,12 +359,17 @@ export default function Home() {
                 Ancré dans la vie locale
               </h2>
               <p>
-                Au cœur de Messey-sur-Grosne, notre établissement perpétue la tradition du commerce
-                de proximité. Chaque jour, nous mettons un point d&apos;honneur à servir nos clients
-                avec passion et authenticité, en valorisant les produits locaux et le savoir-faire
-                de notre région.
+                Au cœur de Messey-sur-Grosne, notre établissement perpétue la
+                tradition du commerce de proximité. Chaque jour, nous mettons un
+                point d&apos;honneur à servir nos clients avec passion et
+                authenticité, en valorisant les produits locaux et le
+                savoir-faire de notre région.
               </p>
-              <div className={styles.engagementHighlights} role="list" aria-label="Nos engagements">
+              <div
+                className={styles.engagementHighlights}
+                role="list"
+                aria-label="Nos engagements"
+              >
                 <div className={styles.highlight} role="listitem">
                   <span className={styles.highlightIcon} aria-hidden="true">
                     🏡
@@ -371,7 +396,7 @@ export default function Home() {
                   src="/images/countryside.jpg"
                   alt="Paysage de Messey-sur-Grosne - Campagne bourguignonne"
                   fill
-                  style={{ objectFit: 'cover' }}
+                  style={{ objectFit: "cover" }}
                   sizes="(max-width: 768px) 100vw, 50vw"
                   priority={false}
                 />
@@ -389,11 +414,18 @@ export default function Home() {
               Prêt à vivre l&apos;expérience ?
             </h2>
             <p className={styles.ctaText}>
-              Venez découvrir notre accueil chaleureux et nos services de qualité. Nous avons hâte
-              de vous rencontrer !
+              Venez découvrir notre accueil chaleureux et nos services de
+              qualité. Nous avons hâte de vous rencontrer !
             </p>
-            <div className={styles.ctaButtons} role="group" aria-label="Actions de contact">
-              <button className="btn-md-primary" aria-label="Réserver une table">
+            <div
+              className={styles.ctaButtons}
+              role="group"
+              aria-label="Actions de contact"
+            >
+              <button
+                className="btn-md-primary"
+                aria-label="Réserver une table"
+              >
                 Réserver une table
               </button>
               <button className="btn-md-outlined" aria-label="Nous contacter">

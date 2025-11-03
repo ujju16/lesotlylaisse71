@@ -78,8 +78,9 @@ dig @8.8.8.8 lesotlylaisse71.fr
 
 ## URLs actuelles
 
-- **Production**: [Vercel URL actuelle]
+- **Production Vercel**: https://lesotlylaisse71.vercel.app
 - **Custom Domain** (après configuration): https://lesotlylaisse71.fr
+- **Preview Deployments**: https://lesotlylaisse71-git-[branch]-ujju16s-projects.vercel.app
 
 ## Support
 
@@ -92,9 +93,41 @@ Si vous rencontrez des problèmes:
 ## Commandes utiles
 
 ```bash
+# Vérifier le déploiement actuel sur Vercel
+vercel ls
+
 # Trigger un redéploiement
 gh workflow run cd.yml --ref main
 
 # Vérifier le statut du dernier déploiement
 gh run list --workflow=cd.yml --limit 1
+
+# Voir les domaines configurés sur Vercel
+vercel domains ls
+
+# Ajouter un domaine via CLI
+vercel domains add lesotlylaisse71.fr
+
+# Inspecter le projet Vercel
+vercel inspect
 ```
+
+## Configuration actuelle
+
+Le projet est configuré pour déployer automatiquement:
+
+- **Branch main** → Production (lesotlylaisse71.vercel.app)
+- **Branch dev** → Preview (auto-generated URL)
+- **Pull Requests** → Preview (auto-generated URL)
+
+### Variables d'environnement
+
+Assurez-vous que ces variables sont configurées dans Vercel:
+
+- `NEXT_PUBLIC_HYGRAPH_URL` - URL de l'API Hygraph
+- `HYGRAPH_TOKEN` - Token d'authentification Hygraph
+- `CODECOV_TOKEN` - Token Codecov (pour CI/CD uniquement)
+
+### Regions Vercel
+
+Le projet est configuré pour la région **CDG1 (Paris)** pour de meilleures performances en France.

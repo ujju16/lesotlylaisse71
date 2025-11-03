@@ -63,7 +63,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v5
         with:
-          name: lighthouse-reports-${{ github.run_id }}
+          name: lighthouse-reports
           path: .lighthouseci
           retention-days: 30
         continue-on-error: true

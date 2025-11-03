@@ -28,6 +28,7 @@ This document provides a comprehensive overview of the ARIA (Accessible Rich Int
 ### 1. Homepage (`/`)
 
 #### ARIA Attributes Implemented:
+
 - ✅ `aria-label` on hero section
 - ✅ `aria-labelledby` on all major sections
 - ✅ `aria-hidden="true"` on decorative icons
@@ -37,6 +38,7 @@ This document provides a comprehensive overview of the ARIA (Accessible Rich Int
 - ✅ `role="status"` for status badges
 
 #### Key Features:
+
 ```tsx
 // Hero Section
 <motion.section aria-label="Section d'accueil principal">
@@ -56,6 +58,7 @@ This document provides a comprehensive overview of the ARIA (Accessible Rich Int
 ### 2. Menu Page (`/menu`)
 
 #### ARIA Attributes Implemented:
+
 - ✅ `role="tablist"` for category navigation
 - ✅ `role="tab"` with `aria-selected` for category buttons
 - ✅ `aria-controls="menu-content"` linking tabs to content
@@ -66,6 +69,7 @@ This document provides a comprehensive overview of the ARIA (Accessible Rich Int
 - ✅ `role="status"` with `aria-label` for availability badges
 
 #### Key Features:
+
 ```tsx
 // Category Navigation (Tab Pattern)
 <nav role="tablist" aria-label="Filtrer par catégorie">
@@ -93,6 +97,7 @@ This document provides a comprehensive overview of the ARIA (Accessible Rich Int
 ### 3. Reservations Page (`/reservations`)
 
 #### ARIA Attributes Implemented:
+
 - ✅ `aria-label="Formulaire de réservation"` on form
 - ✅ `aria-required="true"` on required fields
 - ✅ `role="alert"` with `aria-live="polite"` for success messages
@@ -101,6 +106,7 @@ This document provides a comprehensive overview of the ARIA (Accessible Rich Int
 - ✅ `aria-describedby` for field descriptions
 
 #### Key Features:
+
 ```tsx
 // Form with proper ARIA
 <form aria-label="Formulaire de réservation">
@@ -125,6 +131,7 @@ This document provides a comprehensive overview of the ARIA (Accessible Rich Int
 ### 4. Navigation Component
 
 #### ARIA Attributes Implemented:
+
 - ✅ `role="navigation"` with `aria-label="Navigation principale"`
 - ✅ `aria-current="page"` for active links
 - ✅ `aria-label` on logo link
@@ -134,23 +141,19 @@ This document provides a comprehensive overview of the ARIA (Accessible Rich Int
 - ✅ `role="list"` for navigation lists
 
 #### Key Features:
+
 ```tsx
 <nav role="navigation" aria-label="Navigation principale">
-  <Link
-    href="/"
-    aria-label="Retour à l'accueil - LeSotLyLaisse71"
-  >
+  <Link href="/" aria-label="Retour à l'accueil - LeSotLyLaisse71">
     Logo
   </Link>
-  
+
   <ul role="list">
     <li>
-      <Link aria-current={isActive ? 'page' : undefined}>
-        Menu
-      </Link>
+      <Link aria-current={isActive ? 'page' : undefined}>Menu</Link>
     </li>
   </ul>
-  
+
   <button
     aria-label={open ? 'Fermer le menu' : 'Ouvrir le menu'}
     aria-expanded={open}
@@ -166,6 +169,7 @@ This document provides a comprehensive overview of the ARIA (Accessible Rich Int
 ### 5. Footer Component
 
 #### ARIA Attributes Implemented:
+
 - ✅ `role="contentinfo"` for footer landmark
 - ✅ `aria-label` on footer sections
 - ✅ `aria-label="Liens de réseaux sociaux"` on social links
@@ -176,6 +180,7 @@ This document provides a comprehensive overview of the ARIA (Accessible Rich Int
 ### 6. Legal Pages
 
 All legal pages (Privacy, Cookies, Terms, Charter) include:
+
 - ✅ Proper heading hierarchy (h1, h2, h3)
 - ✅ `aria-labelledby` on major sections
 - ✅ Semantic HTML structure
@@ -186,16 +191,19 @@ All legal pages (Privacy, Cookies, Terms, Charter) include:
 ## 🎨 Components with ARIA Support
 
 ### ThemeToggle
+
 - ✅ `aria-label` describing current theme state
 - ✅ `role="button"` for toggle control
 - ✅ Visual and programmatic state indication
 
 ### Carrousel
+
 - ✅ `aria-label` for carousel region
 - ✅ Automatic rotation with pause on hover
 - ✅ Keyboard navigation support
 
 ### Modal & Dialog Components
+
 - ✅ `role="dialog"`
 - ✅ `aria-labelledby` for modal title
 - ✅ `aria-describedby` for modal content
@@ -207,6 +215,7 @@ All legal pages (Privacy, Cookies, Terms, Charter) include:
 ## 🧪 Testing & Validation
 
 ### Tools Used:
+
 1. **axe DevTools** - Automated accessibility testing
 2. **WAVE** - Web accessibility evaluation
 3. **Lighthouse** - Performance and accessibility audit
@@ -214,6 +223,7 @@ All legal pages (Privacy, Cookies, Terms, Charter) include:
 5. **Keyboard Navigation** - Manual testing
 
 ### Test Results:
+
 - ✅ No critical ARIA errors
 - ✅ Proper heading structure on all pages
 - ✅ All interactive elements keyboard accessible
@@ -226,6 +236,7 @@ All legal pages (Privacy, Cookies, Terms, Charter) include:
 ## 📊 Accessibility Scores
 
 ### Lighthouse Scores (Target):
+
 - 🎯 **Performance**: 90+
 - 🎯 **Accessibility**: 95+
 - 🎯 **Best Practices**: 95+
@@ -274,6 +285,7 @@ All legal pages (Privacy, Cookies, Terms, Charter) include:
 ## 📝 Code Examples
 
 ### Example 1: Accessible Button Group
+
 ```tsx
 <div role="group" aria-label="Actions principales">
   <button className="btn-md-accent" aria-label="Réserver une table">
@@ -286,6 +298,7 @@ All legal pages (Privacy, Cookies, Terms, Charter) include:
 ```
 
 ### Example 2: Accessible Form Field
+
 ```tsx
 <div className={styles.formGroup}>
   <label htmlFor="name" className={styles.label}>
@@ -308,9 +321,10 @@ All legal pages (Privacy, Cookies, Terms, Charter) include:
 ```
 
 ### Example 3: Accessible Dynamic Content
+
 ```tsx
 <div id="menu-content" role="tabpanel" aria-live="polite">
-  {filteredItems.map(item => (
+  {filteredItems.map((item) => (
     <div
       key={item.id}
       role="listitem"
@@ -351,6 +365,7 @@ All legal pages (Privacy, Cookies, Terms, Charter) include:
 ## ✅ Certification
 
 This implementation has been reviewed and validated for:
+
 - ✅ WCAG 2.1 Level AA compliance
 - ✅ Section 508 compliance
 - ✅ French RGAA 4.1 compliance
@@ -364,6 +379,7 @@ This implementation has been reviewed and validated for:
 ## 📞 Support
 
 For questions or improvements regarding accessibility:
+
 - Create an issue in the repository
 - Contact the development team
 - Refer to this documentation

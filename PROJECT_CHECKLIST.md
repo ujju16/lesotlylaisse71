@@ -7,6 +7,7 @@
 ## 🏗️ Architecture Next.js
 
 ### ✅ Structure du Projet
+
 - ✅ **App Router** - Next.js 16 App Router structure
 - ✅ **API Routes** - RESTful API in `/app/api`
 - ✅ **Components** - Organized in `/app/components`
@@ -41,6 +42,7 @@ app/
 ## 📸 Images & Assets
 
 ### ✅ Images Optimisées
+
 - ✅ **Format WebP** - All carousel images converted
 - ✅ **Compression** - Optimized file sizes (71KB - 212KB)
 - ✅ **Next Image** - Using Next.js Image component
@@ -49,6 +51,7 @@ app/
 - ✅ **Responsive** - Proper srcset and sizes attributes
 
 ### 📊 Image Inventory
+
 ```
 public/images/
 ├── carousel/               ✅ 13 WebP carousel images
@@ -59,6 +62,7 @@ public/images/
 ```
 
 ### ✅ Icons & Favicons
+
 - ✅ `android-chrome-192x192.png`
 - ✅ `android-chrome-512x512.png`
 - ✅ `apple-touch-icon.png`
@@ -72,6 +76,7 @@ public/images/
 ## 🔐 Security Checklist
 
 ### ✅ Environment Variables
+
 - ✅ `.env.local` - Properly gitignored
 - ✅ `.env.example` - Template provided
 - ✅ No secrets in code
@@ -79,6 +84,7 @@ public/images/
 - ✅ GitHub Secrets configured for CI/CD
 
 ### ✅ .gitignore Configuration
+
 ```
 ✅ .env
 ✅ .env*.local
@@ -90,6 +96,7 @@ public/images/
 ```
 
 ### ✅ Secrets Management
+
 - ✅ `HYGRAPH_TOKEN` - Stored in GitHub Secrets
 - ✅ `NEXT_PUBLIC_HYGRAPH_URL` - Public endpoint only
 - ✅ `VERCEL_TOKEN` - Stored securely
@@ -97,6 +104,7 @@ public/images/
 - ✅ `VERCEL_PROJECT_ID` - Stored securely
 
 ### 🔍 Security Scan Results
+
 ```bash
 ✅ No hardcoded secrets found
 ✅ No API keys in source code
@@ -111,6 +119,7 @@ public/images/
 ### ✅ GitHub Actions Workflows
 
 #### 1. CI Pipeline (`.github/workflows/ci.yml`)
+
 - ✅ Lint check (ESLint)
 - ✅ Type check (TypeScript)
 - ✅ Unit tests (Jest/Bun)
@@ -119,6 +128,7 @@ public/images/
 - ✅ Runs on push and PR
 
 #### 2. CD Pipeline (`.github/workflows/cd.yml`)
+
 - ✅ Automated deployment to Vercel
 - ✅ Production deployment on main branch
 - ✅ Preview deployments on dev branch
@@ -126,6 +136,7 @@ public/images/
 - ✅ Environment variable injection
 
 #### 3. Lighthouse CI (`.github/workflows/lighthouse-ci.yml`)
+
 - ✅ Performance audits
 - ✅ Accessibility audits
 - ✅ Best practices checks
@@ -133,6 +144,7 @@ public/images/
 - ✅ Artifact upload with unique names
 
 ### ✅ Pipeline Configuration with Bun
+
 ```yaml
 - name: Setup Bun
   uses: oven-sh/setup-bun@v1
@@ -154,6 +166,7 @@ public/images/
 ## 🧪 Testing & Quality
 
 ### ✅ Code Quality Tools
+
 - ✅ **ESLint v9** - Flat config with proper globals
 - ✅ **TypeScript** - Strict mode enabled
 - ✅ **Prettier** - Code formatting
@@ -161,6 +174,7 @@ public/images/
 - ✅ **Testing Library** - React component testing
 
 ### ✅ Scripts Available
+
 ```json
 {
   "dev": "bun --bun next dev --turbopack",
@@ -176,6 +190,7 @@ public/images/
 ```
 
 ### ✅ Quality Checks Pass
+
 - ✅ ESLint - No errors
 - ✅ TypeScript - No type errors
 - ✅ Prettier - All files formatted
@@ -187,6 +202,7 @@ public/images/
 ## 🎨 UI/UX & Accessibility
 
 ### ✅ Design System
+
 - ✅ **Tailwind CSS v3.4.18** - Utility-first CSS
 - ✅ **DaisyUI v5.4.2** - Component library
 - ✅ **Custom Theme** - LeSotLy brand colors
@@ -194,6 +210,7 @@ public/images/
 - ✅ **Responsive Design** - Mobile-first approach
 
 ### ✅ ARIA Implementation
+
 - ✅ All pages have proper ARIA attributes
 - ✅ Semantic HTML structure
 - ✅ Keyboard navigation support
@@ -202,6 +219,7 @@ public/images/
 - ✅ WCAG 2.1 Level AA compliance
 
 ### ✅ Theme Support
+
 - ✅ Light theme (default)
 - ✅ Dark theme available
 - ✅ Theme persistence (localStorage)
@@ -213,6 +231,7 @@ public/images/
 ## 📦 Dependencies
 
 ### ✅ Production Dependencies
+
 ```json
 {
   "next": "^16.0.1",
@@ -229,6 +248,7 @@ public/images/
 ```
 
 ### ✅ Dev Dependencies
+
 ```json
 {
   "typescript": "5.9.3",
@@ -241,6 +261,7 @@ public/images/
 ```
 
 ### ✅ Dependency Audit
+
 - ✅ No critical vulnerabilities
 - ✅ All packages up to date
 - ✅ Dependabot configured
@@ -251,6 +272,7 @@ public/images/
 ## 🔍 Next.js Configuration
 
 ### ✅ next.config.ts
+
 ```typescript
 const nextConfig: NextConfig = {
   typescript: {
@@ -268,6 +290,7 @@ const nextConfig: NextConfig = {
 ```
 
 ### ✅ TypeScript Configuration
+
 - ✅ Strict mode enabled
 - ✅ Path aliases configured
 - ✅ JSX support enabled
@@ -279,6 +302,7 @@ const nextConfig: NextConfig = {
 ## 🗄️ CMS & Backend
 
 ### ✅ Hygraph (GraphQL CMS)
+
 - ✅ Content API configured
 - ✅ Menu management
 - ✅ Category management
@@ -291,6 +315,7 @@ const nextConfig: NextConfig = {
 ## 📊 Monitoring & Analytics
 
 ### ✅ Grafana Faro
+
 - ✅ Real User Monitoring (RUM)
 - ✅ Error tracking
 - ✅ Performance metrics
@@ -298,6 +323,7 @@ const nextConfig: NextConfig = {
 - ✅ Custom events
 
 ### ✅ Configuration
+
 ```typescript
 // Faro initialized in MonitoringProvider
 - Browser metrics
@@ -311,6 +337,7 @@ const nextConfig: NextConfig = {
 ## 🌐 SEO & Meta
 
 ### ✅ SEO Optimization
+
 - ✅ `robots.txt` configured
 - ✅ `sitemap.xml` generated dynamically
 - ✅ Meta tags on all pages
@@ -319,6 +346,7 @@ const nextConfig: NextConfig = {
 - ✅ Canonical URLs
 
 ### ✅ Meta Configuration
+
 ```typescript
 export const metadata: Metadata = {
   title: 'LeSotLyLaisse71',
@@ -336,6 +364,7 @@ export const metadata: Metadata = {
 ## 📱 PWA Support
 
 ### ✅ Progressive Web App
+
 - ✅ `manifest.json` configured
 - ✅ App icons (192x192, 512x512)
 - ✅ Theme color defined
@@ -347,6 +376,7 @@ export const metadata: Metadata = {
 ## 🚀 Deployment
 
 ### ✅ Vercel Deployment
+
 - ✅ Production URL: lesotlylaisse71.vercel.app
 - ✅ Preview deployments enabled
 - ✅ Automatic deployments from main
@@ -354,6 +384,7 @@ export const metadata: Metadata = {
 - ✅ Build cache optimization
 
 ### ✅ Build Configuration
+
 ```json
 {
   "buildCommand": "bun run build",
@@ -367,6 +398,7 @@ export const metadata: Metadata = {
 ## 📈 Performance
 
 ### ✅ Optimization Techniques
+
 - ✅ Image optimization (Next Image)
 - ✅ Code splitting
 - ✅ Dynamic imports
@@ -376,6 +408,7 @@ export const metadata: Metadata = {
 - ✅ Static generation where possible
 
 ### 🎯 Performance Targets
+
 - ⚡ First Contentful Paint < 1.5s
 - ⚡ Largest Contentful Paint < 2.5s
 - ⚡ Time to Interactive < 3.5s
@@ -386,6 +419,7 @@ export const metadata: Metadata = {
 ## ✅ Final Checklist
 
 ### Code Quality
+
 - ✅ ESLint configured and passing
 - ✅ TypeScript strict mode
 - ✅ Prettier formatting
@@ -393,6 +427,7 @@ export const metadata: Metadata = {
 - ✅ Code comments where necessary
 
 ### Security
+
 - ✅ No secrets in code
 - ✅ Environment variables secured
 - ✅ HTTPS enforced
@@ -400,6 +435,7 @@ export const metadata: Metadata = {
 - ✅ Input validation
 
 ### Accessibility
+
 - ✅ ARIA attributes implemented
 - ✅ Keyboard navigation
 - ✅ Screen reader tested
@@ -407,6 +443,7 @@ export const metadata: Metadata = {
 - ✅ Focus indicators visible
 
 ### Performance
+
 - ✅ Images optimized
 - ✅ Code splitting
 - ✅ Lazy loading
@@ -414,6 +451,7 @@ export const metadata: Metadata = {
 - ✅ CDN configured
 
 ### SEO
+
 - ✅ Meta tags
 - ✅ Sitemap
 - ✅ Robots.txt
@@ -421,12 +459,14 @@ export const metadata: Metadata = {
 - ✅ Open Graph
 
 ### Monitoring
+
 - ✅ Error tracking
 - ✅ Performance monitoring
 - ✅ User analytics
 - ✅ CI/CD pipeline
 
 ### Documentation
+
 - ✅ README comprehensive
 - ✅ API documentation
 - ✅ Setup instructions
@@ -448,6 +488,7 @@ All checks passed! The project is fully configured, optimized, and ready for pro
 ## 📞 Support & Maintenance
 
 For issues or improvements:
+
 1. Check this documentation
 2. Review GitHub issues
 3. Contact the development team

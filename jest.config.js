@@ -18,6 +18,17 @@ const customJestConfig = {
     "!**/.next/**",
   ],
   testMatch: ["**/__tests__/**/*.[jt]s?(x)", "**/?(*.)+(spec|test).[jt]s?(x)"],
+  reporters: [
+    "default",
+    [
+      "jest-junit",
+      {
+        outputDirectory: "coverage",
+        outputName: "junit.xml",
+        classNameTemplate: "{filepath}",
+      },
+    ],
+  ],
 };
 
 module.exports = createJestConfig(customJestConfig);

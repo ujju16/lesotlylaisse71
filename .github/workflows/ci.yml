@@ -71,7 +71,7 @@ jobs:
         run: bun install
 
       - name: Run tests
-        run: bun test --passWithNoTests
+        run: bun run test --passWithNoTests
         continue-on-error: true
 
       - name: Upload coverage to Codecov
@@ -83,6 +83,13 @@ jobs:
           flags: unittests
           name: codecov-umbrella
           fail_ci_if_error: false
+        continue-on-error: true
+
+      - name: Upload test results to Codecov
+        if: ${{ !cancelled() }}
+        uses: codecov/test-results-action@v1
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
         continue-on-error: true
 
   build:

@@ -5,6 +5,7 @@ on:
     branches:
       - main
       - dev
+  workflow_dispatch:
 
 jobs:
   lighthouse:
@@ -13,7 +14,7 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Setup Bun
         uses: oven-sh/setup-bun@v1
@@ -25,9 +26,24 @@ jobs:
 
       - name: Build project
         run: bun run build
+        env:
+          NEXT_PUBLIC_HYGRAPH_URL: ${{ secrets.NEXT_PUBLIC_HYGRAPH_URL }}
+          HYGRAPH_TOKEN: ${{ secrets.HYGRAPH_TOKEN }}
+
+      - name: Start Next.js server
+        run: bun run start &
+        env:
+          NEXT_PUBLIC_HYGRAPH_URL: ${{ secrets.NEXT_PUBLIC_HYGRAPH_URL }}
+          HYGRAPH_TOKEN: ${{ secrets.HYGRAPH_TOKEN }}
+
+      - name: Wait for server
+        run: |
+          echo "Waiting for server to be ready..."
+          timeout 60 bash -c 'until curl -f http://localhost:3000 > /dev/null 2>&1; do sleep 2; done'
+          echo "Server is ready!"
 
       - name: Run Lighthouse CI
-        uses: treosh/lighthouse-ci-action@v10
+        uses: treosh/lighthouse-ci-action@v11
         with:
           urls: |
             http://localhost:3000
@@ -35,11 +51,27 @@ jobs:
             http://localhost:3000/reservations
           uploadArtifacts: true
           temporaryPublicStorage: true
-          runs: 1
+          runs: 3
+        continue-on-error: true
+
+      - name: Upload Lighthouse reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: lighthouse-reports
+          path: .lighthouseci
+          retention-days: 30
         continue-on-error: true
 
       - name: Summary
         if: always()
         run: |
-          echo "✅ Lighthouse CI completed"
-          echo "📊 Check artifacts for detailed reports"
+          echo "## 📊 Lighthouse CI Results" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "✅ Lighthouse audits completed" >> $GITHUB_STEP_SUMMARY
+          echo "📁 Reports uploaded as artifacts" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### Audited Pages:" >> $GITHUB_STEP_SUMMARY
+          echo "- 🏠 Homepage" >> $GITHUB_STEP_SUMMARY
+          echo "- 📋 Menu" >> $GITHUB_STEP_SUMMARY
+          echo "- 📅 Reservations" >> $GITHUB_STEP_SUMMARY

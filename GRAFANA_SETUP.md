@@ -6,6 +6,7 @@ Status: ✅ Configured
 ## 📊 Stack de Monitoring
 
 Notre stack complète :
+
 - **Grafana** : Visualisation et dashboards
 - **Grafana Faro** : Frontend observability (RUM)
 - **Loki** : Agrégation de logs
@@ -22,6 +23,7 @@ docker-compose up -d
 ```
 
 Services démarrés :
+
 - Grafana : http://localhost:3100 (admin/admin)
 - Loki : http://localhost:3101
 - Tempo : http://localhost:3102
@@ -30,6 +32,7 @@ Services démarrés :
 ### 2. Configurer l'Application
 
 Ajoutez dans `.env.local` :
+
 ```bash
 NEXT_PUBLIC_FARO_URL=http://localhost:12345/collect
 ```
@@ -49,6 +52,7 @@ bun add -d @grafana/faro-web-sdk @grafana/faro-react @opentelemetry/api @opentel
 ```
 
 Packages :
+
 - `@grafana/faro-web-sdk` : SDK Faro principal
 - `@grafana/faro-react` : Intégration React
 - `@opentelemetry/api` : API OpenTelemetry
@@ -98,7 +102,9 @@ Packages :
 ## 📝 Code Intégré
 
 ### 1. Monitoring Provider
+
 `app/components/MonitoringProvider.tsx`
+
 ```typescript
 'use client';
 
@@ -120,7 +126,9 @@ export default function MonitoringProvider({ children }) {
 ```
 
 ### 2. Faro Configuration
+
 `lib/monitoring/faro.ts`
+
 - ✅ Auto-instrumentation
 - ✅ Web Vitals capture
 - ✅ Error tracking
@@ -128,16 +136,17 @@ export default function MonitoringProvider({ children }) {
 - ✅ User tracking
 
 ### 3. Layout Integration
+
 `app/layout.tsx`
+
 ```tsx
-<MonitoringProvider>
-  {/* App content */}
-</MonitoringProvider>
+<MonitoringProvider>{/* App content */}</MonitoringProvider>
 ```
 
 ## 📊 Métriques Collectées
 
 ### 🎯 Core Web Vitals
+
 - **LCP** (Largest Contentful Paint)
 - **FID** (First Input Delay)
 - **CLS** (Cumulative Layout Shift)
@@ -145,6 +154,7 @@ export default function MonitoringProvider({ children }) {
 - **FCP** (First Contentful Paint)
 
 ### 🔍 User Monitoring
+
 - Page views
 - Navigation timing
 - User interactions
@@ -152,6 +162,7 @@ export default function MonitoringProvider({ children }) {
 - Session tracking
 
 ### 🐛 Error Tracking
+
 - JavaScript errors
 - Unhandled rejections
 - Console errors
@@ -159,6 +170,7 @@ export default function MonitoringProvider({ children }) {
 - Custom error logs
 
 ### 🔗 Distributed Tracing
+
 - API calls
 - Component renders
 - Navigation events
@@ -167,37 +179,40 @@ export default function MonitoringProvider({ children }) {
 ## 🛠️ Utilisation
 
 ### Logger une Erreur
+
 ```typescript
 import { logError } from '@/lib/monitoring/faro';
 
 try {
   // Code
 } catch (error) {
-  logError(error as Error, { 
+  logError(error as Error, {
     context: 'reservation_form',
-    userId: '123'
+    userId: '123',
   });
 }
 ```
 
 ### Logger un Événement
+
 ```typescript
 import { logEvent } from '@/lib/monitoring/faro';
 
 logEvent('reservation_submitted', {
   date: '2025-11-03',
   guests: 4,
-  time: '19:00'
+  time: '19:00',
 });
 ```
 
 ### Définir un Utilisateur
+
 ```typescript
 import { setUser } from '@/lib/monitoring/faro';
 
 setUser('user-123', {
   email: 'user@example.com',
-  name: 'John Doe'
+  name: 'John Doe',
 });
 ```
 
@@ -244,6 +259,7 @@ NEXT_PUBLIC_FARO_URL=https://faro-collector-xxx.grafana.net/collect
 ### Self-Hosted
 
 Pour production, utilisez :
+
 - Persistent volumes
 - Reverse proxy (nginx)
 - HTTPS/TLS
@@ -263,6 +279,7 @@ grafana/dashboards/
 ```
 
 Dans Grafana :
+
 1. Dashboard → Import
 2. Upload JSON
 3. Select datasources
@@ -271,6 +288,7 @@ Dans Grafana :
 ## 🔄 CI/CD Integration
 
 Le monitoring est automatiquement actif en :
+
 - Development (si FARO_URL configuré)
 - Staging
 - Production
@@ -281,12 +299,12 @@ Pas d'impact sur les builds !
 
 Impact minimal sur l'application :
 
-| Métrique | Impact |
-|----------|--------|
+| Métrique    | Impact        |
+| ----------- | ------------- |
 | Bundle size | +15KB gzipped |
-| Page load | +10ms |
-| Memory | +2MB |
-| Network | ~1KB/event |
+| Page load   | +10ms         |
+| Memory      | +2MB          |
+| Network     | ~1KB/event    |
 
 ## 🧪 Testing
 
@@ -329,6 +347,7 @@ curl -X POST $NEXT_PUBLIC_FARO_URL \
 ### Erreurs CORS
 
 Ajouter dans `next.config.ts` :
+
 ```typescript
 async headers() {
   return [{
@@ -350,6 +369,7 @@ async headers() {
 ## ✅ Checklist
 
 Configuration :
+
 - [x] Faro SDK installé (avec Bun)
 - [x] MonitoringProvider créé
 - [x] Layout instrumenté
@@ -358,6 +378,7 @@ Configuration :
 - [x] Documentation complète
 
 À faire :
+
 - [ ] Importer les dashboards
 - [ ] Configurer Grafana Cloud (prod)
 - [ ] Créer des alertes

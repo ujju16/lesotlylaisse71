@@ -4,7 +4,7 @@ export const initMonitoring = () => {
   if (typeof window === 'undefined') return null;
 
   const faroUrl = process.env.NEXT_PUBLIC_FARO_URL;
-  
+
   if (!faroUrl) {
     console.warn('Grafana Faro URL not configured. Monitoring disabled.');
     return null;

@@ -73,6 +73,7 @@ Notre projet utilise **Vercel** avec **Bun** pour des déploiements ultra-rapide
 ```
 
 **Optimisations :**
+
 - ⚡ Build avec Bun (25% plus rapide)
 - 📍 Region CDG1 (Paris) pour la France
 - 🎯 Framework Next.js auto-détecté
@@ -101,6 +102,7 @@ NEXT_PUBLIC_FARO_URL=             # Grafana Faro (optional)
 Configurés dans **Vercel Dashboard → Settings → Environment Variables** :
 
 **Production :**
+
 ```bash
 NEXT_PUBLIC_HYGRAPH_URL=your_hygraph_url
 HYGRAPH_TOKEN=your_hygraph_token
@@ -110,6 +112,7 @@ NODE_ENV=production
 ```
 
 **Preview :**
+
 ```bash
 # Même config mais avec des valeurs de staging si dispo
 NEXT_PUBLIC_HYGRAPH_URL=your_staging_hygraph_url
@@ -122,6 +125,7 @@ HYGRAPH_TOKEN=your_staging_hygraph_token
 ### Déploiement Automatique
 
 **1. Push vers `main` → Production**
+
 ```bash
 git push origin main
 # Déclenche:
@@ -131,6 +135,7 @@ git push origin main
 ```
 
 **2. Push vers `dev` → Preview**
+
 ```bash
 git push origin dev
 # Déclenche:
@@ -139,6 +144,7 @@ git push origin dev
 ```
 
 **3. Pull Request → Preview**
+
 ```bash
 # Création d'une PR déclenche automatiquement:
 # - CI Pipeline
@@ -149,11 +155,13 @@ git push origin dev
 ### Déploiement Manuel
 
 Depuis GitHub :
+
 ```
 Actions → CD Pipeline → Run workflow → Sélectionner la branche
 ```
 
 Depuis local (avec Vercel CLI) :
+
 ```bash
 # Installer Vercel CLI
 bun add -g vercel
@@ -172,11 +180,11 @@ vercel --prod
 
 ### Comparaison npm vs Bun
 
-| Étape | npm | Bun | Gain |
-|-------|-----|-----|------|
-| Install deps | 30s | 6.7s | 4.5x |
-| Build | 60s | 45s | 25% |
-| **Total** | **90s** | **51.7s** | **43%** |
+| Étape        | npm     | Bun       | Gain    |
+| ------------ | ------- | --------- | ------- |
+| Install deps | 30s     | 6.7s      | 4.5x    |
+| Build        | 60s     | 45s       | 25%     |
+| **Total**    | **90s** | **51.7s** | **43%** |
 
 **Le pipeline CD est 43% plus rapide avec Bun !** ⚡
 
@@ -185,6 +193,7 @@ vercel --prod
 ### GitHub Actions
 
 Chaque déploiement génère :
+
 - ✅ Build logs complets
 - ✅ Deployment summary
 - ✅ Performance metrics
@@ -193,6 +202,7 @@ Chaque déploiement génère :
 ### Vercel Dashboard
 
 Accessible sur https://vercel.com :
+
 - 📊 Analytics temps réel
 - 🚀 Deployment history
 - 📈 Performance insights
@@ -202,6 +212,7 @@ Accessible sur https://vercel.com :
 ### Grafana (Optional)
 
 Si configuré :
+
 - 📊 Custom metrics
 - 🎯 Core Web Vitals
 - 🐛 Error tracking
@@ -212,6 +223,7 @@ Si configuré :
 ### Build Fails
 
 **1. Vérifier les env vars**
+
 ```bash
 # Dans Vercel Dashboard
 Settings → Environment Variables
@@ -220,12 +232,14 @@ Settings → Environment Variables
 ```
 
 **2. Tester le build localement**
+
 ```bash
 bun install
 bun run build
 ```
 
 **3. Vérifier les logs**
+
 ```bash
 # GitHub Actions
 Actions → Voir le workflow failed
@@ -237,12 +251,14 @@ Dashboard → Deployments → Voir les logs
 ### Deployment Fails
 
 **1. Vérifier Vercel token**
+
 ```bash
 # GitHub Settings → Secrets
 # Vérifier VERCEL_TOKEN est valide
 ```
 
 **2. Vérifier les secrets**
+
 ```bash
 # All secrets doivent être définis:
 VERCEL_TOKEN
@@ -251,6 +267,7 @@ VERCEL_PROJECT_ID
 ```
 
 **3. Re-déployer manuellement**
+
 ```bash
 # Depuis GitHub Actions
 Actions → CD Pipeline → Re-run failed jobs
@@ -259,11 +276,13 @@ Actions → CD Pipeline → Re-run failed jobs
 ### Environment Variables Missing
 
 **Symptômes :**
+
 - Build réussit mais app ne fonctionne pas
 - Erreurs "undefined" dans les logs
 - Hygraph queries fail
 
 **Solution :**
+
 ```bash
 # 1. Aller sur Vercel Dashboard
 # 2. Settings → Environment Variables
@@ -317,11 +336,13 @@ git push origin feature/nouvelle-fonctionnalite
 Si un déploiement pose problème :
 
 **Option 1 : Vercel Dashboard**
+
 ```
 Dashboard → Deployments → Trouver le bon déploiement → Promote to Production
 ```
 
 **Option 2 : Git Revert**
+
 ```bash
 git revert HEAD
 git push origin main
@@ -333,6 +354,7 @@ git push origin main
 ### Cache Strategy
 
 Vercel cache automatiquement :
+
 - ✅ Static assets
 - ✅ API routes (avec headers)
 - ✅ ISR pages
@@ -341,6 +363,7 @@ Vercel cache automatiquement :
 ### Edge Functions
 
 Routes API optimisées :
+
 ```typescript
 // app/api/route.ts
 export const runtime = 'edge'; // Deploy to edge
@@ -353,15 +376,11 @@ export async function GET(request: Request) {
 ### Image Optimization
 
 Images auto-optimisées par Vercel :
+
 ```tsx
 import Image from 'next/image';
 
-<Image
-  src="/image.jpg"
-  width={800}
-  height={600}
-  alt="Optimized"
-/>
+<Image src="/image.jpg" width={800} height={600} alt="Optimized" />;
 ```
 
 ## 🔐 Security
@@ -369,6 +388,7 @@ import Image from 'next/image';
 ### Headers
 
 Configurés dans `next.config.ts` :
+
 ```typescript
 async headers() {
   return [{
@@ -394,6 +414,7 @@ async headers() {
 ### Vercel Analytics
 
 Activé par défaut :
+
 - Page views
 - Visitors
 - Top pages
@@ -402,6 +423,7 @@ Activé par défaut :
 ### Custom Analytics
 
 Avec Grafana Faro :
+
 - Core Web Vitals
 - User interactions
 - Error tracking
@@ -430,6 +452,7 @@ Avant chaque déploiement :
 ## 🎊 Résumé
 
 Le projet est configuré pour des déploiements :
+
 - ⚡ **Ultra-rapides** avec Bun (43% plus rapide)
 - 🔒 **Sécurisés** avec secrets management
 - 🤖 **Automatisés** avec GitHub Actions

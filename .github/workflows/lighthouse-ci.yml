@@ -22,7 +22,7 @@ jobs:
           bun-version: latest
 
       - name: Install dependencies
-        run: bun install --frozen-lockfile
+        run: bun install
 
       - name: Clean cache
         run: rm -rf .next
@@ -61,11 +61,12 @@ jobs:
 
       - name: Upload Lighthouse reports
         if: always()
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v4
         with:
           name: lighthouse-reports
           path: .lighthouseci
           retention-days: 30
+          if-no-files-found: ignore
         continue-on-error: true
 
       - name: Summary

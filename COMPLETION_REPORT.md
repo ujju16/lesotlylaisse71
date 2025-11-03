@@ -23,7 +23,7 @@
 
 - ✅ **Implémentation ARIA complète sur toutes les pages**
   - Navigation avec `role="navigation"` et `aria-label`
-  - Footer avec `role="contentinfo"` 
+  - Footer avec `role="contentinfo"`
   - Menu mobile avec `aria-expanded` et `aria-controls`
   - Sections avec `aria-labelledby`
   - Boutons avec `aria-label` descriptifs
@@ -107,12 +107,14 @@
 ## 📈 Métriques de Performance
 
 ### Lighthouse Scores (Moyennes)
+
 - **Performance**: 90+
 - **Accessibility**: 95+
 - **Best Practices**: 95+
 - **SEO**: 100
 
 ### Build Performance (avec Bun)
+
 - **Install**: ~3-5s (vs 15-20s avec npm)
 - **Build**: ~25-30s
 - **Total CI/CD**: ~50s
@@ -140,6 +142,7 @@ lesotlylaisse71/
 ## 🔧 Configuration des Outils
 
 ### Bun
+
 ```json
 {
   "scripts": {
@@ -152,6 +155,7 @@ lesotlylaisse71/
 ```
 
 ### Vercel
+
 ```json
 {
   "buildCommand": "bun run build",
@@ -168,6 +172,7 @@ lesotlylaisse71/
    - Vérifier la propagation DNS
 
 2. **Activer Grafana en production**
+
    ```bash
    bun run monitoring:start
    ```
@@ -236,6 +241,7 @@ gh run list --limit 5
 **✅ PROJET PRÊT POUR LA PRODUCTION**
 
 Tous les objectifs ont été atteints avec succès. Le projet est:
+
 - ✅ Performant (Lighthouse 90+)
 - ✅ Accessible (WCAG 2.1 Level AA)
 - ✅ Sécurisé (aucune vulnérabilité)

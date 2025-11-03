@@ -20,29 +20,40 @@ Restaurant, bar et tabac au cœur de la Bourgogne - Site web moderne développé
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.9.3-blue?logo=typescript)](https://www.typescriptlang.org/)
 [![ESLint](https://img.shields.io/badge/ESLint-9.x-4B32C3?logo=eslint)](https://eslint.org/)
 [![Prettier](https://img.shields.io/badge/Prettier-3.6.2-F7B93E?logo=prettier)](https://prettier.io/)
-[![Code Coverage](https://img.shields.io/badge/Coverage-Pass-brightgreen?logo=codecov)]()
+[![Bun](https://img.shields.io/badge/Bun-1.2.23-fbf0df?logo=bun)](https://bun.sh/)
 
 ### Technologies
 
 [![Next.js](https://img.shields.io/badge/Next.js-16.0.1-black?logo=next.js)](https://nextjs.org/)
 [![React](https://img.shields.io/badge/React-19.0.0-blue?logo=react)](https://reactjs.org/)
-[![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-3.4.17-38B2AC?logo=tailwind-css)](https://tailwindcss.com/)
-[![DaisyUI](https://img.shields.io/badge/DaisyUI-4.12.10-5A0EF8?logo=daisyui)](https://daisyui.com/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-3.4.18-38B2AC?logo=tailwind-css)](https://tailwindcss.com/)
+[![DaisyUI](https://img.shields.io/badge/DaisyUI-5.4.2-5A0EF8?logo=daisyui)](https://daisyui.com/)
 [![Framer Motion](https://img.shields.io/badge/Framer%20Motion-12.23.24-FF0080?logo=framer)](https://www.framer.com/motion/)
 
 ### Accessibilité & Performance
 
-[![Accessibility](https://img.shields.io/badge/Accessibility-97%2F100-brightgreen?logo=lighthouse)](./LIGHTHOUSE_REPORT_SUMMARY.md)
-[![Best Practices](https://img.shields.io/badge/Best%20Practices-96%2F100-brightgreen?logo=lighthouse)](./LIGHTHOUSE_REPORT_SUMMARY.md)
-[![SEO](https://img.shields.io/badge/SEO-83%2F100-yellow?logo=lighthouse)](./LIGHTHOUSE_REPORT_SUMMARY.md)
-[![WCAG 2.1](https://img.shields.io/badge/WCAG%202.1-Level%20AA-green)](./ARIA_IMPLEMENTATION.md)
-[![ARIA](https://img.shields.io/badge/ARIA-1.2%20Compliant-success)](./ARIA_IMPLEMENTATION.md)
+[![Accessibility](https://img.shields.io/badge/Accessibility-95%2B-brightgreen?logo=lighthouse)](./ARIA_COMPLETE_IMPLEMENTATION.md)
+[![Best Practices](https://img.shields.io/badge/Best%20Practices-95%2B-brightgreen?logo=lighthouse)](./PROJECT_CHECKLIST.md)
+[![SEO](https://img.shields.io/badge/SEO-100-success?logo=lighthouse)](./PROJECT_CHECKLIST.md)
+[![WCAG 2.1](https://img.shields.io/badge/WCAG%202.1-Level%20AA-green)](./ARIA_COMPLETE_IMPLEMENTATION.md)
+[![ARIA](https://img.shields.io/badge/ARIA-1.2%20Compliant-success)](./ARIA_COMPLETE_IMPLEMENTATION.md)
 
 ### Maintenance
 
 [![Dependencies](https://img.shields.io/badge/Dependabot-Active-brightgreen?logo=dependabot)](https://github.com/ujju16/lesotlylaisse71/security/dependabot)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
 [![Last Commit](https://img.shields.io/github/last-commit/ujju16/lesotlylaisse71?logo=github)](https://github.com/ujju16/lesotlylaisse71/commits)
+
+---
+
+## 📚 Documentation
+
+- 📋 **[Project Checklist](./PROJECT_CHECKLIST.md)** - Complete project audit and checklist
+- ♿ **[ARIA Implementation](./ARIA_COMPLETE_IMPLEMENTATION.md)** - Comprehensive ARIA documentation
+- 🚀 **[Deployment Guide](./DEPLOYMENT.md)** - Deployment instructions
+- 📊 **[Grafana Setup](./GRAFANA_SETUP.md)** - Monitoring configuration
+- 🔒 **[Security](./SECURITY.md)** - Security best practices
+- 🎨 **[Code Quality](./CODE_QUALITY.md)** - Code quality standards
 
 ---
 

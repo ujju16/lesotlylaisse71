@@ -7,12 +7,14 @@ Le domaine **lesotlylaisse71.fr** est correctement configuré et actif sur Verce
 ## 📋 Configuration Vercel
 
 ### Domaine Principal
+
 - **URL**: https://lesotlylaisse71.fr
 - **Registrar**: Third Party
 - **Nameservers**: Vercel
 - **Statut**: ✅ Actif
 
 ### URLs Disponibles
+
 - **Production**: https://lesotlylaisse71.fr
 - **Vercel (backup)**: https://lesotlylaisse71.vercel.app
 - **Preview (dev)**: Auto-généré pour chaque commit sur dev
@@ -20,6 +22,7 @@ Le domaine **lesotlylaisse71.fr** est correctement configuré et actif sur Verce
 ## 🔐 Variables d'Environnement
 
 ### GitHub Secrets (Configurés ✅)
+
 ```
 CODECOV_TOKEN
 HYGRAPH_TOKEN
@@ -30,6 +33,7 @@ VERCEL_TOKEN
 ```
 
 ### Vercel Environment Variables (Configurés ✅)
+
 ```
 HYGRAPH_TOKEN                     - Production
 NEXT_PUBLIC_HYGRAPH_URL          - Production, Preview, Development
@@ -38,10 +42,12 @@ NEXT_PUBLIC_HYGRAPH_URL          - Production, Preview, Development
 ## 🚀 Déploiements
 
 ### Branches
+
 - **main**: Déploiement en production sur lesotlylaisse71.fr
 - **dev**: Preview deployments pour chaque commit
 
 ### Workflow CI/CD
+
 - ✅ Lint
 - ✅ Type-check
 - ✅ Tests (avec Codecov)
@@ -52,6 +58,7 @@ NEXT_PUBLIC_HYGRAPH_URL          - Production, Preview, Development
 ## 📊 Monitoring & Analytics
 
 ### Grafana Stack (Configuré)
+
 - Dashboard Grafana
 - Logs (Loki)
 - Tracing (Tempo)
@@ -60,6 +67,7 @@ NEXT_PUBLIC_HYGRAPH_URL          - Production, Preview, Development
 **Accès**: `bun run monitoring:start`
 
 ### Codecov
+
 - **Badge**: [![codecov](https://codecov.io/gh/ujju16/lesotlylaisse71/branch/main/graph/badge.svg?token=2XDGRWZ0UJ)](https://codecov.io/gh/ujju16/lesotlylaisse71)
 - **Dashboard**: https://codecov.io/gh/ujju16/lesotlylaisse71
 
@@ -68,6 +76,7 @@ NEXT_PUBLIC_HYGRAPH_URL          - Production, Preview, Development
 Si vous devez reconfigurer le DNS :
 
 ### Records à créer
+
 ```
 Type    Name    Value                   TTL
 A       @       76.76.21.21            Auto
@@ -77,6 +86,7 @@ CNAME   www     cname.vercel-dns.com.  Auto
 ## 📱 Vérifications
 
 ### Tests de Production
+
 ```bash
 # Test homepage
 curl -I https://lesotlylaisse71.fr
@@ -89,6 +99,7 @@ openssl s_client -connect lesotlylaisse71.fr:443 -servername lesotlylaisse71.fr
 ```
 
 ### Lighthouse Audit
+
 ```bash
 # Via GitHub Actions (automatique sur PRs)
 # Ou manuellement :
@@ -98,6 +109,7 @@ npx lighthouse https://lesotlylaisse71.fr --view
 ## 🎯 Déploiement Manuel (si nécessaire)
 
 ### Depuis main
+
 ```bash
 git checkout main
 git pull origin main
@@ -105,6 +117,7 @@ vercel --prod
 ```
 
 ### Depuis dev (Preview)
+
 ```bash
 git checkout dev
 git pull origin dev
@@ -127,6 +140,7 @@ vercel
 ## 🔄 Processus de Déploiement Standard
 
 1. **Développement sur dev**
+
    ```bash
    git checkout dev
    # faire vos modifications
@@ -134,14 +148,17 @@ vercel
    git commit -m "feat: nouvelle fonctionnalité"
    git push origin dev
    ```
+
    → Preview deployment automatique
 
 2. **Merge vers main (via PR)**
+
    ```bash
    gh pr create --base main --head dev
    # Attendre les checks CI/CD
    gh pr merge --squash
    ```
+
    → Déploiement en production automatique
 
 3. **Hotfix direct sur main (urgent)**
@@ -157,15 +174,19 @@ vercel
 ## 🆘 Troubleshooting
 
 ### Erreur: "Domain not found"
+
 → Vérifier dans Vercel Dashboard → Settings → Domains
 
 ### Erreur: "Build failed"
+
 → Vérifier les logs : `vercel logs <deployment-url>`
 
 ### Erreur: "Environment variable not found"
+
 → Vérifier : `vercel env ls`
 
 ### SSL/HTTPS non actif
+
 → Attendre jusqu'à 24h après configuration DNS
 → Forcer renouvellement : Vercel Dashboard → Settings → Domains → Refresh
 

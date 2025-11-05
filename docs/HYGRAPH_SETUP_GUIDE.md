@@ -20,6 +20,7 @@ Ce guide vous accompagne pas à pas pour configurer tous les schémas et relatio
 ### 1. Catégorie (Category)
 
 #### Création du Modèle
+
 1. Aller dans **Schema** → **Create Model**
 2. **Model name**: `Category`
 3. **API ID**: `category` (auto-généré)
@@ -27,17 +28,18 @@ Ce guide vous accompagne pas à pas pour configurer tous les schémas et relatio
 
 #### Champs à ajouter
 
-| Nom | Type | Options |
-|-----|------|---------|
-| **name** | Single line text | Required |
-| **slug** | Slug | Based on: name, Required, Unique |
-| **description** | Multi line text | Optional |
-| **icon** | Single line text | Optional (emoji) |
-| **image** | Asset | Optional, Allow multiple values: NO |
-| **order** | Integer | Required, Default: 0 |
-| **isActive** | Boolean | Required, Default: true |
+| Nom             | Type             | Options                             |
+| --------------- | ---------------- | ----------------------------------- |
+| **name**        | Single line text | Required                            |
+| **slug**        | Slug             | Based on: name, Required, Unique    |
+| **description** | Multi line text  | Optional                            |
+| **icon**        | Single line text | Optional (emoji)                    |
+| **image**       | Asset            | Optional, Allow multiple values: NO |
+| **order**       | Integer          | Required, Default: 0                |
+| **isActive**    | Boolean          | Required, Default: true             |
 
 #### Configuration Slug
+
 - Base field: `name`
 - Format: lowercase
 - ✅ Make unique
@@ -48,6 +50,7 @@ Ce guide vous accompagne pas à pas pour configurer tous les schémas et relatio
 ### 2. Plat (MenuItem)
 
 #### Création du Modèle
+
 1. **Schema** → **Create Model**
 2. **Model name**: `MenuItem`
 3. **API ID**: `menuItem`
@@ -55,25 +58,26 @@ Ce guide vous accompagne pas à pas pour configurer tous les schémas et relatio
 
 #### Champs à ajouter
 
-| Nom | Type | Options |
-|-----|------|---------|
-| **name** | Single line text | Required |
-| **slug** | Slug | Based on: name, Required, Unique |
-| **description** | Multi line text | Optional |
-| **price** | Float | Required |
-| **image** | Asset | Optional |
-| **allergens** | Single line text | Optional |
-| **order** | Integer | Required, Default: 0 |
-| **isAvailable** | Boolean | Required, Default: true |
-| **isVegetarian** | Boolean | Required, Default: false |
-| **isVegan** | Boolean | Required, Default: false |
-| **isGlutenFree** | Boolean | Required, Default: false |
+| Nom              | Type             | Options                          |
+| ---------------- | ---------------- | -------------------------------- |
+| **name**         | Single line text | Required                         |
+| **slug**         | Slug             | Based on: name, Required, Unique |
+| **description**  | Multi line text  | Optional                         |
+| **price**        | Float            | Required                         |
+| **image**        | Asset            | Optional                         |
+| **allergens**    | Single line text | Optional                         |
+| **order**        | Integer          | Required, Default: 0             |
+| **isAvailable**  | Boolean          | Required, Default: true          |
+| **isVegetarian** | Boolean          | Required, Default: false         |
+| **isVegan**      | Boolean          | Required, Default: false         |
+| **isGlutenFree** | Boolean          | Required, Default: false         |
 
 ---
 
 ### 3. Menu
 
 #### Création du Modèle
+
 1. **Schema** → **Create Model**
 2. **Model name**: `Menu`
 3. **API ID**: `menu`
@@ -81,20 +85,21 @@ Ce guide vous accompagne pas à pas pour configurer tous les schémas et relatio
 
 #### Champs à ajouter
 
-| Nom | Type | Options |
-|-----|------|---------|
-| **name** | Single line text | Required |
-| **slug** | Slug | Based on: name, Required, Unique |
-| **description** | Multi line text | Optional |
-| **isActive** | Boolean | Required, Default: false |
-| **startDate** | Date | Required |
-| **endDate** | Date | Optional |
+| Nom             | Type             | Options                          |
+| --------------- | ---------------- | -------------------------------- |
+| **name**        | Single line text | Required                         |
+| **slug**        | Slug             | Based on: name, Required, Unique |
+| **description** | Multi line text  | Optional                         |
+| **isActive**    | Boolean          | Required, Default: false         |
+| **startDate**   | Date             | Required                         |
+| **endDate**     | Date             | Optional                         |
 
 ---
 
 ### 4. QRCode (Optionnel)
 
 #### Création du Modèle
+
 1. **Schema** → **Create Model**
 2. **Model name**: `QRCode`
 3. **API ID**: `qrcode`
@@ -102,9 +107,9 @@ Ce guide vous accompagne pas à pas pour configurer tous les schémas et relatio
 
 #### Champs à ajouter
 
-| Nom | Type | Options |
-|-----|------|---------|
-| **name** | Single line text | Required |
+| Nom      | Type             | Options          |
+| -------- | ---------------- | ---------------- |
+| **name** | Single line text | Required         |
 | **code** | Single line text | Required, Unique |
 
 ---
@@ -114,6 +119,7 @@ Ce guide vous accompagne pas à pas pour configurer tous les schémas et relatio
 ### Relation 1 : Category ←→ MenuItem (One-to-Many)
 
 #### Sur le modèle **MenuItem**
+
 1. Ajouter un champ **Reference**
 2. **Field name**: `category`
 3. **Reference**: `Category`
@@ -122,6 +128,7 @@ Ce guide vous accompagne pas à pas pour configurer tous les schémas et relatio
 6. **Reverse field name**: `menuItems`
 
 #### Résultat
+
 - Un `MenuItem` appartient à UNE `Category`
 - Une `Category` peut avoir PLUSIEURS `MenuItem`
 
@@ -130,6 +137,7 @@ Ce guide vous accompagne pas à pas pour configurer tous les schémas et relatio
 ### Relation 2 : Menu ←→ MenuItem (Many-to-Many)
 
 #### Sur le modèle **Menu**
+
 1. Ajouter un champ **Reference**
 2. **Field name**: `dishes`
 3. **Reference**: `MenuItem`
@@ -138,6 +146,7 @@ Ce guide vous accompagne pas à pas pour configurer tous les schémas et relatio
 6. **Reverse field name**: `menus` (sur MenuItem)
 
 #### Résultat
+
 - Un `Menu` peut avoir PLUSIEURS `MenuItem`
 - Un `MenuItem` peut être dans PLUSIEURS `Menu`
 
@@ -146,6 +155,7 @@ Ce guide vous accompagne pas à pas pour configurer tous les schémas et relatio
 ### Relation 3 : QRCode → Menu (Many-to-One)
 
 #### Sur le modèle **QRCode**
+
 1. Ajouter un champ **Reference**
 2. **Field name**: `activeMenu`
 3. **Reference**: `Menu`
@@ -169,6 +179,7 @@ Ce guide vous accompagne pas à pas pour configurer tous les schémas et relatio
 Pour chaque modèle (`Category`, `MenuItem`, `Menu`, `QRCode`):
 
 #### Content API
+
 - ✅ **Read** - Public Access (ou Token)
 - ✅ **Create** - Token Required
 - ✅ **Update** - Token Required
@@ -177,6 +188,7 @@ Pour chaque modèle (`Category`, `MenuItem`, `Menu`, `QRCode`):
 - ✅ **Unpublish** - Token Required
 
 #### Management API
+
 - ✅ **Read** - Token Required
 
 ### 3. Asset Permissions
@@ -278,22 +290,26 @@ mutation {
 ## ✅ Checklist de Vérification
 
 ### Modèles
+
 - [ ] `Category` créé avec tous les champs
 - [ ] `MenuItem` créé avec tous les champs
 - [ ] `Menu` créé avec tous les champs
 - [ ] `QRCode` créé (optionnel)
 
 ### Relations
+
 - [ ] `MenuItem.category` → `Category` (Many-to-One)
 - [ ] `Menu.dishes` → `MenuItem[]` (Many-to-Many)
 - [ ] `QRCode.activeMenu` → `Menu` (Many-to-One)
 
 ### Permissions
+
 - [ ] Token créé et copié dans `.env.local`
 - [ ] Permissions CRUD activées sur tous les modèles
 - [ ] Assets uploadables avec le token
 
 ### Tests
+
 - [ ] Catégorie créée et publiée
 - [ ] Plat créé et lié à la catégorie
 - [ ] Menu créé avec des plats
@@ -348,15 +364,19 @@ curl -X POST http://localhost:3000/api/dishes \
 ## 🐛 Troubleshooting
 
 ### Erreur : "Field 'status' not found"
+
 **Solution**: Hygraph interdit le mot `status`, utilisez `isActive` à la place.
 
 ### Erreur : "Unique constraint violation"
+
 **Solution**: Le slug doit être unique. Vérifiez qu'il n'existe pas déjà.
 
 ### Erreur : "Not authorized"
+
 **Solution**: Vérifiez que le `HYGRAPH_TOKEN` est correct et a les bonnes permissions.
 
 ### Erreur : "Unable to upload asset"
+
 **Solution**: Activez les permissions d'upload sur les Assets dans Hygraph.
 
 ---

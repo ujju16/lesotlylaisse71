@@ -38,6 +38,7 @@ vercel env add NEXT_PUBLIC_HYGRAPH_URL
 Allez dans : `Settings → Secrets and variables → Actions`
 
 Secrets à ajouter :
+
 - `HYGRAPH_TOKEN`
 - `CODECOV_TOKEN`
 - `VERCEL_TOKEN` (pour le déploiement)
@@ -125,9 +126,11 @@ type QRCode {
 Pour chaque modèle, configurer :
 
 **Public Access (sans token):**
+
 - ✅ Read
 
 **Token Required:**
+
 - ✅ Create
 - ✅ Update
 - ✅ Delete
@@ -165,17 +168,15 @@ curl -X POST https://api-eu-west-2.hygraph.com/v2/cmgz5sumn041u07vzbfvygjzt/mast
 ### Fichier de Configuration
 
 `lib/hygraph.ts`:
-```typescript
-import { GraphQLClient } from 'graphql-request';
 
-export const hygraph = new GraphQLClient(
-  process.env.NEXT_PUBLIC_HYGRAPH_URL!,
-  {
-    headers: {
-      Authorization: `Bearer ${process.env.HYGRAPH_TOKEN}`,
-    },
-  }
-);
+```typescript
+import { GraphQLClient } from "graphql-request";
+
+export const hygraph = new GraphQLClient(process.env.NEXT_PUBLIC_HYGRAPH_URL!, {
+  headers: {
+    Authorization: `Bearer ${process.env.HYGRAPH_TOKEN}`,
+  },
+});
 ```
 
 ### Exemples de Queries
@@ -220,15 +221,19 @@ export async function createDish(data: DishInput) {
 ## 🔧 Troubleshooting
 
 ### Erreur: "Not authorized"
+
 → Vérifier que le token est correct et a les bonnes permissions
 
 ### Erreur: "Field 'status' not found"
+
 → Hygraph interdit certains noms de champs, utiliser `isActive` à la place
 
 ### Erreur: "Unique constraint violation"
+
 → Le slug existe déjà, utiliser un autre nom
 
 ### Erreur: "Unable to upload asset"
+
 → Vérifier les permissions d'upload sur les Assets
 
 ## 📖 Ressources

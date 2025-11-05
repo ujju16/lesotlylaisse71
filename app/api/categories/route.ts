@@ -13,10 +13,6 @@ export async function GET() {
           description
           order
           icon
-          image {
-            id
-            url
-          }
         }
       }
     `;

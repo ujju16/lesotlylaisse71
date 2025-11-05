@@ -278,32 +278,21 @@ app/admin/
 
 ```typescript
 // components/admin/forms/
-- CategoryForm.tsx
-- DishForm.tsx
-- MenuForm.tsx
-- ImageUpload.tsx
+-CategoryForm.tsx - DishForm.tsx - MenuForm.tsx - ImageUpload.tsx;
 ```
 
 ### UI Components
 
 ```typescript
 // components/admin/ui/
-- Modal.tsx
-- ConfirmDialog.tsx
-- Toast.tsx
-- LoadingSpinner.tsx
-- DataTable.tsx
+-Modal.tsx - ConfirmDialog.tsx - Toast.tsx - LoadingSpinner.tsx - DataTable.tsx;
 ```
 
 ### Hooks Custom
 
 ```typescript
 // lib/hooks/
-- useCategories.ts
-- useDishes.ts
-- useMenus.ts
-- useUpload.ts
-- useToast.ts
+-useCategories.ts - useDishes.ts - useMenus.ts - useUpload.ts - useToast.ts;
 ```
 
 ---
@@ -348,9 +337,9 @@ app/admin/
 
 ```css
 :root {
-  --primary: #795548;     /* Marron - terre, bois */
-  --secondary: #689f38;   /* Vert - nature, bio */
-  --accent: #ffb300;      /* Jaune doré - chaleur */
+  --primary: #795548; /* Marron - terre, bois */
+  --secondary: #689f38; /* Vert - nature, bio */
+  --accent: #ffb300; /* Jaune doré - chaleur */
   --error: #d32f2f;
   --success: #388e3c;
   --warning: #f57c00;
@@ -373,10 +362,10 @@ app/admin/
 ```typescript
 // middleware.ts
 export function middleware(request: NextRequest) {
-  if (request.nextUrl.pathname.startsWith('/admin')) {
-    const auth = request.cookies.get('admin-auth');
+  if (request.nextUrl.pathname.startsWith("/admin")) {
+    const auth = request.cookies.get("admin-auth");
     if (!auth) {
-      return NextResponse.redirect(new URL('/admin/login', request.url));
+      return NextResponse.redirect(new URL("/admin/login", request.url));
     }
   }
 }

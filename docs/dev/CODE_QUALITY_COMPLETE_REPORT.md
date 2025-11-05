@@ -97,7 +97,7 @@ $ tsc --noEmit
 
 - **Version**: 9.x
 - **Configuration**: ESLint 9 avec flat config
-- **Plugins**: 
+- **Plugins**:
   - @typescript-eslint
   - eslint-plugin-react
   - eslint-plugin-react-hooks
@@ -132,7 +132,7 @@ Snapshots:   0 total
 Time:        3.035 s
 
 ✅ app/__tests__/components/Footer.test.tsx
-✅ app/__tests__/components/Navigation.test.tsx  
+✅ app/__tests__/components/Navigation.test.tsx
 ✅ app/__tests__/page.test.tsx
 ```
 
@@ -150,6 +150,7 @@ Time:        3.035 s
 ### Implémentation Complète
 
 #### 1. **Layout (Root)**
+
 ```tsx
 <html lang="fr">
   <body>
@@ -166,6 +167,7 @@ Time:        3.035 s
 ```
 
 #### 2. **Navigation**
+
 - ✅ `role="navigation"`
 - ✅ `aria-label="Navigation principale"`
 - ✅ `aria-current="page"` pour la page active
@@ -173,6 +175,7 @@ Time:        3.035 s
 - ✅ Boutons avec `aria-label` explicites
 
 #### 3. **Homepage**
+
 - ✅ Sections avec `aria-labelledby`
 - ✅ Listes sémantiques avec `role="list"` et `role="listitem"`
 - ✅ Icônes décoratives avec `aria-hidden="true"`
@@ -180,12 +183,14 @@ Time:        3.035 s
 - ✅ Status badges avec `role="status"`
 
 #### 4. **Menu Page**
+
 - ✅ Navigation par catégories avec `role="tablist"`
 - ✅ Boutons de catégorie avec `role="tab"` et `aria-selected`
 - ✅ Contenu avec `role="tabpanel"` et `aria-live="polite"`
 - ✅ Sections de catégories avec `aria-labelledby`
 
 #### 5. **Footer**
+
 - ✅ `role="contentinfo"`
 - ✅ Navigations secondaires avec `aria-label`
 - ✅ Listes sémantiques
@@ -241,6 +246,7 @@ CODECOV_TOKEN=*** (GitHub Secret)
 ### Workflows GitHub Actions
 
 #### 1. **CI Pipeline** (`ci.yml`)
+
 ```yaml
 Jobs:
   - lint          ✅ ESLint validation
@@ -251,6 +257,7 @@ Jobs:
 ```
 
 #### 2. **CD Pipeline** (`cd.yml`)
+
 ```yaml
 Trigger: Push to main
   - Build         ✅ Production build
@@ -258,6 +265,7 @@ Trigger: Push to main
 ```
 
 #### 3. **Lighthouse CI** (`lighthouse-ci.yml`)
+
 ```yaml
 Trigger: Pull requests
   - Build         ✅ Next.js build
@@ -278,6 +286,7 @@ Trigger: Pull requests
 ## 📦 Dépendances
 
 ### Production
+
 - **Next.js**: 16.0.1 (App Router)
 - **React**: 19.0.0
 - **TypeScript**: 5.9.3
@@ -288,6 +297,7 @@ Trigger: Pull requests
 - **Zod**: 4.1.12
 
 ### Development
+
 - **Bun**: 1.2.23 (Runtime & Package Manager)
 - **ESLint**: 9.x
 - **Prettier**: 3.6.2
@@ -420,6 +430,7 @@ Fichiers volumineux à optimiser:
 ## ✅ Checklist de Production
 
 ### Infrastructure
+
 - [x] CI/CD configuré et fonctionnel
 - [x] Tests automatisés en place
 - [x] Monitoring configuré (Grafana + Faro)
@@ -427,6 +438,7 @@ Fichiers volumineux à optimiser:
 - [x] Branches nettoyées (main + dev uniquement)
 
 ### Code Quality
+
 - [x] TypeScript strict mode
 - [x] ESLint + Prettier configurés
 - [x] Tests unitaires passent
@@ -434,6 +446,7 @@ Fichiers volumineux à optimiser:
 - [x] Code formaté et linté
 
 ### Accessibilité
+
 - [x] ARIA implémenté sur toutes les pages
 - [x] Navigation clavier fonctionnelle
 - [x] Skip links en place
@@ -441,12 +454,14 @@ Fichiers volumineux à optimiser:
 - [x] WCAG 2.1 Level AA
 
 ### Performance
+
 - [x] Next.js 16 App Router
 - [x] Images lazy loading
 - [x] Code splitting automatique
 - [ ] ⚠️ Images public/ à optimiser
 
 ### SEO
+
 - [x] Metadata complets
 - [x] OpenGraph tags
 - [x] Sitemap généré
@@ -454,6 +469,7 @@ Fichiers volumineux à optimiser:
 - [x] Structured data
 
 ### Déploiement
+
 - [x] Vercel configuré
 - [x] Environment variables
 - [x] Production build passe
@@ -466,6 +482,7 @@ Fichiers volumineux à optimiser:
 ### Critique (Avant Production)
 
 1. **Optimiser les Images**
+
    ```bash
    # Convertir en WebP et redimensionner
    # Réduire de 39M à ~5-8M

@@ -1,11 +1,11 @@
-'use client';
+"use client";
 
-import { useState, useEffect } from 'react';
-import Image from 'next/image';
-import { useToast } from '@/app/components/admin/ToastProvider';
-import { useUpload } from '@/app/components/admin/useUpload';
-import Modal from '@/app/components/admin/Modal';
-import ConfirmDialog from '@/app/components/admin/ConfirmDialog';
+import { useState, useEffect } from "react";
+import Image from "next/image";
+import { useToast } from "@/app/components/admin/ToastProvider";
+import { useUpload } from "@/app/components/admin/useUpload";
+import Modal from "@/app/components/admin/Modal";
+import ConfirmDialog from "@/app/components/admin/ConfirmDialog";
 
 interface Category {
   id: string;
@@ -38,20 +38,20 @@ export default function DishesPage() {
   const { showToast } = useToast();
 
   const [formData, setFormData] = useState({
-    name: '',
-    slug: '',
-    description: '',
+    name: "",
+    slug: "",
+    description: "",
     price: 0,
-    categoryId: '',
-    allergens: '',
+    categoryId: "",
+    allergens: "",
     isAvailable: true,
     isVegetarian: false,
     isVegan: false,
     isGlutenFree: false,
-    imageId: '',
+    imageId: "",
   });
 
-  const [imagePreview, setImagePreview] = useState<string>('');
+  const [imagePreview, setImagePreview] = useState<string>("");
 
   useEffect(() => {
     fetchDishes();
@@ -60,13 +60,13 @@ export default function DishesPage() {
 
   const fetchDishes = async () => {
     try {
-      const res = await fetch('/api/dishes');
+      const res = await fetch("/api/dishes");
       const data = await res.json();
       if (data.success) {
         setDishes(data.data);
       }
     } catch (error) {
-      showToast('Erreur chargement plats', 'error');
+      showToast("Erreur chargement plats", "error");
     } finally {
       setLoading(false);
     }
@@ -74,13 +74,13 @@ export default function DishesPage() {
 
   const fetchCategories = async () => {
     try {
-      const res = await fetch('/api/categories');
+      const res = await fetch("/api/categories");
       const data = await res.json();
       if (data.success) {
         setCategories(data.data);
       }
     } catch (error) {
-      console.error('Error loading categories:', error);
+      console.error("Error loading categories:", error);
     }
   };
 
@@ -90,33 +90,33 @@ export default function DishesPage() {
       setFormData({
         name: dish.name,
         slug: dish.slug,
-        description: dish.description || '',
+        description: dish.description || "",
         price: dish.price,
         categoryId: dish.category.id,
-        allergens: dish.allergens || '',
+        allergens: dish.allergens || "",
         isAvailable: dish.isAvailable,
         isVegetarian: dish.isVegetarian,
         isVegan: dish.isVegan,
         isGlutenFree: dish.isGlutenFree,
-        imageId: dish.image?.id || '',
+        imageId: dish.image?.id || "",
       });
-      setImagePreview(dish.image?.url || '');
+      setImagePreview(dish.image?.url || "");
     } else {
       setEditingDish(null);
       setFormData({
-        name: '',
-        slug: '',
-        description: '',
+        name: "",
+        slug: "",
+        description: "",
         price: 0,
-        categoryId: categories[0]?.id || '',
-        allergens: '',
+        categoryId: categories[0]?.id || "",
+        allergens: "",
         isAvailable: true,
         isVegetarian: false,
         isVegan: false,
         isGlutenFree: false,
-        imageId: '',
+        imageId: "",
       });
-      setImagePreview('');
+      setImagePreview("");
     }
     setIsModalOpen(true);
   };
@@ -126,19 +126,19 @@ export default function DishesPage() {
     if (result.success && result.data) {
       setFormData({ ...formData, imageId: result.data.id });
       setImagePreview(result.data.url);
-      showToast('Image uploadée', 'success');
+      showToast("Image uploadée", "success");
     } else {
-      showToast('Erreur upload', 'error');
+      showToast("Erreur upload", "error");
     }
   };
 
   const generateSlug = (name: string) => {
     return name
       .toLowerCase()
-      .normalize('NFD')
-      .replace(/[\u0300-\u036f]/g, '')
-      .replace(/[^a-z0-9]+/g, '-')
-      .replace(/(^-|-$)/g, '');
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/(^-|-$)/g, "");
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -148,52 +148,49 @@ export default function DishesPage() {
     const payload = { ...formData, slug };
 
     try {
-      const url = editingDish ? `/api/dishes/${editingDish.id}` : '/api/dishes';
-      const method = editingDish ? 'PUT' : 'POST';
+      const url = editingDish ? `/api/dishes/${editingDish.id}` : "/api/dishes";
+      const method = editingDish ? "PUT" : "POST";
 
       const res = await fetch(url, {
         method,
-        headers: { 'Content-Type': 'application/json' },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
       });
 
       const data = await res.json();
 
       if (data.success) {
-        showToast(
-          editingDish ? 'Plat modifié' : 'Plat créé',
-          'success'
-        );
+        showToast(editingDish ? "Plat modifié" : "Plat créé", "success");
         setIsModalOpen(false);
         fetchDishes();
       } else {
-        showToast(data.error || 'Erreur', 'error');
+        showToast(data.error || "Erreur", "error");
       }
     } catch (error) {
-      showToast('Erreur réseau', 'error');
+      showToast("Erreur réseau", "error");
     }
   };
 
   const handleDelete = async (id: string) => {
     try {
-      const res = await fetch(`/api/dishes/${id}`, { method: 'DELETE' });
+      const res = await fetch(`/api/dishes/${id}`, { method: "DELETE" });
       const data = await res.json();
 
       if (data.success) {
-        showToast('Plat supprimé', 'success');
+        showToast("Plat supprimé", "success");
         fetchDishes();
       } else {
-        showToast(data.error || 'Erreur suppression', 'error');
+        showToast(data.error || "Erreur suppression", "error");
       }
     } catch (error) {
-      showToast('Erreur réseau', 'error');
+      showToast("Erreur réseau", "error");
     }
     setDeleteConfirm(null);
   };
 
   if (loading) {
     return (
-      <div className="flex justify-center items-center min-h-screen">
+      <div className="flex min-h-screen items-center justify-center">
         <span className="loading loading-spinner loading-lg"></span>
       </div>
     );
@@ -201,17 +198,14 @@ export default function DishesPage() {
 
   return (
     <main className="container mx-auto p-6" role="main">
-      <div className="flex justify-between items-center mb-6">
+      <div className="mb-6 flex items-center justify-between">
         <h1 className="text-3xl font-bold">🍴 Gestion des Plats</h1>
-        <button
-          onClick={() => handleOpenModal()}
-          className="btn btn-primary"
-        >
+        <button onClick={() => handleOpenModal()} className="btn btn-primary">
           + Nouveau Plat
         </button>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
         {dishes.map((dish) => (
           <div key={dish.id} className="card bg-base-100 shadow-xl">
             {dish.image && (
@@ -231,10 +225,8 @@ export default function DishesPage() {
                   <div className="badge badge-error">Indisponible</div>
                 )}
               </h2>
-              <p className="text-sm text-base-content/70">
-                {dish.description}
-              </p>
-              <div className="flex gap-1 flex-wrap">
+              <p className="text-base-content/70 text-sm">{dish.description}</p>
+              <div className="flex flex-wrap gap-1">
                 {dish.isVegetarian && (
                   <div className="badge badge-success">🌱 Végétarien</div>
                 )}
@@ -270,7 +262,7 @@ export default function DishesPage() {
       <Modal
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
-        title={editingDish ? 'Modifier le Plat' : 'Nouveau Plat'}
+        title={editingDish ? "Modifier le Plat" : "Nouveau Plat"}
       >
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="form-control">
@@ -320,7 +312,10 @@ export default function DishesPage() {
                 className="input input-bordered"
                 value={formData.price}
                 onChange={(e) =>
-                  setFormData({ ...formData, price: parseFloat(e.target.value) })
+                  setFormData({
+                    ...formData,
+                    price: parseFloat(e.target.value),
+                  })
                 }
                 required
               />
@@ -435,12 +430,12 @@ export default function DishesPage() {
               disabled={uploading}
             />
             {imagePreview && (
-              <div className="mt-2 relative w-full h-48">
+              <div className="relative mt-2 h-48 w-full">
                 <Image
                   src={imagePreview}
                   alt="Preview"
                   fill
-                  className="object-cover rounded"
+                  className="rounded object-cover"
                 />
               </div>
             )}
@@ -459,7 +454,7 @@ export default function DishesPage() {
               className="btn btn-primary"
               disabled={uploading}
             >
-              {uploading ? 'Upload...' : editingDish ? 'Modifier' : 'Créer'}
+              {uploading ? "Upload..." : editingDish ? "Modifier" : "Créer"}
             </button>
           </div>
         </form>

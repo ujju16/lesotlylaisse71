@@ -3,6 +3,7 @@
 ## ✅ Ce qui est fait
 
 ### 🔐 Configuration & Sécurité
+
 - ✅ HYGRAPH_TOKEN configuré dans .env.local (non commité)
 - ✅ Tous les secrets configurés sur GitHub Actions
 - ✅ Toutes les variables d'environnement sur Vercel (Production, Preview, Development)
@@ -10,6 +11,7 @@
 - ✅ GitGuardian actif
 
 ### 📚 Documentation
+
 - ✅ Documentation organisée dans docs/dev/ avec structure propre :
   - `admin/` - Documentation admin
   - `guides/` - Guides (Hygraph, etc.)
@@ -21,12 +23,14 @@
 - ✅ Tous les fichiers markdown nettoyés et organisés
 
 ### 🌐 Domaine & Déploiement
+
 - ✅ Domaine lesotlylaisse71.fr configuré et actif
 - ✅ DNS pointant vers Vercel
 - ✅ SSL/HTTPS actif
 - ✅ Déploiements automatiques (main → production, dev → preview)
 
 ### 🔄 CI/CD
+
 - ✅ CI Pipeline (lint, type-check, tests, build, security)
 - ✅ CD Pipeline
 - ✅ Lighthouse CI
@@ -35,6 +39,7 @@
 - ✅ Workflows passent correctement sur dev
 
 ### 📦 Projet
+
 - ✅ Migrations vers Bun complétées
 - ✅ Next.js 16 + React 19
 - ✅ Tailwind CSS 3.4.18 + DaisyUI 5.4.2
@@ -44,6 +49,7 @@
 - ✅ Grafana monitoring configuré
 
 ### 🎨 Frontend
+
 - ✅ Pages publiques complètes (Home, Menu, Réservations, Légal)
 - ✅ QR Code Generator fonctionnel
 - ✅ ARIA implementation complète
@@ -51,6 +57,7 @@
 - ✅ Responsive design
 
 ### 🔧 API Routes (Déjà créées)
+
 - ✅ `/api/categories` - CRUD complet
 - ✅ `/api/dishes` - CRUD complet
 - ✅ `/api/menus` - CRUD complet
@@ -60,6 +67,7 @@
 ## 🚧 Ce qui reste à faire
 
 ### 1. Configuration Hygraph (PRIORITÉ 1)
+
 **Vous devez faire manuellement :**
 
 1. **Aller sur https://app.hygraph.com**
@@ -80,12 +88,9 @@
 5. **Tester avec une mutation** :
    ```graphql
    mutation {
-     createCategory(data: {
-       name: "Entrées"
-       slug: "entrees"
-       icon: "🥗"
-       order: 0
-     }) {
+     createCategory(
+       data: { name: "Entrées", slug: "entrees", icon: "🥗", order: 0 }
+     ) {
        id
        name
      }
@@ -97,6 +102,7 @@
 Les routes API existent déjà, il faut créer l'interface :
 
 #### Pages à créer
+
 - [ ] `/admin` - Dashboard principal
 - [ ] `/admin/categories` - Gestion catégories (table + modal CRUD)
 - [ ] `/admin/dishes` - Gestion plats (table + modal CRUD)
@@ -104,6 +110,7 @@ Les routes API existent déjà, il faut créer l'interface :
 - [ ] `/admin/reservations` - Gestion réservations (table)
 
 #### Composants UI réutilisables
+
 - [ ] Modal (base)
 - [ ] FormInput, FormSelect, FormToggle
 - [ ] ImageUpload (drag & drop)
@@ -113,6 +120,7 @@ Les routes API existent déjà, il faut créer l'interface :
 - [ ] EmojiPicker
 
 #### Hooks Custom
+
 - [ ] `useCategories()` - Utilise les routes API existantes
 - [ ] `useDishes()` - Utilise les routes API existantes
 - [ ] `useMenus()` - Utilise les routes API existantes
@@ -122,11 +130,13 @@ Les routes API existent déjà, il faut créer l'interface :
 ### 3. Authentification Admin (PRIORITÉ 3)
 
 Phase simple pour commencer :
+
 ```env
 ADMIN_PASSWORD=votre_mot_de_passe_secret
 ```
 
 Pages :
+
 - [ ] `/admin/login` - Simple password input
 - [ ] Middleware pour protéger `/admin/*`
 - [ ] Session avec cookie httpOnly
@@ -141,23 +151,28 @@ Pages :
 ## 📋 Plan de Développement Admin
 
 ### Phase 1 : Hygraph Setup (1-2h)
+
 Vous devez le faire manuellement sur Hygraph.
 
 ### Phase 2 : Composants UI (4h)
+
 Créer tous les composants réutilisables.
 
 ### Phase 3 : Pages Admin (8h)
+
 - Dashboard (2h)
 - Catégories (2h)
 - Plats (2h)
 - Menus (2h)
 
 ### Phase 4 : Upload & Polish (2h)
+
 - Image upload avec preview
 - Validations complètes
 - UX/UI polish
 
 ### Phase 5 : Auth (2h)
+
 - Login page
 - Middleware protection
 - Session management
@@ -167,10 +182,12 @@ Créer tous les composants réutilisables.
 ## 🎯 Prochaines Actions
 
 ### Maintenant (Vous)
+
 1. **Configurer Hygraph** avec les schémas (suivre HYGRAPH_CONFIGURATION.md)
 2. **Tester les mutations** pour vérifier que tout fonctionne
 
 ### Ensuite (Moi)
+
 1. Créer les composants UI réutilisables
 2. Créer les hooks custom
 3. Créer les pages admin

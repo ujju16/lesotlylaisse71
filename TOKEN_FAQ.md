@@ -11,6 +11,7 @@
 ## ✅ Ce qui est DÉJÀ Configuré
 
 ### 1. GitHub Secrets ✅
+
 ```
 ✅ HYGRAPH_TOKEN (mis à jour il y a 11 minutes)
 ✅ NEXT_PUBLIC_HYGRAPH_URL (configuré)
@@ -21,6 +22,7 @@
 **Utilisé par** : Workflows CI/CD (build, tests, Lighthouse)
 
 ### 2. Vercel Environment Variables ✅
+
 ```
 ✅ HYGRAPH_TOKEN (Production)
 ✅ NEXT_PUBLIC_HYGRAPH_URL (Production, Preview, Development)
@@ -29,6 +31,7 @@
 **Utilisé par** : Déploiements Vercel (build et runtime)
 
 ### 3. Local .env.local ✅
+
 ```bash
 NEXT_PUBLIC_HYGRAPH_URL=https://api-eu-west-2.hygraph.com/...
 HYGRAPH_TOKEN=eyJhbGci...
@@ -62,20 +65,19 @@ Voici les routes qui utilisent le token Hygraph :
 ### Comment ça fonctionne ?
 
 1. **Dans le code** (`lib/hygraph.ts` par exemple) :
-```typescript
-import { GraphQLClient } from 'graphql-request';
 
-export const hygraph = new GraphQLClient(
-  process.env.NEXT_PUBLIC_HYGRAPH_URL!,
-  {
-    headers: {
-      Authorization: `Bearer ${process.env.HYGRAPH_TOKEN}`,
-    },
-  }
-);
+```typescript
+import { GraphQLClient } from "graphql-request";
+
+export const hygraph = new GraphQLClient(process.env.NEXT_PUBLIC_HYGRAPH_URL!, {
+  headers: {
+    Authorization: `Bearer ${process.env.HYGRAPH_TOKEN}`,
+  },
+});
 ```
 
 2. **Les routes API** utilisent ce client pour faire des mutations :
+
 ```typescript
 // Exemple: créer un plat
 await hygraph.request(mutation, variables);
@@ -88,16 +90,19 @@ await hygraph.request(mutation, variables);
 ## 🎯 Ce qu'il faut comprendre
 
 ### Token HYGRAPH_TOKEN
+
 - **But** : Permet de faire des mutations (Create, Update, Delete) sur Hygraph
 - **Où** : GitHub Secrets + Vercel + .env.local
 - **Utilisé par** : Routes API, Build process, CI/CD
 
 ### URL NEXT_PUBLIC_HYGRAPH_URL
+
 - **But** : L'endpoint GraphQL de votre projet Hygraph
 - **Où** : GitHub Secrets + Vercel + .env.local
 - **Pourquoi PUBLIC** : Peut être exposé côté client (pour les queries READ)
 
 ### Token CODECOV_TOKEN
+
 - **But** : Envoyer les rapports de coverage de tests
 - **Où** : GitHub Secrets + .env.local
 - **Utilisé par** : CI/CD workflows uniquement
@@ -119,11 +124,13 @@ await hygraph.request(mutation, variables);
 **Guide complet** : `docs/dev/guides/HYGRAPH_CONFIGURATION.md`
 
 ### Sans ces schémas :
+
 - ❌ Les routes API vont retourner des erreurs (champs introuvables)
 - ❌ On ne pourra pas créer/modifier de plats ou menus
 - ❌ L'interface admin ne fonctionnera pas
 
 ### Avec ces schémas :
+
 - ✅ Les routes API fonctionneront immédiatement
 - ✅ On pourra développer l'interface admin
 - ✅ Le système CRUD sera opérationnel
@@ -145,17 +152,20 @@ await hygraph.request(mutation, variables);
 ## 🎯 En Résumé
 
 ### Tokens ✅ Déjà Configurés
+
 - HYGRAPH_TOKEN : ✅ GitHub + Vercel + Local
 - NEXT_PUBLIC_HYGRAPH_URL : ✅ GitHub + Vercel + Local
 - CODECOV_TOKEN : ✅ GitHub + Local
 
 ### Routes API ✅ Créées
+
 - /api/categories (CRUD)
 - /api/dishes (CRUD)
 - /api/menus (CRUD)
 - /api/upload (Assets)
 
 ### Hygraph Schémas ❌ À Créer
+
 - Category (catégories)
 - MenuItem (plats/dishes)
 - Menu (menus)
@@ -175,6 +185,7 @@ Les routes API utilisent bien Hygraph pour gérer les plats (dishes) et menus !
 ---
 
 **Questions ?** Consultez :
+
 - Guide Hygraph : `docs/dev/guides/HYGRAPH_CONFIGURATION.md`
 - Guide Admin : `docs/dev/admin/README.md`
 - Résumé rapide : `QUICK_STATUS.md`

@@ -1,6 +1,7 @@
 # ✅ RÉSUMÉ RAPIDE - Tout est Prêt !
 
 ## 🎯 Statut Global
+
 **✅ Configuration 100% Terminée**  
 **✅ CI/CD Fonctionnel**  
 **✅ Domaine Actif: lesotlylaisse71.fr**  
@@ -11,20 +12,23 @@
 ## 🔐 Secrets & Tokens (Tous Configurés ✅)
 
 ### GitHub Secrets
+
 ```
 ✅ HYGRAPH_TOKEN
-✅ CODECOV_TOKEN  
+✅ CODECOV_TOKEN
 ✅ NEXT_PUBLIC_HYGRAPH_URL
 ✅ VERCEL_TOKEN + IDs
 ```
 
 ### Vercel Environment Variables
+
 ```
 ✅ HYGRAPH_TOKEN (Production)
 ✅ NEXT_PUBLIC_HYGRAPH_URL (All environments)
 ```
 
 ### Local (.env.local - NON COMMITÉ ✅)
+
 ```bash
 NEXT_PUBLIC_HYGRAPH_URL=https://api-eu-west-2.hygraph.com/v2/cmgz5sumn041u07vzbfvygjzt/master
 HYGRAPH_TOKEN=eyJhbGci... # Nouveau token configuré
@@ -157,7 +161,7 @@ Les routes API fonctionnent, il manque juste l'interface admin :
 **Documentation**: ✅  
 **CI/CD**: ✅  
 **Déploiement**: ✅  
-**Sécurité**: ✅  
+**Sécurité**: ✅
 
 **→ Prêt pour configurer Hygraph et développer l'admin !**
 

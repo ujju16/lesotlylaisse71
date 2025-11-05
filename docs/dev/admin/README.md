@@ -18,6 +18,7 @@ docs/dev/admin/
 ## 🎯 Fonctionnalités Prévues
 
 ### Phase 1 : Routes API ✅ (Completed)
+
 - ✅ Categories CRUD
 - ✅ Dishes CRUD
 - ✅ Menus CRUD
@@ -25,6 +26,7 @@ docs/dev/admin/
 - ✅ Reservations Management
 
 ### Phase 2 : Interface Admin (En cours)
+
 - [ ] Dashboard principal
 - [ ] Gestion des catégories
 - [ ] Gestion des plats
@@ -59,6 +61,7 @@ bun run dev
 ## 📚 Routes API Disponibles
 
 ### Catégories
+
 ```
 POST   /api/categories           - Créer
 GET    /api/categories           - Lister
@@ -68,6 +71,7 @@ POST   /api/categories/[id]/publish - Publier
 ```
 
 ### Plats
+
 ```
 POST   /api/dishes               - Créer
 GET    /api/dishes               - Lister
@@ -77,6 +81,7 @@ POST   /api/dishes/[id]/publish  - Publier
 ```
 
 ### Menus
+
 ```
 POST   /api/menus                - Créer
 GET    /api/menus                - Lister
@@ -87,12 +92,14 @@ PUT    /api/menus/[id]/dishes    - Gérer les plats
 ```
 
 ### Assets
+
 ```
 POST   /api/upload               - Upload image
 DELETE /api/assets/[id]          - Supprimer asset
 ```
 
 ### Réservations
+
 ```
 GET    /api/reservations         - Lister
 PUT    /api/reservations/[id]    - Modifier statut
@@ -102,11 +109,13 @@ DELETE /api/reservations/[id]    - Supprimer
 ## 🔐 Authentification
 
 ### Phase 1 : Simple Password (Actuel)
+
 ```env
 ADMIN_PASSWORD=votre_mot_de_passe
 ```
 
 ### Phase 2 : NextAuth (À venir)
+
 - Multi-utilisateurs
 - Rôles (admin, manager, serveur)
 - 2FA optionnel
@@ -114,17 +123,20 @@ ADMIN_PASSWORD=votre_mot_de_passe
 ## 🎨 Stack Technique
 
 **Backend**
+
 - Next.js App Router API Routes
 - Hygraph GraphQL API
 - TypeScript
 
 **Frontend**
+
 - React 19
 - Tailwind CSS + DaisyUI
 - React Hook Form
 - Zod (validation)
 
 **Upload**
+
 - Hygraph Asset API
 - browser-image-compression
 
@@ -153,6 +165,7 @@ ADMIN_PASSWORD=votre_mot_de_passe
 ## 🐛 Support
 
 Pour toute question ou problème :
+
 1. Consultez la [documentation Hygraph](https://hygraph.com/docs)
 2. Vérifiez les [archives](archive/) pour l'historique
 3. Testez les routes API avec curl ou Postman

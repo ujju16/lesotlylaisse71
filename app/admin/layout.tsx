@@ -27,7 +27,7 @@ export default function AdminLayout({
                 <Link href="/admin/menus">📋 Menus</Link>
               </li>
               <li>
-                <Link href="/admin">📱 QR Code</Link>
+                <Link href="/admin/qrcode">📱 QR Code</Link>
               </li>
             </ul>
             <Link href="/" className="btn btn-ghost btn-sm ml-4">

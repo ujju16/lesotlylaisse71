@@ -184,15 +184,18 @@ export default function AdminDashboard() {
           </div>
         </Link>
 
-        <div className="card bg-base-100 shadow-xl">
+        <Link
+          href="/admin/qrcode"
+          className="card bg-base-100 shadow-xl transition-shadow hover:shadow-2xl"
+        >
           <div className="card-body">
             <h2 className="card-title">📱 QR Code Menu</h2>
-            <p>Télécharger le QR code pour accès rapide au menu</p>
+            <p>Générer et télécharger le QR code pour accès rapide au menu</p>
             <div className="card-actions justify-end">
-              <button className="btn btn-outline">Bientôt</button>
+              <button className="btn btn-outline">Générer</button>
             </div>
           </div>
-        </div>
+        </Link>
       </div>
     </main>
   );

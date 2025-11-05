@@ -56,6 +56,7 @@ export default function DishesPage() {
   useEffect(() => {
     fetchDishes();
     fetchCategories();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const fetchDishes = async () => {
@@ -65,7 +66,7 @@ export default function DishesPage() {
       if (data.success) {
         setDishes(data.data);
       }
-    } catch (error) {
+    } catch {
       showToast("Erreur chargement plats", "error");
     } finally {
       setLoading(false);
@@ -79,7 +80,7 @@ export default function DishesPage() {
       if (data.success) {
         setCategories(data.data);
       }
-    } catch (error) {
+    } catch (error: unknown) {
       console.error("Error loading categories:", error);
     }
   };
@@ -166,7 +167,7 @@ export default function DishesPage() {
       } else {
         showToast(data.error || "Erreur", "error");
       }
-    } catch (error) {
+    } catch {
       showToast("Erreur réseau", "error");
     }
   };
@@ -182,7 +183,7 @@ export default function DishesPage() {
       } else {
         showToast(data.error || "Erreur suppression", "error");
       }
-    } catch (error) {
+    } catch {
       showToast("Erreur réseau", "error");
     }
     setDeleteConfirm(null);

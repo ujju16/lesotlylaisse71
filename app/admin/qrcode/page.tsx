@@ -23,6 +23,7 @@ export default function QRCodePage() {
 
   useEffect(() => {
     fetchMenus();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const fetchMenus = async () => {
@@ -36,7 +37,7 @@ export default function QRCodePage() {
           setSelectedMenuId(activeMenu.id);
         }
       }
-    } catch (error) {
+    } catch {
       showToast("Erreur chargement menus", "error");
     } finally {
       setLoading(false);
@@ -55,7 +56,8 @@ export default function QRCodePage() {
       const selectedMenu = menus.find((m) => m.id === selectedMenuId);
       if (!selectedMenu) return;
 
-      const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || window.location.origin;
+      const baseUrl =
+        process.env.NEXT_PUBLIC_BASE_URL || window.location.origin;
       const menuUrl = `${baseUrl}/menu/${selectedMenu.slug}`;
 
       const canvas = canvasRef.current;
@@ -234,7 +236,7 @@ export default function QRCodePage() {
             <h2 className="card-title mb-4">Aperçu</h2>
 
             <div
-              className="flex min-h-[400px] items-center justify-center rounded-lg border-2 border-dashed border-base-300 bg-base-200 p-8"
+              className="border-base-300 bg-base-200 flex min-h-[400px] items-center justify-center rounded-lg border-2 border-dashed p-8"
               role="region"
               aria-label="Aperçu du QR Code"
             >
@@ -242,7 +244,7 @@ export default function QRCodePage() {
                 <div className="text-center">
                   <canvas
                     ref={canvasRef}
-                    className="mx-auto rounded-lg border-4 border-base-100 shadow-lg"
+                    className="border-base-100 mx-auto rounded-lg border-4 shadow-lg"
                     aria-label="QR Code généré"
                   />
                   <div className="mt-6 space-y-2">
@@ -308,7 +310,7 @@ export default function QRCodePage() {
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
-                className="h-6 w-6 shrink-0 stroke-info"
+                className="stroke-info h-6 w-6 shrink-0"
                 aria-hidden="true"
               >
                 <path

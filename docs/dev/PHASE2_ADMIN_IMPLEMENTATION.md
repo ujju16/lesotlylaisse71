@@ -5,11 +5,13 @@
 ### Pages Admin
 
 #### 1. Dashboard (`/admin`)
+
 - ✅ Statistiques en temps réel (Categories, Plats, Menus)
 - ✅ Cards de navigation rapide
 - ✅ Design avec DaisyUI
 
 #### 2. Gestion Catégories (`/admin/categories`)
+
 - ✅ Liste en grille avec images
 - ✅ Modal création/édition
 - ✅ Upload d'images avec preview
@@ -19,6 +21,7 @@
 - ✅ Toast notifications
 
 #### 3. Gestion Plats (`/admin/dishes`)
+
 - ✅ Liste en grille avec filtres
 - ✅ Modal création/édition complète
 - ✅ Upload d'images
@@ -29,6 +32,7 @@
 - ✅ Gestion allergènes
 
 #### 4. Gestion Menus (`/admin/menus`)
+
 - ✅ Liste des menus avec badge actif
 - ✅ Modal création/édition
 - ✅ Gestion dates (début/fin)
@@ -40,17 +44,20 @@
 ### Composants Réutilisables
 
 #### UI Components
+
 - ✅ `Modal.tsx` - Modal générique
 - ✅ `ConfirmDialog.tsx` - Dialog de confirmation
 - ✅ `ToastProvider.tsx` - Système de notifications
 
 #### Hooks Custom
+
 - ✅ `useCategories.ts` - CRUD catégories
 - ✅ `useDishes.ts` - CRUD plats
 - ✅ `useMenus.ts` - CRUD menus
 - ✅ `useUpload.ts` - Upload images Hygraph
 
 ### Routes API (Backend)
+
 - ✅ `/api/categories` (GET, POST)
 - ✅ `/api/categories/[id]` (PUT, DELETE)
 - ✅ `/api/dishes` (GET, POST)
@@ -65,6 +72,7 @@
 ## 🚀 Améliorations Phase 2 (À FAIRE)
 
 ### 1. Accessibilité ARIA
+
 - [ ] Ajouter `aria-label` sur tous les boutons icônes
 - [ ] `role="dialog"` sur les modals
 - [ ] `aria-live` sur les toasts
@@ -75,6 +83,7 @@
 ### 2. Optimisations UX
 
 #### A. Gestion des Plats
+
 - [ ] Filtre par catégorie (dropdown)
 - [ ] Recherche par nom
 - [ ] Tri (nom, prix, date création)
@@ -82,12 +91,14 @@
 - [ ] Bouton "Dupliquer" un plat
 
 #### B. Gestion des Menus
+
 - [ ] Drag & drop pour réorganiser les plats
 - [ ] Prévisualisation du menu en temps réel
 - [ ] Export PDF du menu
 - [ ] Statistiques du menu (nb plats par catégorie)
 
 #### C. Dashboard
+
 - [ ] Graphiques (Chart.js ou Recharts)
 - [ ] Dernières modifications
 - [ ] Activité récente
@@ -96,18 +107,20 @@
 ### 3. Composants Manquants
 
 #### A. FormInput Components
+
 ```typescript
 // components/admin/ui/FormInput.tsx
-- TextInput
-- NumberInput
-- TextArea
-- Select
-- DatePicker
-- Toggle/Switch
-- FileUpload
+-TextInput -
+  NumberInput -
+  TextArea -
+  Select -
+  DatePicker -
+  Toggle / Switch -
+  FileUpload;
 ```
 
 #### B. ImageUpload Amélioré
+
 ```typescript
 // components/admin/ui/ImageUpload.tsx
 - [ ] Drag & drop zone visuellement clair
@@ -118,6 +131,7 @@
 ```
 
 #### C. DataTable Component
+
 ```typescript
 // components/admin/ui/DataTable.tsx
 - [ ] Tri par colonne
@@ -130,12 +144,14 @@
 ### 4. Validation & Sécurité
 
 #### A. Validation Formulaires
+
 - [ ] Intégrer Zod schemas
 - [ ] Validation en temps réel
 - [ ] Messages d'erreur contextuels
 - [ ] Validation côté serveur renforcée
 
 #### B. Authentification Admin
+
 - [ ] Page `/admin/login`
 - [ ] Middleware protection routes
 - [ ] Session management (cookies httpOnly)
@@ -145,12 +161,14 @@
 ### 5. Performance
 
 #### A. Caching
+
 - [ ] SWR pour cache côté client
 - [ ] Revalidation automatique
 - [ ] Optimistic updates
 - [ ] Cache Hygraph côté serveur
 
 #### B. Optimisation Images
+
 - [ ] Next.js Image avec blur placeholder
 - [ ] Lazy loading
 - [ ] Responsive images (srcset)
@@ -159,6 +177,7 @@
 ### 6. Fonctionnalités Avancées
 
 #### A. QR Code Generator
+
 - [ ] Page dédiée `/admin/qrcode`
 - [ ] Sélection du menu
 - [ ] Personnalisation QR (couleurs, logo)
@@ -166,6 +185,7 @@
 - [ ] Historique des QR codes générés
 
 #### B. Gestion Réservations
+
 - [ ] Page `/admin/reservations`
 - [ ] Tableau avec filtres (date, statut)
 - [ ] Changement de statut
@@ -173,6 +193,7 @@
 - [ ] Export CSV
 
 #### C. Analytics
+
 - [ ] Statistiques de consultation menu
 - [ ] Plats les plus vus
 - [ ] Taux de conversion réservations
@@ -183,18 +204,21 @@
 ## 📋 Plan d'Action Immédiat
 
 ### Priorité 1 (Cette semaine)
+
 1. **ARIA & Accessibilité** - Passer Lighthouse à 100%
 2. **Validation Zod** - Sécuriser tous les formulaires
 3. **Authentification** - Protéger l'admin
 4. **QR Code Generator** - Compléter la fonctionnalité
 
 ### Priorité 2 (Semaine prochaine)
+
 1. **Filtres & Recherche** - Améliorer UX plats/menus
 2. **Drag & Drop** - Réorganiser plats dans menus
 3. **Export PDF** - Générer PDF des menus
 4. **Gestion Réservations** - Interface complète
 
 ### Priorité 3 (Future)
+
 1. **Analytics Dashboard** - Statistiques avancées
 2. **Multi-langue** - i18n admin
 3. **Dark Mode** - Toggle thème
@@ -205,12 +229,13 @@
 ## 🎨 Composants à Créer
 
 ### 1. FormInput Component
+
 ```tsx
 // app/components/admin/ui/FormInput.tsx
 interface FormInputProps {
   label: string;
   name: string;
-  type?: 'text' | 'number' | 'email' | 'password';
+  type?: "text" | "number" | "email" | "password";
   placeholder?: string;
   required?: boolean;
   error?: string;
@@ -226,14 +251,17 @@ export function FormInput({ label, error, ...props }: FormInputProps) {
         {props.required && <span className="text-error">*</span>}
       </label>
       <input
-        className={`input input-bordered ${error ? 'input-error' : ''}`}
+        className={`input input-bordered ${error ? "input-error" : ""}`}
         aria-invalid={!!error}
         aria-describedby={error ? `${props.name}-error` : undefined}
         {...props}
       />
       {error && (
         <label className="label">
-          <span className="label-text-alt text-error" id={`${props.name}-error`}>
+          <span
+            className="label-text-alt text-error"
+            id={`${props.name}-error`}
+          >
             {error}
           </span>
         </label>
@@ -244,6 +272,7 @@ export function FormInput({ label, error, ...props }: FormInputProps) {
 ```
 
 ### 2. ImageUpload Component
+
 ```tsx
 // app/components/admin/ui/ImageUpload.tsx
 interface ImageUploadProps {
@@ -256,7 +285,7 @@ interface ImageUploadProps {
 
 export function ImageUpload({ value, onChange, loading }: ImageUploadProps) {
   const [isDragging, setIsDragging] = useState(false);
-  
+
   // Drag & drop handlers
   // Compression avec browser-image-compression
   // Preview avec zoom
@@ -265,6 +294,7 @@ export function ImageUpload({ value, onChange, loading }: ImageUploadProps) {
 ```
 
 ### 3. DataTable Component
+
 ```tsx
 // app/components/admin/ui/DataTable.tsx
 interface Column<T> {
@@ -293,55 +323,58 @@ export function DataTable<T>({ data, columns, actions }: DataTableProps<T>) {
 ## 🔐 Authentification Admin
 
 ### 1. Variables d'environnement
+
 ```env
 ADMIN_PASSWORD=VotreMotDePasseSecretTresLong123!
 ADMIN_SESSION_SECRET=random-secret-key-32-chars-min
 ```
 
 ### 2. Middleware Protection
+
 ```typescript
 // middleware.ts
 export function middleware(request: NextRequest) {
-  if (request.nextUrl.pathname.startsWith('/admin')) {
-    const session = request.cookies.get('admin-session');
-    
-    if (!session && request.nextUrl.pathname !== '/admin/login') {
-      return NextResponse.redirect(new URL('/admin/login', request.url));
+  if (request.nextUrl.pathname.startsWith("/admin")) {
+    const session = request.cookies.get("admin-session");
+
+    if (!session && request.nextUrl.pathname !== "/admin/login") {
+      return NextResponse.redirect(new URL("/admin/login", request.url));
     }
   }
-  
+
   return NextResponse.next();
 }
 
 export const config = {
-  matcher: '/admin/:path*',
+  matcher: "/admin/:path*",
 };
 ```
 
 ### 3. Page Login
+
 ```tsx
 // app/admin/login/page.tsx
-'use client';
+"use client";
 
 export default function AdminLogin() {
-  const [password, setPassword] = useState('');
-  
+  const [password, setPassword] = useState("");
+
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
-    
-    const res = await fetch('/api/auth/login', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+
+    const res = await fetch("/api/auth/login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ password }),
     });
-    
+
     if (res.ok) {
-      router.push('/admin');
+      router.push("/admin");
     } else {
       // Show error
     }
   };
-  
+
   return (
     <div className="flex min-h-screen items-center justify-center">
       <form onSubmit={handleLogin} className="card bg-base-100 w-96 shadow-xl">
@@ -357,25 +390,27 @@ export default function AdminLogin() {
 ## 🧪 Tests à Ajouter
 
 ### 1. Tests Unitaires
+
 ```typescript
 // __tests__/admin/useCategories.test.tsx
-describe('useCategories', () => {
-  test('fetches categories', async () => {
+describe("useCategories", () => {
+  test("fetches categories", async () => {
     // Test fetch
   });
-  
-  test('creates category', async () => {
+
+  test("creates category", async () => {
     // Test create
   });
 });
 ```
 
 ### 2. Tests E2E
+
 ```typescript
 // e2e/admin.spec.ts
-test('admin can create category', async ({ page }) => {
-  await page.goto('/admin/categories');
-  await page.click('text=Nouvelle Catégorie');
+test("admin can create category", async ({ page }) => {
+  await page.goto("/admin/categories");
+  await page.click("text=Nouvelle Catégorie");
   // ...
 });
 ```
@@ -385,18 +420,21 @@ test('admin can create category', async ({ page }) => {
 ## 📊 Métriques de Succès
 
 ### Performance
+
 - [ ] Lighthouse Performance > 90
 - [ ] Lighthouse Accessibility > 95
 - [ ] Lighthouse Best Practices > 90
 - [ ] Lighthouse SEO > 90
 
 ### Qualité Code
+
 - [ ] 0 erreurs ESLint
 - [ ] 0 erreurs TypeScript
 - [ ] Coverage tests > 80%
 - [ ] Bundle size < 200KB
 
 ### UX
+
 - [ ] Temps de chargement initial < 2s
 - [ ] Temps de réponse formulaire < 500ms
 - [ ] Upload image < 3s
@@ -407,6 +445,7 @@ test('admin can create category', async ({ page }) => {
 ## 🎯 Conclusion Phase 2
 
 La Phase 2 est **fonctionnelle** mais peut être **améliorée** sur :
+
 1. Accessibilité ARIA
 2. Validation formulaires
 3. Authentification

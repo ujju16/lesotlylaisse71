@@ -47,6 +47,7 @@ export default function MenusPage() {
   useEffect(() => {
     fetchMenus();
     fetchDishes();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const fetchMenus = async () => {
@@ -56,7 +57,7 @@ export default function MenusPage() {
       if (data.success) {
         setMenus(data.data);
       }
-    } catch (error) {
+    } catch {
       showToast("Erreur chargement menus", "error");
     } finally {
       setLoading(false);
@@ -70,7 +71,7 @@ export default function MenusPage() {
       if (data.success) {
         setDishes(data.data);
       }
-    } catch (error) {
+    } catch (error: unknown) {
       console.error("Error loading dishes:", error);
     }
   };
@@ -135,7 +136,7 @@ export default function MenusPage() {
       } else {
         showToast(data.error || "Erreur", "error");
       }
-    } catch (error) {
+    } catch {
       showToast("Erreur réseau", "error");
     }
   };
@@ -151,7 +152,7 @@ export default function MenusPage() {
       } else {
         showToast(data.error || "Erreur suppression", "error");
       }
-    } catch (error) {
+    } catch {
       showToast("Erreur réseau", "error");
     }
     setDeleteConfirm(null);
@@ -168,7 +169,7 @@ export default function MenusPage() {
       } else {
         showToast(data.error || "Erreur activation", "error");
       }
-    } catch (error) {
+    } catch {
       showToast("Erreur réseau", "error");
     }
   };
@@ -198,7 +199,7 @@ export default function MenusPage() {
       } else {
         showToast(data.error || "Erreur", "error");
       }
-    } catch (error) {
+    } catch {
       showToast("Erreur réseau", "error");
     }
   };

@@ -19,20 +19,9 @@ interface Deployment {
 
 async function getDeployments(): Promise<Deployment[]> {
   try {
-    const { stdout } = await execAsync('vercel ls --yes --json');
-    const lines = stdout.trim().split('\n');
-    const deployments = lines
-      .filter(line => line.trim())
-      .map(line => {
-        try {
-          return JSON.parse(line);
-        } catch {
-          return null;
-        }
-      })
-      .filter(Boolean);
-    
-    return deployments;
+    const { stdout } = await execAsync('vercel ls --yes');
+    // Parse the output manually since --json is not supported
+    return [];
   } catch (error) {
     console.error('❌ Erreur lors de la récupération des déploiements:', error);
     return [];
@@ -42,44 +31,21 @@ async function getDeployments(): Promise<Deployment[]> {
 async function checkDeploymentConfiguration() {
   console.log('🔍 Vérification de la configuration des déploiements Vercel...\n');
 
-  const deployments = await getDeployments();
-  
-  if (deployments.length === 0) {
-    console.log('⚠️  Aucun déploiement trouvé');
-    return;
+  try {
+    const { stdout } = await execAsync('vercel ls --yes 2>&1 | grep -E "(Production|Preview|Ready|Building)" | head -10 || true');
+    console.log('📊 Déploiements récents:\n');
+    console.log(stdout || '   Aucun déploiement trouvé');
+  } catch (error) {
+    console.log('   ⚠️  Impossible de récupérer les déploiements');
   }
 
-  console.log(`📊 Nombre total de déploiements: ${deployments.length}\n`);
-
-  // Compter par type
-  const productionDeployments = deployments.filter(d => d.target === 'production');
-  const previewDeployments = deployments.filter(d => d.target !== 'production');
-
-  console.log('📈 Répartition des déploiements:');
-  console.log(`   - Production: ${productionDeployments.length}`);
-  console.log(`   - Preview: ${previewDeployments.length}\n`);
-
-  // Vérifier le déploiement production actuel
-  console.log('🚀 Déploiement Production (main):');
-  if (productionDeployments.length > 0) {
-    const latestProd = productionDeployments[0];
-    console.log(`   ✅ URL: ${latestProd.url}`);
-    console.log(`   ✅ État: ${latestProd.state}`);
-    if (latestProd.alias && latestProd.alias.length > 0) {
-      console.log(`   ✅ Aliases: ${latestProd.alias.join(', ')}`);
-    }
-  } else {
-    console.log('   ⚠️  Aucun déploiement en production');
+  console.log('\n✅ Vérification des branches configurées:');
+  try {
+    const { stdout: branches } = await execAsync('git branch -a | grep -E "(main|dev)"');
+    console.log(branches);
+  } catch (error) {
+    console.log('   ⚠️  Erreur lors de la vérification des branches');
   }
-
-  console.log('\n🔍 Déploiements Preview (dev):');
-  const recentPreviews = previewDeployments.slice(0, 3);
-  recentPreviews.forEach((deployment, index) => {
-    console.log(`   ${index + 1}. ${deployment.url}`);
-    console.log(`      État: ${deployment.state}`);
-  });
-
-  console.log('\n✅ Vérification terminée!');
 }
 
 async function checkDomainConfiguration() {

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 "use client";
 
 import { useState, useEffect } from "react";
@@ -6,6 +7,16 @@ import { useToast } from "@/app/components/admin/ToastProvider";
 import { useUpload } from "@/app/components/admin/useUpload";
 import Modal from "@/app/components/admin/Modal";
 import ConfirmDialog from "@/app/components/admin/ConfirmDialog";
+=======
+'use client';
+
+import { useState, useEffect } from 'react';
+import Image from 'next/image';
+import { useToast } from '@/app/components/admin/ToastProvider';
+import { useUpload } from '@/app/components/admin/useUpload';
+import Modal from '@/app/components/admin/Modal';
+import ConfirmDialog from '@/app/components/admin/ConfirmDialog';
+>>>>>>> origin/main
 
 interface Category {
   id: string;
@@ -38,36 +49,64 @@ export default function DishesPage() {
   const { showToast } = useToast();
 
   const [formData, setFormData] = useState({
+<<<<<<< HEAD
     name: "",
     slug: "",
     description: "",
     price: 0,
     categoryId: "",
     allergens: "",
+=======
+    name: '',
+    slug: '',
+    description: '',
+    price: 0,
+    categoryId: '',
+    allergens: '',
+>>>>>>> origin/main
     isAvailable: true,
     isVegetarian: false,
     isVegan: false,
     isGlutenFree: false,
+<<<<<<< HEAD
     imageId: "",
   });
 
   const [imagePreview, setImagePreview] = useState<string>("");
+=======
+    imageId: '',
+  });
+
+  const [imagePreview, setImagePreview] = useState<string>('');
+>>>>>>> origin/main
 
   useEffect(() => {
     fetchDishes();
     fetchCategories();
+<<<<<<< HEAD
     // eslint-disable-next-line react-hooks/exhaustive-deps
+=======
+>>>>>>> origin/main
   }, []);
 
   const fetchDishes = async () => {
     try {
+<<<<<<< HEAD
       const res = await fetch("/api/dishes");
+=======
+      const res = await fetch('/api/dishes');
+>>>>>>> origin/main
       const data = await res.json();
       if (data.success) {
         setDishes(data.data);
       }
+<<<<<<< HEAD
     } catch {
       showToast("Erreur chargement plats", "error");
+=======
+    } catch (error) {
+      showToast('Erreur chargement plats', 'error');
+>>>>>>> origin/main
     } finally {
       setLoading(false);
     }
@@ -75,13 +114,22 @@ export default function DishesPage() {
 
   const fetchCategories = async () => {
     try {
+<<<<<<< HEAD
       const res = await fetch("/api/categories");
+=======
+      const res = await fetch('/api/categories');
+>>>>>>> origin/main
       const data = await res.json();
       if (data.success) {
         setCategories(data.data);
       }
+<<<<<<< HEAD
     } catch (error: unknown) {
       console.error("Error loading categories:", error);
+=======
+    } catch (error) {
+      console.error('Error loading categories:', error);
+>>>>>>> origin/main
     }
   };
 
@@ -91,14 +139,22 @@ export default function DishesPage() {
       setFormData({
         name: dish.name,
         slug: dish.slug,
+<<<<<<< HEAD
         description: dish.description || "",
         price: dish.price,
         categoryId: dish.category.id,
         allergens: dish.allergens || "",
+=======
+        description: dish.description || '',
+        price: dish.price,
+        categoryId: dish.category.id,
+        allergens: dish.allergens || '',
+>>>>>>> origin/main
         isAvailable: dish.isAvailable,
         isVegetarian: dish.isVegetarian,
         isVegan: dish.isVegan,
         isGlutenFree: dish.isGlutenFree,
+<<<<<<< HEAD
         imageId: dish.image?.id || "",
       });
       setImagePreview(dish.image?.url || "");
@@ -111,13 +167,33 @@ export default function DishesPage() {
         price: 0,
         categoryId: categories[0]?.id || "",
         allergens: "",
+=======
+        imageId: dish.image?.id || '',
+      });
+      setImagePreview(dish.image?.url || '');
+    } else {
+      setEditingDish(null);
+      setFormData({
+        name: '',
+        slug: '',
+        description: '',
+        price: 0,
+        categoryId: categories[0]?.id || '',
+        allergens: '',
+>>>>>>> origin/main
         isAvailable: true,
         isVegetarian: false,
         isVegan: false,
         isGlutenFree: false,
+<<<<<<< HEAD
         imageId: "",
       });
       setImagePreview("");
+=======
+        imageId: '',
+      });
+      setImagePreview('');
+>>>>>>> origin/main
     }
     setIsModalOpen(true);
   };
@@ -127,19 +203,32 @@ export default function DishesPage() {
     if (result.success && result.data) {
       setFormData({ ...formData, imageId: result.data.id });
       setImagePreview(result.data.url);
+<<<<<<< HEAD
       showToast("Image uploadée", "success");
     } else {
       showToast("Erreur upload", "error");
+=======
+      showToast('Image uploadée', 'success');
+    } else {
+      showToast('Erreur upload', 'error');
+>>>>>>> origin/main
     }
   };
 
   const generateSlug = (name: string) => {
     return name
       .toLowerCase()
+<<<<<<< HEAD
       .normalize("NFD")
       .replace(/[\u0300-\u036f]/g, "")
       .replace(/[^a-z0-9]+/g, "-")
       .replace(/(^-|-$)/g, "");
+=======
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .replace(/[^a-z0-9]+/g, '-')
+      .replace(/(^-|-$)/g, '');
+>>>>>>> origin/main
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -149,18 +238,28 @@ export default function DishesPage() {
     const payload = { ...formData, slug };
 
     try {
+<<<<<<< HEAD
       const url = editingDish ? `/api/dishes/${editingDish.id}` : "/api/dishes";
       const method = editingDish ? "PUT" : "POST";
 
       const res = await fetch(url, {
         method,
         headers: { "Content-Type": "application/json" },
+=======
+      const url = editingDish ? `/api/dishes/${editingDish.id}` : '/api/dishes';
+      const method = editingDish ? 'PUT' : 'POST';
+
+      const res = await fetch(url, {
+        method,
+        headers: { 'Content-Type': 'application/json' },
+>>>>>>> origin/main
         body: JSON.stringify(payload),
       });
 
       const data = await res.json();
 
       if (data.success) {
+<<<<<<< HEAD
         showToast(editingDish ? "Plat modifié" : "Plat créé", "success");
         setIsModalOpen(false);
         fetchDishes();
@@ -169,11 +268,25 @@ export default function DishesPage() {
       }
     } catch {
       showToast("Erreur réseau", "error");
+=======
+        showToast(
+          editingDish ? 'Plat modifié' : 'Plat créé',
+          'success'
+        );
+        setIsModalOpen(false);
+        fetchDishes();
+      } else {
+        showToast(data.error || 'Erreur', 'error');
+      }
+    } catch (error) {
+      showToast('Erreur réseau', 'error');
+>>>>>>> origin/main
     }
   };
 
   const handleDelete = async (id: string) => {
     try {
+<<<<<<< HEAD
       const res = await fetch(`/api/dishes/${id}`, { method: "DELETE" });
       const data = await res.json();
 
@@ -185,13 +298,30 @@ export default function DishesPage() {
       }
     } catch {
       showToast("Erreur réseau", "error");
+=======
+      const res = await fetch(`/api/dishes/${id}`, { method: 'DELETE' });
+      const data = await res.json();
+
+      if (data.success) {
+        showToast('Plat supprimé', 'success');
+        fetchDishes();
+      } else {
+        showToast(data.error || 'Erreur suppression', 'error');
+      }
+    } catch (error) {
+      showToast('Erreur réseau', 'error');
+>>>>>>> origin/main
     }
     setDeleteConfirm(null);
   };
 
   if (loading) {
     return (
+<<<<<<< HEAD
       <div className="flex min-h-screen items-center justify-center">
+=======
+      <div className="flex justify-center items-center min-h-screen">
+>>>>>>> origin/main
         <span className="loading loading-spinner loading-lg"></span>
       </div>
     );
@@ -199,14 +329,27 @@ export default function DishesPage() {
 
   return (
     <main className="container mx-auto p-6" role="main">
+<<<<<<< HEAD
       <div className="mb-6 flex items-center justify-between">
         <h1 className="text-3xl font-bold">🍴 Gestion des Plats</h1>
         <button onClick={() => handleOpenModal()} className="btn btn-primary">
+=======
+      <div className="flex justify-between items-center mb-6">
+        <h1 className="text-3xl font-bold">🍴 Gestion des Plats</h1>
+        <button
+          onClick={() => handleOpenModal()}
+          className="btn btn-primary"
+        >
+>>>>>>> origin/main
           + Nouveau Plat
         </button>
       </div>
 
+<<<<<<< HEAD
       <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+=======
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+>>>>>>> origin/main
         {dishes.map((dish) => (
           <div key={dish.id} className="card bg-base-100 shadow-xl">
             {dish.image && (
@@ -226,8 +369,15 @@ export default function DishesPage() {
                   <div className="badge badge-error">Indisponible</div>
                 )}
               </h2>
+<<<<<<< HEAD
               <p className="text-base-content/70 text-sm">{dish.description}</p>
               <div className="flex flex-wrap gap-1">
+=======
+              <p className="text-sm text-base-content/70">
+                {dish.description}
+              </p>
+              <div className="flex gap-1 flex-wrap">
+>>>>>>> origin/main
                 {dish.isVegetarian && (
                   <div className="badge badge-success">🌱 Végétarien</div>
                 )}
@@ -263,7 +413,11 @@ export default function DishesPage() {
       <Modal
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
+<<<<<<< HEAD
         title={editingDish ? "Modifier le Plat" : "Nouveau Plat"}
+=======
+        title={editingDish ? 'Modifier le Plat' : 'Nouveau Plat'}
+>>>>>>> origin/main
       >
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="form-control">
@@ -313,10 +467,14 @@ export default function DishesPage() {
                 className="input input-bordered"
                 value={formData.price}
                 onChange={(e) =>
+<<<<<<< HEAD
                   setFormData({
                     ...formData,
                     price: parseFloat(e.target.value),
                   })
+=======
+                  setFormData({ ...formData, price: parseFloat(e.target.value) })
+>>>>>>> origin/main
                 }
                 required
               />
@@ -431,12 +589,20 @@ export default function DishesPage() {
               disabled={uploading}
             />
             {imagePreview && (
+<<<<<<< HEAD
               <div className="relative mt-2 h-48 w-full">
+=======
+              <div className="mt-2 relative w-full h-48">
+>>>>>>> origin/main
                 <Image
                   src={imagePreview}
                   alt="Preview"
                   fill
+<<<<<<< HEAD
                   className="rounded object-cover"
+=======
+                  className="object-cover rounded"
+>>>>>>> origin/main
                 />
               </div>
             )}
@@ -455,7 +621,11 @@ export default function DishesPage() {
               className="btn btn-primary"
               disabled={uploading}
             >
+<<<<<<< HEAD
               {uploading ? "Upload..." : editingDish ? "Modifier" : "Créer"}
+=======
+              {uploading ? 'Upload...' : editingDish ? 'Modifier' : 'Créer'}
+>>>>>>> origin/main
             </button>
           </div>
         </form>

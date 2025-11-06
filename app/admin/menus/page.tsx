@@ -1,9 +1,18 @@
+<<<<<<< HEAD
 "use client";
 
 import { useState, useEffect } from "react";
 import { useToast } from "@/app/components/admin/ToastProvider";
 import Modal from "@/app/components/admin/Modal";
 import ConfirmDialog from "@/app/components/admin/ConfirmDialog";
+=======
+'use client';
+
+import { useState, useEffect } from 'react';
+import { useToast } from '@/app/components/admin/ToastProvider';
+import Modal from '@/app/components/admin/Modal';
+import ConfirmDialog from '@/app/components/admin/ConfirmDialog';
+>>>>>>> origin/main
 
 interface Dish {
   id: string;
@@ -36,29 +45,49 @@ export default function MenusPage() {
   const { showToast } = useToast();
 
   const [formData, setFormData] = useState({
+<<<<<<< HEAD
     name: "",
     slug: "",
     description: "",
     startDate: "",
     endDate: "",
+=======
+    name: '',
+    slug: '',
+    description: '',
+    startDate: '',
+    endDate: '',
+>>>>>>> origin/main
     isActive: false,
   });
 
   useEffect(() => {
     fetchMenus();
     fetchDishes();
+<<<<<<< HEAD
     // eslint-disable-next-line react-hooks/exhaustive-deps
+=======
+>>>>>>> origin/main
   }, []);
 
   const fetchMenus = async () => {
     try {
+<<<<<<< HEAD
       const res = await fetch("/api/menus");
+=======
+      const res = await fetch('/api/menus');
+>>>>>>> origin/main
       const data = await res.json();
       if (data.success) {
         setMenus(data.data);
       }
+<<<<<<< HEAD
     } catch {
       showToast("Erreur chargement menus", "error");
+=======
+    } catch (error) {
+      showToast('Erreur chargement menus', 'error');
+>>>>>>> origin/main
     } finally {
       setLoading(false);
     }
@@ -66,13 +95,22 @@ export default function MenusPage() {
 
   const fetchDishes = async () => {
     try {
+<<<<<<< HEAD
       const res = await fetch("/api/dishes");
+=======
+      const res = await fetch('/api/dishes');
+>>>>>>> origin/main
       const data = await res.json();
       if (data.success) {
         setDishes(data.data);
       }
+<<<<<<< HEAD
     } catch (error: unknown) {
       console.error("Error loading dishes:", error);
+=======
+    } catch (error) {
+      console.error('Error loading dishes:', error);
+>>>>>>> origin/main
     }
   };
 
@@ -82,13 +120,20 @@ export default function MenusPage() {
       setFormData({
         name: menu.name,
         slug: menu.slug,
+<<<<<<< HEAD
         description: menu.description || "",
         startDate: menu.startDate.split("T")[0],
         endDate: menu.endDate ? menu.endDate.split("T")[0] : "",
+=======
+        description: menu.description || '',
+        startDate: menu.startDate.split('T')[0],
+        endDate: menu.endDate ? menu.endDate.split('T')[0] : '',
+>>>>>>> origin/main
         isActive: menu.isActive,
       });
     } else {
       setEditingMenu(null);
+<<<<<<< HEAD
       const today = new Date().toISOString().split("T")[0];
       setFormData({
         name: "",
@@ -96,6 +141,15 @@ export default function MenusPage() {
         description: "",
         startDate: today,
         endDate: "",
+=======
+      const today = new Date().toISOString().split('T')[0];
+      setFormData({
+        name: '',
+        slug: '',
+        description: '',
+        startDate: today,
+        endDate: '',
+>>>>>>> origin/main
         isActive: false,
       });
     }
@@ -105,10 +159,17 @@ export default function MenusPage() {
   const generateSlug = (name: string) => {
     return name
       .toLowerCase()
+<<<<<<< HEAD
       .normalize("NFD")
       .replace(/[\u0300-\u036f]/g, "")
       .replace(/[^a-z0-9]+/g, "-")
       .replace(/(^-|-$)/g, "");
+=======
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .replace(/[^a-z0-9]+/g, '-')
+      .replace(/(^-|-$)/g, '');
+>>>>>>> origin/main
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -118,18 +179,28 @@ export default function MenusPage() {
     const payload = { ...formData, slug };
 
     try {
+<<<<<<< HEAD
       const url = editingMenu ? `/api/menus/${editingMenu.id}` : "/api/menus";
       const method = editingMenu ? "PUT" : "POST";
 
       const res = await fetch(url, {
         method,
         headers: { "Content-Type": "application/json" },
+=======
+      const url = editingMenu ? `/api/menus/${editingMenu.id}` : '/api/menus';
+      const method = editingMenu ? 'PUT' : 'POST';
+
+      const res = await fetch(url, {
+        method,
+        headers: { 'Content-Type': 'application/json' },
+>>>>>>> origin/main
         body: JSON.stringify(payload),
       });
 
       const data = await res.json();
 
       if (data.success) {
+<<<<<<< HEAD
         showToast(editingMenu ? "Menu modifié" : "Menu créé", "success");
         setIsModalOpen(false);
         fetchMenus();
@@ -138,11 +209,25 @@ export default function MenusPage() {
       }
     } catch {
       showToast("Erreur réseau", "error");
+=======
+        showToast(
+          editingMenu ? 'Menu modifié' : 'Menu créé',
+          'success'
+        );
+        setIsModalOpen(false);
+        fetchMenus();
+      } else {
+        showToast(data.error || 'Erreur', 'error');
+      }
+    } catch (error) {
+      showToast('Erreur réseau', 'error');
+>>>>>>> origin/main
     }
   };
 
   const handleDelete = async (id: string) => {
     try {
+<<<<<<< HEAD
       const res = await fetch(`/api/menus/${id}`, { method: "DELETE" });
       const data = await res.json();
 
@@ -154,12 +239,26 @@ export default function MenusPage() {
       }
     } catch {
       showToast("Erreur réseau", "error");
+=======
+      const res = await fetch(`/api/menus/${id}`, { method: 'DELETE' });
+      const data = await res.json();
+
+      if (data.success) {
+        showToast('Menu supprimé', 'success');
+        fetchMenus();
+      } else {
+        showToast(data.error || 'Erreur suppression', 'error');
+      }
+    } catch (error) {
+      showToast('Erreur réseau', 'error');
+>>>>>>> origin/main
     }
     setDeleteConfirm(null);
   };
 
   const handleActivate = async (id: string) => {
     try {
+<<<<<<< HEAD
       const res = await fetch(`/api/menus/${id}/activate`, { method: "POST" });
       const data = await res.json();
 
@@ -171,6 +270,19 @@ export default function MenusPage() {
       }
     } catch {
       showToast("Erreur réseau", "error");
+=======
+      const res = await fetch(`/api/menus/${id}/activate`, { method: 'POST' });
+      const data = await res.json();
+
+      if (data.success) {
+        showToast('Menu activé', 'success');
+        fetchMenus();
+      } else {
+        showToast(data.error || 'Erreur activation', 'error');
+      }
+    } catch (error) {
+      showToast('Erreur réseau', 'error');
+>>>>>>> origin/main
     }
   };
 
@@ -185,14 +297,20 @@ export default function MenusPage() {
 
     try {
       const res = await fetch(`/api/menus/${selectedMenuId}/dishes`, {
+<<<<<<< HEAD
         method: "PUT",
         headers: { "Content-Type": "application/json" },
+=======
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+>>>>>>> origin/main
         body: JSON.stringify({ dishIds: selectedDishes }),
       });
 
       const data = await res.json();
 
       if (data.success) {
+<<<<<<< HEAD
         showToast("Plats mis à jour", "success");
         setIsDishModalOpen(false);
         fetchMenus();
@@ -201,6 +319,16 @@ export default function MenusPage() {
       }
     } catch {
       showToast("Erreur réseau", "error");
+=======
+        showToast('Plats mis à jour', 'success');
+        setIsDishModalOpen(false);
+        fetchMenus();
+      } else {
+        showToast(data.error || 'Erreur', 'error');
+      }
+    } catch (error) {
+      showToast('Erreur réseau', 'error');
+>>>>>>> origin/main
     }
   };
 
@@ -214,7 +342,11 @@ export default function MenusPage() {
 
   if (loading) {
     return (
+<<<<<<< HEAD
       <div className="flex min-h-screen items-center justify-center">
+=======
+      <div className="flex justify-center items-center min-h-screen">
+>>>>>>> origin/main
         <span className="loading loading-spinner loading-lg"></span>
       </div>
     );
@@ -222,23 +354,44 @@ export default function MenusPage() {
 
   return (
     <main className="container mx-auto p-6" role="main">
+<<<<<<< HEAD
       <div className="mb-6 flex items-center justify-between">
         <h1 className="text-3xl font-bold">📋 Gestion des Menus</h1>
         <button onClick={() => handleOpenModal()} className="btn btn-primary">
+=======
+      <div className="flex justify-between items-center mb-6">
+        <h1 className="text-3xl font-bold">📋 Gestion des Menus</h1>
+        <button
+          onClick={() => handleOpenModal()}
+          className="btn btn-primary"
+        >
+>>>>>>> origin/main
           + Nouveau Menu
         </button>
       </div>
 
+<<<<<<< HEAD
       <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
+=======
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+>>>>>>> origin/main
         {menus.map((menu) => (
           <div
             key={menu.id}
             className={`card bg-base-100 shadow-xl ${
+<<<<<<< HEAD
               menu.isActive ? "ring-2 ring-primary" : ""
             }`}
           >
             <div className="card-body">
               <div className="flex items-start justify-between">
+=======
+              menu.isActive ? 'ring-2 ring-primary' : ''
+            }`}
+          >
+            <div className="card-body">
+              <div className="flex justify-between items-start">
+>>>>>>> origin/main
                 <h2 className="card-title">
                   {menu.name}
                   {menu.isActive && (
@@ -246,9 +399,15 @@ export default function MenusPage() {
                   )}
                 </h2>
               </div>
+<<<<<<< HEAD
 
               <p className="text-base-content/70 text-sm">
                 {menu.description || "Aucune description"}
+=======
+              
+              <p className="text-sm text-base-content/70">
+                {menu.description || 'Aucune description'}
+>>>>>>> origin/main
               </p>
 
               <div className="text-sm">
@@ -260,24 +419,41 @@ export default function MenusPage() {
 
               <div className="divider my-2">Plats ({menu.dishes.length})</div>
 
+<<<<<<< HEAD
               <div className="max-h-40 space-y-1 overflow-y-auto">
                 {menu.dishes.length > 0 ? (
                   menu.dishes.map((dish) => (
                     <div key={dish.id} className="flex justify-between text-sm">
                       <span>{dish.name}</span>
                       <span className="font-medium text-primary">
+=======
+              <div className="max-h-40 overflow-y-auto space-y-1">
+                {menu.dishes.length > 0 ? (
+                  menu.dishes.map((dish) => (
+                    <div key={dish.id} className="text-sm flex justify-between">
+                      <span>{dish.name}</span>
+                      <span className="text-primary font-medium">
+>>>>>>> origin/main
                         {dish.price.toFixed(2)} €
                       </span>
                     </div>
                   ))
                 ) : (
+<<<<<<< HEAD
                   <p className="text-base-content/50 text-sm">
+=======
+                  <p className="text-sm text-base-content/50">
+>>>>>>> origin/main
                     Aucun plat dans ce menu
                   </p>
                 )}
               </div>
 
+<<<<<<< HEAD
               <div className="card-actions mt-4 justify-between">
+=======
+              <div className="card-actions justify-between mt-4">
+>>>>>>> origin/main
                 <div className="space-x-2">
                   <button
                     onClick={() => handleOpenModal(menu)}
@@ -319,7 +495,11 @@ export default function MenusPage() {
       <Modal
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
+<<<<<<< HEAD
         title={editingMenu ? "Modifier le Menu" : "Nouveau Menu"}
+=======
+        title={editingMenu ? 'Modifier le Menu' : 'Nouveau Menu'}
+>>>>>>> origin/main
       >
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="form-control">
@@ -417,7 +597,11 @@ export default function MenusPage() {
               Annuler
             </button>
             <button type="submit" className="btn btn-primary">
+<<<<<<< HEAD
               {editingMenu ? "Modifier" : "Créer"}
+=======
+              {editingMenu ? 'Modifier' : 'Créer'}
+>>>>>>> origin/main
             </button>
           </div>
         </form>
@@ -430,6 +614,7 @@ export default function MenusPage() {
         title="Gérer les Plats du Menu"
       >
         <div className="space-y-4">
+<<<<<<< HEAD
           <p className="text-base-content/70 text-sm">
             Sélectionnez les plats à inclure dans ce menu
           </p>
@@ -443,6 +628,21 @@ export default function MenusPage() {
                 <div>
                   <div className="font-medium">{dish.name}</div>
                   <div className="text-base-content/60 text-sm">
+=======
+          <p className="text-sm text-base-content/70">
+            Sélectionnez les plats à inclure dans ce menu
+          </p>
+
+          <div className="max-h-96 overflow-y-auto space-y-2">
+            {dishes.map((dish) => (
+              <div
+                key={dish.id}
+                className="flex items-center justify-between p-3 bg-base-200 rounded-lg"
+              >
+                <div>
+                  <div className="font-medium">{dish.name}</div>
+                  <div className="text-sm text-base-content/60">
+>>>>>>> origin/main
                     {dish.category.name} • {dish.price.toFixed(2)} €
                   </div>
                 </div>

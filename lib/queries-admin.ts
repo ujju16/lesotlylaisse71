@@ -11,6 +11,7 @@ export interface Category {
   order: number;
   icon?: string;
   image?: {
+    id: string;
     url: string;
   };
 }
@@ -71,6 +72,7 @@ export async function getCategories(): Promise<Category[]> {
         order
         icon
         image {
+          id
           url
         }
       }
@@ -79,7 +81,7 @@ export async function getCategories(): Promise<Category[]> {
 
   try {
     const data: { categories: Category[] } =
-      await publicHygraphClient.request(query);
+      await adminHygraphClient.request(query);
     return data.categories;
   } catch (error) {
     console.error("Error fetching categories:", error);

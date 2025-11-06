@@ -1,8 +1,8 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import AuthLayout from "@/components/auth/AuthLayout";
-import LoginForm from "@/components/auth/LoginForm";
+import AuthLayout from "@/app/components/auth/AuthLayout";
+import LoginForm from "@/app/components/auth/LoginForm";
 import { ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import theme from "@/lib/theme";

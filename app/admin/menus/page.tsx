@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import { useState, useEffect } from 'react';
-import { useToast } from '@/app/components/admin/ToastProvider';
-import Modal from '@/app/components/admin/Modal';
-import ConfirmDialog from '@/app/components/admin/ConfirmDialog';
+import { useState, useEffect } from "react";
+import { useToast } from "@/app/components/admin/ToastProvider";
+import Modal from "@/app/components/admin/Modal";
+import ConfirmDialog from "@/app/components/admin/ConfirmDialog";
 
 interface Dish {
   id: string;
@@ -36,28 +36,29 @@ export default function MenusPage() {
   const { showToast } = useToast();
 
   const [formData, setFormData] = useState({
-    name: '',
-    slug: '',
-    description: '',
-    startDate: '',
-    endDate: '',
+    name: "",
+    slug: "",
+    description: "",
+    startDate: "",
+    endDate: "",
     isActive: false,
   });
 
   useEffect(() => {
     fetchMenus();
     fetchDishes();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const fetchMenus = async () => {
     try {
-      const res = await fetch('/api/menus');
+      const res = await fetch("/api/menus");
       const data = await res.json();
       if (data.success) {
         setMenus(data.data);
       }
-    } catch (error) {
-      showToast('Erreur chargement menus', 'error');
+    } catch {
+      showToast("Erreur chargement menus", "error");
     } finally {
       setLoading(false);
     }
@@ -65,13 +66,13 @@ export default function MenusPage() {
 
   const fetchDishes = async () => {
     try {
-      const res = await fetch('/api/dishes');
+      const res = await fetch("/api/dishes");
       const data = await res.json();
       if (data.success) {
         setDishes(data.data);
       }
-    } catch (error) {
-      console.error('Error loading dishes:', error);
+    } catch (error: unknown) {
+      console.error("Error loading dishes:", error);
     }
   };
 
@@ -81,20 +82,20 @@ export default function MenusPage() {
       setFormData({
         name: menu.name,
         slug: menu.slug,
-        description: menu.description || '',
-        startDate: menu.startDate.split('T')[0],
-        endDate: menu.endDate ? menu.endDate.split('T')[0] : '',
+        description: menu.description || "",
+        startDate: menu.startDate.split("T")[0],
+        endDate: menu.endDate ? menu.endDate.split("T")[0] : "",
         isActive: menu.isActive,
       });
     } else {
       setEditingMenu(null);
-      const today = new Date().toISOString().split('T')[0];
+      const today = new Date().toISOString().split("T")[0];
       setFormData({
-        name: '',
-        slug: '',
-        description: '',
+        name: "",
+        slug: "",
+        description: "",
         startDate: today,
-        endDate: '',
+        endDate: "",
         isActive: false,
       });
     }
@@ -104,10 +105,10 @@ export default function MenusPage() {
   const generateSlug = (name: string) => {
     return name
       .toLowerCase()
-      .normalize('NFD')
-      .replace(/[\u0300-\u036f]/g, '')
-      .replace(/[^a-z0-9]+/g, '-')
-      .replace(/(^-|-$)/g, '');
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/(^-|-$)/g, "");
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -117,62 +118,59 @@ export default function MenusPage() {
     const payload = { ...formData, slug };
 
     try {
-      const url = editingMenu ? `/api/menus/${editingMenu.id}` : '/api/menus';
-      const method = editingMenu ? 'PUT' : 'POST';
+      const url = editingMenu ? `/api/menus/${editingMenu.id}` : "/api/menus";
+      const method = editingMenu ? "PUT" : "POST";
 
       const res = await fetch(url, {
         method,
-        headers: { 'Content-Type': 'application/json' },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
       });
 
       const data = await res.json();
 
       if (data.success) {
-        showToast(
-          editingMenu ? 'Menu modifié' : 'Menu créé',
-          'success'
-        );
+        showToast(editingMenu ? "Menu modifié" : "Menu créé", "success");
         setIsModalOpen(false);
         fetchMenus();
       } else {
-        showToast(data.error || 'Erreur', 'error');
+        showToast(data.error || "Erreur", "error");
       }
-    } catch (error) {
-      showToast('Erreur réseau', 'error');
+    } catch {
+      showToast("Erreur réseau", "error");
     }
   };
 
   const handleDelete = async (id: string) => {
     try {
-      const res = await fetch(`/api/menus/${id}`, { method: 'DELETE' });
+      const res = await fetch(`/api/menus/${id}`, { method: "DELETE" });
       const data = await res.json();
 
       if (data.success) {
-        showToast('Menu supprimé', 'success');
+        showToast("Menu supprimé", "success");
         fetchMenus();
       } else {
-        showToast(data.error || 'Erreur suppression', 'error');
+        showToast(data.error || "Erreur suppression", "error");
       }
-    } catch (error) {
-      showToast('Erreur réseau', 'error');
+    } catch {
+      showToast("Erreur réseau", "error");
     }
     setDeleteConfirm(null);
   };
 
   const handleActivate = async (id: string) => {
     try {
-      const res = await fetch(`/api/menus/${id}/activate`, { method: 'POST' });
+      const res = await fetch(`/api/menus/${id}/activate`, { method: "POST" });
       const data = await res.json();
 
       if (data.success) {
-        showToast('Menu activé', 'success');
+        showToast("Menu activé", "success");
         fetchMenus();
       } else {
-        showToast(data.error || 'Erreur activation', 'error');
+        showToast(data.error || "Erreur activation", "error");
       }
-    } catch (error) {
-      showToast('Erreur réseau', 'error');
+    } catch {
+      showToast("Erreur réseau", "error");
     }
   };
 
@@ -187,22 +185,22 @@ export default function MenusPage() {
 
     try {
       const res = await fetch(`/api/menus/${selectedMenuId}/dishes`, {
-        method: 'PUT',
-        headers: { 'Content-Type': 'application/json' },
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ dishIds: selectedDishes }),
       });
 
       const data = await res.json();
 
       if (data.success) {
-        showToast('Plats mis à jour', 'success');
+        showToast("Plats mis à jour", "success");
         setIsDishModalOpen(false);
         fetchMenus();
       } else {
-        showToast(data.error || 'Erreur', 'error');
+        showToast(data.error || "Erreur", "error");
       }
-    } catch (error) {
-      showToast('Erreur réseau', 'error');
+    } catch {
+      showToast("Erreur réseau", "error");
     }
   };
 
@@ -216,7 +214,7 @@ export default function MenusPage() {
 
   if (loading) {
     return (
-      <div className="flex justify-center items-center min-h-screen">
+      <div className="flex min-h-screen items-center justify-center">
         <span className="loading loading-spinner loading-lg"></span>
       </div>
     );
@@ -224,26 +222,23 @@ export default function MenusPage() {
 
   return (
     <main className="container mx-auto p-6" role="main">
-      <div className="flex justify-between items-center mb-6">
+      <div className="mb-6 flex items-center justify-between">
         <h1 className="text-3xl font-bold">📋 Gestion des Menus</h1>
-        <button
-          onClick={() => handleOpenModal()}
-          className="btn btn-primary"
-        >
+        <button onClick={() => handleOpenModal()} className="btn btn-primary">
           + Nouveau Menu
         </button>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
         {menus.map((menu) => (
           <div
             key={menu.id}
             className={`card bg-base-100 shadow-xl ${
-              menu.isActive ? 'ring-2 ring-primary' : ''
+              menu.isActive ? "ring-2 ring-primary" : ""
             }`}
           >
             <div className="card-body">
-              <div className="flex justify-between items-start">
+              <div className="flex items-start justify-between">
                 <h2 className="card-title">
                   {menu.name}
                   {menu.isActive && (
@@ -251,9 +246,9 @@ export default function MenusPage() {
                   )}
                 </h2>
               </div>
-              
-              <p className="text-sm text-base-content/70">
-                {menu.description || 'Aucune description'}
+
+              <p className="text-base-content/70 text-sm">
+                {menu.description || "Aucune description"}
               </p>
 
               <div className="text-sm">
@@ -265,24 +260,24 @@ export default function MenusPage() {
 
               <div className="divider my-2">Plats ({menu.dishes.length})</div>
 
-              <div className="max-h-40 overflow-y-auto space-y-1">
+              <div className="max-h-40 space-y-1 overflow-y-auto">
                 {menu.dishes.length > 0 ? (
                   menu.dishes.map((dish) => (
-                    <div key={dish.id} className="text-sm flex justify-between">
+                    <div key={dish.id} className="flex justify-between text-sm">
                       <span>{dish.name}</span>
-                      <span className="text-primary font-medium">
+                      <span className="font-medium text-primary">
                         {dish.price.toFixed(2)} €
                       </span>
                     </div>
                   ))
                 ) : (
-                  <p className="text-sm text-base-content/50">
+                  <p className="text-base-content/50 text-sm">
                     Aucun plat dans ce menu
                   </p>
                 )}
               </div>
 
-              <div className="card-actions justify-between mt-4">
+              <div className="card-actions mt-4 justify-between">
                 <div className="space-x-2">
                   <button
                     onClick={() => handleOpenModal(menu)}
@@ -324,7 +319,7 @@ export default function MenusPage() {
       <Modal
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
-        title={editingMenu ? 'Modifier le Menu' : 'Nouveau Menu'}
+        title={editingMenu ? "Modifier le Menu" : "Nouveau Menu"}
       >
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="form-control">
@@ -422,7 +417,7 @@ export default function MenusPage() {
               Annuler
             </button>
             <button type="submit" className="btn btn-primary">
-              {editingMenu ? 'Modifier' : 'Créer'}
+              {editingMenu ? "Modifier" : "Créer"}
             </button>
           </div>
         </form>
@@ -435,19 +430,19 @@ export default function MenusPage() {
         title="Gérer les Plats du Menu"
       >
         <div className="space-y-4">
-          <p className="text-sm text-base-content/70">
+          <p className="text-base-content/70 text-sm">
             Sélectionnez les plats à inclure dans ce menu
           </p>
 
-          <div className="max-h-96 overflow-y-auto space-y-2">
+          <div className="max-h-96 space-y-2 overflow-y-auto">
             {dishes.map((dish) => (
               <div
                 key={dish.id}
-                className="flex items-center justify-between p-3 bg-base-200 rounded-lg"
+                className="bg-base-200 flex items-center justify-between rounded-lg p-3"
               >
                 <div>
                   <div className="font-medium">{dish.name}</div>
-                  <div className="text-sm text-base-content/60">
+                  <div className="text-base-content/60 text-sm">
                     {dish.category.name} • {dish.price.toFixed(2)} €
                   </div>
                 </div>

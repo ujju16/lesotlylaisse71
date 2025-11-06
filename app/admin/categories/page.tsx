@@ -1,16 +1,22 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import Image from 'next/image';
-import { useCategories } from '@/app/components/admin/useCategories';
-import { useUpload } from '@/app/components/admin/useUpload';
-import { useToast } from '@/app/components/admin/ToastProvider';
-import Modal from '@/app/components/admin/Modal';
-import ConfirmDialog from '@/app/components/admin/ConfirmDialog';
-import type { Category } from '@/lib/types';
+import { useState } from "react";
+import Image from "next/image";
+import { useCategories } from "@/app/components/admin/useCategories";
+import { useUpload } from "@/app/components/admin/useUpload";
+import { useToast } from "@/app/components/admin/ToastProvider";
+import Modal from "@/app/components/admin/Modal";
+import ConfirmDialog from "@/app/components/admin/ConfirmDialog";
+import type { Category } from "@/lib/types";
 
 export default function CategoriesPage() {
-  const { categories, loading, createCategory, updateCategory, deleteCategory } = useCategories();
+  const {
+    categories,
+    loading,
+    createCategory,
+    updateCategory,
+    deleteCategory,
+  } = useCategories();
   const { uploadImage, uploading } = useUpload();
   const { showToast } = useToast();
 
@@ -19,15 +25,15 @@ export default function CategoriesPage() {
   const [deleteConfirm, setDeleteConfirm] = useState<string | null>(null);
 
   const [formData, setFormData] = useState({
-    name: '',
-    slug: '',
-    description: '',
+    name: "",
+    slug: "",
+    description: "",
     order: 0,
-    icon: '',
-    imageId: '',
+    icon: "",
+    imageId: "",
   });
 
-  const [imagePreview, setImagePreview] = useState<string>('');
+  const [imagePreview, setImagePreview] = useState<string>("");
 
   const handleOpenModal = (category?: Category) => {
     if (category) {
@@ -35,23 +41,23 @@ export default function CategoriesPage() {
       setFormData({
         name: category.name,
         slug: category.slug,
-        description: category.description || '',
+        description: category.description || "",
         order: category.order,
-        icon: category.icon || '',
-        imageId: category.image?.id || '',
+        icon: category.icon || "",
+        imageId: category.image?.id || "",
       });
-      setImagePreview(category.image?.url || '');
+      setImagePreview(category.image?.url || "");
     } else {
       setEditingCategory(null);
       setFormData({
-        name: '',
-        slug: '',
-        description: '',
+        name: "",
+        slug: "",
+        description: "",
         order: categories.length,
-        icon: '',
-        imageId: '',
+        icon: "",
+        imageId: "",
       });
-      setImagePreview('');
+      setImagePreview("");
     }
     setIsModalOpen(true);
   };
@@ -61,61 +67,67 @@ export default function CategoriesPage() {
     if (result.success && result.data) {
       setFormData({ ...formData, imageId: result.data.id });
       setImagePreview(result.data.url);
-      showToast('Image uploadée', 'success');
+      showToast("Image uploadée", "success");
     } else {
-      showToast('Erreur upload', 'error');
+      showToast("Erreur upload", "error");
     }
   };
 
   const generateSlug = (name: string) => {
     return name
       .toLowerCase()
-      .normalize('NFD')
-      .replace(/[\u0300-\u036f]/g, '')
-      .replace(/[^a-z0-9]+/g, '-')
-      .replace(/(^-|-$)/g, '');
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/(^-|-$)/g, "");
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!formData.name || !formData.slug) return showToast('Nom et slug requis', 'error');
+    if (!formData.name || !formData.slug)
+      return showToast("Nom et slug requis", "error");
 
     const result = editingCategory
       ? await updateCategory(editingCategory.id, formData)
       : await createCategory(formData as any);
 
     if (result.success) {
-      showToast(editingCategory ? 'Modifié' : 'Créé', 'success');
+      showToast(editingCategory ? "Modifié" : "Créé", "success");
       setIsModalOpen(false);
     } else {
-      showToast(result.error || 'Erreur', 'error');
+      showToast(result.error || "Erreur", "error");
     }
   };
 
   const handleDelete = async () => {
     if (!deleteConfirm) return;
     const result = await deleteCategory(deleteConfirm);
-    if (result.success) showToast('Supprimé', 'success');
+    if (result.success) showToast("Supprimé", "success");
     setDeleteConfirm(null);
   };
 
   if (loading) {
     return (
-      <div className="flex min-h-screen items-center justify-center bg-base-200">
+      <div className="bg-base-200 flex min-h-screen items-center justify-center">
         <span className="loading loading-spinner loading-lg text-primary"></span>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-base-200 p-6">
+    <div className="bg-base-200 min-h-screen p-6">
       <div className="mx-auto max-w-7xl">
         <div className="mb-6 flex items-center justify-between">
           <div>
             <h1 className="text-3xl font-bold text-primary">📂 Catégories</h1>
-            <p className="mt-1 text-base-content/70">Gérez les catégories de votre menu</p>
+            <p className="text-base-content/70 mt-1">
+              Gérez les catégories de votre menu
+            </p>
           </div>
-          <button onClick={() => handleOpenModal()} className="btn btn-primary gap-2">
+          <button
+            onClick={() => handleOpenModal()}
+            className="btn btn-primary gap-2"
+          >
             ➕ Nouvelle Catégorie
           </button>
         </div>
@@ -139,11 +151,15 @@ export default function CategoriesPage() {
                   </figure>
                 )}
                 <div className="flex items-start gap-3">
-                  <div className="text-4xl">{cat.icon || '📂'}</div>
+                  <div className="text-4xl">{cat.icon || "📂"}</div>
                   <div className="flex-1">
                     <h3 className="card-title text-primary">{cat.name}</h3>
-                    <p className="mt-1 text-sm text-base-content/70">{cat.description}</p>
-                    <div className="badge badge-secondary mt-2">Ordre: {cat.order}</div>
+                    <p className="text-base-content/70 mt-1 text-sm">
+                      {cat.description}
+                    </p>
+                    <div className="badge badge-secondary mt-2">
+                      Ordre: {cat.order}
+                    </div>
                   </div>
                 </div>
                 <div className="card-actions mt-4 justify-end">
@@ -174,7 +190,7 @@ export default function CategoriesPage() {
         <Modal
           isOpen={isModalOpen}
           onClose={() => setIsModalOpen(false)}
-          title={editingCategory ? 'Modifier' : 'Nouvelle catégorie'}
+          title={editingCategory ? "Modifier" : "Nouvelle catégorie"}
           size="lg"
         >
           <form onSubmit={handleSubmit} className="space-y-4">
@@ -203,7 +219,9 @@ export default function CategoriesPage() {
               <input
                 type="text"
                 value={formData.slug}
-                onChange={(e) => setFormData({ ...formData, slug: e.target.value })}
+                onChange={(e) =>
+                  setFormData({ ...formData, slug: e.target.value })
+                }
                 className="input input-bordered"
                 required
               />
@@ -214,7 +232,9 @@ export default function CategoriesPage() {
               </label>
               <textarea
                 value={formData.description}
-                onChange={(e) => setFormData({ ...formData, description: e.target.value })}
+                onChange={(e) =>
+                  setFormData({ ...formData, description: e.target.value })
+                }
                 className="textarea textarea-bordered"
                 rows={3}
               />
@@ -227,7 +247,12 @@ export default function CategoriesPage() {
                 <input
                   type="number"
                   value={formData.order}
-                  onChange={(e) => setFormData({ ...formData, order: parseInt(e.target.value) })}
+                  onChange={(e) =>
+                    setFormData({
+                      ...formData,
+                      order: parseInt(e.target.value),
+                    })
+                  }
                   className="input input-bordered"
                   required
                 />
@@ -239,7 +264,9 @@ export default function CategoriesPage() {
                 <input
                   type="text"
                   value={formData.icon}
-                  onChange={(e) => setFormData({ ...formData, icon: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, icon: e.target.value })
+                  }
                   className="input input-bordered"
                   placeholder="🥗"
                 />
@@ -250,8 +277,8 @@ export default function CategoriesPage() {
                 <span className="label-text font-semibold">Image</span>
               </label>
               <div
-                className="cursor-pointer rounded-lg border-2 border-dashed border-base-300 p-6 text-center hover:border-primary"
-                onClick={() => document.getElementById('imageInput')?.click()}
+                className="border-base-300 cursor-pointer rounded-lg border-2 border-dashed p-6 text-center hover:border-primary"
+                onClick={() => document.getElementById("imageInput")?.click()}
               >
                 {uploading ? (
                   <span className="loading loading-spinner"></span>
@@ -268,8 +295,8 @@ export default function CategoriesPage() {
                       type="button"
                       onClick={(e) => {
                         e.stopPropagation();
-                        setImagePreview('');
-                        setFormData({ ...formData, imageId: '' });
+                        setImagePreview("");
+                        setFormData({ ...formData, imageId: "" });
                       }}
                       className="btn btn-circle btn-error btn-sm absolute right-2 top-2"
                     >
@@ -292,11 +319,19 @@ export default function CategoriesPage() {
               </div>
             </div>
             <div className="flex justify-end gap-2 pt-4">
-              <button type="button" onClick={() => setIsModalOpen(false)} className="btn btn-ghost">
+              <button
+                type="button"
+                onClick={() => setIsModalOpen(false)}
+                className="btn btn-ghost"
+              >
                 Annuler
               </button>
-              <button type="submit" className="btn btn-primary" disabled={uploading}>
-                {editingCategory ? 'Modifier' : 'Créer'}
+              <button
+                type="submit"
+                className="btn btn-primary"
+                disabled={uploading}
+              >
+                {editingCategory ? "Modifier" : "Créer"}
               </button>
             </div>
           </form>

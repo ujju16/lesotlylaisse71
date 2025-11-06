@@ -34,6 +34,7 @@ export default [
         FormData: "readonly",
         File: "readonly",
         Blob: "readonly",
+        HTMLCanvasElement: "readonly",
         // Node globals
         process: "readonly",
         Buffer: "readonly",
@@ -86,6 +87,7 @@ export default [
       "**/build/**",
       "**/.vercel/**",
       "**/.swc/**",
+      "**/coverage/**",
       "**/*.config.*",
     ],
   },

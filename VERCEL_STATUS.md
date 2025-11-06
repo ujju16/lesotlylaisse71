@@ -8,34 +8,37 @@
 
 ## 📊 Résumé Rapide
 
-| Item | Status | Notes |
-|------|--------|-------|
-| Domaine personnalisé | ✅ | lesotlylaisse71.fr |
-| SSL/HTTPS | ✅ | Automatique Let's Encrypt |
-| Production (main) | ✅ | Déploiement automatique |
-| Preview (dev) | ✅ | Déploiement automatique |
-| Pull Requests | ✅ | Preview automatique |
-| Variables d'env | ✅ | Configurées sur Vercel |
-| CI/CD GitHub Actions | ✅ | 100% fonctionnel |
-| Métadonnées commits | ✅ | Ajoutées aux déploiements |
+| Item                 | Status | Notes                     |
+| -------------------- | ------ | ------------------------- |
+| Domaine personnalisé | ✅     | lesotlylaisse71.fr        |
+| SSL/HTTPS            | ✅     | Automatique Let's Encrypt |
+| Production (main)    | ✅     | Déploiement automatique   |
+| Preview (dev)        | ✅     | Déploiement automatique   |
+| Pull Requests        | ✅     | Preview automatique       |
+| Variables d'env      | ✅     | Configurées sur Vercel    |
+| CI/CD GitHub Actions | ✅     | 100% fonctionnel          |
+| Métadonnées commits  | ✅     | Ajoutées aux déploiements |
 
 ---
 
 ## 🎯 Environnements Configurés
 
 ### 🚀 Production
+
 - **Branche**: `main`
 - **URL**: https://lesotlylaisse71.fr
 - **Type**: Production
 - **Derniers déploiements**: ✅ Ready
 
-### 🔍 Preview  
+### 🔍 Preview
+
 - **Branche**: `dev`
 - **URL**: Auto-générée par Vercel
 - **Type**: Preview
 - **Derniers déploiements**: ✅ Ready
 
 ### 🔀 Pull Requests
+
 - **Branches**: Toutes les PRs
 - **URL**: Auto-générée (unique par PR)
 - **Type**: Preview
@@ -45,15 +48,18 @@
 ## 🔗 URLs Importantes
 
 ### Site Web
+
 - **Production**: https://lesotlylaisse71.fr
 - **Vercel Backup**: https://lesotlylaisse71.vercel.app
 
 ### Vercel Dashboard
+
 - **Projet**: https://vercel.com/ujju16s-projects/lesotlylaisse71
 - **Déploiements**: https://vercel.com/ujju16s-projects/lesotlylaisse71/deployments
 - **Settings**: https://vercel.com/ujju16s-projects/lesotlylaisse71/settings
 
 ### GitHub
+
 - **Repository**: https://github.com/ujju16/lesotlylaisse71
 - **Actions**: https://github.com/ujju16/lesotlylaisse71/actions
 
@@ -132,6 +138,7 @@ Consultez la documentation complète dans `/docs/dev/`:
 ## 🚀 Prochaines Étapes
 
 Le projet est maintenant prêt pour:
+
 1. ✅ Développement de la page admin
 2. ✅ Implémentation Material Design v3
 3. ✅ Intégration Hygraph CMS

@@ -11,6 +11,7 @@
 ## 🔧 Ce qui a été fait
 
 ### 1. Configuration Vercel (`vercel.json`)
+
 ```json
 {
   "buildCommand": "bun run build",
@@ -36,7 +37,9 @@
 ```
 
 ### 2. Métadonnées de Déploiement (CD Pipeline)
+
 Ajout des informations de commit à chaque déploiement:
+
 - Commit SHA
 - Message de commit
 - Auteur du commit
@@ -44,7 +47,9 @@ Ajout des informations de commit à chaque déploiement:
 - Type d'environnement (production/preview)
 
 ### 3. Résumés de Déploiement
+
 Chaque déploiement génère maintenant un résumé complet dans GitHub Actions avec:
+
 - Environnement (Production/Preview)
 - Branche
 - Commit details
@@ -52,7 +57,9 @@ Chaque déploiement génère maintenant un résumé complet dans GitHub Actions 
 - Status
 
 ### 4. Documentation
+
 Documentation complète créée:
+
 - `docs/dev/VERCEL_DEPLOYMENT.md` - Guide complet
 - `docs/dev/DOMAIN_CONFIGURATION.md` - Config domaine
 - `docs/dev/VERCEL_SETUP_COMPLETE.md` - Résumé technique
@@ -60,7 +67,9 @@ Documentation complète créée:
 - `DEPLOIEMENT_VERCEL_RESUME.md` - Ce fichier
 
 ### 5. Scripts NPM
+
 Nouveaux scripts ajoutés au `package.json`:
+
 ```json
 {
   "vercel:check": "bun scripts/check-vercel-deployments.ts",
@@ -75,33 +84,34 @@ Nouveaux scripts ajoutés au `package.json`:
 
 ### Environnements Configurés
 
-| Environnement | Branche | URL | Déploiement Auto |
-|---------------|---------|-----|------------------|
-| **Production** | `main` | https://lesotlylaisse71.fr | ✅ Oui |
-| **Preview** | `dev` | Auto-généré | ✅ Oui |
-| **PR Preview** | Toutes | Auto-généré unique | ✅ Oui |
+| Environnement  | Branche | URL                        | Déploiement Auto |
+| -------------- | ------- | -------------------------- | ---------------- |
+| **Production** | `main`  | https://lesotlylaisse71.fr | ✅ Oui           |
+| **Preview**    | `dev`   | Auto-généré                | ✅ Oui           |
+| **PR Preview** | Toutes  | Auto-généré unique         | ✅ Oui           |
 
 ### Workflows GitHub Actions
 
-| Workflow | Status | Description |
-|----------|--------|-------------|
-| CI Pipeline | ✅ | Lint, format, type-check, tests |
-| CD Pipeline | ✅ | Déploiement Vercel avec métadonnées |
-| Lighthouse CI | ✅ | Audits performance |
+| Workflow      | Status | Description                         |
+| ------------- | ------ | ----------------------------------- |
+| CI Pipeline   | ✅     | Lint, format, type-check, tests     |
+| CD Pipeline   | ✅     | Déploiement Vercel avec métadonnées |
+| Lighthouse CI | ✅     | Audits performance                  |
 
 ### Variables d'Environnement
 
-| Variable | Production | Preview | Development |
-|----------|------------|---------|-------------|
-| `HYGRAPH_TOKEN` | ✅ | ✅ | ✅ |
-| `NEXT_PUBLIC_HYGRAPH_URL` | ✅ | ✅ | ✅ |
-| `CODECOV_TOKEN` | ✅ | ✅ | ✅ |
+| Variable                  | Production | Preview | Development |
+| ------------------------- | ---------- | ------- | ----------- |
+| `HYGRAPH_TOKEN`           | ✅         | ✅      | ✅          |
+| `NEXT_PUBLIC_HYGRAPH_URL` | ✅         | ✅      | ✅          |
+| `CODECOV_TOKEN`           | ✅         | ✅      | ✅          |
 
 ---
 
 ## 📊 Vérification
 
 ### Commandes pour vérifier
+
 ```bash
 # Liste des déploiements
 vercel ls --yes
@@ -117,6 +127,7 @@ vercel domains ls
 ```
 
 ### URLs de vérification
+
 - **Site Production**: https://lesotlylaisse71.fr
 - **Vercel Dashboard**: https://vercel.com/ujju16s-projects/lesotlylaisse71
 - **GitHub Actions**: https://github.com/ujju16/lesotlylaisse71/actions
@@ -126,6 +137,7 @@ vercel domains ls
 ## 🚀 Flux de Déploiement
 
 ### Push sur `main` (Production)
+
 ```
 1. Push code → GitHub
 2. GitHub Actions: CI Pipeline
@@ -142,6 +154,7 @@ vercel domains ls
 ```
 
 ### Push sur `dev` (Preview)
+
 ```
 1. Push code → GitHub
 2. GitHub Actions: CI Pipeline
@@ -158,6 +171,7 @@ vercel domains ls
 ```
 
 ### Pull Request (Preview)
+
 ```
 1. Open PR → GitHub
 2. GitHub Actions: CI Pipeline
@@ -188,6 +202,7 @@ vercel domains ls
 ## 📝 Logs de Déploiement
 
 Tous les workflows ont réussi:
+
 ```
 ✓ CI Pipeline (dev) - success
 ✓ CD Pipeline (dev) - success
@@ -195,6 +210,7 @@ Tous les workflows ont réussi:
 ```
 
 Derniers déploiements Vercel:
+
 ```
 ✓ Production:  https://lesotlylaisse71.fr (Ready)
 ✓ Preview:     Multiple previews (Ready)
@@ -205,12 +221,14 @@ Derniers déploiements Vercel:
 ## 🎯 Impact
 
 ### Avant
+
 - ❌ Déploiements sans nom clair
 - ❌ Environnements non identifiés
 - ❌ Pas de métadonnées de commit
 - ❌ Difficile de tracker les déploiements
 
 ### Après
+
 - ✅ Environnements clairement identifiés (Production/Preview)
 - ✅ Métadonnées de commit sur chaque déploiement
 - ✅ Résumés détaillés dans GitHub Actions
@@ -248,16 +266,19 @@ Le problème des déploiements Vercel est **résolu**. Le projet peut maintenant
 ## 📚 Ressources
 
 ### Documentation Créée
+
 - `/docs/dev/VERCEL_DEPLOYMENT.md`
 - `/docs/dev/DOMAIN_CONFIGURATION.md`
 - `/docs/dev/VERCEL_SETUP_COMPLETE.md`
 - `/VERCEL_STATUS.md`
 
 ### Scripts
+
 - `scripts/check-vercel-deployments.ts`
 - `vercel-setup.md` (guide manuel)
 
 ### Configuration
+
 - `vercel.json` (mis à jour)
 - `.vercelignore` (créé)
 - `.github/workflows/cd.yml` (amélioré)
@@ -269,6 +290,7 @@ Le problème des déploiements Vercel est **résolu**. Le projet peut maintenant
 **✅ PROBLÈME RÉSOLU AVEC SUCCÈS**
 
 Tous les déploiements Vercel sont maintenant:
+
 - Correctement nommés par environnement
 - Enrichis de métadonnées de commit
 - Automatiquement déployés selon la branche
@@ -280,4 +302,3 @@ Le projet `lesotlylaisse71.fr` est maintenant **production-ready** avec une infr
 ---
 
 **🎊 Configuration Vercel: 100% TERMINÉ**
-

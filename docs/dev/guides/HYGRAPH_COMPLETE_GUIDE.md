@@ -1,6 +1,7 @@
 # Guide de Configuration Hygraph - LeSotLyLaisse71
 
 ## 📋 Table des Matières
+
 1. [Schémas et Modèles](#schémas-et-modèles)
 2. [Relations](#relations)
 3. [Permissions et API](#permissions-et-api)
@@ -17,18 +18,19 @@ Représente les catégories de plats (Entrées, Plats, Desserts, etc.)
 
 #### Champs
 
-| Field | Type | Required | Unique | Description |
-|-------|------|----------|--------|-------------|
-| `id` | ID | ✅ | ✅ | Identifiant unique |
-| `name` | String | ✅ | ✅ | Nom de la catégorie |
-| `slug` | String | ✅ | ✅ | URL-friendly identifier |
-| `description` | String | ❌ | ❌ | Description détaillée |
-| `order` | Int | ✅ | ❌ | Ordre d'affichage (0, 1, 2...) |
-| `icon` | String | ❌ | ❌ | Nom de l'icône Material |
-| `image` | Asset | ❌ | ❌ | Image représentative |
-| `dishes` | [Dish] | ❌ | ❌ | Relation vers les plats |
+| Field         | Type   | Required | Unique | Description                    |
+| ------------- | ------ | -------- | ------ | ------------------------------ |
+| `id`          | ID     | ✅       | ✅     | Identifiant unique             |
+| `name`        | String | ✅       | ✅     | Nom de la catégorie            |
+| `slug`        | String | ✅       | ✅     | URL-friendly identifier        |
+| `description` | String | ❌       | ❌     | Description détaillée          |
+| `order`       | Int    | ✅       | ❌     | Ordre d'affichage (0, 1, 2...) |
+| `icon`        | String | ❌       | ❌     | Nom de l'icône Material        |
+| `image`       | Asset  | ❌       | ❌     | Image représentative           |
+| `dishes`      | [Dish] | ❌       | ❌     | Relation vers les plats        |
 
 #### Configuration Hygraph
+
 ```graphql
 type Category @model {
   id: ID! @isUnique
@@ -51,25 +53,26 @@ Représente un plat individuel du menu.
 
 #### Champs
 
-| Field | Type | Required | Unique | Description |
-|-------|------|----------|--------|-------------|
-| `id` | ID | ✅ | ✅ | Identifiant unique |
-| `name` | String | ✅ | ❌ | Nom du plat |
-| `slug` | String | ✅ | ✅ | URL-friendly identifier |
-| `description` | RichText | ✅ | ❌ | Description détaillée |
-| `price` | Float | ✅ | ❌ | Prix en euros |
-| `category` | Category | ✅ | ❌ | Catégorie parente |
-| `available` | Boolean | ✅ | ❌ | Disponibilité (default: true) |
-| `image` | Asset | ❌ | ❌ | Photo du plat |
-| `allergens` | [String] | ❌ | ❌ | Liste des allergènes |
-| `dietary` | [String] | ❌ | ❌ | Infos diététiques (végé, sans gluten...) |
-| `order` | Int | ❌ | ❌ | Ordre dans la catégorie |
+| Field         | Type     | Required | Unique | Description                              |
+| ------------- | -------- | -------- | ------ | ---------------------------------------- |
+| `id`          | ID       | ✅       | ✅     | Identifiant unique                       |
+| `name`        | String   | ✅       | ❌     | Nom du plat                              |
+| `slug`        | String   | ✅       | ✅     | URL-friendly identifier                  |
+| `description` | RichText | ✅       | ❌     | Description détaillée                    |
+| `price`       | Float    | ✅       | ❌     | Prix en euros                            |
+| `category`    | Category | ✅       | ❌     | Catégorie parente                        |
+| `available`   | Boolean  | ✅       | ❌     | Disponibilité (default: true)            |
+| `image`       | Asset    | ❌       | ❌     | Photo du plat                            |
+| `allergens`   | [String] | ❌       | ❌     | Liste des allergènes                     |
+| `dietary`     | [String] | ❌       | ❌     | Infos diététiques (végé, sans gluten...) |
+| `order`       | Int      | ❌       | ❌     | Ordre dans la catégorie                  |
 
 #### Configuration Hygraph
+
 ```graphql
 type Dish @model {
   id: ID! @isUnique
-  name: String! 
+  name: String!
   slug: String! @isUnique
   description: RichText!
   price: Float!
@@ -91,19 +94,20 @@ Représente un menu complet (menu du jour, menu dégustation, etc.)
 
 #### Champs
 
-| Field | Type | Required | Unique | Description |
-|-------|------|----------|--------|-------------|
-| `id` | ID | ✅ | ✅ | Identifiant unique |
-| `name` | String | ✅ | ❌ | Nom du menu |
-| `slug` | String | ✅ | ✅ | URL-friendly identifier |
-| `description` | RichText | ❌ | ❌ | Description du menu |
-| `price` | Float | ✅ | ❌ | Prix total du menu |
-| `dishes` | [Dish] | ✅ | ❌ | Plats inclus dans le menu |
-| `active` | Boolean | ✅ | ❌ | Menu actif/inactif |
-| `validFrom` | DateTime | ❌ | ❌ | Date de début de validité |
-| `validUntil` | DateTime | ❌ | ❌ | Date de fin de validité |
+| Field         | Type     | Required | Unique | Description               |
+| ------------- | -------- | -------- | ------ | ------------------------- |
+| `id`          | ID       | ✅       | ✅     | Identifiant unique        |
+| `name`        | String   | ✅       | ❌     | Nom du menu               |
+| `slug`        | String   | ✅       | ✅     | URL-friendly identifier   |
+| `description` | RichText | ❌       | ❌     | Description du menu       |
+| `price`       | Float    | ✅       | ❌     | Prix total du menu        |
+| `dishes`      | [Dish]   | ✅       | ❌     | Plats inclus dans le menu |
+| `active`      | Boolean  | ✅       | ❌     | Menu actif/inactif        |
+| `validFrom`   | DateTime | ❌       | ❌     | Date de début de validité |
+| `validUntil`  | DateTime | ❌       | ❌     | Date de fin de validité   |
 
 #### Configuration Hygraph
+
 ```graphql
 type Menu @model {
   id: ID! @isUnique
@@ -126,6 +130,7 @@ type Menu @model {
 Gestion des images et fichiers.
 
 #### Configuration Recommandée
+
 - **Image transformations**: Activées
 - **Formats supportés**: WebP, AVIF, JPG, PNG
 - **Tailles optimales**:
@@ -145,11 +150,12 @@ Gestion des images et fichiers.
 # Category side
 dishes: [Dish!]! @relation(name: "CategoryDishes")
 
-# Dish side  
+# Dish side
 category: Category! @relation(name: "CategoryDishes")
 ```
 
 **Utilisation**:
+
 - Une catégorie peut avoir plusieurs plats
 - Un plat appartient à une seule catégorie
 - Suppression en cascade optionnelle
@@ -165,6 +171,7 @@ menus: [Menu!]! @relation(name: "MenuDishes")
 ```
 
 **Utilisation**:
+
 - Un menu peut contenir plusieurs plats
 - Un plat peut appartenir à plusieurs menus
 - Relations flexibles pour composer des menus
@@ -177,6 +184,7 @@ image: Asset @relation(name: "CategoryImage" | "DishImage")
 ```
 
 **Utilisation**:
+
 - Image optionnelle pour catégories et plats
 - Transformation automatique des images
 - URLs optimisées avec CDN
@@ -188,6 +196,7 @@ image: Asset @relation(name: "CategoryImage" | "DishImage")
 ### 1. Créer un Token API Permanent
 
 **Dans Hygraph Console**:
+
 1. Aller dans **Settings** → **API Access**
 2. Créer un **Permanent Auth Token**
 3. Nom: `Production API Token`
@@ -208,6 +217,7 @@ HYGRAPH_TOKEN=your_permanent_token_here
 ```
 
 **⚠️ Important**:
+
 - Le token est **sensible** - ne jamais commit en public
 - Utiliser différents tokens pour dev/staging/prod
 - Le token `HYGRAPH_TOKEN` est server-side uniquement
@@ -216,6 +226,7 @@ HYGRAPH_TOKEN=your_permanent_token_here
 ### 3. Permissions par Model
 
 #### Public API (Sans Token)
+
 ```graphql
 # Lecture seule du contenu publié
 query PublicDishes {
@@ -228,6 +239,7 @@ query PublicDishes {
 ```
 
 #### Admin API (Avec Token)
+
 ```graphql
 # CRUD complet
 mutation CreateDish {
@@ -240,10 +252,12 @@ mutation CreateDish {
 ### 4. Content Stages
 
 Hygraph utilise un système de stages:
+
 - **DRAFT**: Contenu en cours d'édition
 - **PUBLISHED**: Contenu publié et visible
 
 **Configuration recommandée**:
+
 ```typescript
 // Pour admin
 import { adminHygraphClient } from "@/lib/hygraph";
@@ -370,10 +384,7 @@ query GetActiveMenus {
 query SearchDishes($search: String!) {
   dishes(
     where: {
-      OR: [
-        { name_contains: $search }
-        { description_contains: $search }
-      ]
+      OR: [{ name_contains: $search }, { description_contains: $search }]
     }
     stage: PUBLISHED
   ) {
@@ -410,6 +421,7 @@ mutation CreateCategory($data: CategoryCreateInput!) {
 ```
 
 **Variables**:
+
 ```json
 {
   "data": {
@@ -440,6 +452,7 @@ mutation CreateDish($data: DishCreateInput!) {
 ```
 
 **Variables**:
+
 ```json
 {
   "data": {
@@ -448,7 +461,7 @@ mutation CreateDish($data: DishCreateInput!) {
     "description": {
       "html": "<p>Tartare de bœuf frais, assaisonnement maison</p>"
     },
-    "price": 18.50,
+    "price": 18.5,
     "category": {
       "connect": {
         "id": "category_id"
@@ -546,14 +559,14 @@ const imageTransform = {
     resize: {
       width: 800,
       height: 600,
-      fit: "crop"
-    }
+      fit: "crop",
+    },
   },
   document: {
     output: {
-      format: "webp"
-    }
-  }
+      format: "webp",
+    },
+  },
 };
 ```
 

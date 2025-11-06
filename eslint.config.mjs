@@ -35,6 +35,9 @@ export default [
         File: "readonly",
         Blob: "readonly",
         HTMLCanvasElement: "readonly",
+        HTMLElement: "readonly",
+        HTMLButtonElement: "readonly",
+        EventTarget: "readonly",
         // Node globals
         process: "readonly",
         Buffer: "readonly",

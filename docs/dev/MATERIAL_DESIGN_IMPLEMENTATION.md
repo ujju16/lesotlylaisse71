@@ -25,6 +25,7 @@ primary: {
 ```
 
 **Améliorations visuelles**:
+
 - Border radius augmenté à 12px pour un look moderne
 - Shadows subtiles et progressives
 - Hover effects avec transform et box-shadow
@@ -35,6 +36,7 @@ primary: {
 **Fichier**: `components/auth/AuthLayout.tsx`
 
 **Nouvelles fonctionnalités**:
+
 - Bouton de basculement dark/light en haut à droite
 - Persistance du choix dans localStorage
 - Gradient de fond adaptatif au thème
@@ -42,6 +44,7 @@ primary: {
 - Barre décorative colorée en haut du Paper
 
 **ARIA Labels**:
+
 ```tsx
 <IconButton
   aria-label={isDark ? "Activer le mode clair" : "Activer le mode sombre"}
@@ -54,6 +57,7 @@ primary: {
 **Fichier**: `components/auth/LoginForm.tsx`
 
 **Attributs ARIA ajoutés**:
+
 - `aria-label` sur tous les champs de saisie
 - `aria-required` pour les champs obligatoires
 - `aria-invalid` pour indiquer les erreurs
@@ -62,6 +66,7 @@ primary: {
 - `tabIndex` pour la navigation au clavier
 
 **Effets visuels**:
+
 - Hover sur les TextField avec bordure animée
 - Transition smooth sur les buttons
 - Transform translateY au hover
@@ -83,10 +88,12 @@ primary: {
 **Fichier**: `components/admin/AdminDashboard.tsx`
 
 **Composants créés**:
+
 - **StatCard**: Cartes animées avec Framer Motion
 - **Actions Rapides**: Grid responsive de boutons
 
 **Caractéristiques**:
+
 - Cards interactives avec hover effect (-8px translateY)
 - Avatars colorés avec Material Icons
 - Chips pour les statuts
@@ -94,6 +101,7 @@ primary: {
 - Navigation au clavier sur les cards
 
 **Animations Framer Motion**:
+
 ```tsx
 <motion.div
   initial={{ opacity: 0, y: 20 }}
@@ -104,6 +112,7 @@ primary: {
 ```
 
 **ARIA sur les cards**:
+
 ```tsx
 <Card
   role="button"
@@ -129,24 +138,28 @@ primary: {
 ## 🎯 Checklist ARIA Complète
 
 ### Forms
+
 - ✅ Tous les inputs ont des `aria-label`
 - ✅ Champs requis marqués avec `aria-required`
 - ✅ Erreurs liées avec `aria-invalid` et `aria-describedby`
 - ✅ Boutons avec descriptions claires
 
 ### Navigation
+
 - ✅ Cards interactives avec `role="button"`
 - ✅ Support du clavier (Enter, Space)
 - ✅ TabIndex correct sur tous les éléments
 - ✅ Focus visible et géré
 
 ### Interactive Elements
+
 - ✅ Tous les boutons ont des `aria-label` descriptifs
 - ✅ Icons marqués `aria-hidden="true"` quand décoratifs
 - ✅ États loading/disabled communiqués
 - ✅ Tooltips et hints accessibles
 
 ### Structure
+
 - ✅ Headings hiérarchiques (h1, h2, h3...)
 - ✅ Landmarks implicites (nav, main, footer)
 - ✅ Rôles explicites quand nécessaire
@@ -155,6 +168,7 @@ primary: {
 ## 📊 Métriques de Qualité
 
 ### Code Quality
+
 ```bash
 ✅ ESLint: 0 errors, 0 warnings
 ✅ TypeScript: 0 errors
@@ -163,12 +177,14 @@ primary: {
 ```
 
 ### Performance
+
 - Animations GPU-accelerated (transform, opacity)
 - Lazy loading des composants lourds
 - Theme memoization avec useTheme
 - Optimisation des re-renders
 
 ### Accessibilité
+
 - ✅ Keyboard navigation complète
 - ✅ Screen reader friendly
 - ✅ Focus management
@@ -178,6 +194,7 @@ primary: {
 ## 🚀 Prochaines Étapes
 
 ### Phase 2 - Admin CRUD
+
 1. **Categories Management**
    - Liste avec Material Table
    - Form de création/édition avec validation Zod
@@ -194,6 +211,7 @@ primary: {
    - Activation/désactivation
 
 ### Améliorations Continues
+
 - [ ] Implémenter Skeleton loaders
 - [ ] Ajouter des transitions de page
 - [ ] Créer des variantes de thème (colors presets)
@@ -203,6 +221,7 @@ primary: {
 ## 📝 Notes Techniques
 
 ### Versions des Dépendances
+
 ```json
 {
   "@mui/material": "^7.3.5",
@@ -213,6 +232,7 @@ primary: {
 ```
 
 ### Défis Rencontrés
+
 1. **Grid vs Grid2**: MUI v7 a Grid2 mais TypeScript ne le reconnaît pas
    - **Solution**: Utiliser CSS Grid avec Box et sx prop
 
@@ -225,6 +245,7 @@ primary: {
 ## 🎨 Design System
 
 ### Colors
+
 ```typescript
 // Light Mode
 primary: #795548 (Brown)
@@ -240,16 +261,19 @@ paper: #2D2D2D
 ```
 
 ### Typography
+
 - Font: Roboto
 - Weights: 400, 500, 600, 700
 - Scale: Material Design Type Scale
 
 ### Spacing
+
 - Base: 8px
 - Scale: 8, 16, 24, 32, 40, 48px
 - Container max-width: 1200px
 
 ### Elevation
+
 - Cards: elevation 2-8
 - Modal: elevation 16
 - AppBar: elevation 4

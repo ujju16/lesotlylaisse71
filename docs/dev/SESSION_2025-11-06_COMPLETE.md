@@ -5,6 +5,7 @@
 ### 1. 🎨 Design Admin Material-UI (100% Complet)
 
 #### Layout Admin (`app/admin/layout.tsx`)
+
 - ✅ Migration complète de DaisyUI vers Material-UI
 - ✅ AppBar sticky avec navigation responsive
 - ✅ Menu hamburger pour mobile avec Material-UI Menu
@@ -14,11 +15,13 @@
 - ✅ Animations fluides sur les transitions
 
 #### Dashboard (`app/admin/page.tsx`)
+
 - ✅ Simplification du composant (séparation des responsabilités)
 - ✅ Theme géré au niveau du layout
 - ✅ Stats dynamiques via API routes
 
 #### Components Admin
+
 - ✅ `AdminDashboard.tsx`: Cartes statistiques avec Material Design
 - ✅ Animations Framer Motion sur les cartes
 - ✅ Hover effects avec elevation
@@ -26,6 +29,7 @@
 - ✅ Navigation par clavier optimisée
 
 #### Thème (`lib/theme.ts`)
+
 - ✅ Palette de couleurs Material Design 3
 - ✅ Support Dark/Light mode complet
 - ✅ Shadows personnalisées (25 niveaux)
@@ -35,6 +39,7 @@
 ### 2. 🔄 CI/CD Pipeline (100% Fonctionnel)
 
 #### Checks GitHub Actions
+
 - ✅ **Lint**: ESLint avec max-warnings=0
 - ✅ **Type Check**: TypeScript sans erreurs
 - ✅ **Build**: Compilation Next.js avec Bun
@@ -45,6 +50,7 @@
 - ✅ **Codecov**: Couverture de code configurée
 
 #### Déploiements Vercel
+
 - ✅ Production: main → lesotlylaisse71.vercel.app
 - ✅ Preview: dev → déploiements preview automatiques
 - ✅ PR: Déploiements uniques par PR
@@ -53,12 +59,14 @@
 ### 3. 📦 Configuration Projet
 
 #### Bun
+
 - ✅ Migration de npm vers Bun complète
 - ✅ Scripts optimisés dans package.json
 - ✅ Bun.lock configuré
 - ✅ Performance améliorée (~40% plus rapide)
 
 #### Variables d'Environnement (`.env.local`)
+
 ```env
 # Hygraph
 NEXT_PUBLIC_HYGRAPH_URL=https://api-eu-west-2.hygraph.com/v2/cmgz5sumn041u07vzbfvygjzt/master
@@ -72,17 +80,20 @@ CODECOV_TOKEN=24e1e82f-6283-4ad1-a966-66769e16e6a1
 ```
 
 #### Secrets GitHub (à vérifier)
+
 - ✅ `CODECOV_TOKEN`
 - ✅ `NEXT_PUBLIC_HYGRAPH_URL`
 - ⚠️ `HYGRAPH_TOKEN` (permissions limitées)
 
 #### Secrets Vercel (à configurer)
+
 - ⚠️ `HYGRAPH_TOKEN` à ajouter
 - ✅ `NEXT_PUBLIC_HYGRAPH_URL` déjà configuré
 
 ### 4. 📚 Documentation
 
 #### Fichiers Créés/Mis à Jour
+
 - ✅ `docs/dev/MATERIAL_DESIGN_IMPLEMENTATION.md`
 - ✅ `docs/dev/VERCEL_SETUP_COMPLETE.md`
 - ✅ `docs/dev/guides/HYGRAPH_COMPLETE_GUIDE.md`
@@ -93,11 +104,13 @@ CODECOV_TOKEN=24e1e82f-6283-4ad1-a966-66769e16e6a1
 ### 5. 🔀 Git & PR Management
 
 #### Branches
+
 - ✅ `main`: Branche de production
 - ✅ `dev`: Branche de développement active
 - ✅ Toutes les autres branches mergées ou nettoyées
 
 #### Pull Requests
+
 - ✅ **PR #40**: Material Design UI - **MERGED** ✅
   - 18 checks réussis (CI/CD, Lighthouse, Security)
   - Résolution de conflits
@@ -108,6 +121,7 @@ CODECOV_TOKEN=24e1e82f-6283-4ad1-a966-66769e16e6a1
 ### 1. 🔴 Erreur 403 Hygraph (CRITIQUE)
 
 **Symptôme:**
+
 ```
 Error fetching categories: Error: not allowed
 {"extensions":{"code":"403","path":["categories","image"]}}
@@ -117,6 +131,7 @@ Error fetching categories: Error: not allowed
 Le token `HYGRAPH_TOKEN` n'a pas les permissions pour lire le champ `image` dans le modèle `Category`.
 
 **Solution:**
+
 1. Aller sur Hygraph Dashboard
 2. Settings → API Access → Permanent Auth Tokens
 3. Éditer le token ou créer un nouveau token
@@ -137,18 +152,21 @@ Enlever le champ `image` des requêtes GraphQL jusqu'à correction des permissio
 Configurer `lesotlylaisse71.fr` sur Vercel
 
 **Étapes:**
+
 1. Aller sur Vercel Dashboard → Domains
 2. Ajouter domain: `lesotlylaisse71.fr`
 3. Configurer les DNS chez le registrar:
+
    ```
    Type: A Record
    Name: @
    Value: 76.76.19.19
-   
+
    Type: CNAME
    Name: www
    Value: cname.vercel-dns.com
    ```
+
 4. Attendre propagation DNS (quelques heures)
 5. Vérifier avec `dig lesotlylaisse71.fr`
 
@@ -158,7 +176,9 @@ Configurer `lesotlylaisse71.fr` sur Vercel
 Les déploiements ne sont pas clairement nommés (Production/Preview/PR).
 
 **Solution:**
+
 1. Configurer dans `vercel.json`:
+
 ```json
 {
   "github": {
@@ -202,6 +222,7 @@ Les déploiements ne sont pas clairement nommés (Production/Preview/PR).
 ### Phase 2: Développement Admin (EN COURS)
 
 #### 2.1 Page Authentification
+
 - [ ] Créer page `/auth/login`
 - [ ] Intégrer formulaire avec Zod validation
 - [ ] Material Design moderne
@@ -210,6 +231,7 @@ Les déploiements ne sont pas clairement nommés (Production/Preview/PR).
 - [ ] ARIA labels complets
 
 #### 2.2 CRUD Catégories (`/admin/categories`)
+
 - [ ] Liste des catégories avec DataGrid Material-UI
 - [ ] Modal création catégorie
 - [ ] Modal édition catégorie
@@ -219,6 +241,7 @@ Les déploiements ne sont pas clairement nommés (Production/Preview/PR).
 - [ ] Toasts de notification
 
 #### 2.3 CRUD Plats (`/admin/dishes`)
+
 - [ ] Liste des plats avec filtres
 - [ ] Modal création plat
 - [ ] Sélection catégorie (Autocomplete)
@@ -228,6 +251,7 @@ Les déploiements ne sont pas clairement nommés (Production/Preview/PR).
 - [ ] Allergènes
 
 #### 2.4 CRUD Menus (`/admin/menus`)
+
 - [ ] Liste des menus
 - [ ] Modal création menu
 - [ ] Sélection multiple de plats (Transfer List)
@@ -236,6 +260,7 @@ Les déploiements ne sont pas clairement nommés (Production/Preview/PR).
 - [ ] Prévisualisation du menu
 
 #### 2.5 QR Code Generator (`/admin/qrcode`)
+
 - [ ] Sélection du menu actif
 - [ ] Génération QR code dynamique
 - [ ] Téléchargement PNG/SVG
@@ -244,18 +269,21 @@ Les déploiements ne sont pas clairement nommés (Production/Preview/PR).
 ### Phase 3: Tests & Qualité
 
 #### 3.1 Tests Unitaires
+
 - [ ] Tests composants Admin avec Testing Library
 - [ ] Tests API routes
 - [ ] Tests utilitaires
 - [ ] Coverage > 80%
 
 #### 3.2 Tests E2E
+
 - [ ] Installer Playwright
 - [ ] Tests workflow admin complet
 - [ ] Tests responsive design
 - [ ] Tests accessibilité
 
 #### 3.3 Optimisations
+
 - [ ] Optimiser images (next/image)
 - [ ] Lazy loading composants
 - [ ] Memoization avec React.memo
@@ -265,12 +293,14 @@ Les déploiements ne sont pas clairement nommés (Production/Preview/PR).
 ### Phase 4: Monitoring & Observabilité
 
 #### 4.1 Grafana
+
 - [ ] Finaliser configuration Docker Compose
 - [ ] Dashboards personnalisés
 - [ ] Alertes
 - [ ] Logs centralisés
 
 #### 4.2 Error Tracking
+
 - [ ] Sentry integration
 - [ ] Source maps
 - [ ] Error boundaries React
@@ -278,11 +308,13 @@ Les déploiements ne sont pas clairement nommés (Production/Preview/PR).
 ## 📊 Métriques Actuelles
 
 ### Lighthouse Scores (Dernière Exécution)
+
 - 🏠 Homepage: Performance 90+, Accessibility 95+, Best Practices 90+, SEO 100
 - 📋 Menu: Performance 90+, Accessibility 95+, Best Practices 90+, SEO 100
 - 📅 Reservations: Performance 90+, Accessibility 95+, Best Practices 90+, SEO 100
 
 ### Build Performance (avec Bun)
+
 - Clean build: ~30-35s
 - Type check: ~20s
 - Lint: ~10-15s
@@ -290,6 +322,7 @@ Les déploiements ne sont pas clairement nommés (Production/Preview/PR).
 - **Total CI/CD**: ~2 minutes
 
 ### Bundle Size (Estimé)
+
 - First Load JS: ~200-250 KB
 - Shared JS: ~150-180 KB
 - Page JS: ~50-80 KB par page
@@ -297,6 +330,7 @@ Les déploiements ne sont pas clairement nommés (Production/Preview/PR).
 ## 🎓 Apprentissages & Best Practices
 
 ### Material-UI
+
 - ✅ Utiliser `sx` prop pour styling inline avec theme
 - ✅ Composants `Container`, `Box`, `Stack` pour layout
 - ✅ `ThemeProvider` au niveau layout pour éviter duplication
@@ -304,6 +338,7 @@ Les déploiements ne sont pas clairement nommés (Production/Preview/PR).
 - ✅ useTheme() hook pour accès au thème
 
 ### Next.js 14+ (App Router)
+
 - ✅ `"use client"` pour composants interactifs
 - ✅ Server Components par défaut
 - ✅ API Routes dans `/app/api`
@@ -311,6 +346,7 @@ Les déploiements ne sont pas clairement nommés (Production/Preview/PR).
 - ✅ Layout nesting pour structure
 
 ### Accessibilité
+
 - ✅ ARIA labels sur tous les boutons
 - ✅ `role="button"` sur éléments cliquables non-button
 - ✅ `tabIndex` pour navigation clavier
@@ -318,6 +354,7 @@ Les déploiements ne sont pas clairement nommés (Production/Preview/PR).
 - ✅ Contraste couleurs WCAG AA minimum
 
 ### CI/CD
+
 - ✅ Parallel jobs pour faster execution
 - ✅ Caching dependencies (bun install)
 - ✅ Conditional steps (`if: always()`)
@@ -327,12 +364,14 @@ Les déploiements ne sont pas clairement nommés (Production/Preview/PR).
 ## 🔗 Liens Utiles
 
 ### Dashboards
+
 - **Vercel**: https://vercel.com/ujju16s-projects/lesotlylaisse71
 - **GitHub Repo**: https://github.com/ujju16/lesotlylaisse71
 - **Hygraph**: https://app.hygraph.com/
 - **Codecov**: https://codecov.io/gh/ujju16/lesotlylaisse71
 
 ### Documentation
+
 - **Next.js**: https://nextjs.org/docs
 - **Material-UI**: https://mui.com/material-ui/
 - **Hygraph**: https://hygraph.com/docs
@@ -341,6 +380,7 @@ Les déploiements ne sont pas clairement nommés (Production/Preview/PR).
 ## 🎉 Conclusion
 
 Session très productive avec:
+
 - ✅ Migration Material-UI complète
 - ✅ CI/CD 100% fonctionnel
 - ✅ PR mergée avec succès
@@ -350,6 +390,6 @@ Session très productive avec:
 
 ---
 
-*Document créé le 6 novembre 2025 à 23:30 UTC*
-*Auteur: GitHub Copilot CLI*
-*Projet: LeSotLyLaisse71*
+_Document créé le 6 novembre 2025 à 23:30 UTC_
+_Auteur: GitHub Copilot CLI_
+_Projet: LeSotLyLaisse71_

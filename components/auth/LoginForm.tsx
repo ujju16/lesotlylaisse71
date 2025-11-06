@@ -109,11 +109,27 @@ export default function LoginForm({
           InputProps={{
             startAdornment: (
               <InputAdornment position="start">
-                <Email color="action" />
+                <Email color="action" aria-hidden="true" />
               </InputAdornment>
             ),
           }}
-          sx={{ mb: 2 }}
+          inputProps={{
+            "aria-label": "Adresse email",
+            "aria-required": "true",
+            "aria-invalid": !!errors.email,
+            "aria-describedby": errors.email ? "email-error" : undefined,
+          }}
+          sx={{
+            mb: 2,
+            "& .MuiOutlinedInput-root": {
+              "&:hover": {
+                "& .MuiOutlinedInput-notchedOutline": {
+                  borderColor: "primary.main",
+                  borderWidth: "2px",
+                },
+              },
+            },
+          }}
         />
 
         <TextField
@@ -129,7 +145,7 @@ export default function LoginForm({
           InputProps={{
             startAdornment: (
               <InputAdornment position="start">
-                <Lock color="action" />
+                <Lock color="action" aria-hidden="true" />
               </InputAdornment>
             ),
             endAdornment: (
@@ -143,13 +159,30 @@ export default function LoginForm({
                   onClick={() => setShowPassword(!showPassword)}
                   edge="end"
                   disabled={isLoading}
+                  tabIndex={0}
                 >
                   {showPassword ? <VisibilityOff /> : <Visibility />}
                 </IconButton>
               </InputAdornment>
             ),
           }}
-          sx={{ mb: 2 }}
+          inputProps={{
+            "aria-label": "Mot de passe",
+            "aria-required": "true",
+            "aria-invalid": !!errors.password,
+            "aria-describedby": errors.password ? "password-error" : undefined,
+          }}
+          sx={{
+            mb: 2,
+            "& .MuiOutlinedInput-root": {
+              "&:hover": {
+                "& .MuiOutlinedInput-notchedOutline": {
+                  borderColor: "primary.main",
+                  borderWidth: "2px",
+                },
+              },
+            },
+          }}
         />
 
         <Box
@@ -162,7 +195,13 @@ export default function LoginForm({
         >
           <FormControlLabel
             control={
-              <Checkbox {...register("rememberMe")} disabled={isLoading} />
+              <Checkbox
+                {...register("rememberMe")}
+                disabled={isLoading}
+                inputProps={{
+                  "aria-label": "Se souvenir de moi",
+                }}
+              />
             }
             label="Se souvenir de moi"
           />
@@ -185,6 +224,7 @@ export default function LoginForm({
           size="large"
           disabled={isLoading}
           startIcon={isLoading ? <CircularProgress size={20} /> : <LoginIcon />}
+          aria-label={isLoading ? "Connexion en cours" : "Se connecter"}
           sx={{
             py: 1.5,
             textTransform: "none",
@@ -193,8 +233,14 @@ export default function LoginForm({
             mb: 2,
             background: "linear-gradient(45deg, #795548 30%, #8D6E63 90%)",
             boxShadow: "0 3px 5px 2px rgba(121, 85, 72, .3)",
+            transition: "all 0.3s ease",
             "&:hover": {
               background: "linear-gradient(45deg, #6D4C41 30%, #795548 90%)",
+              transform: "translateY(-2px)",
+              boxShadow: "0 6px 10px 4px rgba(121, 85, 72, .3)",
+            },
+            "&:active": {
+              transform: "translateY(0)",
             },
           }}
         >

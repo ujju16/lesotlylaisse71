@@ -20,7 +20,10 @@
     "audit": "bun audit",
     "monitoring:start": "bash scripts/start-monitoring.sh",
     "monitoring:stop": "cd grafana && docker-compose down",
-    "monitoring:logs": "cd grafana && docker-compose logs -f"
+    "monitoring:logs": "cd grafana && docker-compose logs -f",
+    "vercel:check": "bun scripts/check-vercel-deployments.ts",
+    "vercel:deploy:prod": "vercel --prod",
+    "vercel:deploy:preview": "vercel"
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",

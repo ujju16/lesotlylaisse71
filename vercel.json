@@ -6,6 +6,18 @@
   "framework": "nextjs",
   "public": true,
   "regions": ["cdg1"],
+  "git": {
+    "deploymentEnabled": {
+      "main": true,
+      "dev": true
+    }
+  },
+  "github": {
+    "enabled": true,
+    "autoAlias": true,
+    "silent": false,
+    "autoJobCancelation": true
+  },
   "env": {
     "NODE_ENV": "production"
   }

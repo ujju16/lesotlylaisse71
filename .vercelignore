@@ -1,59 +1,10 @@
-# Dependencies
 node_modules
-.pnp
-.pnp.*
-
-# Testing
-coverage
-*.log
-
-# Build artifacts (Vercel builds these)
 .next
-out
-build
-dist
-
-# Environment variables (use Vercel dashboard)
-.env
-.env*.local
-
-# IDE
-.vscode
-.idea
-*.swp
-*.swo
-
-# OS
-.DS_Store
-Thumbs.db
-
-# Git
-.git
-.gitignore
-
-# Documentation
-GRAFANA_SETUP.md
-MIGRATION_TO_BUN.md
-SECURITY.md
-DEPLOYMENT.md
-*.md
-!README.md
-
-# CI/CD
-.github
-.gitlab-ci.yml
-
-# Docker
-Dockerfile
-docker-compose.yml
-grafana/
-
-# Scripts
-scripts/
-
-# Backups
-*.backup
-*.bak
-
-# Vercel
 .vercel
+.git
+*.log
+*.md
+docs
+.github
+tests
+coverage

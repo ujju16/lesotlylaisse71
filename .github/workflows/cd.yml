@@ -34,15 +34,26 @@ jobs:
       - name: Deploy to Production (main)
         if: github.ref == 'refs/heads/main'
         run: |
-          URL=$(vercel deploy --prod --token=${{ secrets.VERCEL_TOKEN }})
+          URL=$(vercel deploy --prod --token=${{ secrets.VERCEL_TOKEN }} \
+            --meta githubCommitSha="${{ github.sha }}" \
+            --meta githubCommitMessage="${{ github.event.head_commit.message }}" \
+            --meta githubCommitAuthorName="${{ github.event.head_commit.author.name }}" \
+            --meta githubDeployment="production" \
+            --meta branch="main")
           echo "Deployed to: $URL"
           echo "DEPLOYMENT_URL=$URL" >> $GITHUB_ENV
           echo "🚀 Production deployment: $URL"
+          echo "📍 Domain: https://lesotlylaisse71.fr"
 
       - name: Deploy to Preview (dev)
         if: github.ref == 'refs/heads/dev'
         run: |
-          URL=$(vercel deploy --token=${{ secrets.VERCEL_TOKEN }})
+          URL=$(vercel deploy --token=${{ secrets.VERCEL_TOKEN }} \
+            --meta githubCommitSha="${{ github.sha }}" \
+            --meta githubCommitMessage="${{ github.event.head_commit.message }}" \
+            --meta githubCommitAuthorName="${{ github.event.head_commit.author.name }}" \
+            --meta githubDeployment="preview" \
+            --meta branch="dev")
           echo "Deployed to: $URL"
           echo "DEPLOYMENT_URL=$URL" >> $GITHUB_ENV
           echo "🔍 Preview deployment: $URL"
@@ -52,12 +63,23 @@ jobs:
         run: |
           echo "## 🚀 Deployment Summary" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
-          echo "- **Branch**: ${{ github.ref_name }}" >> $GITHUB_STEP_SUMMARY
-          echo "- **Commit**: ${{ github.sha }}" >> $GITHUB_STEP_SUMMARY
-          echo "- **URL**: ${{ env.DEPLOYMENT_URL }}" >> $GITHUB_STEP_SUMMARY
+          if [[ "${{ github.ref_name }}" == "main" ]]; then
+            echo "### Production Deployment" >> $GITHUB_STEP_SUMMARY
+            echo "- **Environment**: Production" >> $GITHUB_STEP_SUMMARY
+            echo "- **Branch**: main" >> $GITHUB_STEP_SUMMARY
+            echo "- **Domain**: https://lesotlylaisse71.fr" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "### Preview Deployment" >> $GITHUB_STEP_SUMMARY
+            echo "- **Environment**: Preview" >> $GITHUB_STEP_SUMMARY
+            echo "- **Branch**: ${{ github.ref_name }}" >> $GITHUB_STEP_SUMMARY
+          fi
+          echo "- **Commit**: \`${{ github.sha }}\`" >> $GITHUB_STEP_SUMMARY
+          echo "- **Author**: ${{ github.event.head_commit.author.name }}" >> $GITHUB_STEP_SUMMARY
+          echo "- **Message**: ${{ github.event.head_commit.message }}" >> $GITHUB_STEP_SUMMARY
+          echo "- **Deployment URL**: ${{ env.DEPLOYMENT_URL }}" >> $GITHUB_STEP_SUMMARY
           echo "- **Status**: ${{ job.status }}" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
-          echo "Deployed via Vercel 🚀" >> $GITHUB_STEP_SUMMARY
+          echo "Deployed via Vercel CLI 🚀" >> $GITHUB_STEP_SUMMARY
 
   notify:
     name: Notify Deployment

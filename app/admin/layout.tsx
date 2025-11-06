@@ -11,9 +11,7 @@ import {
   IconButton,
   Menu,
   MenuItem,
-  Container,
   Chip,
-  useTheme,
 } from "@mui/material";
 import {
   Restaurant,
@@ -35,7 +33,7 @@ export default function AdminLayout({
   children: React.ReactNode;
 }) {
   const [mode, setMode] = useState<"light" | "dark">("light");
-  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+  const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null);
 
   useEffect(() => {
     const savedTheme = localStorage.getItem("theme");
@@ -62,7 +60,9 @@ export default function AdminLayout({
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <ToastProvider>
-        <Box sx={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}>
+        <Box
+          sx={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}
+        >
           <AppBar
             position="sticky"
             elevation={2}
@@ -73,8 +73,18 @@ export default function AdminLayout({
           >
             <Toolbar>
               <Restaurant sx={{ mr: 2 }} />
-              <Box sx={{ flexGrow: 1, display: "flex", alignItems: "center", gap: 2 }}>
-                <Link href="/admin" style={{ textDecoration: "none", color: "inherit" }}>
+              <Box
+                sx={{
+                  flexGrow: 1,
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 2,
+                }}
+              >
+                <Link
+                  href="/admin"
+                  style={{ textDecoration: "none", color: "inherit" }}
+                >
                   <Button
                     sx={{
                       color: "white",
@@ -100,7 +110,10 @@ export default function AdminLayout({
               </Box>
 
               <Box sx={{ display: { xs: "none", md: "flex" }, gap: 1 }}>
-                <Link href="/admin/categories" style={{ textDecoration: "none" }}>
+                <Link
+                  href="/admin/categories"
+                  style={{ textDecoration: "none" }}
+                >
                   <Button
                     startIcon={<Category />}
                     sx={{
@@ -171,22 +184,58 @@ export default function AdminLayout({
                   onClose={handleMenuClose}
                 >
                   <MenuItem onClick={handleMenuClose}>
-                    <Link href="/admin/categories" style={{ textDecoration: "none", color: "inherit", display: "flex", alignItems: "center", gap: 1 }}>
+                    <Link
+                      href="/admin/categories"
+                      style={{
+                        textDecoration: "none",
+                        color: "inherit",
+                        display: "flex",
+                        alignItems: "center",
+                        gap: 1,
+                      }}
+                    >
                       <Category /> Catégories
                     </Link>
                   </MenuItem>
                   <MenuItem onClick={handleMenuClose}>
-                    <Link href="/admin/dishes" style={{ textDecoration: "none", color: "inherit", display: "flex", alignItems: "center", gap: 1 }}>
+                    <Link
+                      href="/admin/dishes"
+                      style={{
+                        textDecoration: "none",
+                        color: "inherit",
+                        display: "flex",
+                        alignItems: "center",
+                        gap: 1,
+                      }}
+                    >
                       <Restaurant /> Plats
                     </Link>
                   </MenuItem>
                   <MenuItem onClick={handleMenuClose}>
-                    <Link href="/admin/menus" style={{ textDecoration: "none", color: "inherit", display: "flex", alignItems: "center", gap: 1 }}>
+                    <Link
+                      href="/admin/menus"
+                      style={{
+                        textDecoration: "none",
+                        color: "inherit",
+                        display: "flex",
+                        alignItems: "center",
+                        gap: 1,
+                      }}
+                    >
                       <MenuBook /> Menus
                     </Link>
                   </MenuItem>
                   <MenuItem onClick={handleMenuClose}>
-                    <Link href="/admin/qrcode" style={{ textDecoration: "none", color: "inherit", display: "flex", alignItems: "center", gap: 1 }}>
+                    <Link
+                      href="/admin/qrcode"
+                      style={{
+                        textDecoration: "none",
+                        color: "inherit",
+                        display: "flex",
+                        alignItems: "center",
+                        gap: 1,
+                      }}
+                    >
                       <QrCode2 /> QR Code
                     </Link>
                   </MenuItem>

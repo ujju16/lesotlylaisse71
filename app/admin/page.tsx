@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { Container, Box } from "@mui/material";
-import AdminDashboard from "@/components/admin/AdminDashboard";
+import AdminDashboard from "@/app/components/admin/AdminDashboard";
 
 export default function AdminPage() {
   const [stats, setStats] = useState({

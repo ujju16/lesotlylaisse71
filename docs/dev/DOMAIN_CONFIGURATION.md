@@ -7,6 +7,7 @@ Le domaine `lesotlylaisse71.fr` est **configuré et actif** sur Vercel.
 ## 📋 Configuration
 
 ### Domaine Principal
+
 - **Domaine**: lesotlylaisse71.fr
 - **Registrar**: Third Party
 - **Nameservers**: Vercel
@@ -29,12 +30,15 @@ vercel ls --yes
 Les nameservers Vercel sont utilisés, ce qui simplifie la gestion DNS.
 
 ### Si vous utilisez les nameservers Vercel:
+
 Tout est géré automatiquement par Vercel ✅
 
 ### Si vous utilisez un registrar externe:
+
 Configurez les enregistrements DNS suivants:
 
 #### Pour le domaine principal (@)
+
 ```
 Type: A
 Name: @
@@ -43,6 +47,7 @@ TTL: 3600
 ```
 
 #### Pour le sous-domaine www
+
 ```
 Type: CNAME
 Name: www
@@ -53,15 +58,18 @@ TTL: 3600
 ## 🌐 URLs du Projet
 
 ### Production (main)
+
 - **URL principale**: https://lesotlylaisse71.fr
 - **URL Vercel**: https://lesotlylaisse71.vercel.app
 - **Environnement**: Production
 
 ### Preview (dev)
+
 - **URL Vercel**: https://lesotlylaisse71-git-dev-ujju16s-projects.vercel.app
 - **Environnement**: Preview
 
 ### Pull Requests
+
 - **URL dynamique**: Générée automatiquement pour chaque PR
 - **Format**: https://lesotlylaisse71-[hash]-ujju16s-projects.vercel.app
 - **Environnement**: Preview
@@ -69,16 +77,19 @@ TTL: 3600
 ## 🚀 Déploiements Automatiques
 
 ### Branche main → Production
+
 ```yaml
 Push sur main → GitHub Actions → Vercel Production → lesotlylaisse71.fr
 ```
 
 ### Branche dev → Preview
+
 ```yaml
 Push sur dev → GitHub Actions → Vercel Preview → [url-preview].vercel.app
 ```
 
 ### Pull Requests → Preview
+
 ```yaml
 Nouvelle PR → GitHub Actions → Vercel Preview → [url-unique].vercel.app
 ```
@@ -86,6 +97,7 @@ Nouvelle PR → GitHub Actions → Vercel Preview → [url-unique].vercel.app
 ## ⚙️ Configuration Vercel Dashboard
 
 ### 1. Git Configuration
+
 URL: https://vercel.com/ujju16s-projects/lesotlylaisse71/settings/git
 
 - ✅ Production Branch: `main`
@@ -93,6 +105,7 @@ URL: https://vercel.com/ujju16s-projects/lesotlylaisse71/settings/git
 - ✅ Auto-deployment: Activé
 
 ### 2. Domain Configuration
+
 URL: https://vercel.com/ujju16s-projects/lesotlylaisse71/settings/domains
 
 - ✅ `lesotlylaisse71.fr` → Production (main)
@@ -100,9 +113,11 @@ URL: https://vercel.com/ujju16s-projects/lesotlylaisse71/settings/domains
 - ✅ Certificat SSL: Automatique (Let's Encrypt)
 
 ### 3. Environment Variables
+
 URL: https://vercel.com/ujju16s-projects/lesotlylaisse71/settings/environment-variables
 
 Variables configurées pour tous les environnements:
+
 - `HYGRAPH_TOKEN`: Token API Hygraph
 - `NEXT_PUBLIC_HYGRAPH_URL`: URL endpoint Hygraph
 - `CODECOV_TOKEN`: Token Codecov (optionnel)
@@ -110,6 +125,7 @@ Variables configurées pour tous les environnements:
 ## 🔍 Vérifications de Santé
 
 ### Vérifier que le domaine est accessible
+
 ```bash
 # Vérifier le domaine principal
 curl -I https://lesotlylaisse71.fr
@@ -122,6 +138,7 @@ dig lesotlylaisse71.fr
 ```
 
 ### Vérifier les déploiements Vercel
+
 ```bash
 # Lister les déploiements
 vercel ls --yes
@@ -136,17 +153,20 @@ vercel logs [deployment-url]
 ## 🐛 Dépannage
 
 ### Le domaine ne répond pas
+
 1. Vérifier les nameservers: `dig NS lesotlylaisse71.fr`
 2. Vérifier les enregistrements A: `dig A lesotlylaisse71.fr`
 3. Vérifier le statut sur Vercel Dashboard
 4. Attendre la propagation DNS (jusqu'à 48h)
 
 ### Erreur de certificat SSL
+
 1. Le certificat est généré automatiquement par Vercel
 2. Attendre quelques minutes après la configuration du domaine
 3. Vérifier dans Vercel Dashboard → Domains
 
 ### Déploiement bloqué
+
 1. Vérifier les workflows GitHub: `gh run list`
 2. Vérifier les logs: `gh run view [run-id]`
 3. Vérifier les variables d'environnement sur Vercel
@@ -169,6 +189,7 @@ vercel logs [deployment-url]
 ## 📊 Monitoring
 
 Le site est monitoré via:
+
 - **Vercel Analytics**: Activé automatiquement
 - **Lighthouse CI**: Tests de performance automatiques
 - **GitHub Actions**: Statut des déploiements

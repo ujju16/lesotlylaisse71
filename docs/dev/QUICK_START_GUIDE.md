@@ -3,6 +3,7 @@
 ## 🎯 État Actuel du Projet
 
 ### ✅ Ce qui Fonctionne
+
 - Layout admin avec Material-UI (dark/light mode)
 - Dashboard avec statistiques
 - Navigation responsive
@@ -10,6 +11,7 @@
 - Déploiements Vercel automatiques
 
 ### ⚠️ Ce qui Nécessite une Action
+
 1. **HYGRAPH_TOKEN** - Permissions insuffisantes pour champ `image`
 2. **Domain** - lesotlylaisse71.fr non configuré
 3. **Auth** - Page de connexion pas encore créée
@@ -85,6 +87,7 @@ gh pr create --base dev --head feature/nom-de-la-feature \
 **Problème**: Erreur 403 sur champ `image` dans catégories
 
 **Solution**:
+
 1. Aller sur https://app.hygraph.com/
 2. Project Settings → API Access → Permanent Auth Tokens
 3. Éditer ou créer un token avec permissions:
@@ -93,13 +96,14 @@ gh pr create --base dev --head feature/nom-de-la-feature \
    - ✅ Create/Update/Delete: Content
 4. Copier le nouveau token
 5. Mettre à jour:
+
    ```bash
    # Local
    echo "HYGRAPH_TOKEN=nouveau_token" >> .env.local
-   
+
    # GitHub
    gh secret set HYGRAPH_TOKEN --body "nouveau_token"
-   
+
    # Vercel (via dashboard ou CLI)
    vercel env add HYGRAPH_TOKEN
    # Coller le token quand demandé
@@ -110,6 +114,7 @@ gh pr create --base dev --head feature/nom-de-la-feature \
 **Fichier**: `app/auth/login/page.tsx`
 
 **Features**:
+
 - Formulaire avec React Hook Form + Zod
 - Design Material-UI moderne
 - Dark mode support
@@ -118,6 +123,7 @@ gh pr create --base dev --head feature/nom-de-la-feature \
 - ARIA labels complets
 
 **Template**:
+
 ```tsx
 "use client";
 
@@ -132,7 +138,11 @@ const loginSchema = z.object({
 });
 
 export default function LoginPage() {
-  const { register, handleSubmit, formState: { errors } } = useForm({
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
     resolver: zodResolver(loginSchema),
   });
 
@@ -142,11 +152,16 @@ export default function LoginPage() {
   };
 
   return (
-    <Box sx={{ minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center" }}>
+    <Box
+      sx={{
+        minHeight: "100vh",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+      }}
+    >
       <Card sx={{ maxWidth: 400, width: "100%", m: 2 }}>
-        <CardContent>
-          {/* Formulaire ici */}
-        </CardContent>
+        <CardContent>{/* Formulaire ici */}</CardContent>
       </Card>
     </Box>
   );
@@ -158,6 +173,7 @@ export default function LoginPage() {
 **Fichier**: `app/admin/categories/page.tsx`
 
 **Features**:
+
 - DataGrid Material-UI
 - Bouton "Nouvelle Catégorie"
 - Actions: Éditer, Supprimer
@@ -166,6 +182,7 @@ export default function LoginPage() {
 - Pagination
 
 **API à utiliser**:
+
 - GET `/api/categories` - Liste
 - POST `/api/categories` - Créer
 - PUT `/api/categories/[id]` - Modifier
@@ -176,6 +193,7 @@ export default function LoginPage() {
 **Component**: `components/admin/CategoryForm.tsx`
 
 **Champs**:
+
 - Nom (required)
 - Slug (auto-généré)
 - Description (optional)
@@ -184,6 +202,7 @@ export default function LoginPage() {
 - Image (upload vers Hygraph Assets)
 
 **Validation Zod**:
+
 ```typescript
 const categorySchema = z.object({
   name: z.string().min(1, "Nom requis").max(100),
@@ -229,9 +248,7 @@ components/admin/
   aria-labelledby="modal-title"
 >
   <DialogTitle id="modal-title">Titre</DialogTitle>
-  <DialogContent>
-    {/* Formulaire */}
-  </DialogContent>
+  <DialogContent>{/* Formulaire */}</DialogContent>
   <DialogActions>
     <Button onClick={onClose}>Annuler</Button>
     <Button variant="contained" onClick={handleSubmit}>
@@ -302,6 +319,7 @@ describe("AdminDashboard", () => {
 ## 📚 Ressources Utiles
 
 ### Documentation
+
 - **Material-UI Components**: https://mui.com/material-ui/all-components/
 - **React Hook Form**: https://react-hook-form.com/
 - **Zod Validation**: https://zod.dev/
@@ -309,10 +327,12 @@ describe("AdminDashboard", () => {
 - **Hygraph GraphQL**: https://hygraph.com/docs/api-reference/basics/queries
 
 ### Exemples de Code
+
 - **Material-UI Templates**: https://mui.com/material-ui/getting-started/templates/
 - **Dashboard Examples**: https://github.com/mui/material-ui/tree/master/docs/data/material/getting-started/templates
 
 ### Outils Dev
+
 - **React DevTools**: Extension Chrome/Firefox
 - **GraphQL Playground**: Pour tester queries Hygraph
 - **Vercel CLI**: `vercel dev` pour tester en local
@@ -322,6 +342,7 @@ describe("AdminDashboard", () => {
 Si quelque chose ne fonctionne pas:
 
 ### Build Errors
+
 ```bash
 # Nettoyer le cache
 rm -rf .next
@@ -329,6 +350,7 @@ bun run build
 ```
 
 ### CSS ne s'applique pas
+
 ```bash
 # Vérifier que ThemeProvider est au bon niveau
 # Vérifier les conflits Tailwind/MUI
@@ -336,6 +358,7 @@ bun run build
 ```
 
 ### API ne répond pas
+
 ```bash
 # Vérifier .env.local
 cat .env.local | grep HYGRAPH
@@ -348,6 +371,7 @@ curl -H "Authorization: Bearer $HYGRAPH_TOKEN" \
 ```
 
 ### TypeScript Errors
+
 ```bash
 # Régénérer les types
 bun run type-check
@@ -359,20 +383,23 @@ rm -rf .next tsconfig.tsbuildinfo
 ## 💡 Tips & Tricks
 
 ### 1. Hot Reload Lent
+
 ```bash
 # Utiliser Turbopack (déjà configuré)
 bun run dev  # Utilise --turbopack automatiquement
 ```
 
 ### 2. Console Logs en Dev
+
 ```typescript
 // Utiliser debugger; au lieu de console.log
-if (process.env.NODE_ENV === 'development') {
+if (process.env.NODE_ENV === "development") {
   debugger; // Breakpoint automatique
 }
 ```
 
 ### 3. Validation Zod Réutilisable
+
 ```typescript
 // lib/validations/admin.ts
 export const categorySchema = z.object({...});
@@ -381,6 +408,7 @@ export const menuSchema = z.object({...});
 ```
 
 ### 4. Mutations Hygraph avec Cache Invalidation
+
 ```typescript
 // Après mutation, invalider le cache
 await mutate();

@@ -3,18 +3,21 @@
 ## ✅ Objectifs atteints
 
 ### 1. Correction du problème Hygraph (403)
+
 - **Problème** : Erreur 403 sur le champ `image` dans les catégories
 - **Solution** : Suppression temporaire du champ `image` de la requête GraphQL
 - **Fichier** : `app/api/categories/route.ts`
 - **Status** : ✅ Résolu
 
 ### 2. Correction du workflow Lighthouse CI
+
 - **Problème** : Nom d'artifact en conflit (`lighthouse-results`)
 - **Solution** : Utilisation d'un nom unique avec `${{ github.run_id }}`
 - **Fichier** : `.github/workflows/lighthouse-ci.yml`
 - **Status** : ✅ Résolu
 
 ### 3. Création de pages d'authentification Material UI
+
 - **Composants créés** :
   - `app/auth/login/page.tsx` - Page de connexion
   - `app/auth/register/page.tsx` - Page d'inscription
@@ -32,6 +35,7 @@
 - **Status** : ✅ Complété
 
 ### 4. Gestion des branches Git
+
 - **Actions** :
   - Mergé PR #38 (feature/auth-page → dev) avec `--admin`
   - Supprimé branche orpheline `feature/auth-page`
@@ -42,6 +46,7 @@
 - **Status** : ✅ Complété
 
 ### 5. Tests CI/CD et déploiement
+
 - **Tests passés** :
   - ✅ Lint (ESLint)
   - ✅ Type Check (TypeScript)
@@ -54,6 +59,7 @@
 - **Status** : ✅ Tous les checks passés
 
 ### 6. Documentation
+
 - **Créé** : `docs/dev/PLAN-ADMIN-CRUD.md` - Plan complet CRUD admin
 - **Créé** : `docs/dev/AUTH.md` - Documentation authentification
 - **Mis à jour** : Diverses documentations Hygraph
@@ -62,16 +68,19 @@
 ## 🔧 Configurations techniques
 
 ### Hygraph
+
 - Token configuré dans `.env.local`
 - API fonctionnelle pour catégories, plats, menus
 - Problème de permissions sur `image` identifié
 
 ### Vercel
+
 - Déploiements automatiques configurés
 - Preview deployments actifs
 - Production deployment sur main
 
 ### GitHub Actions
+
 - CI/CD pipeline complet
 - Lighthouse audits automatiques
 - Security checks (GitGuardian)
@@ -117,6 +126,7 @@
 ## 🎯 Prochaines étapes
 
 ### Phase 1 - Authentification réelle (Priorité haute)
+
 1. Configurer les permissions Hygraph pour le champ `image`
 2. Créer les mutations GraphQL pour inscription/connexion
 3. Implémenter JWT pour la gestion de session
@@ -124,6 +134,7 @@
 5. Protéger les routes admin
 
 ### Phase 2 - CRUD Catégories (Template)
+
 1. Créer `app/admin/categories/new/page.tsx`
 2. Créer `app/admin/categories/[id]/edit/page.tsx`
 3. Créer `components/admin/CategoryForm.tsx`
@@ -132,11 +143,13 @@
 6. Tests
 
 ### Phase 3 - CRUD Plats et Menus
+
 1. Dupliquer pattern des catégories
 2. Adapter aux spécificités (relations, multi-images)
 3. Tests
 
 ### Phase 4 - Optimisations
+
 1. Pagination des listes
 2. Recherche et filtres
 3. Optimisation des images
@@ -145,18 +158,21 @@
 ## 📊 Métriques
 
 ### Code Quality
+
 - **TypeScript** : 100% strict mode
 - **ESLint** : 0 erreurs, 0 warnings
 - **Prettier** : Code formaté
 - **Tests** : Passing (avec `--passWithNoTests`)
 
 ### CI/CD
+
 - **Build time** : ~30s
 - **Type check** : ~19s
 - **Lighthouse** : ~2m45s
 - **Deploy** : ~1m
 
 ### Lighthouse Scores (derniers audits)
+
 - Performance : Variable selon les pages
 - Accessibility : À améliorer avec ARIA
 - Best Practices : Bon
@@ -175,6 +191,7 @@
 ## 🔐 Sécurité
 
 ### Tokens et secrets configurés
+
 - ✅ `HYGRAPH_TOKEN` dans `.env.local`
 - ✅ `CODECOV_TOKEN` dans `.env.local`
 - ✅ Secrets GitHub configurés
@@ -182,6 +199,7 @@
 - ✅ GitGuardian actif
 
 ### Bonnes pratiques
+
 - Aucun token committé dans le code
 - Variables d'environnement utilisées
 - Validation côté client ET serveur
@@ -189,12 +207,14 @@
 ## 📝 Notes
 
 ### Décisions techniques
+
 - **Bun** : Runtime choisi pour performance
 - **Material UI** : Pour les pages auth (coexiste avec DaisyUI)
 - **Zod** : Validation TypeScript-first
 - **React Hook Form** : Gestion de formulaires
 
 ### Conventions de code
+
 - **Quotes** : Double quotes `"` (style React)
 - **Components** : PascalCase
 - **Files** : kebab-case pour pages, PascalCase pour components

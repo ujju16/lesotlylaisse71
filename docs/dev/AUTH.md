@@ -74,11 +74,12 @@ Le layout d'authentification utilise un dégradé entre les couleurs primaire et
 ### Règles de mot de passe
 
 Le mot de passe doit contenir :
+
 - Au moins 8 caractères
 - Au moins une majuscule
 - Au moins une minuscule
 - Au moins un chiffre
-- Au moins un caractère spécial (@$!%*?&)
+- Au moins un caractère spécial (@$!%\*?&)
 
 ## Fonctionnalités
 
@@ -113,6 +114,7 @@ Le mot de passe doit contenir :
 ## Animations
 
 Utilisation de Framer Motion pour :
+
 - Fade in du formulaire
 - Transition du paper elevation
 - Smooth transitions entre états
@@ -150,10 +152,12 @@ NEXT_PUBLIC_HYGRAPH_URL=https://api-eu-west-2.hygraph.com/v2/...
 ## Déploiement
 
 Le token Hygraph doit également être ajouté :
+
 - Dans les secrets Vercel
 - Dans les secrets GitHub (pour CI/CD)
 
 Variables à configurer :
+
 - `HYGRAPH_TOKEN`
 - `NEXT_PUBLIC_HYGRAPH_URL`
 - `NEXT_PUBLIC_BASE_URL`

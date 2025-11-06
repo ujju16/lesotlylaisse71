@@ -3,12 +3,14 @@
 ## Phase 1: Configuration Hygraph ✅
 
 ### Schémas créés
+
 - ✅ Categories (avec relations)
 - ✅ Dishes (avec relations)
 - ✅ Menus (avec relations)
 - ✅ Asset (pour les images)
 
 ### Permissions configurées
+
 - Token d'API créé
 - Token ajouté à `.env.local`
 - ⚠️ Permissions sur les images à vérifier
@@ -16,12 +18,14 @@
 ## Phase 2: Interface Admin - En cours
 
 ### Dashboard Admin ✅
+
 - **Fichier**: `app/admin/page.tsx`
 - Statistiques en temps réel
 - Cards d'accès rapide
 - Navigation vers les sections CRUD
 
 ### Auth Pages ✅
+
 - **Fichiers**: `app/auth/login/`, `app/auth/register/`
 - Material UI + Zod validation
 - Formulaires avec React Hook Form
@@ -30,7 +34,9 @@
 ### Pages CRUD à développer
 
 #### 1. Catégories (`/admin/categories`)
+
 **Fonctionnalités**:
+
 - Liste des catégories avec tri
 - Formulaire création/édition
 - Upload d'images
@@ -38,6 +44,7 @@
 - Soft delete
 
 **API Routes**:
+
 - ✅ GET /api/categories
 - ✅ POST /api/categories
 - ✅ GET /api/categories/[id]
@@ -45,6 +52,7 @@
 - ✅ DELETE /api/categories/[id]
 
 **Composants à créer**:
+
 - `app/admin/categories/page.tsx` - Liste
 - `app/admin/categories/new/page.tsx` - Création
 - `app/admin/categories/[id]/edit/page.tsx` - Édition
@@ -52,7 +60,9 @@
 - `components/admin/CategoryList.tsx` - Liste avec actions
 
 #### 2. Plats (`/admin/dishes`)
+
 **Fonctionnalités**:
+
 - Liste des plats par catégorie
 - Formulaire avec:
   - Nom, description, prix
@@ -64,6 +74,7 @@
 - Soft delete
 
 **API Routes**:
+
 - ✅ GET /api/dishes
 - ✅ POST /api/dishes
 - ✅ GET /api/dishes/[id]
@@ -71,6 +82,7 @@
 - ✅ DELETE /api/dishes/[id]
 
 **Composants à créer**:
+
 - `app/admin/dishes/page.tsx` - Liste
 - `app/admin/dishes/new/page.tsx` - Création
 - `app/admin/dishes/[id]/edit/page.tsx` - Édition
@@ -79,7 +91,9 @@
 - `components/admin/DishFilters.tsx` - Filtres
 
 #### 3. Menus (`/admin/menus`)
+
 **Fonctionnalités**:
+
 - Composition de menus
 - Sélection de plats (relation many-to-many)
 - Prix du menu
@@ -87,6 +101,7 @@
 - Gestion des disponibilités
 
 **API Routes**:
+
 - ✅ GET /api/menus
 - ✅ POST /api/menus
 - ✅ GET /api/menus/[id]
@@ -95,6 +110,7 @@
 - ✅ POST /api/menus/[id]/activate
 
 **Composants à créer**:
+
 - `app/admin/menus/page.tsx` - Liste
 - `app/admin/menus/new/page.tsx` - Création
 - `app/admin/menus/[id]/edit/page.tsx` - Édition
@@ -103,48 +119,54 @@
 - `components/admin/MenuList.tsx` - Liste avec actions
 
 #### 4. Upload d'images (`/admin/upload`)
+
 **Fonctionnalités**:
+
 - Upload vers Hygraph Assets
 - Prévisualisation
 - Compression d'images
 - Gestion du cache
 
 **API Routes**:
+
 - ✅ POST /api/upload
 
 **Composants à créer**:
+
 - `components/admin/ImageUpload.tsx` - Upload widget
 - `components/admin/ImagePreview.tsx` - Prévisualisation
 
 ## Phase 3: Validations & Schémas Zod
 
 ### Schémas à créer
+
 ```typescript
 // lib/validations/category.ts
-- createCategorySchema
-- updateCategorySchema
-
-// lib/validations/dish.ts
-- createDishSchema
-- updateDishSchema
-
-// lib/validations/menu.ts
-- createMenuSchema
-- updateMenuSchema
+-createCategorySchema -
+  updateCategorySchema -
+  // lib/validations/dish.ts
+  createDishSchema -
+  updateDishSchema -
+  // lib/validations/menu.ts
+  createMenuSchema -
+  updateMenuSchema;
 ```
 
 ## Phase 4: Tests
 
 ### Tests unitaires
+
 - Composants de formulaires
 - Logique de validation
 - Utilitaires
 
 ### Tests d'intégration
+
 - Routes API
 - Flux CRUD complets
 
 ### Tests E2E
+
 - Création d'une catégorie
 - Création d'un plat
 - Composition d'un menu
@@ -152,11 +174,13 @@
 ## Phase 5: Optimisations
 
 ### Performance
+
 - Lazy loading des images
 - Pagination des listes
 - Cache des requêtes
 
 ### UX
+
 - Loading states
 - Messages de succès/erreur
 - Confirmations de suppression
@@ -164,6 +188,7 @@
 - Retour en arrière
 
 ### Accessibilité
+
 - Labels ARIA sur tous les champs
 - Navigation au clavier
 - Focus management
@@ -172,6 +197,7 @@
 ## Phase 6: Documentation
 
 ### À documenter
+
 - Guide d'utilisation admin
 - Schémas Hygraph
 - Relations entre modèles
@@ -190,6 +216,7 @@
 ## Notes techniques
 
 ### Stack technologique
+
 - **Framework**: Next.js 16 (App Router)
 - **UI Library**: Material UI + DaisyUI
 - **Forms**: React Hook Form + Zod
@@ -198,6 +225,7 @@
 - **Runtime**: Bun
 
 ### Conventions
+
 - Client components pour les formulaires
 - Server components pour les listes
 - API Routes pour toutes les mutations

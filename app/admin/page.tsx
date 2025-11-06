@@ -1,9 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { ThemeProvider } from "@mui/material/styles";
-import { CssBaseline, Container, Box } from "@mui/material";
-import { getTheme } from "@/lib/theme";
+import { Container, Box } from "@mui/material";
 import AdminDashboard from "@/components/admin/AdminDashboard";
 
 export default function AdminPage() {
@@ -12,12 +10,8 @@ export default function AdminPage() {
     dishes: 0,
     menus: 0,
   });
-  const [mode, setMode] = useState<"light" | "dark">("light");
 
   useEffect(() => {
-    const savedTheme = localStorage.getItem("theme");
-    setMode((savedTheme as "light" | "dark") || "light");
-
     const fetchStats = async () => {
       try {
         const [categoriesRes, dishesRes, menusRes] = await Promise.all([
@@ -43,22 +37,15 @@ export default function AdminPage() {
     fetchStats();
   }, []);
 
-  const theme = getTheme(mode);
-
   return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <Box
-        sx={{
-          minHeight: "100vh",
-          bgcolor: "background.default",
-          py: 4,
-        }}
-      >
-        <Container maxWidth="lg">
-          <AdminDashboard stats={stats} />
-        </Container>
-      </Box>
-    </ThemeProvider>
+    <Box
+      sx={{
+        py: 4,
+      }}
+    >
+      <Container maxWidth="lg">
+        <AdminDashboard stats={stats} />
+      </Container>
+    </Box>
   );
 }
